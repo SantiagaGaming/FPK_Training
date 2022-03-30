@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af2b1e4317e2fa45ae6121df5380749, type: 3}
+  m_Name: AosSDKSettings
+  m_EditorClassIdentifier: 
+  launchMode: 1
+  socketPort: 8080
+  walkSpeed: 4
+  runSpeed: 8
+  jumpSpeed: 8
+  gravity: 20
+  mouseLookSpeed: 0.5
+  mouseLookXLimit: 80
+  crossHairSizeMultiplier: 1
+  desktopInteractDistance: 0.6
+  maxTeleportRadius: 8
+  vrInteractDistance: 0.6
+  defaultPointerColor: {r: 1, g: 1, b: 1, a: 1}
+  hoveredPointerColor: {r: 0.052029163, g: 0.60036546, b: 0.745283, a: 255}
+  disabledPointerColor: {r: 1, g: 0, b: 0, a: 1}
+  walkableTag: Walkable
