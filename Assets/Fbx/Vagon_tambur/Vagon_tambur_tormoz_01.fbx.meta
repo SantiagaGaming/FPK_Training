@@ -3,9 +3,14 @@ guid: 31c9d3b96b3f5e9409f532876ceba4fb
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IM_Tumbur_Floor
+    second: {fileID: 2100000, guid: f9571304c8b764746b0a06e76574e6d6, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1

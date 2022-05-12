@@ -3,9 +3,24 @@ guid: 3d81fa2ac3e2dd64091b9988a7c5726e
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IM_Body_inner_Detals
+    second: {fileID: 2100000, guid: f1fb1e0393b905148924c7379c4db327, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IM_Corridor_Floor_T
+    second: {fileID: 2100000, guid: 9243a334023fc1f4c833883c98713410, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IM_Metal_Insert
+    second: {fileID: 2100000, guid: 4be68f2686ea7f2438eda3673b30d0ab, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1

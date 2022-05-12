@@ -3,9 +3,14 @@ guid: e180ed05ff9de13448093f1aa1499828
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IM_Boiler_Details
+    second: {fileID: 2100000, guid: 74248bc4a6e954b4987931a62c640b16, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1

@@ -3,9 +3,34 @@ guid: b7e3dcbc312f41540b4ee01bfade7fde
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IM_Body_inner_Detals
+    second: {fileID: 2100000, guid: f1fb1e0393b905148924c7379c4db327, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IM_Ceiling_Plastic_T
+    second: {fileID: 2100000, guid: 12ce8a815d74f6947bc485f7627df02b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IM_Metal_Insert
+    second: {fileID: 2100000, guid: 4be68f2686ea7f2438eda3673b30d0ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IM_Tumbur_Floor
+    second: {fileID: 2100000, guid: f9571304c8b764746b0a06e76574e6d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IM_Tumbur_Wall_T
+    second: {fileID: 2100000, guid: 41ca8e5b6ad3a2642a285ed1ca8940d0, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
