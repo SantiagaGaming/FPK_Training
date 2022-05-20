@@ -3,9 +3,14 @@ guid: 6a3422eea87711147bdc129799e593c1
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IM_Labels
+    second: {fileID: 2100000, guid: 18b2416d8ce9ef84babc904b0e50c105, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
