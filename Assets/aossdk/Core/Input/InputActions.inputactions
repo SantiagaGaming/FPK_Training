@@ -1,5 +1,5 @@
 {
-    "name": "XRI Default Input Actions",
+    "name": "InputActions",
     "maps": [
         {
             "name": "XRI HMD",
@@ -162,7 +162,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Teleport Mode Cancel",
+                    "name": "Grab",
                     "type": "Button",
                     "id": "89ce8348-6001-41a3-85b9-f8f2e2dcad7c",
                     "expectedControlType": "Button",
@@ -292,7 +292,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Generic XR Controller",
-                    "action": "Teleport Mode Cancel",
+                    "action": "Grab",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -686,7 +686,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Teleport Mode Cancel",
+                    "name": "Grab",
                     "type": "Button",
                     "id": "d587b60c-39a0-4365-8075-477ce484ba0f",
                     "expectedControlType": "Button",
@@ -816,7 +816,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Generic XR Controller",
-                    "action": "Teleport Mode Cancel",
+                    "action": "Grab",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1136,9 +1136,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "MouseClick",
+                    "name": "LeftMouseClick",
                     "type": "Button",
                     "id": "40ac8bf0-33a2-48ad-873b-b3bea8594609",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RightMouseClick",
+                    "type": "Button",
+                    "id": "901182be-7d54-4cc8-9e57-a95b67c112f2",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -1152,6 +1161,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "GrabbedZoom",
+                    "type": "Value",
+                    "id": "e51c176a-11ce-4f51-849a-ccdbc873ca72",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -1261,7 +1279,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MouseClick",
+                    "action": "LeftMouseClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1284,6 +1302,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "221bc5be-31fd-4798-a804-c0908eda70f2",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightMouseClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "999e063f-f498-4613-8f12-affbe6702055",
+                    "path": "<Mouse>/scroll/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GrabbedZoom",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

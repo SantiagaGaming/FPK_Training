@@ -15,5 +15,8 @@ namespace AosSdk.Core.Player
         public void EnableCamera(bool value);
 
         public void EnableRayCaster(bool value);
+
+        public void GrabObject(string objectName, int hand);
+        public void DropObject(int hand);
     }
 }

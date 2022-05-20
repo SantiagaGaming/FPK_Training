@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace AosSdk.Core.Player
 {
-    [AosObject(name:"Игрок")]
+    [AosObject(name: "Игрок")]
     public class Player : AosObjectBase, IPlayer
     {
         [SerializeField] private DesktopPlayer.DesktopPlayer desktopPlayer;
@@ -23,7 +23,7 @@ namespace AosSdk.Core.Player
         }
 
         private bool _canMove = true;
-        
+
         private void Start()
         {
             Instance ??= this;
@@ -31,18 +31,19 @@ namespace AosSdk.Core.Player
             RuntimeData.Instance.CurrentPlayer = this;
         }
 
-        public LaunchMode LaunchMode {
+        public LaunchMode LaunchMode
+        {
             set
             {
                 desktopPlayer.gameObject.SetActive(value == LaunchMode.Desktop);
                 vrPlayer.gameObject.SetActive(value == LaunchMode.Vr);
-                
+
                 if (value != LaunchMode.Desktop)
                 {
                     vrPlayer.InitializeOpenXR();
                     return;
                 }
-                
+
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
             }
@@ -67,17 +68,31 @@ namespace AosSdk.Core.Player
             desktopPlayer.TeleportTo(objectName);
             vrPlayer.TeleportTo(objectName);
         }
-        
+
         public void EnableCamera(bool value)
         {
             desktopPlayer.EnableCamera(value);
             vrPlayer.EnableCamera(value);
         }
-        
+
         public void EnableRayCaster(bool value)
         {
             desktopPlayer.EnableRayCaster(value);
             vrPlayer.EnableRayCaster(value);
+        }
+
+        [AosAction("Взять объект в руку")]
+        public void GrabObject([AosParameter("Имя объекта")] string objectName, [AosParameter("Индекс руки. 0 - левая, 1 - правая")] int hand)
+        {
+            desktopPlayer.GrabObject(objectName, hand);
+            vrPlayer.GrabObject(objectName, hand);
+        }
+
+        [AosAction("Выпустить объект из руки")]
+        public void DropObject([AosParameter("Индекс руки. 0 - левая, 1 - правая")] int hand)
+        {
+            desktopPlayer.DropObject(hand);
+            vrPlayer.DropObject(hand);
         }
     }
 }

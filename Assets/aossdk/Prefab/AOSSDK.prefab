@@ -66,6 +66,52 @@ Transform:
   m_Father: {fileID: 2683956298249563380}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &615499421616700208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1515378061808937572}
+  - component: {fileID: 8218383002488863539}
+  m_Layer: 2
+  m_Name: Grabber
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1515378061808937572
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615499421616700208}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7969288614997306581}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8218383002488863539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615499421616700208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a1935338a94a8aa35430fd81fc34ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedInput: {fileID: 5322696991581248047}
+  handRenderer: {fileID: 0}
+  sdkSettings: {fileID: 11400000, guid: dfb0e11a00884224a8f421f06bad7654, type: 2}
 --- !u!1 &645668285790748648
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,7 +313,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectStaticGuid: 07fb67fa-3cbd-402d-9841-e21664c87128
-  sdkSettings: {fileID: 11400000, guid: dfb0e11a00884224a8f421f06bad7654, type: 2}
   desktopPlayer: {fileID: 5515930709480862008}
   vrPlayer: {fileID: 4286592386170214906}
 --- !u!114 &2304272828732144884
@@ -1347,6 +1392,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8301190700078504173}
   - component: {fileID: 703344394779714262}
+  - component: {fileID: 4372978180492553778}
   - component: {fileID: 6725190738548014426}
   - component: {fileID: 2299498187059959500}
   m_Layer: 2
@@ -1384,6 +1430,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sharedInput: {fileID: 8543112637829891575}
   interactHand: 1
+  grabber: {fileID: 4372978180492553778}
+--- !u!114 &4372978180492553778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5791359007619936750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a1935338a94a8aa35430fd81fc34ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedInput: {fileID: 8543112637829891575}
+  handRenderer: {fileID: 3349514245440523564}
+  sdkSettings: {fileID: 11400000, guid: dfb0e11a00884224a8f421f06bad7654, type: 2}
 --- !u!120 &6725190738548014426
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -1799,6 +1861,18 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  gripAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Grip
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 00d34ad5-409a-46c2-b4e0-b20f440d5fd5
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 2307464322626738743, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!114 &1770592281690131340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2077,10 +2151,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227a146de53f4d3c95f175c15bfcd9e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sdkSettings: {fileID: 11400000, guid: dfb0e11a00884224a8f421f06bad7654, type: 2}
   handRayCasters:
   - {fileID: 703344394779714262}
   - {fileID: 6067633067311883986}
+  leftHandGrabber: {fileID: 4372978180492553778}
+  rightHandGrabber: {fileID: 649657283291506629}
   xrOrigin: {fileID: 6094350623024804007}
 --- !u!114 &6094350623024804007
 MonoBehaviour:
@@ -2486,6 +2561,18 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  gripAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Grip
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 02d52c13-2068-40ab-8d27-774f50edbc8b
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 737890489006591557, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!114 &2078906892701651884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2822,6 +2909,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9121622626389224283}
   - component: {fileID: 6067633067311883986}
+  - component: {fileID: 649657283291506629}
   - component: {fileID: 79757280383019974}
   - component: {fileID: 4138052859102485425}
   m_Layer: 2
@@ -2859,6 +2947,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sharedInput: {fileID: 5102166742707384354}
   interactHand: 0
+  grabber: {fileID: 649657283291506629}
+--- !u!114 &649657283291506629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6794241434164799989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a1935338a94a8aa35430fd81fc34ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedInput: {fileID: 5102166742707384354}
+  handRenderer: {fileID: 2733808412250802596}
+  sdkSettings: {fileID: 11400000, guid: dfb0e11a00884224a8f421f06bad7654, type: 2}
 --- !u!120 &79757280383019974
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -3294,7 +3398,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1515378061808937572}
   m_Father: {fileID: 7969288616097411682}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3363,6 +3468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sharedInput: {fileID: 5322696991581248047}
   interactHand: 2
+  grabber: {fileID: 8218383002488863539}
 --- !u!1 &7969288615367228026
 GameObject:
   m_ObjectHideFlags: 0
@@ -3594,6 +3700,7 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 6849499375480899344, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  grabber: {fileID: 8218383002488863539}
 --- !u!114 &5322696991581248047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3606,18 +3713,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74da313b72dc4d509528b87118dfea90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseClickAction:
+  mouseLeftClickAction:
     m_UseReference: 1
     m_Action:
-      m_Name: Mouse Click
+      m_Name: Mouse Left Click
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 8a8a54c7-bbbf-41ca-aafc-4757288e43d5
+      m_Id: fa68a748-6db1-4947-84cb-f9298ea7c2cc
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 1546419393311994163, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  mouseRightClickAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Mouse Right Click
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 39df0fda-4e74-4553-8af8-060eca9c9228
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -5913574606752565463, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  wheelAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Wheel
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: ac06ff9f-a653-4a8b-91d6-5f3742679767
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 3474637138919394722, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1 &7969288616097644831
 GameObject:
   m_ObjectHideFlags: 0

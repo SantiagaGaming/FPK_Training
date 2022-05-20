@@ -1,4 +1,4 @@
-using AosSdk.Core.Interfaces;
+using AosSdk.Core.Interaction.Interfaces;
 using AosSdk.Core.Player.Pointer;
 using UnityEngine;
 

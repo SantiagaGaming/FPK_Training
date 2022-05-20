@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0af2b1e4317e2fa45ae6121df5380749, type: 3}
   m_Name: AosSDKSettings
   m_EditorClassIdentifier: 
-  launchMode: 1
+  launchMode: 0
   socketPort: 8080
   walkSpeed: 4
   runSpeed: 8
@@ -21,9 +21,12 @@ MonoBehaviour:
   mouseLookSpeed: 0.5
   mouseLookXLimit: 80
   crossHairSizeMultiplier: 1
-  desktopInteractDistance: 0.6
   maxTeleportRadius: 8
   vrInteractDistance: 0.6
+  desktopInteractDistance: 1
+  desktopGrabMinZoomDistance: 0.5
+  desktopGrabMaxZoomDistance: 2
+  hideHandOnGrab: 1
   defaultPointerColor: {r: 1, g: 1, b: 1, a: 1}
   hoveredPointerColor: {r: 0.052029163, g: 0.60036546, b: 0.745283, a: 255}
   disabledPointerColor: {r: 1, g: 0, b: 0, a: 1}

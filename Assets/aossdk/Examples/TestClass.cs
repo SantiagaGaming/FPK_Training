@@ -1,4 +1,5 @@
-using AosSdk.Core.Interfaces;
+using AosSdk.Core.Interaction.Interfaces;
+using AosSdk.Core.Player;
 using AosSdk.Core.Player.Pointer;
 using AosSdk.Core.Utils;
 using UnityEngine;
@@ -20,11 +21,9 @@ namespace AosSdk.Examples
         {
         }
 
+        [AosEvent(name: "Тестовое событие")] public event AosEventHandler OnEventHappened;
 
-        [AosEvent(name: "Тестовое событие")] 
-        public event AosEventHandler OnEventHappened;
-        
-        [AosEvent(name: "Тестовое событие cо строковым атрибутом")] 
+        [AosEvent(name: "Тестовое событие cо строковым атрибутом")]
         public event AosEventHandlerWithAttribute OnEventWithStringAttributeHappened;
 
         private void Start()
@@ -39,6 +38,7 @@ namespace AosSdk.Examples
             {
                 OnEventHappened?.Invoke();
             }
+
             if (Keyboard.current.sKey.wasPressedThisFrame)
             {
                 OnEventWithStringAttributeHappened?.Invoke("I can be any type!");
@@ -50,16 +50,29 @@ namespace AosSdk.Examples
         {
             Debug.Log($"first = {first}, second = {second}, third = {third}");
         }
-        
+
         [AosAction("Non-void action")]
         public bool NonVoidAction()
         {
             return true;
         }
 
+        private bool _grabbed;
+
         public void OnClicked(InteractHand interactHand)
         {
             Debug.Log($"{gameObject.name} clicked");
+
+            if (!_grabbed)
+            {
+                Player.Instance.GrabObject("Wrench", 0);
+                _grabbed = true;
+            }
+            else
+            {
+                Player.Instance.DropObject(0);
+                _grabbed = false;
+            }
         }
 
         public bool IsClickable { get; set; } = true;
@@ -74,7 +87,5 @@ namespace AosSdk.Examples
         {
             GetComponent<Renderer>().material.color *= 2;
         }
-
-        
     }
 }

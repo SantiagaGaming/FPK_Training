@@ -38,7 +38,7 @@ namespace AosSdk.Core.Player.Pointer
 
         private void Update()
         {
-            if (!raycaster.TryGetInteractable(sdkSettings.desktopInteractDistance, out var hitPoint, out var hitNormal, out var isInteractable) ||
+            if (!raycaster.TryGetInteractable(sdkSettings.vrInteractDistance, out var hitPoint, out var hitNormal, out var isInteractable) ||
                 isInteractable == null) // TODO Test if this works properly (raycast to ground shouldn't draw ray)
             {
                 PointerState = PointerState.Default;

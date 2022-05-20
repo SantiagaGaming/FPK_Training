@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using AosSdk.Core.Interaction;
+using AosSdk.Core.Interaction.Interfaces;
 using AosSdk.Core.Player.Pointer;
 using AosSdk.Core.Utils;
 using Unity.XR.CoreUtils;
@@ -9,8 +11,10 @@ namespace AosSdk.Core.Player.VRPlayer
 {
     public class VRPlayer : MonoBehaviour, IPlayer
     {
-        [SerializeField] private AosSDKSettings sdkSettings;
         [SerializeField] private RayCaster[] handRayCasters;
+        [SerializeField] private Grabber leftHandGrabber;
+        [SerializeField] private Grabber rightHandGrabber;
+
         public XROrigin xrOrigin;
 
         public bool CanMove { get; set; } = true;
@@ -72,6 +76,49 @@ namespace AosSdk.Core.Player.VRPlayer
             }
 
             XRGeneralSettings.Instance.Manager.StartSubsystems();
+        }
+
+        public void GrabObject(string objectName, int hand)
+        {
+            if (hand != 0 && hand != 1)
+            {
+                Player.Instance.ReportError($"Unknown hand type {hand}");
+                return;
+            }
+
+            var gameObjectToGrab = GameObject.Find(objectName);
+
+            if (!gameObjectToGrab)
+            {
+                Player.Instance.ReportError($"Can't grab {objectName}: no object found");
+                return;
+            }
+
+            var grabbable = gameObjectToGrab.GetComponentInChildren<IGrabbable>();
+
+            if (grabbable == null)
+            {
+                Player.Instance.ReportError($"Can't grab {objectName}: object is not grabbable");
+                return;
+            }
+
+            var grabber = (InteractHand) hand == InteractHand.Left ? leftHandGrabber : rightHandGrabber;
+            
+            gameObjectToGrab.transform.position = grabber.transform.position;
+
+            grabber.TryGrabObject(InteractHand.Desktop, grabbable, gameObjectToGrab);
+        }
+
+        public void DropObject(int hand)
+        {
+            if (hand != 0 && hand != 1)
+            {
+                Player.Instance.ReportError($"Unknown hand type {hand}");
+                return;
+            }
+
+            var grabber = (InteractHand) hand == InteractHand.Left ? leftHandGrabber : rightHandGrabber;
+            grabber.DropCurrentGrabbedObject();
         }
     }
 }

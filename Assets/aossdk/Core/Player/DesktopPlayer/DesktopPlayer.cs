@@ -1,4 +1,6 @@
-﻿using AosSdk.Core.Player.Pointer;
+﻿using AosSdk.Core.Interaction;
+using AosSdk.Core.Interaction.Interfaces;
+using AosSdk.Core.Player.Pointer;
 using AosSdk.Core.Utils;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -20,6 +22,8 @@ namespace AosSdk.Core.Player.DesktopPlayer
         [SerializeField] private InputActionProperty crouchAction;
         [SerializeField] private InputActionProperty mouseXAction;
         [SerializeField] private InputActionProperty mouseYAction;
+
+        [SerializeField] private Grabber grabber;
 
         public bool CanRun { get; set; } = true; // TODO Move to IPlayer
         public bool CanMove { get; set; } = true;
@@ -54,14 +58,14 @@ namespace AosSdk.Core.Player.DesktopPlayer
 
             mouseYAction.action.performed += context => _mouseInput.y = context.ReadValue<float>();
 
-            crouchAction.action.performed += _ =>  _isCrouching = true;
-            
+            crouchAction.action.performed += _ => _isCrouching = true;
+
             crouchAction.action.canceled += _ => _isCrouching = false;
 
             _playerTransform = transform;
-            
+
             _characterHeight = characterController.height;
-            
+
             _playerCameraTransform = playerCamera.transform;
         }
 
@@ -102,6 +106,38 @@ namespace AosSdk.Core.Player.DesktopPlayer
             rayCaster.enabled = value;
         }
 
+        public void GrabObject(string objectName, int hand)
+        {
+            if (hand != 0 && hand != 1)
+            {
+                Player.Instance.ReportError($"Unknown hand type {hand}");
+                return;
+            }
+
+            var gameObjectToGrab = GameObject.Find(objectName);
+
+            if (!gameObjectToGrab)
+            {
+                Player.Instance.ReportError($"Can't grab {objectName}: no object found");
+                return;
+            }
+
+            var grabbable = gameObjectToGrab.GetComponentInChildren<IGrabbable>();
+
+            if (grabbable == null)
+            {
+                Player.Instance.ReportError($"Can't grab {objectName}: object is not grabbable");
+                return;
+            }
+
+            grabber.TryGrabObject(InteractHand.Desktop, grabbable, gameObjectToGrab);
+        }
+
+        public void DropObject(int hand)
+        {
+            grabber.DropCurrentGrabbedObject();
+        }
+
         private void Update()
         {
             try
@@ -137,7 +173,7 @@ namespace AosSdk.Core.Player.DesktopPlayer
                     }
 
                     characterController.height = _characterHeight / 2;
-                    characterController.center = new Vector3(0, - _characterHeight / 4, 0);
+                    characterController.center = new Vector3(0, -_characterHeight / 4, 0);
                 }
                 else
                 {
@@ -167,7 +203,7 @@ namespace AosSdk.Core.Player.DesktopPlayer
                 _rotationX += -_mouseInput.y * sdkSettings.mouseLookSpeed;
 
                 _rotationX = Mathf.Clamp(_rotationX, -sdkSettings.mouseLookXLimit, sdkSettings.mouseLookXLimit);
-                _playerCameraTransform.localPosition = new Vector3(0,characterController.center.y + characterController.height / 2, 0);
+                _playerCameraTransform.localPosition = new Vector3(0, characterController.center.y + characterController.height / 2, 0);
                 _playerCameraTransform.localRotation = Quaternion.Euler(_rotationX, 0, 0);
                 transform.rotation *= Quaternion.Euler(0, _mouseInput.x * sdkSettings.mouseLookSpeed, 0);
             }
