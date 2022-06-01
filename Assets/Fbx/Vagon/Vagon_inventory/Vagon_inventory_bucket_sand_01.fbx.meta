@@ -1,11 +1,16 @@
 fileFormatVersion: 2
-guid: 401d785c98c441a4a9ead3740350b234
+guid: b11c74b6e7fba3445b67f240a4b16b34
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IM_Inventory_tambur
+    second: {fileID: 2100000, guid: 0b0575f3f0bf8974190fa66a1bfe54c1, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -45,7 +50,7 @@ ModelImporter:
     importLights: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
