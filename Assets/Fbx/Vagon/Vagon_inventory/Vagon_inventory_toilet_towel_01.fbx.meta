@@ -3,9 +3,14 @@ guid: f37b2846d340fd846a769b71de45e239
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IM_inventory_cleaning
+    second: {fileID: 2100000, guid: d2cd0ae673557fc4ab9f2d62068ad519, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1

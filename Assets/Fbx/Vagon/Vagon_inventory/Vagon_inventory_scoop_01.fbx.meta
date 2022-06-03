@@ -3,9 +3,14 @@ guid: 9f2c7f746d2c7c54db0f406c6c38283c
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IM_Inventory_tambur
+    second: {fileID: 2100000, guid: 0b0575f3f0bf8974190fa66a1bfe54c1, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1

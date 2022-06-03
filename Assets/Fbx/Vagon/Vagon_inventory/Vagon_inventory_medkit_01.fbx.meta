@@ -3,9 +3,19 @@ guid: 5964529227f46554bad1531eecfd8d71
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IM_inventory_emergency
+    second: {fileID: 2100000, guid: 83cbc0fa2caee9149906cd996e2c2c5d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IM_inventory_labels
+    second: {fileID: 2100000, guid: b7ec3cb222cc32e42ad46ec6a173e1f2, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
