@@ -17,6 +17,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: IM_Lamp
+    second: {fileID: 2100000, guid: 9596ed80cbaa2a042bec0f71fbffdd77, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: IM_Metal_Insert
     second: {fileID: 2100000, guid: 4be68f2686ea7f2438eda3673b30d0ab, type: 2}
   - first:
