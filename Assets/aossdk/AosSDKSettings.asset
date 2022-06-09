@@ -14,14 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   launchMode: 0
   socketPort: 8080
+  movementType: 2
+  teleportArcOffset: {x: 0, y: -0.2, z: 0}
   walkSpeed: 4
   runSpeed: 8
   jumpSpeed: 8
   gravity: 20
-  mouseLookSpeed: 0.5
+  mouseLookSpeed: 0.1
   mouseLookXLimit: 80
   crossHairSizeMultiplier: 1
-  maxTeleportRadius: 8
   vrInteractDistance: 0.6
   desktopInteractDistance: 1
   desktopGrabMinZoomDistance: 0.5
@@ -31,3 +32,4 @@ MonoBehaviour:
   hoveredPointerColor: {r: 0.052029163, g: 0.60036546, b: 0.745283, a: 255}
   disabledPointerColor: {r: 1, g: 0, b: 0, a: 1}
   walkableTag: Walkable
+  maxTeleportRadius: 10

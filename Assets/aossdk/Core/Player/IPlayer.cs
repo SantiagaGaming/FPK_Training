@@ -18,5 +18,7 @@ namespace AosSdk.Core.Player
 
         public void GrabObject(string objectName, int hand);
         public void DropObject(int hand);
+
+        public void SetCrouchState(bool state);
     }
 }

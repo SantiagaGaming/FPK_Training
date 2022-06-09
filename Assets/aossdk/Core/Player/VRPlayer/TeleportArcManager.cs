@@ -1,7 +1,7 @@
 ﻿using AosSdk.Core.Utils;
 using UnityEngine;
 
-namespace AosSdk.Core.Player.VRPlayer
+namespace AosSdk.Core.Interaction
 {
     [RequireComponent(typeof(LineRenderer))]
     public class TeleportArcManager : MonoBehaviour

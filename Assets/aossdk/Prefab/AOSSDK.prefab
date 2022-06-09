@@ -235,6 +235,37 @@ Transform:
   m_Father: {fileID: 3040475998051303962}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1199809839448276558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5748965841876588553}
+  m_Layer: 2
+  m_Name: TeleportReticle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5748965841876588553
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199809839448276558}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7044885190713704736}
+  m_Father: {fileID: 7969288616097411682}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1230235335446309788
 GameObject:
   m_ObjectHideFlags: 0
@@ -1642,10 +1673,10 @@ GameObject:
   - component: {fileID: 6094350622653014908}
   - component: {fileID: 6094350622653014848}
   - component: {fileID: 5102166742707384354}
-  - component: {fileID: 1770592281690131340}
   - component: {fileID: 3460625201906942208}
   - component: {fileID: 7856517944434152623}
   - component: {fileID: 6094350622653014850}
+  - component: {fileID: 6419588783361774890}
   m_Layer: 2
   m_Name: RightHand Controller
   m_TagString: Untagged
@@ -1873,34 +1904,6 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 2307464322626738743, guid: c348712bda248c246b8c49b3db54643f, type: 3}
---- !u!114 &1770592281690131340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6094350622653014911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8db6a87b3c63a854993646b3fcb68093, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleportActivateAction:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Teleport Activate
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 46bddeeb-7857-484b-8ea7-9a1fa814a234
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: -8061240218431744966, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  anotherHandTeleportationManager: {fileID: 2078906892701651884}
-  vrPlayer: {fileID: 4286592386170214906}
-  teleportReticle: {fileID: 3095300505307756515}
-  teleportArcManager: {fileID: 3460625201906942208}
 --- !u!114 &3460625201906942208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2106,6 +2109,33 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &6419588783361774890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6094350622653014911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c119f30ac146ba8b4253353014ded3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleportActivateAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Teleport Activate
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 6f66720d-5909-4725-8c7e-146399cd315e
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -8061240218431744966, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  teleportReticle: {fileID: 3095300505307756515}
+  teleportArcManager: {fileID: 3460625201906942208}
+  anotherHandTeleportationManager: {fileID: 2842203959576706574}
 --- !u!1 &6094350623024804006
 GameObject:
   m_ObjectHideFlags: 0
@@ -2342,10 +2372,10 @@ GameObject:
   - component: {fileID: 6094350624055366711}
   - component: {fileID: 6094350624055366715}
   - component: {fileID: 8543112637829891575}
-  - component: {fileID: 2078906892701651884}
   - component: {fileID: 3604251406972078122}
   - component: {fileID: 141465385677365076}
   - component: {fileID: 6466133183467312730}
+  - component: {fileID: 2842203959576706574}
   m_Layer: 2
   m_Name: LeftHand Controller
   m_TagString: Untagged
@@ -2573,34 +2603,6 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 737890489006591557, guid: c348712bda248c246b8c49b3db54643f, type: 3}
---- !u!114 &2078906892701651884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6094350624055366710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8db6a87b3c63a854993646b3fcb68093, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleportActivateAction:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Teleport Activate
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 46bddeeb-7857-484b-8ea7-9a1fa814a234
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 1263111715868034790, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  anotherHandTeleportationManager: {fileID: 1770592281690131340}
-  vrPlayer: {fileID: 4286592386170214906}
-  teleportReticle: {fileID: 7911228438090954052}
-  teleportArcManager: {fileID: 3604251406972078122}
 --- !u!114 &3604251406972078122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2806,6 +2808,33 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &2842203959576706574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6094350624055366710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c119f30ac146ba8b4253353014ded3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleportActivateAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Teleport Activate
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 57a4b1a5-cad8-4e68-b2ba-e0d26ded9f34
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 1263111715868034790, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  teleportReticle: {fileID: 7911228438090954052}
+  teleportArcManager: {fileID: 3604251406972078122}
+  anotherHandTeleportationManager: {fileID: 6419588783361774890}
 --- !u!1 &6112893536366926220
 GameObject:
   m_ObjectHideFlags: 0
@@ -3084,6 +3113,245 @@ MonoBehaviour:
   raycaster: {fileID: 6067633067311883986}
   reticle: {fileID: 1452257648320409541}
   handAnimator: {fileID: 5918697321246370442}
+--- !u!1 &6816701330480641243
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3783683504176696545}
+  - component: {fileID: 5702378207988403181}
+  - component: {fileID: 1895065900407533433}
+  - component: {fileID: 7955798326880198879}
+  m_Layer: 2
+  m_Name: TeleportArcManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3783683504176696545
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6816701330480641243}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7969288614997306581}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!120 &5702378207988403181
+LineRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6816701330480641243}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
+  m_Positions: []
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 0.027442811
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.37832355
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 0, g: 1, b: 0.9019608, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 0}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 4
+    numCapVertices: 4
+    alignment: 0
+    textureMode: 0
+    shadowBias: 0.5
+    generateLightingData: 0
+  m_UseWorldSpace: 1
+  m_Loop: 0
+--- !u!114 &1895065900407533433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6816701330480641243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 100cd48de0455e94d8b4eefbb2d45f8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sdkSettings: {fileID: 11400000, guid: dfb0e11a00884224a8f421f06bad7654, type: 2}
+  excludeLayers:
+    serializedVersion: 2
+    m_Bits: 4
+  validTeleportGradient:
+    serializedVersion: 2
+    key0: {r: 0, g: 1, b: 0.9019608, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 0}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  invalidTeleportGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 0, b: 0.10602903, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 0}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+--- !u!114 &7955798326880198879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6816701330480641243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e26298facc9646629350e3059773414b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleportActivateAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Teleport Activate
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: b4dd877f-520c-4da1-ac45-c2fa5bf1bd8d
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -5164502503691619372, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  teleportReticle: {fileID: 1199809839448276558}
+  teleportArcManager: {fileID: 1895065900407533433}
+  sdkSettings: {fileID: 11400000, guid: dfb0e11a00884224a8f421f06bad7654, type: 2}
 --- !u!1 &7143094408858809262
 GameObject:
   m_ObjectHideFlags: 0
@@ -3176,6 +3444,88 @@ Transform:
   m_Father: {fileID: 8254947709363379190}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7660498143358712368
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7044885190713704736}
+  - component: {fileID: 9028862261990829312}
+  m_Layer: 2
+  m_Name: Sprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7044885190713704736
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7660498143358712368}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.01, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_Children: []
+  m_Father: {fileID: 5748965841876588553}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!212 &9028862261990829312
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7660498143358712368}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a73274b139899e349b3d805a80a9b867, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 84d04d88ce6978c46bd5082c16b586b6, type: 3}
+  m_Color: {r: 0, g: 1, b: 0.9019608, a: 0.19607843}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &7780075759620163152
 GameObject:
   m_ObjectHideFlags: 0
@@ -3400,6 +3750,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1515378061808937572}
+  - {fileID: 3783683504176696545}
   m_Father: {fileID: 7969288616097411682}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3591,6 +3942,7 @@ Transform:
   m_Children:
   - {fileID: 7969288614997306581}
   - {fileID: 7969288614776407898}
+  - {fileID: 5748965841876588553}
   m_Father: {fileID: 6518457256684188080}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

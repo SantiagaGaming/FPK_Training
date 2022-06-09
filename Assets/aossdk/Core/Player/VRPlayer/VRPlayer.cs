@@ -103,7 +103,7 @@ namespace AosSdk.Core.Player.VRPlayer
             }
 
             var grabber = (InteractHand) hand == InteractHand.Left ? leftHandGrabber : rightHandGrabber;
-            
+
             gameObjectToGrab.transform.position = grabber.transform.position;
 
             grabber.TryGrabObject(InteractHand.Desktop, grabbable, gameObjectToGrab);
@@ -119,6 +119,10 @@ namespace AosSdk.Core.Player.VRPlayer
 
             var grabber = (InteractHand) hand == InteractHand.Left ? leftHandGrabber : rightHandGrabber;
             grabber.DropCurrentGrabbedObject();
+        }
+
+        public void SetCrouchState(bool state)
+        {
         }
     }
 }

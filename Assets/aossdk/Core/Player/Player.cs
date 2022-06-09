@@ -48,6 +48,11 @@ namespace AosSdk.Core.Player
                 Cursor.visible = false;
             }
         }
+        
+        public void TeleportTo(Vector3 target)
+        {
+            TeleportTo(target.x, target.y, target.z);
+        }
 
         public void TeleportTo(Transform target)
         {
@@ -93,6 +98,13 @@ namespace AosSdk.Core.Player
         {
             desktopPlayer.DropObject(hand);
             vrPlayer.DropObject(hand);
+        }
+
+        [AosAction("Задать состояние приседания")]
+        public void SetCrouchState(bool state)
+        {
+            desktopPlayer.SetCrouchState(state);
+            vrPlayer.SetCrouchState(state);
         }
     }
 }

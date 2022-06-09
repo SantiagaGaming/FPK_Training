@@ -24,7 +24,7 @@ namespace AosSdk.Core.Utils.EditorUtils
                 return;
             }
         
-            ShowWindow();
+            //ShowWindow();
         }
 
         [MenuItem("AOS/Packages installation window")]
@@ -44,23 +44,31 @@ namespace AosSdk.Core.Utils.EditorUtils
             EditorGUILayout.BeginVertical();
             if (GUILayout.Button("Install required packages", GUILayout.Height(30)))
             {
-                var currentlyInstalledPackages = JsonConvert.DeserializeObject<DependencyList>(File.ReadAllText(PackagesManifestPath));
-
-                if (currentlyInstalledPackages == null)
+                try
                 {
-                    Debug.LogError($"Can't deserialize {PackagesManifestPath}");
+                    var currentlyInstalledPackages = JsonConvert.DeserializeObject<DependencyList>(File.ReadAllText(PackagesManifestPath));
+
+                    if (currentlyInstalledPackages == null)
+                    {
+                        Debug.LogError($"Can't deserialize {PackagesManifestPath}");
+                        return;
+                    }
+
+                    foreach (var package in PackagesToAdd.Where(package => !currentlyInstalledPackages.dependencies.ContainsKey(package.Key)))
+                    {
+                        currentlyInstalledPackages.dependencies.Add(package.Key, package.Value);
+                    }
+
+                    File.WriteAllText(PackagesManifestPath, JsonConvert.SerializeObject(currentlyInstalledPackages));
+
+                    _isPackagesInstalled = true;
+                    PlayerPrefs.SetInt($"{PlayerSettings.productName}AosSdkPluginsInstalled", 1);
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError(e.Message);
                     return;
                 }
-
-                foreach (var package in PackagesToAdd.Where(package => !currentlyInstalledPackages.dependencies.ContainsKey(package.Key)))
-                {
-                    currentlyInstalledPackages.dependencies.Add(package.Key, package.Value);
-                }
-
-                File.WriteAllText(PackagesManifestPath, JsonConvert.SerializeObject(currentlyInstalledPackages));
-
-                _isPackagesInstalled = true;
-                PlayerPrefs.SetInt($"{PlayerSettings.productName}AosSdkPluginsInstalled", 1);
             }
 
             if (_isPackagesInstalled) 
@@ -82,6 +90,5 @@ namespace AosSdk.Core.Utils.EditorUtils
     {
         public Dictionary<string, string> dependencies;
     }
-
-#endif
 }
+#endif

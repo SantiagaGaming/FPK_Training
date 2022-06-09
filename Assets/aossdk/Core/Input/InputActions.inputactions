@@ -1145,6 +1145,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "MiddleMouseClick",
+                    "type": "Button",
+                    "id": "fbaad186-362a-4a0c-add6-a2173577fa84",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "RightMouseClick",
                     "type": "Button",
                     "id": "901182be-7d54-4cc8-9e57-a95b67c112f2",
@@ -1324,6 +1333,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "GrabbedZoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2a57a300-bdb0-4290-b173-b6fd86373d0c",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MiddleMouseClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
