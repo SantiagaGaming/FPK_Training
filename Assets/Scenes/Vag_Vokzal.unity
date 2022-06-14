@@ -4209,6 +4209,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 561a45892ea31be409294e4d38bb4202, type: 2}
+    - target: {fileID: 2664831684504899760, guid: baee836940d127a4997c48401148bac6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.105
+      objectReference: {fileID: 0}
     - target: {fileID: 2665571152901777775, guid: baee836940d127a4997c48401148bac6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -4685,6 +4689,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 561a45892ea31be409294e4d38bb4202, type: 2}
+    - target: {fileID: 4037421418152311996, guid: baee836940d127a4997c48401148bac6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4044559138362115240, guid: baee836940d127a4997c48401148bac6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -8008,13 +8016,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1807566792}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2e3a57676ef94f4fbadfbc478dc0e46, type: 3}
+  m_Script: {fileID: 11500000, guid: 86e2999f3228159459543aa698e63394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   outlineObjects:
   - {fileID: 1678118382}
   - {fileID: 232688409}
-  _inside: 0
 --- !u!65 &1807566795
 BoxCollider:
   m_ObjectHideFlags: 0
