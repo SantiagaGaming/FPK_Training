@@ -1031,7 +1031,7 @@ MonoBehaviour:
   outlineObjects:
   - {fileID: 234994189}
   - {fileID: 1510615277}
-  _inside: 1
+  _inside: 0
 --- !u!65 &234994191
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1106,7 +1106,7 @@ MonoBehaviour:
   outlineObjects:
   - {fileID: 268051367}
   - {fileID: 1373963867}
-  _inside: 1
+  _inside: 0
 --- !u!65 &268051369
 BoxCollider:
   m_ObjectHideFlags: 0
