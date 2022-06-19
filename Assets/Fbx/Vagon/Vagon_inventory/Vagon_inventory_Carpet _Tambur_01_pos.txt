@@ -1,0 +1,5 @@
+Vagon_inventory_Carpet _Tambur_01
+Vagon_inventory_Carpet_Tambur_back_01
+Vagon_inventory_Carpet_WC_A_01
+Vagon_inventory_Carpet_WC_B_01
+xyz = 0
