@@ -14,7 +14,7 @@ public class RailDoor : Door
         if (value)
         {
             int x = 40;
-            while (x >=0)
+            while (x >= 0)
             {
                 transform.localPosition -= new Vector3(0.0125f, 0, 0);
                 yield return new WaitForSeconds(0.03f);
@@ -23,6 +23,17 @@ public class RailDoor : Door
         }
         else
         {
+            if(handle!=null)
+            {
+                int rot = 0;
+                while (rot <= 20)
+                {
+                    handle.transform.localEulerAngles -= new Vector3(0, 0, 1);
+                    yield return new WaitForSeconds(0.008f);
+                    rot++;
+                }
+            }
+
             int x = 0;
             while (x <= 40)
             {
@@ -30,12 +41,21 @@ public class RailDoor : Door
                 yield return new WaitForSeconds(0.03f);
                 x++;
             }
-
+            if(handle!=null)
+            {
+                int rot = 0;
+                while (rot <= 20)
+                {
+                    handle.transform.localEulerAngles += new Vector3(0, 0, 1);
+                    yield return new WaitForSeconds(0.008f);
+                    rot++;
+                }
+            }
         }
         DoorAction(false);
 
         if (open)
-                open = false;
-            else open = true;
+            open = false;
+        else open = true;
     }
 }

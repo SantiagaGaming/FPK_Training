@@ -9,6 +9,7 @@ using AosSdk.ThirdParty.QuickOutline.Scripts;
 
 public class Door : BaseObject
 {
+    [SerializeField] protected GameObject handle;
     protected bool canAction = true;
     protected bool open = false;
 
