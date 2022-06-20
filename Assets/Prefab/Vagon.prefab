@@ -2174,6 +2174,31 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f21c23720747d604aa89c64393da07ad, type: 3}
   m_PrefabInstance: {fileID: 494512816635851620}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &728937831543082549 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f21c23720747d604aa89c64393da07ad, type: 3}
+  m_PrefabInstance: {fileID: 494512816635851620}
+  m_PrefabAsset: {fileID: 0}
+--- !u!259 &5369020625780621150
+LightProbeProxyVolume:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728937831543082549}
+  m_Enabled: 1
+  m_BoundingBoxMode: 0
+  m_ResolutionX: 2
+  m_ResolutionY: 2
+  m_ResolutionZ: 2
+  m_ResolutionProbesPerUnit: 0.25
+  m_BoundingBoxSize: {x: Infinity, y: Infinity, z: Infinity}
+  m_BoundingBoxOrigin: {x: 0, y: 0, z: 0}
+  m_ResolutionMode: 0
+  m_ProbePositionMode: 0
+  m_RefreshMode: 0
+  m_QualityMode: 1
+  m_DataFormat: 1
 --- !u!1001 &516572376389619414
 PrefabInstance:
   m_ObjectHideFlags: 0

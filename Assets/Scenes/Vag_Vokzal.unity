@@ -9192,6 +9192,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 561a45892ea31be409294e4d38bb4202, type: 2}
+    - target: {fileID: 8396587226480618857, guid: baee836940d127a4997c48401148bac6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.5304
+      objectReference: {fileID: 0}
     - target: {fileID: 8409602294943314419, guid: baee836940d127a4997c48401148bac6, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
@@ -9650,6 +9654,31 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 561a45892ea31be409294e4d38bb4202, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: baee836940d127a4997c48401148bac6, type: 3}
+--- !u!1 &1375303438 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5808074986372271365, guid: baee836940d127a4997c48401148bac6, type: 3}
+  m_PrefabInstance: {fileID: 1375303437}
+  m_PrefabAsset: {fileID: 0}
+--- !u!259 &1375303439
+LightProbeProxyVolume:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375303438}
+  m_Enabled: 1
+  m_BoundingBoxMode: 0
+  m_ResolutionX: 2
+  m_ResolutionY: 2
+  m_ResolutionZ: 2
+  m_ResolutionProbesPerUnit: 0.25
+  m_BoundingBoxSize: {x: Infinity, y: Infinity, z: Infinity}
+  m_BoundingBoxOrigin: {x: 0, y: 0, z: 0}
+  m_ResolutionMode: 0
+  m_ProbePositionMode: 0
+  m_RefreshMode: 0
+  m_QualityMode: 1
+  m_DataFormat: 1
 --- !u!1 &1379652502
 GameObject:
   m_ObjectHideFlags: 0
