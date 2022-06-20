@@ -11634,7 +11634,7 @@ MonoBehaviour:
   outlineObjects:
   - {fileID: 1678118382}
   - {fileID: 232688409}
-  handle: {fileID: 232688405}
+  handle: {fileID: 0}
 --- !u!65 &1807566795
 BoxCollider:
   m_ObjectHideFlags: 0
