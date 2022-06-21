@@ -20,11 +20,13 @@ public class RotateDoor : Door
 
             if (!_inside)
             {
-            if (handle != null)
-                StartCoroutine(RotateHandle());
+ 
             if (!value)
                 {
-                    int y = 0;
+                if (handle != null)
+                    StartCoroutine(RotateHandle());
+                yield return new WaitForSeconds(0.5f);
+                int y = 0;
                     while (y >= -90)
                     {
                     transform.localEulerAngles += new Vector3(0, 1, 0);
@@ -45,11 +47,12 @@ public class RotateDoor : Door
             }
             else
             {
-            if (handle != null)
-                StartCoroutine(RotateHandle());
             if (!value)
-                {
-                    int y = 0;
+            {
+                if (handle != null)
+                    StartCoroutine(RotateHandle());
+                yield return new WaitForSeconds(0.5f);
+                int y = 0;
                     while (y <= 90)
                     {
                     transform.localEulerAngles -= new Vector3(0, 1, 0);
