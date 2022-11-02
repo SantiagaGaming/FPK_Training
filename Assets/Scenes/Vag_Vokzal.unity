@@ -4305,7 +4305,7 @@ MonoBehaviour:
   - {fileID: 1216132937}
   - {fileID: 1373958714}
   handle: {fileID: 1373958710}
-  _inside: 0
+  _inside: 1
   _x: 0
   _down: 0
 --- !u!1 &1216557743 stripped
