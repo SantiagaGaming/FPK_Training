@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Vag_Vokzal.unity
+    guid: 525f214932f3fc14baa1431cd74e8175
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 22f980b640fea8d418e2a6864805fc7a, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 981fad0a67d20c7499b6cdca61d23129, type: 2}

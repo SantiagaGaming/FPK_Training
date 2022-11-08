@@ -32,7 +32,7 @@ namespace AosSdk.Core.Utils.EditorUtils
         {
             PackagesToAdd.Add("com.unity.xr.interaction.toolkit", "2.0.0-pre.7");
             PackagesToAdd.Add("com.unity.xr.management", "4.2.1");
-            PackagesToAdd.Add("com.unity.xr.openxr", "1.3.1");
+            PackagesToAdd.Add("com.unity.xr.openxr", "1.4.2");
         
             var window = GetWindow<SettingsApplyWindow>(true);
             window.minSize = new Vector2(400, 200);

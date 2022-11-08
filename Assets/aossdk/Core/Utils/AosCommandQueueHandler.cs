@@ -4,7 +4,6 @@ namespace AosSdk.Core.Utils
 {
     public class AosCommandQueueHandler : MonoBehaviour
     {
-        [SerializeField] private AosSDKSettings sdkSettings;
         public CommandList<AosCommand> CommandQueue { get; } = new CommandList<AosCommand>();
 
         private void Start()
@@ -19,7 +18,7 @@ namespace AosSdk.Core.Utils
                 return;
             }
 
-            var aosObjectToExecuteCommandOn = AosObjectFind.FindAosObjectByGuid(RuntimeData.Instance.AosObjects, command.objectGuid);
+            var aosObjectToExecuteCommandOn = AosObjectFind.FindAosObjectById(command.objectId);
 
             if (aosObjectToExecuteCommandOn)
             {
@@ -32,9 +31,9 @@ namespace AosSdk.Core.Utils
 
             WebSocketWrapper.Instance.DoSendMessage(new ServerMessageError
             {
-                objectGuid = null,
+                objectId = null,
                 type = ServerMessageType.Error.ToString(),
-                errorMessage = $"Object with guid {command.objectGuid} not found on scene"
+                errorMessage = $"Object with guid {command.objectId} not found on scene"
             });
         }
     }

@@ -17,11 +17,27 @@ namespace AosSdk.Core.Utils.EditorUtils
         [MenuItem("AOS/Generate Aos scene description XML")]
         private static void CollectAosData()
         {
+            var objectIds = new Dictionary<string, string>();
+            
             var aosSceneDescription = new List<AosObjectType>();
 
             var aosObjects = FindObjectsOfType<AosObjectBase>();
             foreach (var obj in aosObjects)
             {
+                foreach (var pair in objectIds.Where(pair => pair.Value == obj.ObjectId))
+                {
+                    EditorUtility.DisplayDialog("XML generate error", $"Failed to generate AOS Descriptor XML: GameObject {obj.name} ObjectId is same as {pair.Key}'s ObjectId", "OK");
+                    return;
+                }
+
+                if (obj.ObjectId == string.Empty)
+                {
+                    EditorUtility.DisplayDialog("XML generate error", $"Failed to generate AOS Descriptor XML: GameObject {obj.name} has empty ObjectId", "OK");
+                    return;
+                }
+                
+                objectIds.Add(obj.name, obj.ObjectId);
+                
                 var aosActions = new List<AosActionType>();
                 var aosEvents = new List<AosEventType>();
 
@@ -76,18 +92,9 @@ namespace AosSdk.Core.Utils.EditorUtils
                     });
                 }
 
-                if (obj.objectStaticGuid == string.Empty)
-                {
-                    Undo.RecordObject(obj, "guid set");
-
-                    obj.objectStaticGuid = Guid.NewGuid().ToString();
-
-                    PrefabUtility.RecordPrefabInstancePropertyModifications(obj);
-                }
-
                 aosSceneDescription.Add(new AosObjectType
                 {
-                    aosObjectGuid = obj.objectStaticGuid,
+                    aosObjectId = obj.ObjectId,
                     aosObjectDescription = objectName,
                     aosObjectActions = aosActions.ToArray(),
                     aosObjectEvents = aosEvents.ToArray()
@@ -95,6 +102,15 @@ namespace AosSdk.Core.Utils.EditorUtils
             }
 
             GenerateXmlFile(aosSceneDescription);
+        }
+
+        [MenuItem("AOS/Clean Aos objects id")]
+        private static void CleanAosObjectsId()
+        {
+            foreach (var obj in FindObjectsOfType<AosObjectBase>())
+            {
+                obj.ObjectId = string.Empty;
+            }
         }
 
         private static void GenerateXmlFile(List<AosObjectType> sceneDescription)

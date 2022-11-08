@@ -17,7 +17,7 @@ namespace AosSdk.CustomObjects.OutlineManager
             float green, [AosParameter("b - компонента цвета [0...255]")] float blue, [AosParameter("толщина выделения")] float width,
             [AosParameter("режим выделения")] OutlineMode mode)
         {
-            var aosObjectToOutline = AosObjectFind.FindAosObjectByGuid(RuntimeData.Instance.AosObjects, objectGuid);
+            var aosObjectToOutline = AosObjectFind.FindAosObjectById(objectGuid);
 
             if (!aosObjectToOutline)
             {
@@ -31,7 +31,7 @@ namespace AosSdk.CustomObjects.OutlineManager
         [AosAction("Выделить объект со стандартными настройками выделения")]
         public void OutlineObjectWithDefaultParameters(string objectGuid)
         {
-            var aosObjectToOutline = AosObjectFind.FindAosObjectByGuid(RuntimeData.Instance.AosObjects, objectGuid);
+            var aosObjectToOutline = AosObjectFind.FindAosObjectById(objectGuid);
 
             if (!aosObjectToOutline)
             {
@@ -44,7 +44,8 @@ namespace AosSdk.CustomObjects.OutlineManager
 
         [AosAction("Установить стандартные настройки выделения")]
         public void SetOutlineDefaultParameters([AosParameter("r - компонента цвета [0...255]")] float red, [AosParameter("g - компонента цвета [0...255]")] float green,
-            [AosParameter("b - компонента цвета [0...255]")] float blue, [AosParameter("толщина выделения")] float width,
+            [AosParameter("b - компонента цвета [0...255]")]
+            float blue, [AosParameter("толщина выделения")] float width,
             [AosParameter("режим выделения")] OutlineMode mode)
         {
             _defaultOutlineColor = new Color(red, green, blue, 255);
@@ -55,7 +56,7 @@ namespace AosSdk.CustomObjects.OutlineManager
         [AosAction("Убрать выделение с объекта")]
         public void DisableOutline([AosParameter("guid объекта")] string objectGuid)
         {
-            var aosObjectToHighlight = AosObjectFind.FindAosObjectByGuid(RuntimeData.Instance.AosObjects, objectGuid);
+            var aosObjectToHighlight = AosObjectFind.FindAosObjectById(objectGuid);
 
             if (!aosObjectToHighlight)
             {

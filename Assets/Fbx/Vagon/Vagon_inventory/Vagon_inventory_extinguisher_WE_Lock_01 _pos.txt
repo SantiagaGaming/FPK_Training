@@ -1,0 +1,3 @@
+Vagon_inventory_extinguisher_WE_Lock_01 
+Vagon_inventory_extinguisher_WE_Stamp_01
+позиция в xyz=0 при родителе Vagon_inventory_extinguisher_WE_01

@@ -5,58 +5,68 @@ using UnityEngine;
 
 namespace AosSdk.CommonBehaviours
 {
-    [RequireComponent(typeof(Collider))]
+    [RequireComponent(typeof(Collider), typeof(Rigidbody))]
     public class TriggerBehaviour : AosObjectBase
     {
-        private readonly List<AosObjectBase> _objectsInTrigger = new List<AosObjectBase>();
-        private Collider _thisCollider;
-
         [AosEvent(name: "При попадании объекта в триггер")]
         public event AosEventHandlerWithAttribute OnObjectTriggerEnter;
 
-        [AosEvent(name: "При попадании объекта в триггер")]
+        [AosEvent(name: "При выходе объекта из триггера")]
         public event AosEventHandlerWithAttribute OnObjectTriggerExit;
 
+        [AosEvent(name: "При нахождении объекта в триггере")]
+        public event AosEventHandlerWithAttribute OnObjectTriggerStay;
+
         [AosAction("Проверить, находится ли объект в триггере")]
-        public bool IsObjectInTrigger([AosParameter("guid объекта")] string objectGuid)
-        {
-            return (bool) _objectsInTrigger.FirstOrDefault(item => item.objectStaticGuid == objectGuid);
-        }
+        public bool IsObjectInTrigger([AosParameter("guid объекта")] string objectGuid) => (bool) ObjectsInTrigger.FirstOrDefault(item => item.ObjectId == objectGuid);
+
+        public IEnumerable<AosObjectBase> ObjectsInTrigger => _collidedObjects.Keys.Select(a => a).ToList();
 
         private void Awake()
         {
-            _thisCollider = GetComponent<Collider>();
-
-            if (_thisCollider.isTrigger)
-            {
-                return;
-            }
-
-            _thisCollider.isTrigger = true;
+            GetComponent<Collider>().isTrigger = true;
+            gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
         }
 
-        private void OnTriggerEnter(Collider col)
+        private readonly Dictionary<AosObjectBase, int> _collidedObjects = new Dictionary<AosObjectBase, int>();
+
+        private const int ExitFramesCount = 5;
+
+        private void OnTriggerStay(Collider other)
         {
-            var aosObject = col.GetComponentInParent<AosObjectBase>();
+            var aosObject = other.GetComponentInParent<AosObjectBase>();
             if (!aosObject)
             {
                 return;
             }
 
-            OnObjectTriggerEnter?.Invoke(aosObject.objectStaticGuid);
-            _objectsInTrigger.Add(aosObject);
+            if (!_collidedObjects.ContainsKey(aosObject))
+            {
+                Debug.Log(aosObject.name + "Entered");
+                OnObjectTriggerEnter?.Invoke(aosObject.ObjectId);
+                _collidedObjects.Add(aosObject, ExitFramesCount);
+            }
+            else
+            {
+                OnObjectTriggerStay?.Invoke(aosObject.ObjectId);
+                _collidedObjects[aosObject] = ExitFramesCount;
+            }
         }
 
-        private void OnTriggerExit(Collider col)
+        private void FixedUpdate()
         {
-            var aosObject = col.GetComponentInParent<AosObjectBase>();
-            if (!aosObject)
+            foreach (var aosObject in _collidedObjects.Keys.ToArray())
             {
-                return;
-            }
+                _collidedObjects[aosObject]--;
+                if (_collidedObjects[aosObject] >= 0)
+                {
+                    continue;
+                }
 
-            OnObjectTriggerExit?.Invoke(aosObject.objectStaticGuid);
-            _objectsInTrigger.Remove(aosObject);
+                Debug.Log(aosObject.name + "Exited");
+                OnObjectTriggerExit?.Invoke(aosObject.ObjectId);
+                _collidedObjects.Remove(aosObject);
+            }
         }
     }
 }

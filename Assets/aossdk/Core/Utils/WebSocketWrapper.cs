@@ -5,38 +5,52 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Text.RegularExpressions;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace AosSdk.Core.Utils
 {
+    [RequireComponent(typeof(AosCommandQueueHandler))]
     public class WebSocketWrapper : MonoBehaviour
     {
-        [SerializeField] private AosCommandQueueHandler aosCommandQueueHandler;
-        
-        private AosSDKSettings _sdkSettings;
-
         public static WebSocketWrapper Instance;
 
         private Socket _serverSocket;
         private Socket _currentClientSocket;
 
-        private readonly byte[] _buffer = new byte[1024];
+        private IPEndPoint _ipEndPoint;
+
+        private readonly byte[] _buffer = new byte[8192];
+
+        private readonly List<byte> _received = new List<byte>();
+
+        private AosCommandQueueHandler _aosCommandQueueHandler;
 
         public delegate void SocketMessageReceivedHandler(string message);
 
         public delegate void SocketMessageSentHandler();
 
+        public delegate void SocketClientConnected();
+
         public event SocketMessageReceivedHandler OnClientMessageReceived;
         public event SocketMessageSentHandler OnClientMessageSent;
+        public event SocketClientConnected OnClientConnected;
 
-        public void Init(IPAddress ip, int port, AosSDKSettings sdkSettings)
+        public void Init(IPEndPoint ipEndPoint)
         {
-            _sdkSettings = sdkSettings;
+            OnClientMessageReceived -= ClientMessageReceived;
+            OnClientMessageSent -= ClientMessageSent;
+
+            _aosCommandQueueHandler = GetComponent<AosCommandQueueHandler>();
+
+            _ipEndPoint = ipEndPoint;
+
             _serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
-            _serverSocket.Bind(new IPEndPoint(IPAddress.Any, _sdkSettings.socketPort));
+            _serverSocket.Bind(ipEndPoint);
             _serverSocket.Listen(128);
-            _serverSocket.BeginAccept(null, 0, ClientConnectedCallback, null);
-            
+
+            BeginAcceptClients();
+
             OnClientMessageReceived += ClientMessageReceived;
             OnClientMessageSent += ClientMessageSent;
 
@@ -48,9 +62,14 @@ namespace AosSdk.Core.Utils
             Debug.Log("AosSdk: web socket server is ready");
         }
 
+        private void BeginAcceptClients()
+        {
+            _serverSocket.BeginAccept(null, 0, ClientConnectedCallback, null);
+        }
+
         private static void ClientMessageSent()
         {
-            Debug.Log($"AosSdk: Sent message to client.");
+            Debug.Log("AosSdk: Sent message to client.");
         }
 
         private void ClientMessageReceived(string message)
@@ -58,15 +77,15 @@ namespace AosSdk.Core.Utils
             AosCommand aosCommandToQueue = null;
             try
             {
-                aosCommandToQueue = JsonUtility.FromJson<AosCommand>(message);
+                aosCommandToQueue = JsonConvert.DeserializeObject<AosCommand>(message);
             }
             catch (Exception e)
             {
-                Debug.LogError(e.Message);
+                Debug.LogError($"Error parsing AOSCommand: {message}: {e.Message}");
             }
             finally
             {
-                aosCommandQueueHandler.CommandQueue.Add(aosCommandToQueue);
+                _aosCommandQueueHandler.CommandQueue.Add(aosCommandToQueue);
             }
         }
 
@@ -103,7 +122,7 @@ namespace AosSdk.Core.Utils
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
+                Debug.LogError(e.Message);
             }
         }
 
@@ -113,7 +132,7 @@ namespace AosSdk.Core.Utils
             {
                 Socket client = null;
 
-                if (_serverSocket is { IsBound: true })
+                if (_serverSocket is {IsBound: true})
                 {
                     client = _serverSocket.EndAccept(ar);
                 }
@@ -123,14 +142,21 @@ namespace AosSdk.Core.Utils
                     return;
                 }
 
-                var messageLength = client.Receive(_buffer);
-
-                if (messageLength == 0)
+                var headerResponse = "";
+                while (true)
                 {
-                    return;
-                }
+                    var messageLength = client.Receive(_buffer);
+                    if (0 == messageLength)
+                    {
+                        return;
+                    }
 
-                var headerResponse = Encoding.UTF8.GetString(_buffer).Substring(0, messageLength);
+                    headerResponse += Encoding.UTF8.GetString(_buffer).Substring(0, messageLength);
+                    if (new Regex("\r\n\r\n$").IsMatch(headerResponse))
+                    {
+                        break;
+                    }
+                }
 
                 var handshakeResponse = GetHandshakeData(headerResponse);
 
@@ -144,6 +170,7 @@ namespace AosSdk.Core.Utils
                 _currentClientSocket = client;
 
                 Debug.Log("AosSdk: web socket client connected");
+                OnClientConnected?.Invoke();
 
                 _currentClientSocket.BeginReceive(_buffer, 0, _buffer.Length, SocketFlags.None, MessageReceivedCallback,
                     _currentClientSocket);
@@ -154,7 +181,7 @@ namespace AosSdk.Core.Utils
             }
             finally
             {
-                if (_serverSocket is { IsBound: true })
+                if (_serverSocket is {IsBound: true})
                 {
                     _serverSocket.BeginAccept(null, 0, ClientConnectedCallback, null);
                 }
@@ -164,6 +191,7 @@ namespace AosSdk.Core.Utils
         private void MessageReceivedCallback(IAsyncResult result)
         {
             var client = result.AsyncState as Socket;
+            var disconnected = new bool();
 
             try
             {
@@ -173,10 +201,24 @@ namespace AosSdk.Core.Utils
                 }
 
                 var received = client.EndReceive(result);
+                _received.AddRange(_buffer.Take(received));
 
-                var message = DecodeMessage(_buffer.Take(received).ToArray());
+                int decoded;
+                do
+                {
+                    decoded = DecodeMessage(_received.ToArray(), out var message, out disconnected);
 
-                OnClientMessageReceived?.Invoke(message);
+                    if (decoded > 0)
+                    {
+                        OnClientMessageReceived?.Invoke(message);
+                        _received.RemoveRange(0, decoded);
+                    }
+                    else if (disconnected)
+                    {
+                        _received.Clear();
+                        client.BeginDisconnect(false, ClientDisconnectCallback, client);
+                    }
+                } while (decoded > 0 && _received.Any());
             }
             catch (SocketException exception)
             {
@@ -184,31 +226,75 @@ namespace AosSdk.Core.Utils
             }
             finally
             {
-                client?.BeginReceive(_buffer, 0, _buffer.Length, SocketFlags.None, MessageReceivedCallback, client);
+                if (!disconnected)
+                {
+                    client?.BeginReceive(_buffer, 0, _buffer.Length, SocketFlags.None, MessageReceivedCallback, client);
+                }
             }
         }
 
-        private static string DecodeMessage(IReadOnlyList<byte> bytes)
+        private static void ClientDisconnectCallback(IAsyncResult ar)
         {
+            try
+            {
+                if (!(ar.AsyncState is Socket client))
+                {
+                    Debug.LogError("AosSdk: Can't disconnect, client is null");
+                    return;
+                }
+
+                client.EndDisconnect(ar);
+
+                Debug.Log("AosSdk: web socket client disconnected");
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e.Message);
+            }
+        }
+
+        private static int DecodeMessage(IReadOnlyList<byte> bytes, out string message, out bool disconnect)
+        {
+            message = string.Empty;
+            disconnect = false;
+
+            var opCode = bytes[0] & 0x0f;
+            if (0x08 == opCode)
+            {
+                disconnect = true;
+                return 0;
+            }
+
             var secondByte = bytes[1];
-            var dataLength = secondByte & 127;
-            var indexFirstMask = dataLength switch
+            long dataLength = (secondByte & 127) switch
+            {
+                126 => (bytes[2] << 8) + bytes[3],
+                127 => (bytes[2] << 56) + (bytes[3] << 48) + (bytes[4] << 40) + (bytes[5] << 32) + (bytes[6] << 24) + (bytes[7] << 16) + (bytes[8] << 8) + bytes[9],
+                _ => secondByte & 127
+            };
+            var indexFirstMask = (secondByte & 127) switch
             {
                 126 => 4,
                 127 => 10,
                 _ => 2
             };
+            if (indexFirstMask + 4 + dataLength > bytes.Count)
+            {
+                return 0;
+            }
 
             var keys = bytes.Skip(indexFirstMask).Take(4);
             var indexFirstDataByte = indexFirstMask + 4;
 
-            var decoded = new byte[bytes.Count - indexFirstDataByte];
-            for (int i = indexFirstDataByte, j = 0; i < bytes.Count; i++, j++)
+            var decoded = new byte[dataLength];
+            for (int i = indexFirstDataByte, j = 0; i < dataLength + indexFirstDataByte; i++, j++)
             {
-                decoded[j] = (byte)(bytes[i] ^ keys.ElementAt(j % 4));
+                decoded[j] = (byte) (bytes[i] ^ keys.ElementAt(j % 4));
             }
 
-            return Encoding.ASCII.GetString(decoded, 0, decoded.Length);
+            message = Encoding.UTF8.GetString(decoded, 0, decoded.Length);
+
+            return indexFirstMask + 4 + (int) dataLength;
         }
 
         private static byte[] EncodeMessage(string message)
@@ -222,27 +308,27 @@ namespace AosSdk.Core.Utils
             frame[0] = 129;
             if (length <= 125)
             {
-                frame[1] = (byte)length;
+                frame[1] = (byte) length;
                 indexStartRawData = 2;
             }
             else if (length <= 65535)
             {
                 frame[1] = 126;
-                frame[2] = (byte)((length >> 8) & 255);
-                frame[3] = (byte)(length & 255);
+                frame[2] = (byte) ((length >> 8) & 255);
+                frame[3] = (byte) (length & 255);
                 indexStartRawData = 4;
             }
             else
             {
                 frame[1] = 127;
-                frame[2] = (byte)((length >> 56) & 255);
-                frame[3] = (byte)((length >> 48) & 255);
-                frame[4] = (byte)((length >> 40) & 255);
-                frame[5] = (byte)((length >> 32) & 255);
-                frame[6] = (byte)((length >> 24) & 255);
-                frame[7] = (byte)((length >> 16) & 255);
-                frame[8] = (byte)((length >> 8) & 255);
-                frame[9] = (byte)(length & 255);
+                frame[2] = (byte) ((length >> 56) & 255);
+                frame[3] = (byte) ((length >> 48) & 255);
+                frame[4] = (byte) ((length >> 40) & 255);
+                frame[5] = (byte) ((length >> 32) & 255);
+                frame[6] = (byte) ((length >> 24) & 255);
+                frame[7] = (byte) ((length >> 16) & 255);
+                frame[8] = (byte) ((length >> 8) & 255);
+                frame[9] = (byte) (length & 255);
 
                 indexStartRawData = 10;
             }
@@ -268,7 +354,11 @@ namespace AosSdk.Core.Utils
 
         private static byte[] GetHandshakeData(string data)
         {
-            if (!new Regex("^GET").IsMatch(data)) return Array.Empty<byte>();
+            if (!new Regex("^GET").IsMatch(data))
+            {
+                return Array.Empty<byte>();
+            }
+
             var eol = Environment.NewLine;
 
             var response = Encoding.UTF8.GetBytes("HTTP/1.1 101 Switching Protocols" + eol + "Connection: Upgrade" +
@@ -282,11 +372,46 @@ namespace AosSdk.Core.Utils
             return response;
         }
 
+        private void FixedUpdate()
+        {
+            if (_currentClientSocket == null)
+            {
+                return;
+            }
+
+            if (IsSocketConnected(_currentClientSocket))
+            {
+                return;
+            }
+
+            ResetSocket();
+        }
+
+        private void ResetSocket()
+        {
+            Debug.Log("AosSdk: web socket server restart: client lost");
+
+            _serverSocket.Close();
+            _serverSocket = null;
+            _currentClientSocket.Close();
+            _currentClientSocket = null;
+
+            Init(_ipEndPoint);
+        }
+
+        private static bool IsSocketConnected(Socket socket) => !socket.Poll(1000, SelectMode.SelectRead) || socket.Available != 0;
+
         private void OnDisable()
         {
             _serverSocket.Close();
             OnClientMessageReceived -= ClientMessageReceived;
             OnClientMessageSent -= ClientMessageSent;
+        }
+
+        private void OnDestroy()
+        {
+            _serverSocket.Dispose();
+            _serverSocket = null;
         }
     }
 }

@@ -1,0 +1,5 @@
+Vagon_tambur_stop_karn_Stamp_Tambur_01
+Vagon_tambur_stop_karn_Stamp_Tambur_Back_01
+X: 0
+Z: 0
+Y: 0

@@ -1,5 +1,5 @@
 using AosSdk.Core.Interaction.Interfaces;
-using AosSdk.Core.Player.Pointer;
+using AosSdk.Core.PlayerModule.Pointer;
 using UnityEngine;
 
 namespace AosSdk.Examples
