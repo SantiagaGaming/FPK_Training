@@ -1,14 +1,14 @@
 fileFormatVersion: 2
 guid: 27c8f486a4447fe43b943e525a515956
 ModelImporter:
-  serializedVersion: 20200
+  serializedVersion: 20300
   internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: putbox
-    second: {fileID: -6368191934519865664, guid: 27c8f486a4447fe43b943e525a515956, type: 3}
+    second: {instanceID: 0}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -101,6 +101,7 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
