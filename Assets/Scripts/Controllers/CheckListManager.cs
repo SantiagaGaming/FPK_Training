@@ -5,18 +5,18 @@ using UnityEngine;
 public class CheckListManager : MonoBehaviour
 {
     [SerializeField] private CheckListItem _prefub;
-    [SerializeField] private Transform _position;
-    private Vector3 _pos = new Vector3(960, 540, 0);
+    private Transform _position;
+    private Vector3 _pos = new Vector3();
+    private float _step = 3.5f;
+
 
     private ObjectsTranslator _translator= new ObjectsTranslator();
 
-    private int _xPoz = 676;
-    private int _yPoz = 920;
-    private int _yStep = 60;
 
     private void Start()
     {
-        _position.position = _pos;
+        _position = transform;
+        _pos = new Vector3(20, 80, 0);
         StartCoroutine(InstatniateDelay());
     }
     private IEnumerator InstatniateDelay()
@@ -31,8 +31,8 @@ public class CheckListManager : MonoBehaviour
            var temp = Instantiate(_prefub, _position);
             string tempName = SearchableObjectsHandler.Instance.SearchingList[i].GetObjectId;
             temp.SetText(_translator.ObjectsRusNames[tempName]);
-            _yPoz -= _yStep;
-            temp.transform.position = new Vector3(_xPoz, _yPoz, 0);
+            temp.transform.localPosition -= _pos;
+            _pos.y -= _step;
             Debug.Log(temp.transform.position);
         }
     }

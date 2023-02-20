@@ -1,14 +1,17 @@
+using AosSdk.Core.PlayerModule;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.iOS;
 using UnityEngine;
 
 public class CameraChanger : MonoBehaviour
 {
+    [SerializeField] private Transform _menuPosition;
     [SerializeField] private CameraFadeIn _cameraFadeIn;
     [SerializeField] private EscController _escControler;
-    [SerializeField] private GameObject _playerCamera;
-    [SerializeField] private GameObject _menuCamera;
+    [SerializeField] private ModeController _modeController;
     private bool _changed= true;
+    private Vector3 _currentPlayerPosition = new Vector3();
     private void OnEnable()
     {
         _escControler.OnMenuEvent += OnEscClick;
@@ -20,18 +23,37 @@ public class CameraChanger : MonoBehaviour
     private void OnEscClick()
     {
         _cameraFadeIn.FadeStart = true;
-        if(!_changed)
+        if(_changed)
         {
-            _playerCamera.SetActive(false);
-            _menuCamera.SetActive(true);
-            _changed = true;
+            TeleportToMenu();
+            _changed= false;
         }
         else
         {
-            _playerCamera.SetActive(true);
-            _menuCamera.SetActive(false);
-            _changed = false;
+            TeleportToPrevousLocation();
+            _changed = true;
         }
+
     }
+    private void TeleportToMenu()
+    {
+        _currentPlayerPosition = new Vector3(_modeController.GetPlayerTransform().position.x, 4.2f, _modeController.GetPlayerTransform().position.z);
+        var playerInstance = Player.Instance;
+        playerInstance.transform.rotation = Quaternion.Euler(0,0,0);
+        playerInstance.TeleportTo(_menuPosition);
+        playerInstance.CanMove = false;
+        playerInstance.CursorLockMode = CursorLockMode.Locked;
+        playerInstance.ForwardTo(transform);
+    }
+
+    private void TeleportToPrevousLocation()
+    {
+        var playerInstance = Player.Instance;
+        playerInstance.ReleaseForwarding();
+        playerInstance.TeleportTo(_currentPlayerPosition);
+        playerInstance.CanMove = true;
+        playerInstance.CursorLockMode = CursorLockMode.None;
+    }
+
 
 }
