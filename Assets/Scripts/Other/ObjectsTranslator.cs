@@ -19,5 +19,6 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("glasses", "Очки");
         ObjectsRusNames.Add("toiletPapper", "Бумажные полотенца");
         ObjectsRusNames.Add("bedStuff", "Постельные принадлежности");
+        ObjectsRusNames.Add("rubbish", "Загрязнение в сливе");
     }
 }

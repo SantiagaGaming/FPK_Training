@@ -29,7 +29,7 @@ public class CheckListManager : MonoBehaviour
         for (int i = 0; i < 12; i++)
         {
            var temp = Instantiate(_prefub, _position);
-            string tempName = SearchableObjectsHandler.Instance.SearchingList[i].ObjectId;
+            string tempName = SearchableObjectsHandler.Instance.SearchingList[i].GetObjectId;
             temp.SetText(_translator.ObjectsRusNames[tempName]);
             _yPoz -= _yStep;
             temp.transform.position = new Vector3(_xPoz, _yPoz, 0);

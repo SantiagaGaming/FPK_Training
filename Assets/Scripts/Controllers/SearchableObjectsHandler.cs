@@ -14,19 +14,18 @@ public class SearchableObjectsHandler : MonoBehaviour
     }
     public void AddSearchableObject(SearchableObject obj)
     {
-        SearchingList.Add(obj); 
+        SearchingList.Add(obj);
     }
     public string HideObject()
     {
         var obj = SearchingList[Random.Range(0, SearchingList.Count)];
         if (obj != null)
         {
-            string objectName = obj.ObjectId;
+            string objectName = obj.GetObjectId;
             obj.EnableObject(false);
             SearchingList.Remove(obj);
             return objectName;
         }
         return null;
-     
     }
 }
