@@ -39,7 +39,8 @@ public class ResultController : MonoBehaviour
         _view.EnableResultPanel(true);
         if(_gradle<0)
             _gradle = 0;
-        _view.SetResultText(_gradle.ToString()+"%" + SetNonCorrectItems()+ SetNotFoundedeItems());
+        _view.SetResultText(_gradle.ToString()+"%");
+        _view.SetResultCommentText(SetNonCorrectItems() + SetNotFoundedeItems());
     }
     private void AddCheckedItems()
     {
