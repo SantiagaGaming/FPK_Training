@@ -7,13 +7,20 @@ using UnityEngine.UI;
 
 public class CameraChanger : MonoBehaviour
 {
+    [HideInInspector] public bool CanTeleport = true;
+
     [SerializeField] private Transform _menuPosition;
     [SerializeField] private CameraFadeIn _cameraFadeIn;
     [SerializeField] private EscController _escControler;
     [SerializeField] private ModeController _modeController;
+    [SerializeField] private ZoomController _zoomController;
     [SerializeField] private Image _knob;
-    private bool _changed= true;
+
     private Vector3 _currentPlayerPosition = new Vector3();
+
+    private bool _changed= true;
+
+
     private void OnEnable()
     {
         _escControler.OnMenuEvent += OnEscClick;
@@ -24,24 +31,29 @@ public class CameraChanger : MonoBehaviour
     }
     private void OnEscClick()
     {
+        if (!CanTeleport)
+            return;
         _cameraFadeIn.FadeStart = true;
         if(_changed)
         {
             TeleportToMenu();
             _changed= false;
             _knob.enabled = false;
+            _zoomController.ResetZoomCamera();
+            _zoomController.CanZoom = false;
         }
         else
         {
             TeleportToPrevousLocation();
             _changed = true;
             _knob.enabled = true;
+            _zoomController.CanZoom = true;
         }
 
     }
     private void TeleportToMenu()
     {
-        _currentPlayerPosition = new Vector3(_modeController.GetPlayerTransform().position.x, 4.2f, _modeController.GetPlayerTransform().position.z);
+        _currentPlayerPosition = new Vector3(_modeController.GetPlayerTransform().position.x, 2.8f, _modeController.GetPlayerTransform().position.z);
         var playerInstance = Player.Instance;
         playerInstance.transform.rotation = Quaternion.Euler(0,0,0);
         playerInstance.TeleportTo(_menuPosition);

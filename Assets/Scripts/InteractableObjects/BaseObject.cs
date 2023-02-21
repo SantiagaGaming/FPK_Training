@@ -14,7 +14,6 @@ public class BaseObject : MonoBehaviour, IClickAble, IHoverAble
     [SerializeField] protected OutlineCore[] outlineObjects;
     public virtual void OnClicked(InteractHand interactHand)
     {
-
     }
     public virtual void OnHoverIn(InteractHand interactHand)
     {

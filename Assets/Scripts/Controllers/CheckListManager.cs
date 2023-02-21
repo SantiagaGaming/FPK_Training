@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class CheckListManager : MonoBehaviour
 {
+    [HideInInspector] public List<CheckListItem> Items { get; private set; } = new List<CheckListItem>();
+
     [SerializeField] private CheckListItem _prefub;
-    [SerializeField] public List<CheckListItem> Items { get; private set; } = new List<CheckListItem>();
 
     private Transform _position;
     private Vector3 _pos = new Vector3();

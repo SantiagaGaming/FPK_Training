@@ -9,6 +9,7 @@ public class ResultController : MonoBehaviour
     [SerializeField] private View _view;
     [SerializeField] private CheckListManager _checkManager;
     [SerializeField] private HideController _hideController;
+    [SerializeField] private CameraChanger _cameraChanger;
 
     private List<string> _hidedObjects;
     private List<string> _checkedObjects = new List<string>();
@@ -37,6 +38,7 @@ public class ResultController : MonoBehaviour
         AddCheckedItems();
         _view.EnableCheckPanel(false);
         _view.EnableResultPanel(true);
+        _cameraChanger.CanTeleport = false;
         if(_gradle<0)
             _gradle = 0;
         _view.SetResultText(_gradle.ToString()+"%");
@@ -46,7 +48,6 @@ public class ResultController : MonoBehaviour
     {
         _gradle = 0;
         _checkedObjects.Clear();
-
         for (int i = 0; i < _checkManager.Items.Count; i++)
         {
             if (_checkManager.Items[i].Checked)
@@ -61,15 +62,12 @@ public class ResultController : MonoBehaviour
                         _hidedObjects.Remove(id);
                         _gradle += 20;
                     }
-                    
                     else
                     {
                         _gradle -= 20;
                         _nonCorrectList.Add(_translator.ObjectsRusNames[id]);
                     }
-                  
                 }
-            
             }   
         }
     }
@@ -77,34 +75,22 @@ public class ResultController : MonoBehaviour
     {
         if (_hidedObjects.Count < 1)
             return "";
-        else
-        {
             string notFound = "\nНе указано: \n";
             foreach (var item in _hidedObjects)
-            {
-                notFound += _translator.ObjectsRusNames[item] + ";\n";
-            }
+            notFound += _translator.ObjectsRusNames[item] + ";\n";
             return notFound;
-        }
     }
     private string SetNotFoundedeItems()
     {
         if (_nonCorrectList.Count < 1)
             return "";
-        else
-        {
             string notFound = "\nОшибочно указано: \n";
             foreach (var item in _nonCorrectList)
-            {
-                notFound += item + ";\n";
-            }
+            notFound += item + ";\n";
             return notFound;
-        }
     }
-
     private void OnExitGame()
     {
         Application.Quit();
     }
-
 }
