@@ -16,7 +16,7 @@ public class CheckListManager : MonoBehaviour
     private void Start()
     {
         _position = transform;
-        _pos = new Vector3(20, 80, 0);
+        _pos = new Vector3(33, 80, 0);
         StartCoroutine(InstatniateDelay());
     }
     private IEnumerator InstatniateDelay()

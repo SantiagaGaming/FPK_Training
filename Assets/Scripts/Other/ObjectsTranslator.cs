@@ -7,18 +7,18 @@ public class ObjectsTranslator
     public List<string> ObjectsWithId = new List<string>();
 	public ObjectsTranslator()
 	{
-		ObjectsRusNames.Add("gloves", "Перчатки");
-        ObjectsRusNames.Add("selfHelper", "Самоспасатель");
-        ObjectsRusNames.Add("firstAidKit", "Аптечка");
-        ObjectsRusNames.Add("journal", "Журнал технического состояния");
-        ObjectsRusNames.Add("lom", "Лом");
-        ObjectsRusNames.Add("hammer", "Молоток");
-        ObjectsRusNames.Add("fireExtinguisherSour", "Огнетушитель углекислотный");
-        ObjectsRusNames.Add("fireExtinguisherWater", "Огнетушитель водоэмульсионный");
-        ObjectsRusNames.Add("fresher", "Освежилье воздуха");
-        ObjectsRusNames.Add("glasses", "Очки");
-        ObjectsRusNames.Add("toiletPapper", "Бумажные полотенца");
-        ObjectsRusNames.Add("bedStuff", "Постельные принадлежности");
-        ObjectsRusNames.Add("rubbish", "Загрязнение в сливе");
+		ObjectsRusNames.Add("gloves", "Отсутствуют перчатки");
+        ObjectsRusNames.Add("selfHelper", "Отсутствует самоспасатель");
+        ObjectsRusNames.Add("firstAidKit", "Отсутствует аптечка");
+        ObjectsRusNames.Add("journal", "Отсутсвутет журнал технического состояния");
+        ObjectsRusNames.Add("lom", "Отсутствует лом");
+        ObjectsRusNames.Add("hammer", "Отсутствует молоток");
+        ObjectsRusNames.Add("fireExtinguisherSour", "Отсутствует огнетушитель углекислотный");
+        ObjectsRusNames.Add("fireExtinguisherWater", "Отсутствует огнетушитель водоэмульсионный");
+        ObjectsRusNames.Add("fresher", "Отсутствует освежитель воздуха");
+        ObjectsRusNames.Add("glasses", "Отсутствуют очки");
+        ObjectsRusNames.Add("toiletPapper", "Отсутствуют бумажные полотенца");
+        ObjectsRusNames.Add("bedStuff", "Отсутствуют постельные принадлежности");
+        ObjectsRusNames.Add("rubbish", "Присутствует загрязнение в сливе");
     }
 }

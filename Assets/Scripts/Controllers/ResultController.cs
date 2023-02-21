@@ -12,8 +12,15 @@ public class ResultController : MonoBehaviour
 
     private List<string> _hidedObjects;
     private List<string> _checkedObjects = new List<string>();
+    private List<string> _nonCorrectList= new List<string>();
+
+    private  ObjectsTranslator _translator;
 
     private int _gradle;
+    private void Start()
+    {
+        _translator = _checkManager.Translator;
+    }
     private void OnEnable()
     {
         _view.OnResultButtonTap += OnCompareIds;
@@ -27,35 +34,73 @@ public class ResultController : MonoBehaviour
     private void OnCompareIds()
     {
         _hidedObjects = _hideController.HidedObjectNames;
-        AddChechedItems();
+        AddCheckedItems();
         _view.EnableCheckPanel(false);
         _view.EnableResultPanel(true);
         if(_gradle<0)
             _gradle = 0;
-        _view.SetResultText(_gradle.ToString());
+        _view.SetResultText(_gradle.ToString()+"%" + SetNonCorrectItems()+ SetNotFoundedeItems());
     }
-    private void AddChechedItems()
+    private void AddCheckedItems()
     {
         _gradle = 0;
         _checkedObjects.Clear();
-        ObjectsTranslator translator = _checkManager.Translator;
+
         for (int i = 0; i < _checkManager.Items.Count; i++)
         {
             if (_checkManager.Items[i].Checked)
             {
                 string checkedId = _checkManager.Items[i].CheckName;
-                var id = translator.ObjectsRusNames.FirstOrDefault(i => i.Value == checkedId).Key;
+                var id = _translator.ObjectsRusNames.FirstOrDefault(i => i.Value == checkedId).Key;
                 if(id!=null)
                 {
                     _checkedObjects.Add(id);
-                    if(_hidedObjects.FirstOrDefault(i => i ==id)!=null)
+                    if (_hidedObjects.FirstOrDefault(i => i == id) != null)
+                    {
+                        _hidedObjects.Remove(id);
                         _gradle += 20;
-                    else _gradle -= 20;
+                    }
+                    
+                    else
+                    {
+                        _gradle -= 20;
+                        _nonCorrectList.Add(_translator.ObjectsRusNames[id]);
+                    }
+                  
                 }
             
             }   
         }
     }
+    private string SetNonCorrectItems()
+    {
+        if (_hidedObjects.Count < 1)
+            return "";
+        else
+        {
+            string notFound = "\nНе указано: \n";
+            foreach (var item in _hidedObjects)
+            {
+                notFound += _translator.ObjectsRusNames[item] + ";\n";
+            }
+            return notFound;
+        }
+    }
+    private string SetNotFoundedeItems()
+    {
+        if (_nonCorrectList.Count < 1)
+            return "";
+        else
+        {
+            string notFound = "\nОшибочно указано: \n";
+            foreach (var item in _nonCorrectList)
+            {
+                notFound += item + ";\n";
+            }
+            return notFound;
+        }
+    }
+
     private void OnExitGame()
     {
         Application.Quit();

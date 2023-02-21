@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -22,7 +23,10 @@ public class CheckListItem : MonoBehaviour
     }
     public void SetText(string text)
     {
-        _name.text = text;
+        var date = DateTime.Now;
+ 
+
+        _name.text = $"{date.ToString("dd/MM/yyyy")}       {text} ";
         CheckName = text;
     }
     private void Check()

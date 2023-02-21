@@ -31,6 +31,6 @@ public class View : MonoBehaviour
     }
     public void SetResultText(string text)
     {
-        _resultText.text = text+"%";
+        _resultText.text = text;
     }
 }
