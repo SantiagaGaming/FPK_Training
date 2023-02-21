@@ -5,13 +5,13 @@ using UnityEngine;
 public class CheckListManager : MonoBehaviour
 {
     [SerializeField] private CheckListItem _prefub;
+    [SerializeField] public List<CheckListItem> Items { get; private set; } = new List<CheckListItem>();
+
     private Transform _position;
     private Vector3 _pos = new Vector3();
     private float _step = 3.5f;
 
-
-    private ObjectsTranslator _translator= new ObjectsTranslator();
-
+    public ObjectsTranslator Translator { get; private set; } = new ObjectsTranslator();
 
     private void Start()
     {
@@ -26,16 +26,14 @@ public class CheckListManager : MonoBehaviour
     }
     private void Instantiate()
     {
-        for (int i = 0; i < 12; i++)
+        for (int i = 0; i <= 12; i++)
         {
            var temp = Instantiate(_prefub, _position);
             string tempName = SearchableObjectsHandler.Instance.SearchingList[i].GetObjectId;
-            temp.SetText(_translator.ObjectsRusNames[tempName]);
+            temp.SetText(Translator.ObjectsRusNames[tempName]);
+            Items.Add(temp);
             temp.transform.localPosition -= _pos;
             _pos.y -= _step;
-            Debug.Log(temp.transform.position);
         }
     }
-
-
 }

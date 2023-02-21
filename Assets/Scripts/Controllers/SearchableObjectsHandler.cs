@@ -5,8 +5,8 @@ using UnityEngine;
 public class SearchableObjectsHandler : MonoBehaviour
 {
     public static SearchableObjectsHandler Instance;
-
     public List<SearchableObject> SearchingList { get; private set; } = new List<SearchableObject>();
+
     private void Awake()
     {
         if (Instance == null)

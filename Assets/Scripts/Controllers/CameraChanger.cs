@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.iOS;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraChanger : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class CameraChanger : MonoBehaviour
     [SerializeField] private CameraFadeIn _cameraFadeIn;
     [SerializeField] private EscController _escControler;
     [SerializeField] private ModeController _modeController;
+    [SerializeField] private Image _knob;
     private bool _changed= true;
     private Vector3 _currentPlayerPosition = new Vector3();
     private void OnEnable()
@@ -27,11 +29,13 @@ public class CameraChanger : MonoBehaviour
         {
             TeleportToMenu();
             _changed= false;
+            _knob.enabled = false;
         }
         else
         {
             TeleportToPrevousLocation();
             _changed = true;
+            _knob.enabled = true;
         }
 
     }

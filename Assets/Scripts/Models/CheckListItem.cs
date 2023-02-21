@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class CheckListItem : MonoBehaviour
@@ -11,7 +12,10 @@ public class CheckListItem : MonoBehaviour
     [SerializeField] private Sprite _checkOutSprite;
     [SerializeField] private Image _currentSprite;
     [SerializeField] private Button _button;
+    public string CheckName { get; private set; }
+
     private bool _checked = false;
+    public bool Checked => _checked;
     private void Start()
     {
         _button.onClick.AddListener(Check);
@@ -19,6 +23,7 @@ public class CheckListItem : MonoBehaviour
     public void SetText(string text)
     {
         _name.text = text;
+        CheckName = text;
     }
     private void Check()
     {
