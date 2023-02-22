@@ -5429,7 +5429,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 863468185}
   m_LocalRotation: {x: -0.5356266, y: -0.4427772, z: -0.40515515, w: 0.5940555}
-  m_LocalPosition: {x: 0, y: 0, z: -40.2}
+  m_LocalPosition: {x: 0, y: 0, z: -39.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1815483695}
@@ -5439,7 +5439,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -84.367, y: -69.669, z: -4.114}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 40.6, y: -1045}
+  m_AnchoredPosition: {x: 38.8, y: -1025.9}
   m_SizeDelta: {x: 89.4166, y: 59.3812}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &863468187
@@ -15257,11 +15257,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1295665353, guid: 0ca0918b4ef944d268e55ca0c315c5d2, type: 3}
       propertyPath: field of view
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1295665353, guid: 0ca0918b4ef944d268e55ca0c315c5d2, type: 3}
       propertyPath: m_FOVAxisMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663682374864156162, guid: 0ca0918b4ef944d268e55ca0c315c5d2, type: 3}
+      propertyPath: m_Height
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 5515930709480862008, guid: 0ca0918b4ef944d268e55ca0c315c5d2, type: 3}
       propertyPath: jumpAction.m_UseReference
@@ -15273,7 +15277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7969288614997306578, guid: 0ca0918b4ef944d268e55ca0c315c5d2, type: 3}
       propertyPath: field of view
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7969288614997306578, guid: 0ca0918b4ef944d268e55ca0c315c5d2, type: 3}
       propertyPath: far clip plane
