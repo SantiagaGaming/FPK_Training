@@ -17,8 +17,13 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("fireExtinguisherWater", "Отсутствует огнетушитель водоэмульсионный");
         ObjectsRusNames.Add("fresher", "Отсутствует освежитель воздуха");
         ObjectsRusNames.Add("glasses", "Отсутствуют очки");
-        ObjectsRusNames.Add("toiletPapper", "Отсутствуют бумажные полотенца");
+        ObjectsRusNames.Add("toiletPapper", "Отсутствует туалетная бумага");
         ObjectsRusNames.Add("bedStuff", "Отсутствуют постельные принадлежности");
         ObjectsRusNames.Add("rubbish", "Присутствует загрязнение в сливе");
+        ObjectsRusNames.Add("zolnik", "Неисправно крепление дверки зольника");
+        ObjectsRusNames.Add("kotel", "Присутствует загрязнение в котле");
+        ObjectsRusNames.Add("sovok", "Отсутствует совок");
+        ObjectsRusNames.Add("crack", "Трещина на раковине");
+        ObjectsRusNames.Add("paper", "Отсутствуют бумажные полотенца");
     }
 }

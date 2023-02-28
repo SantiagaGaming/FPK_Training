@@ -17,7 +17,7 @@ public class CheckListManager : MonoBehaviour
     private void Start()
     {
         _position = transform;
-        _pos = new Vector3(33, 80, 0);
+        _pos = new Vector3(33, 90, 0);
         StartCoroutine(InstatniateDelay());
     }
     private IEnumerator InstatniateDelay()
@@ -27,7 +27,7 @@ public class CheckListManager : MonoBehaviour
     }
     private void Instantiate()
     {
-        for (int i = 0; i <= 12; i++)
+        for (int i = 0; i <= SearchableObjectsHandler.Instance.SearchingList.Count-1; i++)
         {
            var temp = Instantiate(_prefub, _position);
             string tempName = SearchableObjectsHandler.Instance.SearchingList[i].GetObjectId;
