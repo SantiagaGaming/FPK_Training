@@ -13,7 +13,7 @@ public class CameraChanger : MonoBehaviour
     [SerializeField] private CameraFadeIn _cameraFadeIn;
     [SerializeField] private EscController _escControler;
     [SerializeField] private ModeController _modeController;
-    [SerializeField] private ZoomController _zoomController;
+    [SerializeField] private Zoom _zoom;
     [SerializeField] private Image _knob;
 
     private Vector3 _currentPlayerPosition = new Vector3();
@@ -36,18 +36,20 @@ public class CameraChanger : MonoBehaviour
         _cameraFadeIn.FadeStart = true;
         if(_changed)
         {
+            Cursor.lockState = CursorLockMode.None;
             TeleportToMenu();
             _changed= false;
             _knob.enabled = false;
-            _zoomController.ResetZoomCamera();
-            _zoomController.CanZoom = false;
+            _zoom.ResetZoomCamera();
+            _zoom.CanZoom = false;
         }
         else
         {
+            Cursor.lockState = CursorLockMode.Locked;
             TeleportToPrevousLocation();
             _changed = true;
             _knob.enabled = true;
-            _zoomController.CanZoom = true;
+            _zoom.CanZoom = true;
         }
 
     }

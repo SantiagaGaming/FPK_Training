@@ -199,6 +199,7 @@ Transform:
   - {fileID: 179007333}
   - {fileID: 1418623592}
   - {fileID: 638876172}
+  - {fileID: 1430361076}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2924,7 +2925,7 @@ MonoBehaviour:
   _cameraFadeIn: {fileID: 402349218}
   _escControler: {fileID: 645923917}
   _modeController: {fileID: 179007334}
-  _zoomController: {fileID: 1619958857}
+  _zoom: {fileID: 1619958857}
   _knob: {fileID: 310663494}
 --- !u!1 &435192286 stripped
 GameObject:
@@ -14760,6 +14761,49 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a7584090db52c64dbe8c55e433a1e69, type: 3}
+--- !u!1 &1430361075
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1430361076}
+  - component: {fileID: 1430361077}
+  m_Layer: 0
+  m_Name: CursorLocker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1430361076
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430361075}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 25433603}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1430361077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430361075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 537595bcb16c40142829dac645254df0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1452951748 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1401623188736405647, guid: baee836940d127a4997c48401148bac6, type: 3}
@@ -15865,7 +15909,7 @@ GameObject:
   - component: {fileID: 1619958856}
   - component: {fileID: 1619958857}
   m_Layer: 0
-  m_Name: ZoomController
+  m_Name: Zoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15894,7 +15938,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1619958855}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e66067240c973e448ba1ef0ecfdfe5c, type: 3}
+  m_Script: {fileID: 11500000, guid: 44c29a7812ece0b4dba6e003c341825b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _wheelAction:
@@ -15903,7 +15947,7 @@ MonoBehaviour:
       m_Name: Wheel
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 654103d7-1398-49c8-8e62-15ca7d9a3cdf
+      m_Id: 1ffc15d7-661e-4307-97e1-583aee213573
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
