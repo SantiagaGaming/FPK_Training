@@ -44,7 +44,7 @@ public class ResultController : MonoBehaviour
             _gradle = 0;
         _view.SetResultText(_gradle.ToString()+"%");
         _view.SetResultCommentText(SetNonCorrectItems() + SetNotFoundedeItems());
-        string writeText = $"Иванов Олег Викторович \n оценка: {_gradle.ToString()} \n Ошибки: \n {SetNonCorrectItems()} \n {SetNotFoundedeItems()}";
+        string writeText = $"Иванов Олег Викторович \n Оценка: {_gradle.ToString()} \n Ошибки: \n {SetNonCorrectItems()} \n {SetNotFoundedeItems()}";
         _tempFileWriter = new TempFileWriter();
         _tempFileWriter.WriteFile(writeText);
     }
