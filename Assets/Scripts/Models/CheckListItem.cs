@@ -8,26 +8,31 @@ using UnityEngine.UI;
 
 public class CheckListItem : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _name;
+    [SerializeField] private TextMeshProUGUI _zoneName;
+    [SerializeField] private TextMeshProUGUI _objectname;
     [SerializeField] private Sprite _checkInSprite;
     [SerializeField] private Sprite _checkOutSprite;
     [SerializeField] private Image _currentSprite;
-    [SerializeField] private Button _button;
+    [SerializeField] private GameObject _button;
+    [HideInInspector] public bool Enabled { get; private set; } = true;
+
+    [HideInInspector] public SearchableObject SearchableObject { get; set; }
     public string CheckName { get; private set; }
 
     private bool _checked = false;
     public bool Checked => _checked;
     private void Start()
     {
-        _button.onClick.AddListener(Check);
+        _button.GetComponent<Button>().onClick.AddListener(Check);
     }
-    public void SetText(string text)
+    public void SetText(string zoneName,string objectName)
     {
         var date = DateTime.Now;
  
 
-        _name.text = $"{date.ToString("dd/MM/yyyy")}       {text} ";
-        CheckName = text;
+        _zoneName.text = $"{date.ToString("dd/MM/yyyy")}  {zoneName}";
+        _objectname.text = objectName;
+        CheckName = objectName;
     }
     private void Check()
     {
@@ -41,5 +46,12 @@ public class CheckListItem : MonoBehaviour
             _currentSprite.sprite = _checkOutSprite;
             _checked = false;
         }
+    }
+    public void EnableCheckItem(bool value)
+    {
+        _zoneName.enabled = value;
+        _objectname.enabled = value;
+       _button.SetActive(value);
+        Enabled= value;
     }
 }

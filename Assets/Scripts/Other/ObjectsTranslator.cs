@@ -25,5 +25,13 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("sovok", "Отсутствует совок");
         ObjectsRusNames.Add("crack", "Трещина на раковине");
         ObjectsRusNames.Add("paper", "Отсутствуют бумажные полотенца");
+
+        ObjectsRusNames.Add("Kotel", "Котловое отделение");
+        ObjectsRusNames.Add("WC", "Санитарный узел");
+        ObjectsRusNames.Add("Koridor", "Коридор");
+        ObjectsRusNames.Add("SmallKoridor", "Малый коридор");
+        ObjectsRusNames.Add("ObliqueKoridor", "Косой коридор");
+        ObjectsRusNames.Add("CoupeSleep", "Купе проводника(отдыха)");
+        ObjectsRusNames.Add("CoupeOfficial", "Купе проводника(служебное)");
     }
 }

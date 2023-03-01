@@ -1,12 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+public enum RoomName 
+{ 
+    None,
+    Kotel,
+    Koridor,
+    SmallKoridor,
+    ObliqueKoridor,
+    WC,
+    CoupeSleep,
+    CoupeOfficial
+}
 
 public abstract class SearchableObject : MonoBehaviour
 {
     [SerializeField] protected string ObjectId;
 
     [SerializeField] protected GameObject Obj;
+    [SerializeField] protected RoomName RoomName;
+    public RoomName GetRoomName => RoomName;
 
     public string GetObjectId => ObjectId;
     protected void Start()

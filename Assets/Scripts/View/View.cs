@@ -13,6 +13,7 @@ public class View : MonoBehaviour
     [SerializeField] private Button _resultButton;
     [SerializeField] private Button _exitButton;
     [SerializeField] private TextMeshProUGUI _resultText;
+    [SerializeField] private TextMeshProUGUI _zoneText;
     [SerializeField] private TextMeshProUGUI _resultCommentText;
 
     [SerializeField] private GameObject _checkPanel;
@@ -37,5 +38,9 @@ public class View : MonoBehaviour
     public void SetResultCommentText(string text)
     {
         _resultCommentText.text = text;
+    }
+    public void SetZoneText(string text)
+    {
+       _zoneText.text = text;
     }
 }

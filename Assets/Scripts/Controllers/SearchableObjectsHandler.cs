@@ -5,7 +5,9 @@ using UnityEngine;
 public class SearchableObjectsHandler : MonoBehaviour
 {
     public static SearchableObjectsHandler Instance;
+    [HideInInspector] public RoomName CurrentRoom { get; set; } = RoomName.None;
     public List<SearchableObject> SearchingList { get; private set; } = new List<SearchableObject>();
+
 
     private void Awake()
     {

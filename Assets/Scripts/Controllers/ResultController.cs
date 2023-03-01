@@ -89,6 +89,13 @@ public class ResultController : MonoBehaviour
             notFound += item + ";\n";
             return notFound;
     }
+    public void SetZoneText(RoomName name)
+    {
+        if(name ==RoomName.None)
+            _view.SetZoneText("");
+        else
+        _view.SetZoneText(_translator.ObjectsRusNames[name.ToString()]);
+    }
     private void OnExitGame()
     {
         Application.Quit();
