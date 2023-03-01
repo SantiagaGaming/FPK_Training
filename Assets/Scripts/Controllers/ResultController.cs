@@ -16,6 +16,7 @@ public class ResultController : MonoBehaviour
     private List<string> _nonCorrectList= new List<string>();
 
     private  ObjectsTranslator _translator;
+    private TempFileWriter _tempFileWriter;
 
     private int _gradle;
     private void Start()
@@ -43,6 +44,9 @@ public class ResultController : MonoBehaviour
             _gradle = 0;
         _view.SetResultText(_gradle.ToString()+"%");
         _view.SetResultCommentText(SetNonCorrectItems() + SetNotFoundedeItems());
+        string writeText = $"Иванов Олег Викторович \n оценка: {_gradle.ToString()} \n Ошибки: \n {SetNonCorrectItems()} \n {SetNotFoundedeItems()}";
+        _tempFileWriter = new TempFileWriter();
+        _tempFileWriter.WriteFile(writeText);
     }
     private void AddCheckedItems()
     {
