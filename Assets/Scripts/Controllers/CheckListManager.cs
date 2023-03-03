@@ -19,7 +19,6 @@ public class CheckListManager : MonoBehaviour
     private void Start()
     {
         _position = transform;
-        _pos = new Vector3(33, 100, 0);
         StartCoroutine(InstatniateDelay());
     }
     private IEnumerator InstatniateDelay()
@@ -39,8 +38,6 @@ public class CheckListManager : MonoBehaviour
             string objectName = Translator.ObjectsRusNames[tempObject.GetObjectId];
             temp.SetText(zoneName, objectName);
             Items.Add(temp);
-            temp.transform.localPosition -= _pos;
-            _pos.y -= _step;
         }
     }
     public void Instantiate(RoomName currentRoom)
@@ -50,7 +47,9 @@ public class CheckListManager : MonoBehaviour
         {
             foreach (var item in Items)
             {
-                item.EnableCheckItem(true);
+                if (item.Checked)
+                    item.EnableCheckItem(true);
+                else item.EnableCheckItem(false);
             }
         }
         else
@@ -66,6 +65,21 @@ public class CheckListManager : MonoBehaviour
 
             }
         }
+        SortItems();
+    }
+    private void SortItems()
+    {
+        _pos = new Vector3(60, 20, 0);
+        foreach (var item in Items)
+        {
+           if(item.Enabled)
+            {
+                item.transform.position =transform.position;
+                item.transform.localPosition -= _pos;
+                _pos.y += _step;
+            }
+            else item.transform.position = transform.position;
+            }
     }
   }
 

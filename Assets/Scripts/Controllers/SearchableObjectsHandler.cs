@@ -7,7 +7,7 @@ public class SearchableObjectsHandler : MonoBehaviour
     public static SearchableObjectsHandler Instance;
     [HideInInspector] public RoomName CurrentRoom { get; set; } = RoomName.None;
     public List<SearchableObject> SearchingList { get; private set; } = new List<SearchableObject>();
-
+    public List<SearchableObject> HidedList { get; private set; } = new List<SearchableObject>();
 
     private void Awake()
     {
@@ -25,6 +25,7 @@ public class SearchableObjectsHandler : MonoBehaviour
             return null;
             string objectName = obj.GetObjectId;
             obj.EnableObject(false);
+            HidedList.Add(obj);
             SearchingList.Remove(obj);
             return objectName;       
     }

@@ -1,8 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class ResultController : MonoBehaviour
 {
@@ -10,6 +10,8 @@ public class ResultController : MonoBehaviour
     [SerializeField] private CheckListManager _checkManager;
     [SerializeField] private HideController _hideController;
     [SerializeField] private CameraChanger _cameraChanger;
+    public DateTime StartTime { get; set; }
+    public DateTime EndTime { get; set; }
 
     private List<string> _hidedObjects;
     private List<string> _checkedObjects = new List<string>();
@@ -35,6 +37,7 @@ public class ResultController : MonoBehaviour
     }
     private void OnCompareIds()
     {
+        EndTime = DateTime.Now;
         _hidedObjects = _hideController.HidedObjectNames;
         AddCheckedItems();
         _view.EnableCheckPanel(false);
@@ -43,8 +46,9 @@ public class ResultController : MonoBehaviour
         if(_gradle<0)
             _gradle = 0;
         _view.SetResultText(_gradle.ToString()+"%");
-        _view.SetResultCommentText(SetNonCorrectItems() + SetNotFoundedeItems());
-        string writeText = $"Иванов Олег Викторович \n Оценка: {_gradle.ToString()} \n Ошибки: \n {SetNonCorrectItems()} \n {SetNotFoundedeItems()}";
+        _view.SetResultCommentText($"\nНачал выполенение: {StartTime}\nЗакончил выполенение: {EndTime} {SetNonCorrectItems()}{SetNotFoundedeItems()}");
+        string writeText = $"Иванов Олег Викторович \n Оценка: {_gradle.ToString()}\n Начал выполенение: {StartTime}\n Закончил выполенение: {EndTime} \n Ошибки: \n {SetNonCorrectItems()} \n {SetNotFoundedeItems()}";
+
         _tempFileWriter = new TempFileWriter();
         _tempFileWriter.WriteFile(writeText);
     }
@@ -58,7 +62,8 @@ public class ResultController : MonoBehaviour
             {
                 string checkedId = _checkManager.Items[i].CheckName;
                 var id = _translator.ObjectsRusNames.FirstOrDefault(i => i.Value == checkedId).Key;
-                if(id!=null)
+                var roomName = SearchableObjectsHandler.Instance.SearchingList.FirstOrDefault(i=> i.GetObjectId == id);
+                if (id!=null)
                 {
                     _checkedObjects.Add(id);
                     if (_hidedObjects.FirstOrDefault(i => i == id) != null)
@@ -69,7 +74,7 @@ public class ResultController : MonoBehaviour
                     else
                     {
                         _gradle -= 20;
-                        _nonCorrectList.Add(_translator.ObjectsRusNames[id]);
+                        _nonCorrectList.Add(_translator.ObjectsRusNames[roomName.GetRoomName.ToString()]+": " + _translator.ObjectsRusNames[id]);
                     }
                 }
             }   
@@ -80,9 +85,12 @@ public class ResultController : MonoBehaviour
         if (_hidedObjects.Count < 1)
             return "";
             string notFound = "\nНе указано: \n";
-            foreach (var item in _hidedObjects)
-            notFound += _translator.ObjectsRusNames[item] + ";\n";
-            return notFound;
+        foreach (var item in _hidedObjects)
+        {
+           var roomName = SearchableObjectsHandler.Instance.HidedList.FirstOrDefault(i => i.GetObjectId == item);
+            notFound += _translator.ObjectsRusNames[roomName.GetRoomName.ToString()]+ ": " + _translator.ObjectsRusNames[item] + ";\n";
+        }
+           return notFound;
     }
     private string SetNotFoundedeItems()
     {
@@ -95,9 +103,6 @@ public class ResultController : MonoBehaviour
     }
     public void SetZoneText(RoomName name)
     {
-        if(name ==RoomName.None)
-            _view.SetZoneText("");
-        else
         _view.SetZoneText(_translator.ObjectsRusNames[name.ToString()]);
     }
     private void OnExitGame()

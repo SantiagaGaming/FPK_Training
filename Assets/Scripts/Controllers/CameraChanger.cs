@@ -1,7 +1,6 @@
 using AosSdk.Core.PlayerModule;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.iOS;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,20 +36,16 @@ public class CameraChanger : MonoBehaviour
         _cameraFadeIn.FadeStart = true;
         if(_changed)
         {
-            Cursor.lockState = CursorLockMode.None;
             _checkListManager.Instantiate(SearchableObjectsHandler.Instance.CurrentRoom);
             TeleportToMenu();
             _changed= false;
-            _knob.enabled = false;
             _zoom.ResetZoomCamera();
             _zoom.CanZoom = false;
         }
         else
         {
-            Cursor.lockState = CursorLockMode.Locked;
             TeleportToPrevousLocation();
             _changed = true;
-            _knob.enabled = true;
             _zoom.CanZoom = true;
         }
 

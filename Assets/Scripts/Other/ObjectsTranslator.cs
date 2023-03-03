@@ -4,7 +4,6 @@ using System.Collections.Generic;
 public class ObjectsTranslator 
 {
     public Dictionary<string, string> ObjectsRusNames { get; private set; } = new Dictionary<string, string>();
-    public List<string> ObjectsWithId = new List<string>();
 	public ObjectsTranslator()
 	{
 		ObjectsRusNames.Add("gloves", "Отсутствуют перчатки");
@@ -33,5 +32,6 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("ObliqueKoridor", "Косой коридор");
         ObjectsRusNames.Add("CoupeSleep", "Купе проводника(отдыха)");
         ObjectsRusNames.Add("CoupeOfficial", "Купе проводника(служебное)");
+        ObjectsRusNames.Add("None", "Выбранные неисправности:");
     }
 }
