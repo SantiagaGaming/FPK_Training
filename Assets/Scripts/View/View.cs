@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,21 +9,43 @@ using UnityEngine.UI;
 public class View : MonoBehaviour
 {
     public UnityAction OnResultButtonTap;
+    public UnityAction OnSumbitButtonTap;
     public UnityAction OnExitButtonTap;
+    public UnityAction OnBackButtonTap;
 
-    [SerializeField] private Button _resultButton;
-    [SerializeField] private Button _exitButton;
+    [SerializeField] private GameObject _resultButton;
+    [SerializeField] private GameObject _submitButton;
+    [SerializeField] private GameObject _backButton;
+    [SerializeField] private GameObject _exitButton;
     [SerializeField] private TextMeshProUGUI _resultText;
     [SerializeField] private TextMeshProUGUI _zoneText;
     [SerializeField] private TextMeshProUGUI _resultCommentText;
 
     [SerializeField] private GameObject _checkPanel;
+    [SerializeField] private GameObject _checkText;
     [SerializeField] private GameObject _resultPanel;
     private void Start()
     {
-      _resultButton.onClick.AddListener(OnResultButtonTap);
-      _exitButton.onClick.AddListener(OnExitButtonTap);
+      _resultButton.GetComponent<Button>().onClick.AddListener(OnResultButtonTap);
+      _exitButton.GetComponent<Button>().onClick.AddListener(OnExitButtonTap);
+      _submitButton.GetComponent<Button>().onClick.AddListener(OnSumbitButtonTap);
+      _backButton.GetComponent<Button>().onClick.AddListener(OnBackButtonTap);
     }
+    public void EnableCheckObjects()
+    {
+        _submitButton.SetActive(false);
+        _resultButton.SetActive(true);
+        _backButton.SetActive(true);
+        _checkText.SetActive(true);
+    }
+    public void DisableCheckObjects()
+    {
+        _submitButton.SetActive(true);
+        _resultButton.SetActive(false);
+        _backButton.SetActive(false);
+        _checkText.SetActive(false);
+    }
+
     public void EnableCheckPanel(bool value)
     {
         _checkPanel.SetActive(value);

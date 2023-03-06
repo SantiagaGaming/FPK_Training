@@ -27,19 +27,33 @@ public class ResultController : MonoBehaviour
     }
     private void OnEnable()
     {
+        _view.OnSumbitButtonTap += OnSubmit;
         _view.OnResultButtonTap += OnCompareIds;
         _view.OnExitButtonTap += OnExitGame;
+        _view.OnBackButtonTap += OnBack;
     }
     private void OnDisable()
     {
+        _view.OnSumbitButtonTap -= OnSubmit;
         _view.OnResultButtonTap -= OnCompareIds;
         _view.OnExitButtonTap -= OnExitGame;
+        _view.OnBackButtonTap -= OnBack;
+    }
+    private void OnBack()
+    {
+        _view.DisableCheckObjects();
+    }
+    private void OnSubmit()
+    {
+        SearchableObjectsHandler.Instance.CurrentRoom = RoomName.None;
+        _checkManager.Instantiate(SearchableObjectsHandler.Instance.CurrentRoom);
+        _view.EnableCheckObjects();
     }
     private void OnCompareIds()
     {
         EndTime = DateTime.Now;
         _hidedObjects = _hideController.HidedObjectNames;
-        AddCheckedItems();
+        OnAddCheckedItems();
         _view.EnableCheckPanel(false);
         _view.EnableResultPanel(true);
         _cameraChanger.CanTeleport = false;
@@ -52,7 +66,7 @@ public class ResultController : MonoBehaviour
         _tempFileWriter = new TempFileWriter();
         _tempFileWriter.WriteFile(writeText);
     }
-    private void AddCheckedItems()
+    private void OnAddCheckedItems()
     {
         _gradle = 0;
         _checkedObjects.Clear();

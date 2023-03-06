@@ -8,6 +8,7 @@ public class CameraChanger : MonoBehaviour
 {
     [HideInInspector] public bool CanTeleport = true;
 
+    [SerializeField] private View _view;
     [SerializeField] private Transform _menuPosition;
     [SerializeField] private CameraFadeIn _cameraFadeIn;
     [SerializeField] private EscController _escControler;
@@ -24,10 +25,12 @@ public class CameraChanger : MonoBehaviour
     private void OnEnable()
     {
         _escControler.OnMenuEvent += OnEscClick;
+        _view.OnBackButtonTap += OnEscClick;
     }
     private void OnDisable()
     {
         _escControler.OnMenuEvent -= OnEscClick;
+        _view.OnBackButtonTap -= OnEscClick;
     }
     private void OnEscClick()
     {
