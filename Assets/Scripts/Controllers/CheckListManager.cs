@@ -11,6 +11,7 @@ public class CheckListManager : MonoBehaviour
     [SerializeField] private ResultController _resultController;
 
     private Transform _position;
+    private Vector3 _yPoz = new Vector3(0, 150, 0);
     private Vector3 _pos;
     private float _step = 3.5f;
 
@@ -32,6 +33,7 @@ public class CheckListManager : MonoBehaviour
         for (int i = 0; i <= SortedList.Count - 1; i++)
         {
             var temp = Instantiate(_prefub, _position);
+            temp.transform.position += _yPoz;
             var tempObject = SortedList[i];
             temp.SearchableObject = tempObject;
             string zoneName = Translator.ObjectsRusNames[tempObject.GetRoomName.ToString()];
@@ -78,7 +80,7 @@ public class CheckListManager : MonoBehaviour
                 item.transform.localPosition -= _pos;
                 _pos.y += _step;
             }
-            else item.transform.position = transform.position;
+            else item.transform.position = transform.position + _yPoz;
             }
     }
   }

@@ -10,6 +10,7 @@ public class ResultController : MonoBehaviour
     [SerializeField] private CheckListManager _checkManager;
     [SerializeField] private HideController _hideController;
     [SerializeField] private CameraChanger _cameraChanger;
+    [SerializeField] private EscController _escController;
     public DateTime StartTime { get; set; }
     public DateTime EndTime { get; set; }
 
@@ -31,6 +32,7 @@ public class ResultController : MonoBehaviour
         _view.OnResultButtonTap += OnCompareIds;
         _view.OnExitButtonTap += OnExitGame;
         _view.OnBackButtonTap += OnBack;
+        _escController.OnMenuEvent += OnBack;
     }
     private void OnDisable()
     {
@@ -38,6 +40,7 @@ public class ResultController : MonoBehaviour
         _view.OnResultButtonTap -= OnCompareIds;
         _view.OnExitButtonTap -= OnExitGame;
         _view.OnBackButtonTap -= OnBack;
+        _escController.OnMenuEvent -= OnBack;
     }
     private void OnBack()
     {
@@ -59,8 +62,8 @@ public class ResultController : MonoBehaviour
         _cameraChanger.CanTeleport = false;
         if(_gradle<0)
             _gradle = 0;
-        _view.SetResultText(_gradle.ToString()+"%");
-        _view.SetResultCommentText($"\nНачал выполенение: {StartTime}\nЗакончил выполенение: {EndTime} {SetNonCorrectItems()}{SetNotFoundedeItems()}");
+        _view.SetResultText($"Иванов Олег Викторович\n{_gradle.ToString()}%");
+        _view.SetResultCommentText($"\nНачал выполенение: {StartTime}\nЗакончил выполенение: {EndTime} \nВремя выполнения: {EndTime-StartTime} \n {SetNonCorrectItems()}{SetNotFoundedeItems()}");
         string writeText = $"Иванов Олег Викторович \n Оценка: {_gradle.ToString()}\n Начал выполенение: {StartTime}\n Закончил выполенение: {EndTime} \n Ошибки: \n {SetNonCorrectItems()} \n {SetNotFoundedeItems()}";
 
         _tempFileWriter = new TempFileWriter();

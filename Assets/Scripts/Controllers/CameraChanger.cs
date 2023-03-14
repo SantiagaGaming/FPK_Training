@@ -16,6 +16,7 @@ public class CameraChanger : MonoBehaviour
     [SerializeField] private CheckListManager _checkListManager;
     [SerializeField] private Zoom _zoom;
     [SerializeField] private Image _knob;
+    [SerializeField] private CursorManager _cursorManager;
 
     private Vector3 _currentPlayerPosition = new Vector3();
 
@@ -39,6 +40,7 @@ public class CameraChanger : MonoBehaviour
         _cameraFadeIn.FadeStart = true;
         if(_changed)
         {
+            _cursorManager.Locked = false;
             _checkListManager.Instantiate(SearchableObjectsHandler.Instance.CurrentRoom);
             TeleportToMenu();
             _changed= false;
@@ -49,13 +51,14 @@ public class CameraChanger : MonoBehaviour
         {
             TeleportToPrevousLocation();
             _changed = true;
+            _cursorManager.Locked = true;
             _zoom.CanZoom = true;
         }
 
     }
     private void TeleportToMenu()
     {
-        _currentPlayerPosition = new Vector3(_modeController.GetPlayerTransform().position.x, 2.8f, _modeController.GetPlayerTransform().position.z);
+        _currentPlayerPosition = new Vector3(_modeController.GetPlayerTransform().position.x, 2f, _modeController.GetPlayerTransform().position.z);
         var playerInstance = Player.Instance;
         playerInstance.transform.rotation = Quaternion.Euler(0,0,0);
         playerInstance.TeleportTo(_menuPosition);
