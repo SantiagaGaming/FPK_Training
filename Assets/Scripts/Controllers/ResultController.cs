@@ -75,7 +75,6 @@ public class ResultController : MonoBehaviour
 
         _tempFileWriter = new TempFileWriter();
         _tempFileWriter.WriteFile(writeText);
-        Debug.Log(_tempFileWriter.FilePath);
     }
     private void OnAddCheckedItems()
     {
