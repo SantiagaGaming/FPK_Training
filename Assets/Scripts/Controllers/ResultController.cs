@@ -13,6 +13,7 @@ public class ResultController : MonoBehaviour
     [SerializeField] private EscController _escController;
     public DateTime StartTime { get; set; }
     public DateTime EndTime { get; set; }
+     
 
     private List<string> _hidedObjects;
     private List<string> _checkedObjects = new List<string>();
@@ -55,6 +56,12 @@ public class ResultController : MonoBehaviour
     private void OnCompareIds()
     {
         EndTime = DateTime.Now;
+        var resultTime = EndTime - StartTime;
+         DateParser dataParser = new DateParser(resultTime);
+        var resultTimeString = dataParser.ParserTime();
+
+
+
         _hidedObjects = _hideController.HidedObjectNames;
         OnAddCheckedItems();
         _view.EnableCheckPanel(false);
@@ -63,11 +70,12 @@ public class ResultController : MonoBehaviour
         if(_gradle<0)
             _gradle = 0;
         _view.SetResultText($"Иванов Олег Викторович\n{_gradle.ToString()}%");
-        _view.SetResultCommentText($"\nНачал выполенение: {StartTime}\nЗакончил выполенение: {EndTime} \nВремя выполнения: {EndTime-StartTime} \n {SetNonCorrectItems()}{SetNotFoundedeItems()}");
+        _view.SetResultCommentText($"\nНачал выполенение: {StartTime}\nЗакончил выполенение: {EndTime} \nВремя выполнения: {resultTimeString} \n {SetNonCorrectItems()}{SetNotFoundedeItems()}");
         string writeText = $"Иванов Олег Викторович \n Оценка: {_gradle.ToString()}\n Начал выполенение: {StartTime}\n Закончил выполенение: {EndTime} \n Ошибки: \n {SetNonCorrectItems()} \n {SetNotFoundedeItems()}";
 
         _tempFileWriter = new TempFileWriter();
         _tempFileWriter.WriteFile(writeText);
+        Debug.Log(_tempFileWriter.FilePath);
     }
     private void OnAddCheckedItems()
     {
