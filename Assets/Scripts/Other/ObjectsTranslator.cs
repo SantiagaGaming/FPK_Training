@@ -24,7 +24,15 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("sovok", "Отсутствует совок");
         ObjectsRusNames.Add("crack", "Трещина на раковине");
         ObjectsRusNames.Add("paper", "Отсутствуют бумажные полотенца");
-        ObjectsRusNames.Add("paddle", "Присутствует течь крана");
+        ObjectsRusNames.Add("paddle", "Присутствует течь крана"); 
+        ObjectsRusNames.Add("plomba", "Отсутствует пломба на стоп кране");
+        ObjectsRusNames.Add("firehose", "Рукав не скручен на бобину");
+        ObjectsRusNames.Add("mainPlomba", "Отсутствует пломба на стоп кране ");
+        ObjectsRusNames.Add("fastening", "Сломано крепление для каната");
+        ObjectsRusNames.Add("cheka", "Отсутствие чеки углекислотного огнетушителя");
+        ObjectsRusNames.Add("garbageBag", "Отсутствует металический вкладыш для мусора");
+
+
 
         ObjectsRusNames.Add("Kotel", "Котловое отделение");
         ObjectsRusNames.Add("WC", "Санитарный узел");

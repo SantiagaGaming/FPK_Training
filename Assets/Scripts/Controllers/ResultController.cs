@@ -54,7 +54,7 @@ public class ResultController : MonoBehaviour
         _view.EnableCheckObjects();
     }
     private void OnCompareIds()
-    {
+    { 
         EndTime = DateTime.Now;
         var resultTime = EndTime - StartTime;
          DateParser dataParser = new DateParser(resultTime);
