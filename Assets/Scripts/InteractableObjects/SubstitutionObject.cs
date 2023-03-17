@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HideableObject : SearchableObject
-{ 
-
-
+public class SubstitutionObject : HideableObject
+{
+    [SerializeField] private GameObject _objToHide;
     public override void EnableObject(bool value)
     {
         base.EnableObject(value);
-        Obj.SetActive(!value);
+        _objToHide.SetActive(value);
+        
     }
+
+
 }
+    
