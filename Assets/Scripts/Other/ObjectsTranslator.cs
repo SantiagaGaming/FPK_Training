@@ -32,6 +32,7 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("cheka", "Отсутствие чеки углекислотного огнетушителя");
         ObjectsRusNames.Add("garbageBag", "Отсутствует металический вкладыш для мусора");
         ObjectsRusNames.Add("mirror", "Отсутствует зеркало");
+        ObjectsRusNames.Add("temperature", "Кипятильнок (термопот) не греется");
 
 
 
