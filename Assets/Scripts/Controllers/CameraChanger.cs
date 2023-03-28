@@ -58,7 +58,7 @@ public class CameraChanger : MonoBehaviour
     }
     private void TeleportToMenu()
     {
-        _currentPlayerPosition = new Vector3(_modeController.GetPlayerTransform().position.x, 2f, _modeController.GetPlayerTransform().position.z);
+        _currentPlayerPosition = new Vector3(_modeController.GetPlayerTransform().position.x, 1.5f, _modeController.GetPlayerTransform().position.z);
         var playerInstance = Player.Instance;
         playerInstance.transform.rotation = Quaternion.Euler(0,0,0);
         playerInstance.TeleportTo(_menuPosition);
