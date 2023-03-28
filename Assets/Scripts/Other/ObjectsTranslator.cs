@@ -6,7 +6,7 @@ public class ObjectsTranslator
     public Dictionary<string, string> ObjectsRusNames { get; private set; } = new Dictionary<string, string>();
 	public ObjectsTranslator()
 	{
-		ObjectsRusNames.Add("gloves", "Отсутствуют перчатки");
+		ObjectsRusNames.Add("gloves", "Отсутствуют рукавицы");
         ObjectsRusNames.Add("selfHelper", "Отсутствует самоспасатель");
         ObjectsRusNames.Add("firstAidKit", "Отсутствует аптечка");
         ObjectsRusNames.Add("journal", "Отсутсвутет журнал технического состояния");
@@ -32,8 +32,14 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("cheka", "Отсутствие чеки углекислотного огнетушителя");
         ObjectsRusNames.Add("garbageBag", "Отсутствует металический вкладыш для мусора");
         ObjectsRusNames.Add("mirror", "Отсутствует зеркало");
-        ObjectsRusNames.Add("temperature", "Кипятильнок (термопот) не греется");
-
+        ObjectsRusNames.Add("temperature", "Не греется кипятильник (термопот) ");
+        ObjectsRusNames.Add("mallet", "Отсутствует киянка");
+        ObjectsRusNames.Add("halfGlass", "Отсутствует подстаканник");
+        ObjectsRusNames.Add("cutter", "Отсутствует резак");
+        ObjectsRusNames.Add("cleaningStuff", "Отсутствуют средства для уборки");
+        ObjectsRusNames.Add("cup", "Отсутствует стакан");
+        ObjectsRusNames.Add("eatingStuff", "Отсутствуют столовые приборы");
+        ObjectsRusNames.Add("plate", "Отсутствует тарелка");
 
 
         ObjectsRusNames.Add("Kotel", "Котловое отделение");
@@ -43,6 +49,8 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("ObliqueKoridor", "Косой коридор");
         ObjectsRusNames.Add("CoupeSleep", "Купе проводника(отдыха)");
         ObjectsRusNames.Add("CoupeOfficial", "Купе проводника(служебное)");
+        ObjectsRusNames.Add("VestibuleWorking", "Тамбур рабочий");
+        ObjectsRusNames.Add("VestibuleNonWorking", "Тамбур нерабочий");
         ObjectsRusNames.Add("None", "Выбранные неисправности:");
     }
 }

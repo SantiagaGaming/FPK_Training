@@ -10,7 +10,9 @@ public enum RoomName
     ObliqueKoridor,
     WC,
     CoupeSleep,
-    CoupeOfficial
+    CoupeOfficial,
+    VestibuleWorking,
+    VestibuleNonWorking
 }
 
 public abstract class SearchableObject : MonoBehaviour
