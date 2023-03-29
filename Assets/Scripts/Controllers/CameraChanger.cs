@@ -54,13 +54,12 @@ public class CameraChanger : MonoBehaviour
             _cursorManager.Locked = true;
             _zoom.CanZoom = true;
         }
-
     }
     private void TeleportToMenu()
     {
         _currentPlayerPosition = new Vector3(_modeController.GetPlayerTransform().position.x, 1.5f, _modeController.GetPlayerTransform().position.z);
         var playerInstance = Player.Instance;
-        playerInstance.transform.rotation = Quaternion.Euler(0,0,0);
+        playerInstance.transform.rotation = Quaternion.Euler(0, 0, 0);
         playerInstance.TeleportTo(_menuPosition);
         playerInstance.CanMove = false;
         playerInstance.CursorLockMode = CursorLockMode.Locked;
@@ -75,6 +74,4 @@ public class CameraChanger : MonoBehaviour
         playerInstance.CanMove = true;
         playerInstance.CursorLockMode = CursorLockMode.None;
     }
-
-
 }

@@ -6507,16 +6507,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 234994185}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2e3a57676ef94f4fbadfbc478dc0e46, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e185ae2501e8c942ad35eb289499a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outlineObjects:
-  - {fileID: 234994189}
-  - {fileID: 1510615277}
+  outlineObjects: []
   handle: {fileID: 1510615273}
   _inside: 0
   _x: 0
   _down: 1
+  _rotateValue: 80
 --- !u!65 &234994191
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27103,8 +27102,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 1.611362}
+  m_Center: {x: 0, y: 0, z: -0.305681}
 --- !u!23 &1088098741
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -51449,7 +51448,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1499099809}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2e3a57676ef94f4fbadfbc478dc0e46, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e185ae2501e8c942ad35eb289499a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   outlineObjects: []
@@ -51457,6 +51456,7 @@ MonoBehaviour:
   _inside: 1
   _x: 0
   _down: 0
+  _rotateValue: 85
 --- !u!65 &1499099812
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -69502,16 +69502,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2121390023}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2e3a57676ef94f4fbadfbc478dc0e46, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e185ae2501e8c942ad35eb289499a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outlineObjects:
-  - {fileID: 2121390028}
-  - {fileID: 284366848}
+  outlineObjects: []
   handle: {fileID: 284366844}
   _inside: 1
   _x: 0
   _down: 0
+  _rotateValue: 80
 --- !u!1 &2124694452 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2874364521826644847, guid: baee836940d127a4997c48401148bac6, type: 3}
