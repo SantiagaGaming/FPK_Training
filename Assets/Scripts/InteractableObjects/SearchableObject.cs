@@ -12,7 +12,8 @@ public enum RoomName
     CoupeSleep,
     CoupeOfficial,
     VestibuleWorking,
-    VestibuleNonWorking
+    VestibuleNonWorking,
+    WagonOutside
 }
 
 public abstract class SearchableObject : MonoBehaviour

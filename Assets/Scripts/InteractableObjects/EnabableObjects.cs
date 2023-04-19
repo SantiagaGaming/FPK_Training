@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Progress;
 
-public class EnababaleObjects : SearchableObject
+public class EnabableObjects : SearchableObject
 {
     [SerializeField] private GameObject[] _objects;
     public override void EnableObject(bool value)

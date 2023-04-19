@@ -40,6 +40,12 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("cup", "Отсутствует стакан");
         ObjectsRusNames.Add("eatingStuff", "Отсутствуют столовые приборы");
         ObjectsRusNames.Add("plate", "Отсутствует тарелка");
+        ObjectsRusNames.Add("stairsPlomba", "Отсутствует пломба на лестнице");
+        ObjectsRusNames.Add("plombaObliqueKoridor", "Отсутствие пломбы огнетушителя");
+        ObjectsRusNames.Add("chekaObliqueKoridor", "Отсутствие чеки огнетушителя");
+        ObjectsRusNames.Add("zolnikDirt", "Присутствует загрязнение в зольнике");
+        ObjectsRusNames.Add("kotelDoor", "Неисправно крепление дверки котла");
+        ObjectsRusNames.Add("scraper", "Отсутствует скребок");
 
 
         ObjectsRusNames.Add("Kotel", "Котловое отделение");
@@ -51,6 +57,7 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("CoupeOfficial", "Купе проводника(служебное)");
         ObjectsRusNames.Add("VestibuleWorking", "Тамбур рабочий");
         ObjectsRusNames.Add("VestibuleNonWorking", "Тамбур нерабочий");
+        ObjectsRusNames.Add("WagonOutside", "Вагон снаружи");
         ObjectsRusNames.Add("None", "Выбранные неисправности:");
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZolnikObject : SearchableObject
+public class BrokenDoorObject : SearchableObject
 {
     public override void EnableObject(bool value)
     {
