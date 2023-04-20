@@ -46,6 +46,12 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("zolnikDirt", "Присутствует загрязнение в зольнике");
         ObjectsRusNames.Add("kotelDoor", "Неисправно крепление дверки котла");
         ObjectsRusNames.Add("scraper", "Отсутствует скребок");
+        ObjectsRusNames.Add("pages", "Порвана страница журнала ТС");
+        ObjectsRusNames.Add("plombaMedKit", "Отсутствует пломба аптечки");
+        ObjectsRusNames.Add("chekaSmallKoridor", "Отсутствие чеки огнетушителя");
+        ObjectsRusNames.Add("plombaSmallKoridor", "Отсутствие пломбы огнетушителя");
+        ObjectsRusNames.Add("toiletTovel", "Отсутствуют бумажные полотенца");
+        ObjectsRusNames.Add("coalBox", "Не закрыт ящик для угля");
 
 
         ObjectsRusNames.Add("Kotel", "Котловое отделение");
