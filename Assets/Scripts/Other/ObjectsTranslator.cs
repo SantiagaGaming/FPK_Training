@@ -52,9 +52,12 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("plombaSmallKoridor", "Отсутствие пломбы огнетушителя");
         ObjectsRusNames.Add("toiletTovel", "Отсутствуют бумажные полотенца");
         ObjectsRusNames.Add("coalBox", "Не закрыт ящик для угля");
+        ObjectsRusNames.Add("plombaVestibuleNonWorking", "Отсутствует пломба на стоп кране");
+        ObjectsRusNames.Add("coal", "Недостаточное количество угля");
+        ObjectsRusNames.Add("plombaKotelRoom", "Отсутствует пломба на стоп кране");
 
 
-        ObjectsRusNames.Add("Kotel", "Котловое отделение");
+        ObjectsRusNames.Add("Kotel", "Тамбур рабочий и КО");
         ObjectsRusNames.Add("WC", "Санитарный узел");
         ObjectsRusNames.Add("Koridor", "Коридор");
         ObjectsRusNames.Add("SmallKoridor", "Малый коридор");
