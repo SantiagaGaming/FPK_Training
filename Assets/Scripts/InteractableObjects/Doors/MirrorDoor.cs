@@ -9,16 +9,16 @@ public class MirrorDoor : Door
         GetComponent<Collider>().enabled = false;
         if (!value)
         {
-            Debug.Log("InUseDoor");
+            
             int y = 0;
             while (y >= -55)
             {
                 transform.localEulerAngles -= new Vector3(0, 1, 0);
                 yield return new WaitForSeconds(0.01f);
                 y--;
-                Debug.Log("Inside" + y);
+                
             }
-            Debug.Log("OutUseDoor");
+           
         }
         else
         {

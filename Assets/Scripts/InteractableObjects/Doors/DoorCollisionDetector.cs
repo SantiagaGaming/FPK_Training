@@ -9,7 +9,7 @@ public class DoorCollisionDetector : MonoBehaviour
     {
         if(other.TryGetComponent(out Door door))
         {
-            Debug.Log("Collide " + door.name);
+            
             var tempDoor = GetComponent<Door>();
             if (tempDoor == null)
                 return;
