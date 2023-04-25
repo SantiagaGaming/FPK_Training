@@ -55,6 +55,7 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("plombaVestibuleNonWorking", "Отсутствует пломба на стоп кране");
         ObjectsRusNames.Add("coal", "Недостаточное количество угля");
         ObjectsRusNames.Add("plombaKotelRoom", "Отсутствует пломба на стоп кране");
+        ObjectsRusNames.Add("hammerOutside", "Присутствуют посторонние предметы на тележке");
 
 
         ObjectsRusNames.Add("Kotel", "Тамбур рабочий и КО");
