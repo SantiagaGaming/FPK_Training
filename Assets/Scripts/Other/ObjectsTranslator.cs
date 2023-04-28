@@ -60,6 +60,8 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("wcTap", "Сломан кран");
         ObjectsRusNames.Add("fasteningBolt", "Отсутствуют болты крепления каната");
         ObjectsRusNames.Add("shkvorenCoupeOfficial", "Шкворень не закрыт крышкой");
+        ObjectsRusNames.Add("bridge", "Неисправно крепление на мостике");
+        ObjectsRusNames.Add("musorKoridor", "Загрязнен ящик для хранения белья ");
        
 
 
