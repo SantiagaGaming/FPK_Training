@@ -62,7 +62,8 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("shkvorenCoupeOfficial", "Шкворень не закрыт крышкой");
         ObjectsRusNames.Add("bridge", "Неисправно крепление на мостике");
         ObjectsRusNames.Add("musorKoridor", "Загрязнен ящик для хранения белья ");
-       
+        ObjectsRusNames.Add("shkvorenCoupe9", "Шкворень не закрыт крышкой");
+
 
 
         ObjectsRusNames.Add("Kotel", "Тамбур рабочий и КО");
@@ -76,5 +77,7 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("VestibuleNonWorking", "Тамбур нерабочий");
         ObjectsRusNames.Add("WagonOutside", "Вагон снаружи");
         ObjectsRusNames.Add("None", "Выбранные неисправности:");
+        ObjectsRusNames.Add("CoupeNumber9", "Купе № 9");
+        ObjectsRusNames.Add("CoupeNumber2", "Купе № 2");
     }
 }
