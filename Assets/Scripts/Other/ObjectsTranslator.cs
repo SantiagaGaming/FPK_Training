@@ -25,9 +25,9 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("crack", "Трещина на раковине");
         ObjectsRusNames.Add("insertPaper", "Отсутствуют вставки на унитаз");
         ObjectsRusNames.Add("paddle", "Присутствует течь крана"); 
-        ObjectsRusNames.Add("plomba", "Отсутствует пломба на стоп кране");
+        ObjectsRusNames.Add("plomba", "Отсутствует пломба на стоп кране    ");
         ObjectsRusNames.Add("firehose", "Рукав не скручен на бобину");
-        ObjectsRusNames.Add("mainPlomba", "Отсутствует пломба на стоп кране ");
+        ObjectsRusNames.Add("mainPlomba", "Отсутствует пломба на стоп кране  ");
         ObjectsRusNames.Add("fastening", "Сломано крепление для каната");
         ObjectsRusNames.Add("cheka", "Отсутствие чеки углекислотного огнетушителя");
         ObjectsRusNames.Add("garbageBag", "Отсутствует металический вкладыш для мусора");
@@ -41,8 +41,8 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("eatingStuff", "Отсутствуют столовые приборы");
         ObjectsRusNames.Add("plate", "Отсутствует тарелка");
         ObjectsRusNames.Add("stairsPlomba", "Отсутствует пломба на лестнице");
-        ObjectsRusNames.Add("plombaObliqueKoridor", "Отсутствие пломбы огнетушителя");
-        ObjectsRusNames.Add("chekaObliqueKoridor", "Отсутствие чеки огнетушителя");
+        ObjectsRusNames.Add("plombaObliqueKoridor", "Отсутствие пломбы огнетушителя ");
+        ObjectsRusNames.Add("chekaObliqueKoridor", "Отсутствие чеки огнетушителя ");
         ObjectsRusNames.Add("zolnikDirt", "Присутствует загрязнение в зольнике");
         ObjectsRusNames.Add("kotelDoor", "Неисправно крепление дверки котла");
         ObjectsRusNames.Add("scraper", "Отсутствует скребок");
@@ -52,7 +52,7 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("plombaSmallKoridor", "Отсутствие пломбы огнетушителя");
         ObjectsRusNames.Add("toiletTovel", "Отсутствуют бумажные полотенца");
         ObjectsRusNames.Add("coalBox", "Не закрыт ящик для угля");
-        ObjectsRusNames.Add("plombaVestibuleNonWorking", "Отсутствует пломба на стоп кране");
+        ObjectsRusNames.Add("plombaVestibuleNonWorking", "Отсутствует пломба на стоп кране ");
         ObjectsRusNames.Add("coal", "Недостаточное количество угля");
         ObjectsRusNames.Add("plombaKotelRoom", "Отсутствует пломба на стоп кране");
         ObjectsRusNames.Add("hammerOutside", "Присутствуют посторонние предметы на тележке");
@@ -62,7 +62,13 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("shkvorenCoupeOfficial", "Шкворень не закрыт крышкой");
         ObjectsRusNames.Add("bridge", "Неисправно крепление на мостике");
         ObjectsRusNames.Add("musorKoridor", "Загрязнен ящик для хранения белья ");
-        ObjectsRusNames.Add("shkvorenCoupe9", "Шкворень не закрыт крышкой");
+        ObjectsRusNames.Add("shkvorenCoupe9", "Шкворень не закрыт крышкой ");
+        ObjectsRusNames.Add("gazetnitsa", "Оборваны нити газетницы");
+        ObjectsRusNames.Add("tipovoeCoupeGazet", "Оборваны нити газетницы ");
+        ObjectsRusNames.Add("coupe9Gazet", "Оборваны нити газетницы  ");
+        ObjectsRusNames.Add("outsideBox", "Не закрыт ящик");
+        ObjectsRusNames.Add("metla", "Отсутствует метелка");
+        ObjectsRusNames.Add("treeScraper", "Отсутствует скребок");
 
 
 
