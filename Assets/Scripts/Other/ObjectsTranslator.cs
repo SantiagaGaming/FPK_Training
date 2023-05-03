@@ -77,6 +77,9 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("socketCoupeOfficial", "Не закреплена розетка  ");
         ObjectsRusNames.Add("socketCoupeNumber2", "Не закреплена розетка   ");
         ObjectsRusNames.Add("socketCoupeNumber9", "Не закреплена розетка    ");
+        ObjectsRusNames.Add("fastenersCoupeSleep", "Сломан держатель полки");
+        ObjectsRusNames.Add("fastenersCoupeNumber2", "Сломан держатель полки ");
+        ObjectsRusNames.Add("fastenersCoupeNumber9", "Сломан держатель полки  ");
 
 
 
