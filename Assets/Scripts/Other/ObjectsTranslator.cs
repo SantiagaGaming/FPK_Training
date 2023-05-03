@@ -71,6 +71,12 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("treeScraper", "Отсутствует скребок");
         ObjectsRusNames.Add("bedStuffCoupe2", "Отсутствуют постельные принадлежности ");
         ObjectsRusNames.Add("bedStuffCoupe9", "Отсутствуют постельные принадлежности  ");
+        ObjectsRusNames.Add("fireExtinguisherHose", "поврежден шланг огнетушителя");
+        ObjectsRusNames.Add("socketKoridor", "Не закреплена розетка");
+        ObjectsRusNames.Add("socketCoupeSleep", "Не закреплена розетка ");
+        ObjectsRusNames.Add("socketCoupeOfficial", "Не закреплена розетка  ");
+        ObjectsRusNames.Add("socketCoupeNumber2", "Не закреплена розетка   ");
+        ObjectsRusNames.Add("socketCoupeNumber9", "Не закреплена розетка    ");
 
 
 
