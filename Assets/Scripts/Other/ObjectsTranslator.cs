@@ -69,6 +69,8 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("outsideBox", "Не закрыт ящик");
         ObjectsRusNames.Add("metla", "Отсутствует метелка");
         ObjectsRusNames.Add("treeScraper", "Отсутствует скребок");
+        ObjectsRusNames.Add("bedStuffCoupe2", "Отсутствуют постельные принадлежности ");
+        ObjectsRusNames.Add("bedStuffCoupe9", "Отсутствуют постельные принадлежности  ");
 
 
 
