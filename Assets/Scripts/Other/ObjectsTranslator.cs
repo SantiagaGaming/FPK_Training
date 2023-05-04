@@ -80,6 +80,12 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("fastenersCoupeSleep", "Сломан держатель полки");
         ObjectsRusNames.Add("fastenersCoupeNumber2", "Сломан держатель полки ");
         ObjectsRusNames.Add("fastenersCoupeNumber9", "Сломан держатель полки  ");
+        ObjectsRusNames.Add("tableCoupeNumber2", "Неисправно крепление столика");
+        ObjectsRusNames.Add("tableCoupeNumber9", "Неисправно крепление столика ");
+        ObjectsRusNames.Add("gazetnitsaCoupeSleep", "Неисправно крепление газетницы");
+        ObjectsRusNames.Add("gazetnitsaCoupeNumber2", "Неисправно крепление газетницы ");
+        ObjectsRusNames.Add("gazetnitsaCoupeNumber9", "Неисправно крепление газетницы  ");
+        ObjectsRusNames.Add("inventoryDoor", "Ящик для инвентаря не закрыт");
 
 
 

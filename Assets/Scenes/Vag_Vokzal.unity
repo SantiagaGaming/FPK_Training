@@ -4964,6 +4964,12 @@ Transform:
   - {fileID: 709400768}
   - {fileID: 429416851}
   - {fileID: 911730358}
+  - {fileID: 1162745503}
+  - {fileID: 410881324}
+  - {fileID: 800184797}
+  - {fileID: 1982162441}
+  - {fileID: 1900473699}
+  - {fileID: 1627045013}
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5611,7 +5617,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 196697472}
   m_LocalRotation: {x: 0.00000008146034, y: 0.000000021855698, z: 0.000000029802317, w: 1}
-  m_LocalPosition: {x: 0.0658, y: 1.5053, z: -2.593}
+  m_LocalPosition: {x: 0.0658, y: 1.511, z: -2.593}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 1135800557}
@@ -8915,7 +8921,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &312782052
 Transform:
   m_ObjectHideFlags: 0
@@ -11862,6 +11868,52 @@ Transform:
   m_Father: {fileID: 250470408}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &410881323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 410881324}
+  - component: {fileID: 410881325}
+  m_Layer: 0
+  m_Name: TableCoupeNumber9
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &410881324
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410881323}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 178544988}
+  m_RootOrder: 74
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &410881325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410881323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5005808775a59184e92364788faa1b1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectId: tableCoupeNumber9
+  Obj: {fileID: 878495004}
+  RoomName: 11
 --- !u!1001 &412279817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16369,8 +16421,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.070432454, y: 1.2098817, z: 0.51629084}
-  m_Center: {x: -0.017834768, y: 0.5397132, z: -0.256124}
+  m_Size: {x: 0.070432454, y: 1.192085, z: 0.51629084}
+  m_Center: {x: -0.017834768, y: 0.5486115, z: -0.256124}
 --- !u!114 &589121231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22426,6 +22478,52 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!1 &800184796
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 800184797}
+  - component: {fileID: 800184798}
+  m_Layer: 0
+  m_Name: GazetnitsaCoupeSleep
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &800184797
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800184796}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 178544988}
+  m_RootOrder: 75
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &800184798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800184796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0781ff30450e43d44b93719082e4dd3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectId: gazetnitsaCoupeSleep
+  Obj: {fileID: 5679406901542805997}
+  RoomName: 6
 --- !u!1 &806136939
 GameObject:
   m_ObjectHideFlags: 0
@@ -22609,7 +22707,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fd627b18f15906f4993056172d7a3806, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd627b18f15906f4993056172d7a3806, type: 3}
@@ -24764,6 +24862,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92f658ef0ef7cf642938fc58c82445c5, type: 3}
+--- !u!1 &878495004 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4566562290895230001, guid: 92f658ef0ef7cf642938fc58c82445c5, type: 3}
+  m_PrefabInstance: {fileID: 878495003}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &882874922
 GameObject:
   m_ObjectHideFlags: 0
@@ -33093,6 +33196,52 @@ MonoBehaviour:
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
   m_AreaLightEmissiveMeshLayer: -1
+--- !u!1 &1162745502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1162745503}
+  - component: {fileID: 1162745504}
+  m_Layer: 0
+  m_Name: TableCoupeNumber2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1162745503
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162745502}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 178544988}
+  m_RootOrder: 73
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1162745504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162745502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5005808775a59184e92364788faa1b1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectId: tableCoupeNumber2
+  Obj: {fileID: 2898005956254117198}
+  RoomName: 12
 --- !u!1 &1165969320
 GameObject:
   m_ObjectHideFlags: 0
@@ -34261,6 +34410,8 @@ GameObject:
   - component: {fileID: 1213256684}
   - component: {fileID: 1213256686}
   - component: {fileID: 1213256685}
+  - component: {fileID: 1213256687}
+  - component: {fileID: 1213256688}
   m_Layer: 0
   m_Name: Vagon_body_inner_tambur_back_01.002
   m_TagString: Untagged
@@ -34331,6 +34482,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1213256683}
   m_Mesh: {fileID: 7856263498952095024, guid: b7e3dcbc312f41540b4ee01bfade7fde, type: 3}
+--- !u!65 &1213256687
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213256683}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.00036210753, y: 0.000867604, z: 0.0012078665}
+  m_Center: {x: -0.00016153917, y: 0.00043380313, z: -0.0000000036438899}
+--- !u!114 &1213256688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213256683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e185ae2501e8c942ad35eb289499a34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineObjects: []
+  handle: {fileID: 0}
+  _inside: 0
+  _x: 0
+  _down: 0
+  _rotateValue: 110
 --- !u!1001 &1214808852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37882,6 +38064,8 @@ GameObject:
   - component: {fileID: 1330812339}
   - component: {fileID: 1330812341}
   - component: {fileID: 1330812340}
+  - component: {fileID: 1330812343}
+  - component: {fileID: 1330812342}
   m_Layer: 0
   m_Name: Vagon_body_inner_tambur_back_01.002
   m_TagString: Untagged
@@ -37952,6 +38136,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330812338}
   m_Mesh: {fileID: 7856263498952095024, guid: b7e3dcbc312f41540b4ee01bfade7fde, type: 3}
+--- !u!114 &1330812342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330812338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2e3a57676ef94f4fbadfbc478dc0e46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineObjects: []
+  handle: {fileID: 0}
+  _inside: 0
+  _x: 0
+  _down: 0
+--- !u!65 &1330812343
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330812338}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.00029592364, y: 0.000867604, z: 0.0011988129}
+  m_Center: {x: -0.00012844724, y: 0.0004337994, z: 0.0000045269053}
 --- !u!1 &1331288537
 GameObject:
   m_ObjectHideFlags: 0
@@ -50943,6 +51157,53 @@ MonoBehaviour:
     m_Reference: {fileID: 3474637138919394722, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   _playerCamera: {fileID: 7969288615989081330}
   CanZoom: 1
+--- !u!1 &1627045012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1627045013}
+  - component: {fileID: 1627045014}
+  m_Layer: 0
+  m_Name: InventoryDoor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1627045013
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627045012}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 178544988}
+  m_RootOrder: 78
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1627045014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627045012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4327236f1f90b04485c5c98b4cbd7fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectId: inventoryDoor
+  Obj: {fileID: 0}
+  RoomName: 9
+  _animator: {fileID: 775518953766408542}
 --- !u!1 &1627558593
 GameObject:
   m_ObjectHideFlags: 0
@@ -60175,6 +60436,52 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d412749f63cebf84cbd09970b9404859, type: 3}
+--- !u!1 &1900473698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1900473699}
+  - component: {fileID: 1900473700}
+  m_Layer: 0
+  m_Name: GazetnitsaCoupeNumber9
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1900473699
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900473698}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 178544988}
+  m_RootOrder: 77
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1900473700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900473698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0781ff30450e43d44b93719082e4dd3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectId: gazetnitsaCoupeNumber9
+  Obj: {fileID: 806136939}
+  RoomName: 11
 --- !u!1 &1902953490
 GameObject:
   m_ObjectHideFlags: 0
@@ -60594,20 +60901,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.9241905, y: 2.2010226, z: 7.1318784}
   m_Center: {x: -0.34115028, y: 0.24105263, z: -3.0659392}
---- !u!114 &1917991367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6774790925479399412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c997aecf6f53a41885e53f8b28521b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineObjects: []
-  handle: {fileID: 0}
 --- !u!65 &1917991368
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -63667,6 +63960,52 @@ Transform:
   m_Father: {fileID: 977720301}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1982162440
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1982162441}
+  - component: {fileID: 1982162442}
+  m_Layer: 0
+  m_Name: GazetnitsaCoupeNumber2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1982162441
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982162440}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 178544988}
+  m_RootOrder: 76
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1982162442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982162440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0781ff30450e43d44b93719082e4dd3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectId: gazetnitsaCoupeNumber2
+  Obj: {fileID: 1668723250307406287}
+  RoomName: 12
 --- !u!114 &1989115084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67317,6 +67656,41 @@ Transform:
   m_Father: {fileID: 1610423042}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2117992156 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fd627b18f15906f4993056172d7a3806, type: 3}
+  m_PrefabInstance: {fileID: 811666996}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2117992159
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117992156}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0481869, y: 0.20928407, z: 0.22714972}
+  m_Center: {x: 0.0025522113, y: -0.019035459, z: 0.111500144}
+--- !u!114 &2117992160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117992156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2e3a57676ef94f4fbadfbc478dc0e46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineObjects: []
+  handle: {fileID: 0}
+  _inside: 0
+  _x: 0
+  _down: 0
 --- !u!65 &2121390027
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -68577,7 +68951,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 775518953766408541}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 11.7526, y: 1.96956, z: 1.39946}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -72144,7 +72518,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4414983915027601227}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000029504295}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: -7.296, y: 2.163, z: 1.235}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -72451,6 +72825,7 @@ GameObject:
   - component: {fileID: 1280093292007780488}
   - component: {fileID: 589121229}
   - component: {fileID: 589121231}
+  - component: {fileID: 775518953766408542}
   m_Layer: 0
   m_Name: Vagon_tambur_back_luke_a_01
   m_TagString: Untagged
@@ -72458,6 +72833,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &775518953766408542
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775518953766408541}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cf17c2a2f57638f4e9e1247c62e0f489, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!33 &779160177380122019
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -96350,8 +96744,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5679406901542805997}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.359014, y: 2.0936108, z: -0.076517105}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.359013, y: 2.0914922, z: -0.06978297}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5484856538703333593}
@@ -97021,6 +97415,8 @@ GameObject:
   - component: {fileID: 1489404563247668272}
   - component: {fileID: 2149854655159444257}
   - component: {fileID: 3785401769612537397}
+  - component: {fileID: 5016359035074543822}
+  - component: {fileID: 5016359035074543821}
   m_Layer: 0
   m_Name: Vagon_body_inner_tambur_back_01.002
   m_TagString: Untagged
@@ -97028,6 +97424,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &5016359035074543821
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5016359035074543820}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.00020350277, y: 0.000867604, z: 0.0012078665}
+  m_Center: {x: -0.000082266626, y: 0.00043380313, z: 0.0000000019440456}
+--- !u!114 &5016359035074543822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5016359035074543820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2e3a57676ef94f4fbadfbc478dc0e46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineObjects: []
+  handle: {fileID: 0}
+  _inside: 0
+  _x: 0
+  _down: 0
 --- !u!33 &5021355153073849250
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -100083,7 +100509,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5140242538855420515}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -107900,7 +108326,7 @@ GameObject:
   - component: {fileID: 7124957711875316459}
   - component: {fileID: 4973126293883383329}
   - component: {fileID: 1917991368}
-  - component: {fileID: 1917991367}
+  - component: {fileID: 6774790925479399413}
   m_Layer: 0
   m_Name: Vagon_WC_Mirror_01
   m_TagString: Untagged
@@ -107908,6 +108334,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6774790925479399413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6774790925479399412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58c997aecf6f53a41885e53f8b28521b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineObjects: []
+  handle: {fileID: 0}
 --- !u!4 &6777625001961579949
 Transform:
   m_ObjectHideFlags: 0
@@ -108396,13 +108836,45 @@ GameObject:
   - component: {fileID: 6063695194628085241}
   - component: {fileID: 7172344362003847772}
   - component: {fileID: 4930806605652635286}
+  - component: {fileID: 6876224823437856581}
+  - component: {fileID: 6876224823437856580}
   m_Layer: 0
   m_Name: Vagon_tambur_luke_TailLights_01 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &6876224823437856580
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6876224823437856579}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.043060184, y: 0.22254086, z: 0.22714972}
+  m_Center: {x: -0.000011146069, y: -0.012407064, z: 0.111500144}
+--- !u!114 &6876224823437856581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6876224823437856579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2e3a57676ef94f4fbadfbc478dc0e46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineObjects: []
+  handle: {fileID: 0}
+  _inside: 0
+  _x: 0
+  _down: 0
 --- !u!4 &6876865297049554795
 Transform:
   m_ObjectHideFlags: 0
@@ -123306,7 +123778,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8761759093482497334}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.7543, y: 3.300721, z: -1.4068211}
+  m_LocalPosition: {x: 11.7543, y: 3.287, z: -1.4068211}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1415063681241195914}
@@ -126290,13 +126762,45 @@ GameObject:
   - component: {fileID: 8274192054907764620}
   - component: {fileID: 5006892556356546601}
   - component: {fileID: 7104702231110026467}
+  - component: {fileID: 8761759093482497336}
+  - component: {fileID: 8761759093482497335}
   m_Layer: 0
   m_Name: Vagon_tambur_luke_TailLights_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8761759093482497335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8761759093482497334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2e3a57676ef94f4fbadfbc478dc0e46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineObjects: []
+  handle: {fileID: 0}
+  _inside: 1
+  _x: 0
+  _down: 0
+--- !u!65 &8761759093482497336
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8761759093482497334}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.043060184, y: 0.22254086, z: 0.22714972}
+  m_Center: {x: -0.000011146069, y: -0.012407064, z: 0.111500144}
 --- !u!33 &8769184972683318061
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -127308,7 +127812,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2898005956254117198}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0.4086101, z: -0.013730049}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
