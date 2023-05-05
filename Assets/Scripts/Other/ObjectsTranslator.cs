@@ -86,6 +86,10 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("gazetnitsaCoupeNumber2", "Неисправно крепление газетницы ");
         ObjectsRusNames.Add("gazetnitsaCoupeNumber9", "Неисправно крепление газетницы  ");
         ObjectsRusNames.Add("inventoryDoor", "Ящик для инвентаря не закрыт");
+        ObjectsRusNames.Add("tO2TO3", "Отсутствие трафарета (ТО2, ТО3)");
+        ObjectsRusNames.Add("ladderOutside", "Излом лестницы");
+        ObjectsRusNames.Add("handlerOutside", "Излом ручек");
+        ObjectsRusNames.Add("tornFireHose", "Порван рукав");
 
 
 
