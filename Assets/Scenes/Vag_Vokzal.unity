@@ -27332,7 +27332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46cb2041d4f158f47a9f830c5e0cd6a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _count: 5
+  _count: 30
 --- !u!1001 &956109497
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30556,7 +30556,6 @@ MonoBehaviour:
   m_Script: {fileID: 1198869102}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Entries: []
 --- !u!4 &1070895449
 Transform:
   m_ObjectHideFlags: 19
@@ -51197,13 +51196,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1627045012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4327236f1f90b04485c5c98b4cbd7fc, type: 3}
+  m_Script: {fileID: 11500000, guid: 92deda419315dac44b5c3ecad280f2a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectId: inventoryDoor
-  Obj: {fileID: 0}
+  Obj: {fileID: 775518953766408541}
   RoomName: 9
-  _animator: {fileID: 775518953766408542}
 --- !u!1 &1627558593
 GameObject:
   m_ObjectHideFlags: 0
@@ -72825,7 +72823,6 @@ GameObject:
   - component: {fileID: 1280093292007780488}
   - component: {fileID: 589121229}
   - component: {fileID: 589121231}
-  - component: {fileID: 775518953766408542}
   m_Layer: 0
   m_Name: Vagon_tambur_back_luke_a_01
   m_TagString: Untagged
@@ -72833,25 +72830,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &775518953766408542
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 775518953766408541}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cf17c2a2f57638f4e9e1247c62e0f489, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!33 &779160177380122019
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -122333,7 +122311,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6223151947396600662}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.11996113, y: 0.023659155, z: 0.013946533}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
