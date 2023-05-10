@@ -56,6 +56,7 @@ public class ResultController : MonoBehaviour
     private void OnCompareIds()
     { 
         EndTime = DateTime.Now;
+       
         var resultTime = EndTime - StartTime;
          DateParser dataParser = new DateParser(resultTime);
         var resultTimeString = dataParser.ParserTime();

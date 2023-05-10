@@ -90,6 +90,7 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("ladderOutside", "Излом лестницы");
         ObjectsRusNames.Add("handlerOutside", "Излом ручек");
         ObjectsRusNames.Add("tornFireHose", "Порван рукав");
+        ObjectsRusNames.Add("dateFire", "Просрочен огнетушитель");
 
 
 

@@ -27,7 +27,7 @@ public abstract class SearchableObject : MonoBehaviour
     public RoomName GetRoomName => RoomName;
 
     public string GetObjectId => ObjectId;
-    protected void Start()
+    protected virtual void Start()
     {
         SearchableObjectsHandler.Instance.AddSearchableObject(this);
     }

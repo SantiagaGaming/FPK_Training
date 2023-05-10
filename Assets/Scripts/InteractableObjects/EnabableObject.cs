@@ -8,5 +8,6 @@ public class EnabableObject : SearchableObject
     {
         base.EnableObject(value);
         Obj.SetActive(value);
+       
     }
 }
