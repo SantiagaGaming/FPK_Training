@@ -92,6 +92,8 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("tornFireHose", "Порван рукав");
         ObjectsRusNames.Add("dateFire", "Просрочен огнетушитель");
         ObjectsRusNames.Add("dateTO", "Несоответствие даты на трафарете(ТО2, ТО3)");
+        ObjectsRusNames.Add("povodok", "Поводок расхожен");
+        ObjectsRusNames.Add("brokenLamp", "Неисправна лампа");
 
 
 
