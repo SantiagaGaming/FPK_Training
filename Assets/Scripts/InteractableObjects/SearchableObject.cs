@@ -15,7 +15,8 @@ public enum RoomName
     VestibuleNonWorking,
     WagonOutside,
     CoupeNumber9,
-    CoupeNumber2
+    CoupeNumber2,
+    WC2
 }
 
 public abstract class SearchableObject : MonoBehaviour

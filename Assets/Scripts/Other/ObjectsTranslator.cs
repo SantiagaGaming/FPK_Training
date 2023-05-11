@@ -96,6 +96,14 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("brokenLamp", "Неисправна лампа");
         ObjectsRusNames.Add("garbageWC2", "Отсутствует мусорный пакет");
         ObjectsRusNames.Add("garbageWC", "Отсутствует мусорный пакет ");
+        ObjectsRusNames.Add("fresherWC2", "Отсутствует освежитель воздуха ");
+        ObjectsRusNames.Add("toiletPapperWC2", "Отсутствует туалетная бумага ");
+        ObjectsRusNames.Add("rubbishWC2", "Присутствует загрязнение в сливе ");
+        ObjectsRusNames.Add("crackWC2", "Трещина на раковине ");
+        ObjectsRusNames.Add("insertPaperWC2", "Отсутствуют вставки на унитаз ");
+        ObjectsRusNames.Add("paddleWC2", "Присутствует течь крана ");
+        ObjectsRusNames.Add("toiletTovelWC2", "Отсутствуют бумажные полотенца ");
+        ObjectsRusNames.Add("wcTapWC2", "Сломан кран ");
 
 
 
@@ -112,5 +120,6 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("None", "Выбранные неисправности:");
         ObjectsRusNames.Add("CoupeNumber9", "Купе № 9");
         ObjectsRusNames.Add("CoupeNumber2", "Купе № 2");
+        ObjectsRusNames.Add("WC2", "Санитарный узел №2");
     }
 }
