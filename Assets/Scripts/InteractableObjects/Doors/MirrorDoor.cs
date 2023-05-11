@@ -4,30 +4,58 @@ using UnityEngine;
 
 public class MirrorDoor : Door
 {
+    [SerializeField] private int _corner;
     override protected IEnumerator UseDoor(bool value)
     {
         GetComponent<Collider>().enabled = false;
         if (!value)
         {
-            
-            int y = 0;
-            while (y >= -55)
+            if (_corner < 0)
             {
-                transform.localEulerAngles -= new Vector3(0, 1, 0);
-                yield return new WaitForSeconds(0.01f);
-                y--;
-                
+                int y = 0;
+                while (y >= _corner)
+                {
+                    transform.localEulerAngles -= new Vector3(0, 1, 0);
+                    yield return new WaitForSeconds(0.01f);
+                    y--;
+
+                }
+            }
+            else if(_corner > 0) 
+            {
+                int y = 0;
+                while (y <= _corner)
+                {
+                    transform.localEulerAngles += new Vector3(0, 1, 0);
+                    yield return new WaitForSeconds(0.01f);
+                    y++;
+
+                }
             }
            
         }
         else
         {
-            int y = -55;
-            while (y <= 0)
+            if (_corner < 0)
             {
-                transform.localEulerAngles += new Vector3(0, 1, 0);
-                yield return new WaitForSeconds(0.01f);
-                y++;
+                int y = 0;
+                while (y >= _corner)
+                {
+                    transform.localEulerAngles += new Vector3(0, 1, 0);
+                    yield return new WaitForSeconds(0.01f);
+                    y--;
+                }
+            }
+            else if (_corner > 0)
+            {
+                int y = 0;
+                while (y <= _corner)
+                {
+                    transform.localEulerAngles -= new Vector3(0, 1, 0);
+                    yield return new WaitForSeconds(0.01f);
+                    y++;
+
+                }
             }
         }
         GetComponent<Collider>().enabled = true;

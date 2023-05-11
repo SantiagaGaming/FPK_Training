@@ -104,6 +104,8 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("paddleWC2", "Присутствует течь крана ");
         ObjectsRusNames.Add("toiletTovelWC2", "Отсутствуют бумажные полотенца ");
         ObjectsRusNames.Add("wcTapWC2", "Сломан кран ");
+        ObjectsRusNames.Add("brokenRastryb", "Неисправен раструб");
+
 
 
 
