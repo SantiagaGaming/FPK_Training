@@ -94,6 +94,8 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("dateTO", "Несоответствие даты на трафарете(ТО2, ТО3)");
         ObjectsRusNames.Add("povodok", "Поводок расхожен");
         ObjectsRusNames.Add("brokenLamp", "Неисправна лампа");
+        ObjectsRusNames.Add("garbageWC2", "Отсутствует мусорный пакет");
+        ObjectsRusNames.Add("garbageWC", "Отсутствует мусорный пакет ");
 
 
 
