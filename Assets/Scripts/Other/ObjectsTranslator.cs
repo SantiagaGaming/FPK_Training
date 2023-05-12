@@ -105,6 +105,10 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("toiletTovelWC2", "Отсутствуют бумажные полотенца ");
         ObjectsRusNames.Add("wcTapWC2", "Сломан кран ");
         ObjectsRusNames.Add("brokenRastryb", "Неисправен раструб");
+        ObjectsRusNames.Add("selfHelperDate", "Несоответствие срока годности самоспасателя");
+        ObjectsRusNames.Add("selfHelperBroken", "Нарушена упаковка самоспасателя");
+        ObjectsRusNames.Add("firstAidKitDate", "Просрочена аптечка");
+        ObjectsRusNames.Add("fireExtinguisherWaterDate", "Просрочен водоэмульсионный огнетушитель");
 
 
 

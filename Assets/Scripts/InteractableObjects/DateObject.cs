@@ -17,7 +17,7 @@ public class DateObject : EnabableObject
     }
     public override void EnableObject(bool value)
     {
-        Debug.Log("In " + value);
+       
         if (!value)
         {
             foreach (var item in _dateText)
