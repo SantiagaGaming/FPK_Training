@@ -22,6 +22,7 @@ public class DateObject : EnabableObject
         {
             foreach (var item in _dateText)
                 item.text = _dateOverdue.Date.ToString("dd/MM/yyyy");
+               
         }
     }
 }

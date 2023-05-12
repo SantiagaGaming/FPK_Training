@@ -109,6 +109,8 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("selfHelperBroken", "Нарушена упаковка самоспасателя");
         ObjectsRusNames.Add("firstAidKitDate", "Просрочена аптечка");
         ObjectsRusNames.Add("fireExtinguisherWaterDate", "Просрочен водоэмульсионный огнетушитель");
+        ObjectsRusNames.Add("fireExtinguisherSourType", "Несоответствие типа огнетушителя");
+        ObjectsRusNames.Add("fireExtinguisherWaterType", "Несоответствие типа огнетушителя ");
 
 
 
