@@ -37,7 +37,7 @@ public class Door : BaseObject
             GetComponent<Collider>().isTrigger = false;
         }
     }
-    public void UseDoorByCollide(bool value)
+    public virtual void UseDoorByCollide(bool value)
     {
         StartCoroutine(UseDoor(value));
     }

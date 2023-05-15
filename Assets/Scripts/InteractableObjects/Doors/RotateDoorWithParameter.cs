@@ -11,11 +11,17 @@ public class RotateDoorWithParameter: Door
     [SerializeField] private bool _down;
     [SerializeField] private int _rotateValue;
 
+    public override void UseDoorByCollide(bool value)
+    {
+        if(transform.localRotation.y >0 || transform.localRotation.y <90)
+        base.UseDoorByCollide(value);
+    }
     override protected IEnumerator UseDoor(bool value)
 {
     DoorAction(true);
 
-    if (!_inside)
+        
+        if (!_inside)
     {
 
         if (!value)
@@ -23,7 +29,8 @@ public class RotateDoorWithParameter: Door
             if (handle != null)
                 StartCoroutine(RotateHandle());
             yield return new WaitForSeconds(0.5f);
-            int y = 0;
+               
+                int y = 0;
             while (y >= -_rotateValue)
             {
                 transform.localEulerAngles += new Vector3(0, 1, 0);
