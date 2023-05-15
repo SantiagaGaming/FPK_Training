@@ -113,6 +113,7 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("fireExtinguisherWaterType", "Несоответствие типа огнетушителя ");
         ObjectsRusNames.Add("handleHorizontalWC", "Ненадежное крепление ручки");
         ObjectsRusNames.Add("secretKey", "Секретка не поворачивается");
+        ObjectsRusNames.Add("flushButton", "Кнопка смыва не работает");
         
 
 
