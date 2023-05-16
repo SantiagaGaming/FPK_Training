@@ -114,8 +114,11 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("handleHorizontalWC", "Ненадежное крепление ручки");
         ObjectsRusNames.Add("secretKey", "Секретка не поворачивается");
         ObjectsRusNames.Add("flushButton", "Кнопка смыва не работает");
-        
+        ObjectsRusNames.Add("tapWater", "Отсутствует вода в кране");
+        ObjectsRusNames.Add("fireExtinguisherBrokenHose", "Не прикручен шланг огнетушителя");
+        ObjectsRusNames.Add("handleVertical", "Ненадежное крепление ручки ");
 
+    
 
 
 

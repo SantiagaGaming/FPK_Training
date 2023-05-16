@@ -15,7 +15,7 @@ public class ButtonObject : BaseObject
         foreach (var anim in _waterAnim) 
         {
             anim.SetTrigger(_lockObject.CurrentState);
-            Debug.Log(_lockObject.CurrentState + "In Button");
+            
         }
 
     }
