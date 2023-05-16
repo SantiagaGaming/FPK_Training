@@ -117,6 +117,7 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("tapWater", "Отсутствует вода в кране");
         ObjectsRusNames.Add("fireExtinguisherBrokenHose", "Не прикручен шланг огнетушителя");
         ObjectsRusNames.Add("handleVertical", "Ненадежное крепление ручки ");
+        ObjectsRusNames.Add("blindsFastening", "Неисправно крепление автошторы");
 
     
 
