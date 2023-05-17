@@ -12,6 +12,7 @@ public class EnabableObjects : SearchableObject
         foreach (var item in _objects)
         {
             item.SetActive(value);
+
         }
  
     }

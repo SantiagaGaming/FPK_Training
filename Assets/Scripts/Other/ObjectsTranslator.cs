@@ -118,6 +118,8 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("fireExtinguisherBrokenHose", "Не прикручен шланг огнетушителя");
         ObjectsRusNames.Add("handleVertical", "Ненадежное крепление ручки ");
         ObjectsRusNames.Add("blindsFastening", "Неисправно крепление автошторы");
+        ObjectsRusNames.Add("blindsNonFixed", "Автоштора не фиксируется");
+        ObjectsRusNames.Add("specialKey", "Не поворачивается спецключ ");
 
     
 
