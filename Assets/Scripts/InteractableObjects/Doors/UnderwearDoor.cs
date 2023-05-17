@@ -10,16 +10,18 @@ public class UnderwearDoor : Door
         if (!value)
         {
             int x = 0;
-            while (x <= 80)
+            while (x <= 79)
             {
                 transform.localEulerAngles += new Vector3(1, 0, 0);
                 yield return new WaitForSeconds(0.01f);
                 x++;
             }
         }
+
+        
         else
         {
-            int x = 80;
+            int x = 79;
             while (x >= 0)
             {
                 transform.localEulerAngles -= new Vector3(1, 0, 0);

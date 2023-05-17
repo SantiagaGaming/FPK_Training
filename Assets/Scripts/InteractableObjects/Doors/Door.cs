@@ -11,7 +11,8 @@ public class Door : BaseObject
 {
     [SerializeField] protected GameObject handle;
     protected bool canAction = true;
-    protected bool open = false;
+    public bool open = false;
+    
 
     public override void OnClicked(InteractHand interactHand)
     {

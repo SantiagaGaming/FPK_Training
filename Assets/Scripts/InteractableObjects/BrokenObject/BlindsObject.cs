@@ -25,7 +25,7 @@ public class BlindsObject : BaseObject
         {
             _animator.SetTrigger("Reverse");
             _open = true;
-            Debug.Log("In");
+           
         }
 
 
