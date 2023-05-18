@@ -15,6 +15,8 @@ public class LocalRotationObject : SearchableObject
 
         if (!value)
             Obj.transform.localRotation = Quaternion.Euler(_x, _y, _z);
+        if (_door == null)
+            return;
         _door.open = true;
 
 

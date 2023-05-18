@@ -121,8 +121,11 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("blindsNonFixed", "Автоштора не фиксируется");
         ObjectsRusNames.Add("specialKey", "Не поворачивается спецключ");
         ObjectsRusNames.Add("underwearBroken", "Ящик для белья не закрыт");
+        ObjectsRusNames.Add("ladderBroken", "Сломана лестница");
+        ObjectsRusNames.Add("brokenMetalScraper", "Металлический скребок не закреплен на рукоятке");
+        ObjectsRusNames.Add("3GrannyyKey", "Не поворачивается трехгранный ключ");
 
-    
+
 
 
 
