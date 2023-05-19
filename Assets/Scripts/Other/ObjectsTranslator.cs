@@ -125,6 +125,9 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("brokenMetalScraper", "Металлический скребок не закреплен на рукоятке");
         ObjectsRusNames.Add("3GrannyyKey", "Не поворачивается трехгранный ключ");
         ObjectsRusNames.Add("kotelFlow", "Течет котел");
+        ObjectsRusNames.Add("nasosFlow", "Течет насос");
+        ObjectsRusNames.Add("kranFlow", "Течет кран");
+        ObjectsRusNames.Add("brokenNasos", "Сломан насос");
 
 
 
