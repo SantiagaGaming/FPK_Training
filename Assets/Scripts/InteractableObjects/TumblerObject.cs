@@ -7,6 +7,7 @@ public class TumblerObject : BaseObject
 {
     
     [SerializeField] private GameObject _screenPanel;
+    [SerializeField] private LockEnabableObject _lockObject;
 
     private Animator _animator;
     private bool _tumblerOn = false;
@@ -18,12 +19,18 @@ public class TumblerObject : BaseObject
     public override void OnClicked(InteractHand interactHand)
     {
         base.OnClicked(interactHand);
-        if(!_tumblerOn)
+        if(!_tumblerOn && _lockObject.CurrentState == "Idle" )
         {
             _animator.SetTrigger("OnAnim");
             _screenPanel.SetActive(false);
             _tumblerOn = true;
 
+        }
+        else if (!_tumblerOn && _lockObject.CurrentState == "Broken")
+        {
+            _animator.SetTrigger("OnAnim");
+            _screenPanel.SetActive(true);
+            _tumblerOn = true;
         }
         else
         {
