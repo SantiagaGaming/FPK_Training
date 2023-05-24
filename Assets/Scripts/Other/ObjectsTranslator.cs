@@ -129,6 +129,7 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("kranFlow", "Течет кран");
         ObjectsRusNames.Add("brokenNasos", "Сломан насос");
         ObjectsRusNames.Add("brokenKran", "Не поворачивается кран");
+        ObjectsRusNames.Add("pumpingWater", "Отсутствует вода в котле");
 
 
 
