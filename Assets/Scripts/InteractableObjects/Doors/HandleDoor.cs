@@ -5,32 +5,39 @@ using UnityEngine;
 
 public class HandleDoor : Door
 {
+    private bool _canOpen = true;
     public override void OnClicked(InteractHand interactHand)
     {
-        if (canAction)
+        if (_canOpen)
             StartCoroutine(UseDoor(open));
     }
     protected override IEnumerator UseDoor(bool value)
     {
-        if (handle != null)
-        {
-            int rot = 0;
-            while (rot <= 20)
+        _canOpen= false;
+        
+            
+            if (handle != null)
             {
-                handle.transform.localEulerAngles -= new Vector3(0, 0, 1);
-                yield return new WaitForSeconds(0.008f);
-                rot++;
+
+                int rot = 0;
+                while (rot <= 20)
+                {
+                    handle.transform.localEulerAngles -= new Vector3(0, 0, 1);
+                    yield return new WaitForSeconds(0.008f);
+                    rot++;
+                }
             }
-        }
-        if (handle != null)
-        {
-            int rot = 0;
-            while (rot <= 20)
+            if (handle != null)
             {
-                handle.transform.localEulerAngles += new Vector3(0, 0, 1);
-                yield return new WaitForSeconds(0.008f);
-                rot++;
+                int rot = 0;
+                while (rot <= 20)
+                {
+                    handle.transform.localEulerAngles += new Vector3(0, 0, 1);
+                    yield return new WaitForSeconds(0.008f);
+                    rot++;
+                }
             }
-        }
+        _canOpen = true;
+
     }
 }
