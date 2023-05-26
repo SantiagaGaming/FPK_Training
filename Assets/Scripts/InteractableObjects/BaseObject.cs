@@ -17,20 +17,33 @@ public class BaseObject : MonoBehaviour, IClickAble, IHoverAble
     }
     public virtual void OnHoverIn(InteractHand interactHand)
     {
-        if (outlineObjects != null)
-            foreach (var obj in outlineObjects)
-            {
-                obj.enabled = true;
-                obj.OutlineWidth = 3;
-            }
+        EnableOutlines(true);
     }
     public virtual void OnHoverOut(InteractHand interactHand)
     {
+        EnableOutlines(false);
+    }
+    protected void EnableOutlines(bool value)
+    {
         if (outlineObjects != null)
-            foreach (var obj in outlineObjects)
+            foreach (var outline in outlineObjects)
             {
-                obj.enabled = false;
-                obj.OutlineWidth = 0;
+                
+                if (outline.GetComponent<MeshRenderer>() == null)
+                {
+                    return;
+                }
+
+                if (value)
+                {
+                    outline.GetComponent<MeshRenderer>().material.color *= 2f;
+                }
+
+                else
+                {
+                    outline.GetComponent<MeshRenderer>().material.color /= 2f;
+                }
+
             }
     }
 }

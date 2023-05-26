@@ -11,6 +11,7 @@ public class RotateDoor : Door
     [SerializeField] private bool _inside;
     [SerializeField] private bool _x;
     [SerializeField] private bool _down;
+    [SerializeField] private Animator _animator;
 
     override protected IEnumerator UseDoor(bool value)
     {
@@ -31,9 +32,15 @@ public class RotateDoor : Door
                         yield return new WaitForSeconds(0.01f);
                         y--;
                     }
+                if (_animator != null)
+                {
+                    _animator.SetTrigger("Open");
+                }
                 }
                 else
                 {
+                if (_animator != null) { _animator.SetTrigger("Close"); }
+                yield return new WaitForSeconds(0.5f);
                 int y = -90;
                     while (y <= 0)
                     {
@@ -41,7 +48,8 @@ public class RotateDoor : Door
                     yield return new WaitForSeconds(0.01f);
                         y++;
                     }
-                }
+               
+            }
             }
             else
             {
@@ -57,9 +65,15 @@ public class RotateDoor : Door
                     yield return new WaitForSeconds(0.01f);
                         y++;
                     }
-                }
-                else
+                if (_animator != null)
                 {
+                    _animator.SetTrigger("Open");
+                }
+            }
+                else
+            {
+                if (_animator != null) { _animator.SetTrigger("Close"); }
+                yield return new WaitForSeconds(0.5f);
                 int y = 90;
                     while (y >= 0)
                     {
