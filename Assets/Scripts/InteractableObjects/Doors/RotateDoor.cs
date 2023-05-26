@@ -12,6 +12,8 @@ public class RotateDoor : Door
     [SerializeField] private bool _x;
     [SerializeField] private bool _down;
     [SerializeField] private Animator _animator;
+    [SerializeField] private GameObject _colliderOn;
+    [SerializeField] private GameObject _colliderOff;
 
     override protected IEnumerator UseDoor(bool value)
     {
@@ -35,12 +37,19 @@ public class RotateDoor : Door
                 if (_animator != null)
                 {
                     _animator.SetTrigger("Open");
+                    _colliderOn.SetActive(true);
+                    _colliderOff.SetActive(false);
                 }
                 }
                 else
                 {
-                if (_animator != null) { _animator.SetTrigger("Close"); }
-                yield return new WaitForSeconds(0.5f);
+                if (_animator != null) 
+                { 
+                    _animator.SetTrigger("Close");
+                    _colliderOff.SetActive(true);
+                    _colliderOn.SetActive(false);
+                }
+                yield return new WaitForSeconds(0.6f);
                 int y = -90;
                     while (y <= 0)
                     {
@@ -57,7 +66,7 @@ public class RotateDoor : Door
             {
                 if (handle != null)
                     StartCoroutine(RotateHandle());
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.6f);
                 int y = 0;
                     while (y <= 90)
                     {
@@ -68,11 +77,18 @@ public class RotateDoor : Door
                 if (_animator != null)
                 {
                     _animator.SetTrigger("Open");
+                    _colliderOn.SetActive(true);
+                    _colliderOff.SetActive(false);
                 }
             }
                 else
             {
-                if (_animator != null) { _animator.SetTrigger("Close"); }
+                if (_animator != null) 
+                { 
+                    _animator.SetTrigger("Close");
+                    _colliderOff.SetActive(true);
+                    _colliderOn.SetActive(false);
+                }
                 yield return new WaitForSeconds(0.5f);
                 int y = 90;
                     while (y >= 0)
