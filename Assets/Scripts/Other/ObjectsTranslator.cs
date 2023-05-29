@@ -131,6 +131,10 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("brokenKran", "Не поворачивается кран");
         ObjectsRusNames.Add("pumpingWater", "Отсутствует вода в котле");
         ObjectsRusNames.Add("touchScreen", "Не включается сенсорная панель");
+        ObjectsRusNames.Add("noFixedTable", "Не фиксируется столик");
+        ObjectsRusNames.Add("tableCoupeSleep", "Неисправно крепление столика  ");
+        ObjectsRusNames.Add("noFixedTableCoupe2", "Не фиксируется столик ");
+        ObjectsRusNames.Add("noFixedTableCoupe9", "Не фиксируется столик  ");
 
 
 
@@ -142,8 +146,7 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("SmallKoridor", "Малый коридор");
         ObjectsRusNames.Add("ObliqueKoridor", "Косой коридор");
         ObjectsRusNames.Add("CoupeSleep", "Купе проводника(отдыха)");
-        ObjectsRusNames.Add("CoupeOfficial", "Купе проводника(служебное)");
-        ObjectsRusNames.Add("VestibuleWorking", "Тамбур рабочий");
+        ObjectsRusNames.Add("CoupeOfficial", "Купе проводника(служебное)");     
         ObjectsRusNames.Add("VestibuleNonWorking", "Тамбур нерабочий");
         ObjectsRusNames.Add("WagonOutside", "Вагон снаружи");
         ObjectsRusNames.Add("None", "Выбранные неисправности:");

@@ -1,0 +1,248 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!74 &7400000
+AnimationClip:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Close
+  serializedVersion: 6
+  m_Legacy: 0
+  m_Compressed: 0
+  m_UseHighQualityCurve: 1
+  m_RotationCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0.0006249982, y: 0.99857897, z: -0.052927736, w: -0.006190161}
+        inSlope: {x: 0.0004553032, y: -0.0018543004, z: -0.036145892, w: 0.013906568}
+        outSlope: {x: 0.0004553032, y: -0.0018543004, z: -0.036145892, w: 0.013906568}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.53333336
+        value: {x: 0.00023810509, y: 0.9682253, z: -0.25007823, w: -0.0007947979}
+        inSlope: {x: -0.0014770075, y: -0.13241352, z: -0.5129454, w: 0.0018395912}
+        outSlope: {x: -0.0014770075, y: -0.13241352, z: -0.5129454, w: 0.0018395912}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.96666664
+        value: {x: 0.00000027775272, y: 0.92162216, z: -0.38808846, w: 0.00000031648713}
+        inSlope: {x: 0.0005322389, y: -0.013933195, z: -0.0331423, w: 0.0015571943}
+        outSlope: {x: 0.0005322389, y: -0.013933195, z: -0.0331423, w: 0.0015571943}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Vagon_Stateroom_Furniture_Table_Rod_01
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: -0.053412985, y: 0.006190249, z: -0.0006219019, w: 0.99855316}
+        inSlope: {x: -0.03614567, y: -0.013906987, z: -0.00045013786, w: -0.0018721818}
+        outSlope: {x: -0.03614567, y: -0.013906987, z: -0.00045013786, w: -0.0018721818}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.53333336
+        value: {x: -0.25054872, y: 0.0007951271, z: -0.00023748256, w: 0.96810365}
+        inSlope: {x: -0.5128802, y: -0.0018395756, z: 0.001476496, w: -0.13266207}
+        outSlope: {x: -0.5128802, y: -0.0018395756, z: 0.001476496, w: -0.13266207}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.96666664
+        value: {x: -0.38853619, y: 0.000000047593325, z: 0.000000058488624, w: 0.92143345}
+        inSlope: {x: -0.03313425, y: -0.0015534814, z: -0.00053607096, w: -0.013949288}
+        outSlope: {x: -0.03313425, y: -0.0015534814, z: -0.00053607096, w: -0.013949288}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Vagon_Stateroom_Furniture_Table_Shaft_01
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0.6427876, y: -0, z: -0, w: 0.7660445}
+        inSlope: {x: -0.055972334, y: 0, z: 0, w: 0.046849247}
+        outSlope: {x: -0.055972334, y: 0, z: 0, w: 0.046849247}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.3666667
+        value: {x: 0.45555633, y: -0, z: -0, w: 0.890207}
+        inSlope: {x: -0.90675753, y: 0, z: 0, w: 0.46333802}
+        outSlope: {x: -0.90675753, y: 0, z: 0, w: 0.46333802}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.6666667
+        value: {x: 0.1593026, y: -0, z: -0, w: 0.9872298}
+        inSlope: {x: -0.9136219, y: 0, z: 0, w: 0.14831007}
+        outSlope: {x: -0.9136219, y: 0, z: 0, w: 0.14831007}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.96666664
+        value: {x: 0, y: -0, z: -0, w: 1}
+        inSlope: {x: -0.07299179, y: 0, z: 0, w: 0.00008761891}
+        outSlope: {x: -0.07299179, y: 0, z: 0, w: 0.00008761891}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: table/Vagon_Stateroom_Furniture_Table_01/Vagon_Stateroom_Furniture_Table_Desk_01
+  m_CompressedRotationCurves: []
+  m_EulerCurves: []
+  m_PositionCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: -7.3311796, y: 2.4638453, z: 1.3846514}
+        inSlope: {x: -7.105427e-14, y: -0.043725584, z: -0.05478515}
+        outSlope: {x: -7.105427e-14, y: -0.043725584, z: -0.05478515}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 0.5333333
+        value: {x: -7.3311796, y: 2.299996, z: 1.1344688}
+        inSlope: {x: -3.045186e-14, y: -0.66682035, z: -0.47993818}
+        outSlope: {x: -7.105421e-14, y: -0.68931824, z: -0.42502177}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 0.96666664
+        value: {x: -7.3311796, y: 2.0876806, z: 1.0704539}
+        inSlope: {x: -3.0451807e-14, y: -0.055641126, z: -0.00078964164}
+        outSlope: {x: -3.0451807e-14, y: -0.055641126, z: -0.00078964164}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Vagon_Stateroom_Furniture_Table_Rod_01
+  m_ScaleCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 99.99997, y: 99.99999, z: 99.99999}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 0.96666664
+        value: {x: 99.99997, y: 99.99999, z: 99.99999}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Vagon_Stateroom_Furniture_Table_Rod_01
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 100.00001, y: 100.00002, z: 100.00003}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 0.96666664
+        value: {x: 100.00001, y: 100.00002, z: 100.00003}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Vagon_Stateroom_Furniture_Table_Shaft_01
+  m_FloatCurves: []
+  m_PPtrCurves: []
+  m_SampleRate: 30
+  m_WrapMode: 0
+  m_Bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_ClipBindingConstant:
+    genericBindings: []
+    pptrCurveMapping: []
+  m_AnimationClipSettings:
+    serializedVersion: 2
+    m_AdditiveReferencePoseClip: {fileID: 0}
+    m_AdditiveReferencePoseTime: 0
+    m_StartTime: 0
+    m_StopTime: 0.96666664
+    m_OrientationOffsetY: 0
+    m_Level: 0
+    m_CycleOffset: 0
+    m_HasAdditiveReferencePose: 0
+    m_LoopTime: 0
+    m_LoopBlend: 0
+    m_LoopBlendOrientation: 0
+    m_LoopBlendPositionY: 0
+    m_LoopBlendPositionXZ: 0
+    m_KeepOriginalOrientation: 0
+    m_KeepOriginalPositionY: 1
+    m_KeepOriginalPositionXZ: 0
+    m_HeightFromFeet: 0
+    m_Mirror: 0
+  m_EditorCurves: []
+  m_EulerEditorCurves: []
+  m_HasGenericRootTransform: 0
+  m_HasMotionFloatCurves: 0
+  m_Events: []
