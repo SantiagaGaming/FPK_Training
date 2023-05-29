@@ -135,6 +135,10 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("tableCoupeSleep", "Неисправно крепление столика  ");
         ObjectsRusNames.Add("noFixedTableCoupe2", "Не фиксируется столик ");
         ObjectsRusNames.Add("noFixedTableCoupe9", "Не фиксируется столик  ");
+        ObjectsRusNames.Add("businessNumberKoridor", "Неправильный номер предприятия");
+        ObjectsRusNames.Add("businessNumberKotel", "Неправильный номер предприятия ");
+        ObjectsRusNames.Add("businessNumberObliqueKoridor", "Неправильный номер предприятия  ");
+        ObjectsRusNames.Add("businessNumberVestibuleNonWorking", "Неправильный номер предприятия   ");
 
 
 
