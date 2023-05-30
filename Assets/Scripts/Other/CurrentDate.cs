@@ -17,7 +17,6 @@ public class CurrentDate : MonoBehaviour
         _endText.text = _endDate.Date.ToString("dd/MM/yyyy");
         _startText.text = _startDate.Date.ToString("dd/MM/yyyy" + "  -");
         _currentText.text = _currentDate.Date.ToString("dd/MM/yyyy");
-
     }
 
   

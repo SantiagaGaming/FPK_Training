@@ -142,6 +142,8 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("dirtyFilter", "Грязный фильтр");
         ObjectsRusNames.Add("noWater", "Отсутствует вода");
         ObjectsRusNames.Add("noWaterCommingIn", "Не поступает вода");
+        ObjectsRusNames.Add("blindsNonFixedCoupe9", "Автоштора не фиксируется ");
+        ObjectsRusNames.Add("blindsNonFixedCoupe2", "Автоштора не фиксируется  ");
 
 
 

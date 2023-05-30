@@ -21,7 +21,7 @@ namespace AosSdk.Core.Utils
 
         private const string AosSecret = "aos";
 
-        internal static Launcher Instance { get; private set; }
+        internal static Launcher Instance { get; private set; } 
 
         private void Awake()
         {
