@@ -139,6 +139,9 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("businessNumberKotel", "Неправильный номер предприятия ");
         ObjectsRusNames.Add("businessNumberObliqueKoridor", "Неправильный номер предприятия  ");
         ObjectsRusNames.Add("businessNumberVestibuleNonWorking", "Неправильный номер предприятия   ");
+        ObjectsRusNames.Add("dirtyFilter", "Грязный фильтр");
+        ObjectsRusNames.Add("noWater", "Отсутствует вода");
+        ObjectsRusNames.Add("noWaterCommingIn", "Не поступает вода");
 
 
 
