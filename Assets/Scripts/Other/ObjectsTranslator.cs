@@ -34,12 +34,12 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("mirror", "Отсутствует зеркало");
         ObjectsRusNames.Add("temperature", "Не греется кипятильник (термопот) ");
         ObjectsRusNames.Add("mallet", "Отсутствует киянка");
-        ObjectsRusNames.Add("halfGlass", "Отсутствует подстаканник");
+        ObjectsRusNames.Add("halfGlass", "Отсутствуют подстаканники");
         ObjectsRusNames.Add("cutter", "Отсутствует резак");
         ObjectsRusNames.Add("cleaningStuff", "Отсутствуют средства для уборки");
-        ObjectsRusNames.Add("cup", "Отсутствует стакан");
+        ObjectsRusNames.Add("cup", "Отсутствуют стаканы");
         ObjectsRusNames.Add("eatingStuff", "Отсутствуют столовые приборы");
-        ObjectsRusNames.Add("plate", "Отсутствует тарелка");
+        ObjectsRusNames.Add("plate", "Отсутствуют тарелки");
         ObjectsRusNames.Add("stairsPlomba", "Отсутствует пломба на лестнице");
         ObjectsRusNames.Add("plombaObliqueKoridor", "Отсутствие пломбы огнетушителя ");
         ObjectsRusNames.Add("chekaObliqueKoridor", "Отсутствие чеки огнетушителя ");
