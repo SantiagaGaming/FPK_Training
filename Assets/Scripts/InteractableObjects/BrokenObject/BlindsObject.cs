@@ -6,6 +6,7 @@ using UnityEngine;
 public class BlindsObject : BaseObject
 {
     [SerializeField] private LockEnabableObject _lockObject;
+    
     private Animator _animator;
     private bool _open = true;
 
@@ -25,9 +26,7 @@ public class BlindsObject : BaseObject
         {
             _animator.SetTrigger("Reverse");
             _open = true;
-           
         }
-
 
         else
         {

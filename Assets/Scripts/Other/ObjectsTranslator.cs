@@ -152,6 +152,7 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("blindsFasteningCoupe9", "Неисправно крепление автошторы    ");
         ObjectsRusNames.Add("ladderBrokenCoupe9", "Сломана лестница ");
         ObjectsRusNames.Add("ladderBrokenCoupeSleep", "Сломана лестница  ");
+        ObjectsRusNames.Add("inventoryBox", "Отсутствие инвентаря");
 
 
 
