@@ -144,6 +144,14 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("noWaterCommingIn", "Не поступает вода");
         ObjectsRusNames.Add("blindsNonFixedCoupe9", "Автоштора не фиксируется ");
         ObjectsRusNames.Add("blindsNonFixedCoupe2", "Автоштора не фиксируется  ");
+        ObjectsRusNames.Add("blindsNonFixedCoupeSleep", "Автоштора не фиксируется   ");
+        ObjectsRusNames.Add("blindsNonFixedCoupeOfficial", "Автоштора не фиксируется    ");
+        ObjectsRusNames.Add("blindsFasteningCoupeOfficial", "Неисправно крепление автошторы ");
+        ObjectsRusNames.Add("blindsFasteningCoupeSleep", "Неисправно крепление автошторы  ");
+        ObjectsRusNames.Add("blindsFasteningCoupe2", "Неисправно крепление автошторы   ");
+        ObjectsRusNames.Add("blindsFasteningCoupe9", "Неисправно крепление автошторы    ");
+        ObjectsRusNames.Add("ladderBrokenCoupe9", "Сломана лестница ");
+        ObjectsRusNames.Add("ladderBrokenCoupeSleep", "Сломана лестница  ");
 
 
 
