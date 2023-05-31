@@ -14,6 +14,7 @@ public class BrokenRandomBlinds : SearchableObject
             if (item != null )
             item.BrokenBlinds = "Broken";
             
+            
         }
     }
 }

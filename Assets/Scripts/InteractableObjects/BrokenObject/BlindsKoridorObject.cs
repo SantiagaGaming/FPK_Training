@@ -33,7 +33,7 @@ public class BlindsKoridorObject : BaseObject
 
         else
         {
-            _animator.SetTrigger("Broken");
+            _animator.SetTrigger(BrokenBlinds);
         }
 
     }
