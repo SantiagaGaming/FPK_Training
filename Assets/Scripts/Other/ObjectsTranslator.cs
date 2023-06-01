@@ -156,6 +156,7 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("fireSafetySystem", "Ложно срабатывает система ПБ");
         ObjectsRusNames.Add("fireSafetySystemButton", "Не включается лампочка - Готов");
         ObjectsRusNames.Add("tumblerBroken", "Излом тумблера сенсорной панели");
+        ObjectsRusNames.Add("brokenBoxKoridor", "Сломаны петли ящика для белья");
 
 
 
