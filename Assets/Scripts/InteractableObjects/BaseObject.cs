@@ -28,20 +28,27 @@ public class BaseObject : MonoBehaviour, IClickAble, IHoverAble
         if (outlineObjects != null)
             foreach (var outline in outlineObjects)
             {
-                
+               
+
                 if (outline.GetComponent<MeshRenderer>() == null)
                 {
                     return;
                 }
 
                 if (value)
-                {
-                    outline.GetComponent<MeshRenderer>().material.color *= 2f;
+                { 
+                     outline.GetComponent<MeshRenderer>().material.color *= 2f;
+                   
+                    
+                  
+
                 }
 
                 else
                 {
                     outline.GetComponent<MeshRenderer>().material.color /= 2f;
+
+                    
                 }
 
             }
