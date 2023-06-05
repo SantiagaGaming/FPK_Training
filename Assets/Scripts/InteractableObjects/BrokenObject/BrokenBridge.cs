@@ -10,7 +10,7 @@ public class BrokenBridge : SearchableObject
         if(!value)
         {
             Obj.transform.rotation =Quaternion.Euler(0f, 11f, 0f);
-            Obj.transform.localPosition = new Vector3(-0.000269f, 0f, 0f);
+            Obj.transform.localPosition = new Vector3(-0.000269f, -0.00043f, 0.00509f);
         }
     }
 

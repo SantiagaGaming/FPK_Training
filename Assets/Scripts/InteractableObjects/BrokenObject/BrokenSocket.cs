@@ -12,9 +12,6 @@ public class BrokenSocket : SearchableObject
         if (!value)
         {
             Obj.transform.localRotation = Quaternion.Euler(0, 0, _z);
-           
-
-
         }
             
 

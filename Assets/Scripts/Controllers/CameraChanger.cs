@@ -2,10 +2,12 @@ using AosSdk.Core.PlayerModule;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class CameraChanger : MonoBehaviour
 {
+    public UnityAction<bool> OnMenuChange;
     [HideInInspector] public bool CanTeleport = true;
 
     [SerializeField] private View _view;
@@ -37,9 +39,11 @@ public class CameraChanger : MonoBehaviour
     {
         if (!CanTeleport)
             return;
+
         _cameraFadeIn.FadeStart = true;
         if(_changed)
         {
+            OnMenuChange?.Invoke(true);
             _cursorManager.Locked = false;
             _checkListManager.Instantiate(SearchableObjectsHandler.Instance.CurrentRoom);
             TeleportToMenu();
@@ -49,6 +53,7 @@ public class CameraChanger : MonoBehaviour
         }
         else
         {
+            OnMenuChange?.Invoke(false);
             TeleportToPrevousLocation();
             _changed = true;
             _cursorManager.Locked = true;

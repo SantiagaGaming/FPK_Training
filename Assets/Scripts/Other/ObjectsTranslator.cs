@@ -162,7 +162,8 @@ public class ObjectsTranslator
 
 
 
-        ObjectsRusNames.Add("Kotel", "Тамбур рабочий и КО");
+        ObjectsRusNames.Add("Kotel", "Котловое отделение");
+        ObjectsRusNames.Add("VestibuleWorking", "Рабочий тамбур");
         ObjectsRusNames.Add("WC", "Санитарный узел");
         ObjectsRusNames.Add("Koridor", "Коридор");
         ObjectsRusNames.Add("SmallKoridor", "Малый коридор");
