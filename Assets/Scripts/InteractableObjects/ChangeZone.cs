@@ -30,7 +30,7 @@ public class ChangeZone : BaseObject
             VestibulWorking.SetActive(true);
             Animator.SetTrigger("Close");
         }
-        Debug.Log(Open.ToString() + " From Change zone");
+       
     }
 
 

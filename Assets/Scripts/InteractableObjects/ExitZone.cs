@@ -24,7 +24,7 @@ public class ExitZone : ChangeZone
         KO.SetActive(false);
         VestibulWorking.SetActive(true);
         _changeZone.Open = false;
-        Debug.Log(_changeZone.Open + " From Exit");
+
     }
 
     private void OnChangeState(bool value)
