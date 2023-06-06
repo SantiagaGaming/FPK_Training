@@ -77,6 +77,9 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("socketCoupeOfficial", "Не закреплена розетка  ");
         ObjectsRusNames.Add("socketCoupeNumber2", "Не закреплена розетка   ");
         ObjectsRusNames.Add("socketCoupeNumber9", "Не закреплена розетка    ");
+        ObjectsRusNames.Add("socketSmallKoridor", "Не закреплена розетка     ");
+        ObjectsRusNames.Add("socketWC", "Не закреплена розетка      ");
+        ObjectsRusNames.Add("socketWC2", "Не закреплена розетка       ");
         ObjectsRusNames.Add("fastenersCoupeSleep", "Сломан держатель полки");
         ObjectsRusNames.Add("fastenersCoupeNumber2", "Сломан держатель полки ");
         ObjectsRusNames.Add("fastenersCoupeNumber9", "Сломан держатель полки  ");
@@ -114,7 +117,9 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("handleHorizontalWC", "Ненадежное крепление ручки");
         ObjectsRusNames.Add("secretKey", "Секретка не поворачивается");
         ObjectsRusNames.Add("flushButton", "Кнопка смыва не работает");
+        ObjectsRusNames.Add("flushButtonWC2", "Кнопка смыва не работает ");
         ObjectsRusNames.Add("tapWater", "Отсутствует вода в кране");
+        ObjectsRusNames.Add("tapWaterWC2", "Отсутствует вода в кране ");
         ObjectsRusNames.Add("fireExtinguisherBrokenHose", "Не прикручен шланг огнетушителя");
         ObjectsRusNames.Add("handleVertical", "Ненадежное крепление ручки ");
         ObjectsRusNames.Add("blindsFastening", "Неисправно крепление автошторы");
