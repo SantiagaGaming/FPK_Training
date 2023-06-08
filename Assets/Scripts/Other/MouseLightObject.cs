@@ -13,6 +13,7 @@ public class MouseLightObject : MonoBehaviour
     {
         _rotateDoor.OnLightObjectOn += OnSwitchLightOn;
         _rotateDoor.OnLightObjectOff += OnSwitchLightOff;
+        
     }
     private void OnDisable()
     {

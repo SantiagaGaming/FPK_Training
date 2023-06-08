@@ -32,14 +32,21 @@ public class CheckListManager : MonoBehaviour
         List<SearchableObject> SortedList = SearchableObjectsHandler.Instance.SearchingList.OrderBy(o => o.GetRoomName).ToList();
         for (int i = 0; i <= SortedList.Count - 1; i++)
         {
+
             var temp = Instantiate(_prefub, _position);
             temp.transform.position += _yPoz;
             var tempObject = SortedList[i];
             temp.SearchableObject = tempObject;
             string zoneName = Translator.ObjectsRusNames[tempObject.GetRoomName.ToString()];
-            string objectName = Translator.ObjectsRusNames[tempObject.GetObjectId];
+            if (!Translator.ObjectsRusNames.ContainsKey(tempObject.GetObjectId))
+            {
+                Debug.Log(tempObject.GetObjectId + " Not found in Dictionary");
+            }
+                string objectName = Translator.ObjectsRusNames[tempObject.GetObjectId];
+           
             temp.SetText(zoneName, objectName);
             Items.Add(temp);
+
         }
     }
     public void Instantiate(RoomName currentRoom)
