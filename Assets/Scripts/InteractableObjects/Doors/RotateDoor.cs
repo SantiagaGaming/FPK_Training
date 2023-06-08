@@ -8,6 +8,9 @@ using AosSdk.ThirdParty.QuickOutline.Scripts;
 
 public class RotateDoor : Door
 {
+    public UnityAction OnLightObjectOn;
+    public UnityAction OnLightObjectOff;
+
     [SerializeField] private bool _inside;
     [SerializeField] private bool _x;
     [SerializeField] private bool _down;
@@ -80,6 +83,7 @@ public class RotateDoor : Door
                     _colliderOn.SetActive(true);
                     _colliderOff.SetActive(false);
                 }
+                OnLightObjectOn?.Invoke();
             }
                 else
             {
@@ -97,6 +101,7 @@ public class RotateDoor : Door
                     yield return new WaitForSeconds(0.01f);
                         y--;
                     }
+                    OnLightObjectOff?.Invoke();
                 }
             }
         DoorAction(false);
