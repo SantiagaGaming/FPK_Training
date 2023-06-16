@@ -15,9 +15,10 @@ public class CoalDoor : Door
         {
             foreach (var animator in _animator)
             {
-                animator.SetTrigger("Open");
+                animator.SetTrigger("Open");  
             }
-            yield return new WaitForSeconds(1.2f);
+            yield return new WaitForSeconds(1.4f);
+
 
             int y = 0;
             while (y <= 70)

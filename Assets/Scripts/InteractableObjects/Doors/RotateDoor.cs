@@ -72,8 +72,11 @@ public class RotateDoor : Door
             {
                 if (handle != null)
                     StartCoroutine(RotateHandle());
-                if (_animator2 != null) { _animator2.SetTrigger("Open"); }
-                yield return new WaitForSeconds(0.6f);
+                if (_animator2 != null) 
+                { _animator2.SetTrigger("Open");
+                    yield return new WaitForSeconds(1f);
+                }
+                yield return new WaitForSeconds(1f);
                 int y = 0;
                     while (y <= 90)
                     {
