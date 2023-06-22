@@ -10,6 +10,7 @@ public class RotateDoorWithParameter: Door
     [SerializeField] private bool _x;
     [SerializeField] private bool _down;
     [SerializeField] private int _rotateValue;
+    [SerializeField] private Animator[] _animator;
 
     public override void UseDoorByCollide(bool value)
     {
@@ -28,7 +29,15 @@ public class RotateDoorWithParameter: Door
         {
             if (handle != null)
                 StartCoroutine(RotateHandle());
-            yield return new WaitForSeconds(0.5f);
+                if (_animator != null)
+                {
+                    foreach (var animator in _animator)
+                    {
+                        animator.SetTrigger("Open");
+                    }
+                    yield return new WaitForSeconds(1f);
+                }
+                yield return new WaitForSeconds(0.3f);
                
                 int y = 0;
             while (y >= -_rotateValue)
@@ -47,7 +56,13 @@ public class RotateDoorWithParameter: Door
                 yield return new WaitForSeconds(0.01f);
                 y++;
             }
-        }
+                if (_animator != null) {
+                    foreach (var animator in _animator)
+                    {
+                        animator.SetTrigger("Close");
+                    }
+                }
+            }
     }
     else
     {
@@ -55,7 +70,15 @@ public class RotateDoorWithParameter: Door
         {
             if (handle != null)
                 StartCoroutine(RotateHandle());
-            yield return new WaitForSeconds(0.5f);
+                if (_animator != null)
+                {
+                    foreach(var animator in _animator)
+                    {
+                        animator.SetTrigger("Open");
+                    }
+                    yield return new WaitForSeconds(1f);
+                }
+                yield return new WaitForSeconds(0.3f);
             int y = 0;
             while (y <= _rotateValue)
             {
@@ -73,7 +96,13 @@ public class RotateDoorWithParameter: Door
                 yield return new WaitForSeconds(0.01f);
                 y--;
             }
-        }
+                if (_animator != null) {
+                    foreach (var animator in _animator)
+                    {
+                        animator.SetTrigger("Close");
+                    }   
+                }
+            }
     }
     DoorAction(false);
     if (open)
