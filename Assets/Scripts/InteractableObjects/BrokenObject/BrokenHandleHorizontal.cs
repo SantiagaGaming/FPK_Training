@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class BrokenHandleHorizontal : SearchableObject
 {
-    [SerializeField] private GameObject[] _handle;
+    
     [SerializeField] private float _z;
+    [SerializeField] private float _y;
+    [SerializeField] private float _x;
 
     public override void EnableObject(bool value)
     {
         base.EnableObject(value);
-        var brokenHandle = _handle[Random.Range(0, _handle.Length)];
-        brokenHandle.transform.localRotation = Quaternion.Euler(0, 0, _z);
+        
+        Obj.transform.localRotation = Quaternion.Euler(_x, _y, _z);
     }
 }

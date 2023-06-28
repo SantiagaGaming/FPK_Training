@@ -217,7 +217,7 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("f_163", "Излом тумблера сенсорной панели");
         ObjectsRusNames.Add("f_46", "Сломаны петли ящика для белья");
         ObjectsRusNames.Add("c_secretkeyoff_tn", "Секретка не поворачивается");
-        ObjectsRusNames.Add("c_handlevertical_tp2", "Ненадежное крепление вертикальной ручки");
+        ObjectsRusNames.Add("f_263", "Ненадежное крепление вертикальной ручки");
         ObjectsRusNames.Add("c_specialkey_tr", "Не поворачивается спецключ");
         ObjectsRusNames.Add("c_3grannyykey_tr", "Не поворачивается трехгранный ключ");
 

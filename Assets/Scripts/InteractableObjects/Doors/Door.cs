@@ -10,6 +10,7 @@ using AosSdk.Core.PlayerModule;
 public class Door : BaseObject
 {
     [SerializeField] protected GameObject handle;
+   
     protected bool canAction = true;
     public bool open = false;
     
