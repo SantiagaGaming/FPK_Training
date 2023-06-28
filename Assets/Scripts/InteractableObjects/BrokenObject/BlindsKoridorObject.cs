@@ -9,9 +9,10 @@ public class BlindsKoridorObject : BaseObject
   
 
     private Animator _animator;
-    public string BrokenBlinds { get; set; } = "Idle";
+    
+    [SerializeField] private LockEnabableObject _lockObject;
     private bool _open = true;
-   
+
 
     private void Start()
     {
@@ -19,13 +20,13 @@ public class BlindsKoridorObject : BaseObject
     }
     public override void OnClicked(InteractHand interactHand)
     {
-        if (BrokenBlinds == "Idle" && _open)
+        if (_lockObject.CurrentState == "Idle" && _open)
         {
             _animator.SetTrigger("Idle");
             _open = false;
 
         }
-        else if (BrokenBlinds == "Idle" && !_open)
+        else if (_lockObject.CurrentState == "Idle" && !_open)
         {
             _animator.SetTrigger("Reverse");
             _open = true;
@@ -33,7 +34,7 @@ public class BlindsKoridorObject : BaseObject
 
         else
         {
-            _animator.SetTrigger(BrokenBlinds);
+            _animator.SetTrigger(_lockObject.CurrentState);
         }
 
     }

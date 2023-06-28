@@ -9,6 +9,6 @@ public class BrokenGazet : SearchableObject
     {
         base.EnableObject(value);
         if (!value)
-            Obj.transform.localRotation = Quaternion.Euler(40, 0, 0);
+            Obj.transform.localRotation = Quaternion.Euler(40, 0 , 0);
     }
 }
