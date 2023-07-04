@@ -113,7 +113,7 @@ public class ResultController : MonoBehaviour
         foreach (var item in _hidedObjects)
         {
            var roomName = SearchableObjectsHandler.Instance.HidedList.FirstOrDefault(i => i.GetObjectId == item);
-            notFound += _translator.ObjectsRusNames[roomName.GetRoomName.ToString()]+ ": " + _translator.ObjectsRusNames[item] + ";\n";
+            notFound += _translator.ObjectsRusNames[roomName.GetRoomName.ToString()]+ ": " + _translator.ObjectsRusNames[item] + "\n";
         }
            return notFound;
     }
@@ -123,7 +123,7 @@ public class ResultController : MonoBehaviour
             return "";
             string notFound = "\nОшибочно указано: \n";
             foreach (var item in _nonCorrectList)
-            notFound += item + ";\n";
+            notFound += item + "\n";
             return notFound;
     }
     public void SetZoneText(RoomName name)
