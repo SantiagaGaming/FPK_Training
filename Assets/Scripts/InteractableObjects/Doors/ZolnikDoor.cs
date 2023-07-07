@@ -10,21 +10,21 @@ public class ZolnikDoor : Door
         if (!value)
         {
             int z = 0;
-            while (z <= 55)
+            while (z >= -165)
             {
-                transform.localEulerAngles += new Vector3(0, 1, 0);
+                transform.localEulerAngles -= new Vector3(0, 0, 1);
                 yield return new WaitForSeconds(0.01f);
-                z++;
+                z--;
             }
         }
         else
         {
-            int z = 55;
-            while (z >= 0)
+            int z = -165;
+            while (z <= 0)
             {
-                transform.localEulerAngles -= new Vector3(0, 1, 0);
+                transform.localEulerAngles += new Vector3(0, 0, 1);
                 yield return new WaitForSeconds(0.01f);
-                z--;
+                z++;
             }
         }
         GetComponent<Collider>().enabled = true;
