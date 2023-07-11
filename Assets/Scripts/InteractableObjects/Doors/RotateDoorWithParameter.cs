@@ -19,95 +19,102 @@ public class RotateDoorWithParameter: Door
     }
     override protected IEnumerator UseDoor(bool value)
 {
-    DoorAction(true);
+        if (!locked)
+        {
 
-        
-        if (!_inside)
-    {
 
-        if (!value)
-        {
-            if (handle != null)
-                StartCoroutine(RotateHandle());
-                if (_animator != null)
+            DoorAction(true);
+
+
+            if (!_inside)
+            {
+
+                if (!value)
                 {
-                    foreach (var animator in _animator)
+                    if (handle != null)
+                        StartCoroutine(RotateHandle());
+                    if (_animator != null)
                     {
-                        animator.SetTrigger("Open");
+                        foreach (var animator in _animator)
+                        {
+                            animator.SetTrigger("Open");
+                        }
+                        yield return new WaitForSeconds(1f);
                     }
-                    yield return new WaitForSeconds(1f);
-                }
-                yield return new WaitForSeconds(0.3f);
-               
-                int y = 0;
-            while (y >= -_rotateValue)
-            {
-                transform.localEulerAngles += new Vector3(0, 1, 0);
-                yield return new WaitForSeconds(0.01f);
-                y--;
-            }
-        }
-        else
-        {
-            int y = -_rotateValue;
-            while (y <= 0)
-            {
-                transform.localEulerAngles -= new Vector3(0, 1, 0);
-                yield return new WaitForSeconds(0.01f);
-                y++;
-            }
-                if (_animator != null) {
-                    foreach (var animator in _animator)
+                    yield return new WaitForSeconds(0.3f);
+
+                    int y = 0;
+                    while (y >= -_rotateValue)
                     {
-                        animator.SetTrigger("Close");
+                        transform.localEulerAngles += new Vector3(0, 1, 0);
+                        yield return new WaitForSeconds(0.01f);
+                        y--;
                     }
                 }
-            }
-    }
-    else
-    {
-        if (!value)
-        {
-            if (handle != null)
-                StartCoroutine(RotateHandle());
-                if (_animator != null)
+                else
                 {
-                    foreach(var animator in _animator)
+                    int y = -_rotateValue;
+                    while (y <= 0)
                     {
-                        animator.SetTrigger("Open");
+                        transform.localEulerAngles -= new Vector3(0, 1, 0);
+                        yield return new WaitForSeconds(0.01f);
+                        y++;
                     }
-                    yield return new WaitForSeconds(1f);
-                }
-                yield return new WaitForSeconds(0.3f);
-            int y = 0;
-            while (y <= _rotateValue)
-            {
-                transform.localEulerAngles -= new Vector3(0, 1, 0);
-                yield return new WaitForSeconds(0.01f);
-                y++;
-            }
-        }
-        else
-        {
-            int y = _rotateValue;
-            while (y >= 0)
-            {
-                transform.localEulerAngles += new Vector3(0, 1, 0);
-                yield return new WaitForSeconds(0.01f);
-                y--;
-            }
-                if (_animator != null) {
-                    foreach (var animator in _animator)
+                    if (_animator != null)
                     {
-                        animator.SetTrigger("Close");
-                    }   
+                        foreach (var animator in _animator)
+                        {
+                            animator.SetTrigger("Close");
+                        }
+                    }
                 }
             }
-    }
-    DoorAction(false);
-    if (open)
-        open = false;
-    else open = true;
+            else
+            {
+                if (!value)
+                {
+                    if (handle != null)
+                        StartCoroutine(RotateHandle());
+                    if (_animator != null)
+                    {
+                        foreach (var animator in _animator)
+                        {
+                            animator.SetTrigger("Open");
+                        }
+                        yield return new WaitForSeconds(1f);
+                    }
+                    yield return new WaitForSeconds(0.3f);
+                    int y = 0;
+                    while (y <= _rotateValue)
+                    {
+                        transform.localEulerAngles -= new Vector3(0, 1, 0);
+                        yield return new WaitForSeconds(0.01f);
+                        y++;
+                    }
+                }
+                else
+                {
+                    int y = _rotateValue;
+                    while (y >= 0)
+                    {
+                        transform.localEulerAngles += new Vector3(0, 1, 0);
+                        yield return new WaitForSeconds(0.01f);
+                        y--;
+                    }
+                    if (_animator != null)
+                    {
+                        foreach (var animator in _animator)
+                        {
+                            animator.SetTrigger("Close");
+                        }
+                    }
+                }
+            }
+            DoorAction(false);
+            if (open)
+                open = false;
+            else open = true;
+        }
 }
 private IEnumerator RotateHandle()
 {

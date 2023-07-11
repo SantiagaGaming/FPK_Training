@@ -13,7 +13,8 @@ public class Door : BaseObject
    
     protected bool canAction = true;
     public bool open = false;
-    
+    public bool locked = false;
+
 
     public override void OnClicked(InteractHand interactHand)
     {

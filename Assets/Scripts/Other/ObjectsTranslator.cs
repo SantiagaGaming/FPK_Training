@@ -248,7 +248,8 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("f_216_1", "Сломано крепление горизонтальной ручки напротив коридора ");
         ObjectsRusNames.Add("f_216_2", "Сломано крепление горизонтальной ручки двери со стороны платформы");
         ObjectsRusNames.Add("f_216_3", "Сломано крепление горизонтальной ручки двери не со стороны платформы");
-        ObjectsRusNames.Add("c_secretkeyoff_tn", "Секретка не поворачивается");
+        ObjectsRusNames.Add("f_217_1", "Не поворачивается ключ секретки на двери с торцевой стороны вагона");
+        ObjectsRusNames.Add("f_217", "Не поворачивается ключ секретки на двери со стороны малого коридора");
         ObjectsRusNames.Add("c_specialkey_tr", "Не поворачивается спецключ");
         ObjectsRusNames.Add("c_3grannyykey_tr", "Не поворачивается трехгранный ключ");
 

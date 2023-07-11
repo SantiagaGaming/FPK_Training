@@ -18,113 +18,118 @@ public class RotateDoor : Door
     [SerializeField] private Animator _animator2;
     [SerializeField] private GameObject _colliderOn;
     [SerializeField] private GameObject _colliderOff;
+    
 
     override protected IEnumerator UseDoor(bool value)
     {
-        DoorAction(true);
+        if (!locked)
+        {
+            DoorAction(true);
 
             if (!_inside)
             {
- 
-            if (!value)
+
+                if (!value)
                 {
-                if (handle != null)
-                    StartCoroutine(RotateHandle());
-                if (_animator2 != null)
-                {
-                    _animator2.SetTrigger("Open");
-                    yield return new WaitForSeconds(1f);
-                }
+                    if (handle != null)
+                        StartCoroutine(RotateHandle());
+                    if (_animator2 != null)
+                    {
+                        _animator2.SetTrigger("Open");
+                        yield return new WaitForSeconds(1f);
+                    }
 
 
-                yield return new WaitForSeconds(0.5f);
-                int y = 0;
+                    yield return new WaitForSeconds(0.5f);
+                    int y = 0;
                     while (y >= -90)
                     {
-                    transform.localEulerAngles += new Vector3(0, 1, 0);
+                        transform.localEulerAngles += new Vector3(0, 1, 0);
                         yield return new WaitForSeconds(0.01f);
                         y--;
                     }
-                if (_animator != null)
-                {
-                    _animator.SetTrigger("Open");
-                    _colliderOn.SetActive(true);
-                    _colliderOff.SetActive(false);
-                }
+                    if (_animator != null)
+                    {
+                        _animator.SetTrigger("Open");
+                        _colliderOn.SetActive(true);
+                        _colliderOff.SetActive(false);
+                    }
                 }
                 else
                 {
-                if (_animator != null) 
-                { 
-                    _animator.SetTrigger("Close");
-                    _colliderOff.SetActive(true);
-                    _colliderOn.SetActive(false);
-                }
-                
-                yield return new WaitForSeconds(0.6f);
-                int y = -90;
+                    if (_animator != null)
+                    {
+                        _animator.SetTrigger("Close");
+                        _colliderOff.SetActive(true);
+                        _colliderOn.SetActive(false);
+                    }
+
+                    yield return new WaitForSeconds(0.6f);
+                    int y = -90;
                     while (y <= 0)
                     {
-                    transform.localEulerAngles -= new Vector3(0, 1, 0);
-                    yield return new WaitForSeconds(0.01f);
+                        transform.localEulerAngles -= new Vector3(0, 1, 0);
+                        yield return new WaitForSeconds(0.01f);
                         y++;
                     }
-                if (_animator2 != null) { _animator2.SetTrigger("Close"); }
+                    if (_animator2 != null) { _animator2.SetTrigger("Close"); }
 
-            }
+                }
             }
             else
             {
-            if (!value)
-            {
-                if (handle != null)
-                    StartCoroutine(RotateHandle());
-                if (_animator2 != null) 
-                { _animator2.SetTrigger("Open");
+                if (!value)
+                {
+                    if (handle != null)
+                        StartCoroutine(RotateHandle());
+                    if (_animator2 != null)
+                    {
+                        _animator2.SetTrigger("Open");
+                        yield return new WaitForSeconds(1f);
+                    }
                     yield return new WaitForSeconds(1f);
-                }
-                yield return new WaitForSeconds(1f);
-                int y = 0;
+                    int y = 0;
                     while (y <= 90)
                     {
-                    transform.localEulerAngles -= new Vector3(0, 1, 0);
-                    yield return new WaitForSeconds(0.01f);
+                        transform.localEulerAngles -= new Vector3(0, 1, 0);
+                        yield return new WaitForSeconds(0.01f);
                         y++;
                     }
-                if (_animator != null)
-                {
-                    _animator.SetTrigger("Open");
-                    _colliderOn.SetActive(true);
-                    _colliderOff.SetActive(false);
+                    if (_animator != null)
+                    {
+                        _animator.SetTrigger("Open");
+                        _colliderOn.SetActive(true);
+                        _colliderOff.SetActive(false);
+                    }
+                    OnLightObjectOn?.Invoke();
                 }
-                OnLightObjectOn?.Invoke();
-            }
                 else
-            {
-                if (_animator != null) 
-                { 
-                    _animator.SetTrigger("Close");
-                    _colliderOff.SetActive(true);
-                    _colliderOn.SetActive(false);
-                }
-               
-                yield return new WaitForSeconds(0.5f);
-                int y = 90;
+                {
+                    if (_animator != null)
+                    {
+                        _animator.SetTrigger("Close");
+                        _colliderOff.SetActive(true);
+                        _colliderOn.SetActive(false);
+                    }
+
+                    yield return new WaitForSeconds(0.5f);
+                    int y = 90;
                     while (y >= 0)
                     {
-                    transform.localEulerAngles += new Vector3(0, 1, 0);
-                    yield return new WaitForSeconds(0.01f);
+                        transform.localEulerAngles += new Vector3(0, 1, 0);
+                        yield return new WaitForSeconds(0.01f);
                         y--;
                     }
                     OnLightObjectOff?.Invoke();
-                if (_animator2 != null) { _animator2.SetTrigger("Close"); }
+                    if (_animator2 != null) { _animator2.SetTrigger("Close"); }
+                }
+
             }
-           
+            DoorAction(false);
+            if (open)
+                open = false;
+            else open = true;
         }
-        DoorAction(false);
-        if (open)
-            open = false;
-        else open = true;
     }
     private IEnumerator RotateHandle()
     {
