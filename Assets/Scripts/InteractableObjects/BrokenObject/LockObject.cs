@@ -6,11 +6,12 @@ using UnityEngine;
 public class LockObject : BaseObject
 {
     [SerializeField] private LockEnabableObject _lockObject;
+    [SerializeField] private NotCloseObject _notCloseObject;
     [SerializeField] private Door _door;
     private Animator _animator;
     private bool _open = true;
-    public bool SpecKey = false;
-    public bool SecretKey = false;
+    public bool SpecKey = false; //спец ключ
+    public bool SecretKey = false; // —екретка 
 
     private void Start()
     {
@@ -25,13 +26,19 @@ public class LockObject : BaseObject
             _open= false;
             if(SecretKey)
             {
-                _door.LockedSecretKey = true;
+                _door.LockedSecretKey = true; // блокирует открытие из-за секретки
             }           
-            if (SpecKey)
+            if (SpecKey && !_notCloseObject.BrokenKey) // если замок не сломан , то заходит в if и позвол€ет заблокировать дверь 
             {
-                _door.LockedSpecKey = true;
+                _door.LockedSpecKey = true; // блокирует открытие из-за спецключа
             }
-            
+            if (SpecKey && _notCloseObject.BrokenKey) // если замок сломан, то ключ крутитс€ только на закрытие
+            {
+                _open= true;
+            }
+
+
+
         }
         else if (_lockObject.CurrentState == "Idle" && !_open)
         {
