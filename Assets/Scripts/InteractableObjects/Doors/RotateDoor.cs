@@ -22,7 +22,7 @@ public class RotateDoor : Door
 
     override protected IEnumerator UseDoor(bool value)
     {
-        if (!locked)
+        if (!LockedSecretKey && !LockedSpecKey)
         {
             DoorAction(true);
 

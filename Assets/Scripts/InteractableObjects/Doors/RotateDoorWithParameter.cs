@@ -19,7 +19,7 @@ public class RotateDoorWithParameter: Door
     }
     override protected IEnumerator UseDoor(bool value)
 {
-        if (!locked)
+        if (!LockedSecretKey && LockedSpecKey)
         {
 
 

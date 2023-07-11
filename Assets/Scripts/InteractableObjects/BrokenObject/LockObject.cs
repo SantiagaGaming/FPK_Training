@@ -9,6 +9,8 @@ public class LockObject : BaseObject
     [SerializeField] private Door _door;
     private Animator _animator;
     private bool _open = true;
+    public bool SpecKey = false;
+    public bool SecretKey = false;
 
     private void Start()
     {
@@ -21,14 +23,30 @@ public class LockObject : BaseObject
         {
             _animator.SetTrigger(_lockObject.CurrentState);
             _open= false;
-            _door.locked = true;
+            if(SecretKey)
+            {
+                _door.LockedSecretKey = true;
+            }           
+            if (SpecKey)
+            {
+                _door.LockedSpecKey = true;
+            }
             
         }
         else if (_lockObject.CurrentState == "Idle" && !_open)
         {
             _animator.SetTrigger("Reverse");
             _open = true;
-            _door.locked = false;
+
+            if (SecretKey)
+            {
+                _door.LockedSecretKey = false;
+            }
+            if (SpecKey)
+            {
+                _door.LockedSpecKey = false;
+            }
+
         }
         else
         {
