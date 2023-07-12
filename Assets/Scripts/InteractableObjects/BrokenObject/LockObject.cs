@@ -37,8 +37,6 @@ public class LockObject : BaseObject
                 _open= true;
             }
 
-
-
         }
         else if (_lockObject.CurrentState == "Idle" && !_open)
         {
