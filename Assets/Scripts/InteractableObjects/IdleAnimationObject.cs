@@ -13,7 +13,16 @@ public class IdleAnimationObject : BaseObject
     }
     public override void OnClicked(InteractHand interactHand)
     {
+        GetComponent<Collider>().enabled= false;
         _animator.SetTrigger("Idle");
+        StartCoroutine(Wait());
+
+
+    }
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(5);
+        GetComponent<Collider>().enabled = true;
 
     }
 }
