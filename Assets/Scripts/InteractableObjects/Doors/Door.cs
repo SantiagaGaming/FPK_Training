@@ -15,6 +15,7 @@ public class Door : BaseObject
     public bool open = false;
     public bool LockedSecretKey = false;
     public bool LockedSpecKey = false;
+    
 
 
     public override void OnClicked(InteractHand interactHand)

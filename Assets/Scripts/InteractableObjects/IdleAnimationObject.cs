@@ -6,6 +6,7 @@ using UnityEngine;
 public class IdleAnimationObject : BaseObject
 
 {
+    [SerializeField] private float _animTime;
     private Animator _animator;
     private void Start()
     {
@@ -21,7 +22,7 @@ public class IdleAnimationObject : BaseObject
     }
     private IEnumerator Wait()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(_animTime);
         GetComponent<Collider>().enabled = true;
 
     }
