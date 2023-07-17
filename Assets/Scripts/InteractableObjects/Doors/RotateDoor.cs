@@ -47,7 +47,7 @@ public class RotateDoor : Door
                         yield return new WaitForSeconds(0.01f);
                         y--;
                     }
-                    DoorEvent?.Invoke();
+                    
                     if (_animator != null)
                     {
                         _animator.SetTrigger("Open");
@@ -58,7 +58,7 @@ public class RotateDoor : Door
                 else
                 {
                     Debug.Log("6");
-                    DoorEvent?.Invoke();
+                    
                     if (_animator != null)
                     {
                         _animator.SetTrigger("Close");
@@ -180,7 +180,7 @@ public class RotateDoor : Door
                     yield return new WaitForSeconds(0.01f);
                     y++;
                 }
-                DoorEvent?.Invoke();
+                
                 yield return new WaitForSeconds(2.2f);
                 transform.localRotation = Quaternion.Euler(transform.rotation.x, -5, transform.rotation.z);
             }

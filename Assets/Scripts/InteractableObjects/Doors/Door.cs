@@ -12,6 +12,7 @@ public class Door : BaseObject
     [SerializeField] protected GameObject handle;
 
     public UnityAction DoorEvent;
+    public UnityAction DoorEventOpen;
 
     protected bool canAction = true;
     public bool open = false;

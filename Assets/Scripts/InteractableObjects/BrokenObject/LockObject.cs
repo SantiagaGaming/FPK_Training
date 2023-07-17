@@ -20,7 +20,10 @@ public class LockObject : BaseObject
     {
         _animator = GetComponent<Animator>();
         if (_door != null)
+        {
             _door.DoorEvent += OnDoorClosed;
+            _door.DoorEventOpen += OnDoorOpen;
+        }
     }
     public override void OnClicked(InteractHand interactHand)
     {
@@ -41,14 +44,17 @@ public class LockObject : BaseObject
             }
             if (SecretKey)
             {
+                _animator.SetTrigger(_lockObject.CurrentState);
                 _door.LockedSecretKey = true; // блокирует открытие из-за секретки
             }
             if (SpecKey && !_notCloseObject.BrokenKey) // если замок не сломан , то заходит в if и позволяет заблокировать дверь 
             {
+                _animator.SetTrigger(_lockObject.CurrentState);
                 _door.LockedSpecKey = true; // блокирует открытие из-за спецключа
             }
             if (SpecKey && _notCloseObject.BrokenKey) // если замок сломан, то ключ крутится только на закрытие
             {
+                _animator.SetTrigger(_lockObject.CurrentState);
                 _open = true;
             }
 
@@ -68,7 +74,7 @@ public class LockObject : BaseObject
             if (ThreeGranyKey && !_notCloseObject.BrokenKey)
             {
                 _door.UseDoorByCollide(false);
-               
+
             }
             if (ThreeGranyKey && _notCloseObject.BrokenKey)
             {
@@ -86,6 +92,10 @@ public class LockObject : BaseObject
     private void OnDoorClosed()
     {
         _animator.SetTrigger("Reverse");
+    }
+    private void OnDoorOpen()
+    {
+        _animator.SetTrigger("Idle");
     }
 
 }
