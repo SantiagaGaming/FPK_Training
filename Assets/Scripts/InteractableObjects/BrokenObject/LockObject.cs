@@ -9,8 +9,7 @@ public class LockObject : BaseObject
     [SerializeField] private LockEnabableObject _lockObject;
     [SerializeField] private NotCloseObject _notCloseObject;
     [SerializeField] private Door _door;
-
-    private Animator _animator;
+    [SerializeField] private Animator [] _animator;
     private bool _open = true;
     public bool SpecKey = false; //спец ключ
     public bool SecretKey = false; // —екретка 
@@ -18,7 +17,8 @@ public class LockObject : BaseObject
 
     private void Start()
     {
-        _animator = GetComponent<Animator>();
+       
+        
         if (_door != null)
         {
             _door.DoorEvent += OnDoorClosed;
@@ -44,17 +44,17 @@ public class LockObject : BaseObject
             }
             if (SecretKey)
             {
-                _animator.SetTrigger(_lockObject.CurrentState);
+                OnDoorOpen();
                 _door.LockedSecretKey = true; // блокирует открытие из-за секретки
             }
             if (SpecKey && !_notCloseObject.BrokenKey) // если замок не сломан , то заходит в if и позвол€ет заблокировать дверь 
             {
-                _animator.SetTrigger(_lockObject.CurrentState);
+                OnDoorOpen();
                 _door.LockedSpecKey = true; // блокирует открытие из-за спецключа
             }
             if (SpecKey && _notCloseObject.BrokenKey) // если замок сломан, то ключ крутитс€ только на закрытие
             {
-                _animator.SetTrigger(_lockObject.CurrentState);
+                OnDoorOpen();
                 _open = true;
             }
 
@@ -63,12 +63,12 @@ public class LockObject : BaseObject
         {
             if (SecretKey)
             {
-                _animator.SetTrigger("Reverse");
+                OnDoorClosed();
                 _door.LockedSecretKey = false;
             }
             if (SpecKey)
             {
-                _animator.SetTrigger("Reverse");
+                OnDoorClosed();
                 _door.LockedSpecKey = false;
             }
             if (ThreeGranyKey && !_notCloseObject.BrokenKey)
@@ -86,16 +86,24 @@ public class LockObject : BaseObject
         }
         else
         {
-            _animator.SetTrigger(_lockObject.CurrentState);
+            BrokenDoor();
         }
     }
     private void OnDoorClosed()
     {
-        _animator.SetTrigger("Reverse");
+        foreach (var animator in _animator)  
+        animator.SetTrigger("Reverse");
     }
     private void OnDoorOpen()
+    {foreach (var animator in _animator)
+        animator.SetTrigger("Idle");
+    }
+    private void BrokenDoor()
     {
-        _animator.SetTrigger("Idle");
+        foreach (var animator in _animator)
+        {
+            animator.SetTrigger("Broken");
+        }
     }
 
 }
