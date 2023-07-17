@@ -10,12 +10,14 @@ using AosSdk.Core.PlayerModule;
 public class Door : BaseObject
 {
     [SerializeField] protected GameObject handle;
-   
+
+    public UnityAction DoorEvent;
+
     protected bool canAction = true;
     public bool open = false;
     public bool LockedSecretKey = false;
     public bool LockedSpecKey = false;
-    
+
 
 
     public override void OnClicked(InteractHand interactHand)
@@ -27,9 +29,13 @@ public class Door : BaseObject
     {
         yield return null;
     }
+    protected virtual IEnumerator UseBrokenDoor(bool value)
+    {
+        yield return null;
+    }
     protected void DoorAction(bool value)
     {
-        if(value)
+        if (value)
         {
             Player.Instance.CanMove = false;
             GetComponent<Collider>().isTrigger = true;
@@ -45,5 +51,9 @@ public class Door : BaseObject
     public virtual void UseDoorByCollide(bool value)
     {
         StartCoroutine(UseDoor(value));
+    }
+    public void UseBroken(bool value)
+    {
+        StartCoroutine(UseBrokenDoor(value));
     }
 }

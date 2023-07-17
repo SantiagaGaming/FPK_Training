@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NotCloseObject : SearchableObject
 {
+    [SerializeField] private float _y;
+    [SerializeField] private Door _door;
     public bool BrokenKey = false;
     public override void EnableObject(bool value)
     {
@@ -11,6 +13,12 @@ public class NotCloseObject : SearchableObject
         if (!value)
         {
             BrokenKey= true;
+            if(_door == null)
+            {
+                return;
+            }
+            _door.transform.localRotation= Quaternion.Euler(0,_y,0);
+            
             
         }
     }
