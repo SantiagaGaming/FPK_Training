@@ -10,6 +10,12 @@ public class ThreeKeyRotateDoor : Door
     [SerializeField] private bool _inside;
     [SerializeField] private bool _x;
     [SerializeField] private bool _down;
+    [SerializeField] private float _doorParametrStart;
+    [SerializeField] private float _doorParametrEnd;
+    [SerializeField] private float _finishBrokenParametr;
+    [SerializeField] private float _closePatametr;
+    [SerializeField] private float _closePatametr2;
+    
    
 
 
@@ -104,23 +110,24 @@ public class ThreeKeyRotateDoor : Door
             if (!value)
             {
                 Debug.Log("1");
-                int y = -90;
-                while (y <= 0)
+                float y = _closePatametr;     // -90  -42
+                while (y <= _closePatametr2)    // 0  45
                 {
                     transform.localRotation = Quaternion.Euler(transform.rotation.x, y, transform.rotation.z);
                     yield return new WaitForSeconds(0.01f);
                     y++;
                 }
                 DoorEvent?.Invoke();
-                yield return new WaitForSeconds(2.2f);
-                transform.localRotation = Quaternion.Euler(transform.rotation.x, -5, transform.rotation.z);
+                yield return new WaitForSeconds(2.3f);
+                transform.localRotation = Quaternion.Euler(transform.rotation.x, _finishBrokenParametr, transform.rotation.z);
             }
             else
             {
                 Debug.Log("2");
-                yield return new WaitForSeconds(3f);
-                int y = -5;
-                while (y >= -90)
+                DoorEventOpen?.Invoke();
+                yield return new WaitForSeconds(2.5f);
+                float y = _doorParametrStart;   // -5 , 90   , 42.162 , -42
+                while (y >= _doorParametrEnd)
                 {
                    
                     transform.localRotation = Quaternion.Euler(transform.rotation.x, y, transform.rotation.z);

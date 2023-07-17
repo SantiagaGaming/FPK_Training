@@ -270,6 +270,8 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("f_167", "Невозможно закрыть трехгранным ключом дверку");
         ObjectsRusNames.Add("f_49", "Не поворачивается трехгранный ключ ");
         ObjectsRusNames.Add("f_50", "Невозможно закрыть трехгранным ключом дверку ");
+        ObjectsRusNames.Add("f_212", "Не поворачивается трехгранный ключ  ");
+        ObjectsRusNames.Add("f_213", "Невозможно закрыть трехгранным ключом дверку  ");
 
 
 

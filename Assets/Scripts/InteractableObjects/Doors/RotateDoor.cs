@@ -31,7 +31,7 @@ public class RotateDoor : Door
 
                 if (!value)
                 {
-                    Debug.Log("5");
+                   
                     if (handle != null)
                         StartCoroutine(RotateHandle());
                     if (_animator2 != null)
@@ -57,7 +57,7 @@ public class RotateDoor : Door
                 }
                 else
                 {
-                    Debug.Log("6");
+                    
                     
                     if (_animator != null)
                     {
@@ -80,7 +80,7 @@ public class RotateDoor : Door
             {
                 if (!value)
                 {
-                    Debug.Log("7");
+                    
                     if (handle != null)
                         StartCoroutine(RotateHandle());
                     if (_animator2 != null)
@@ -106,7 +106,7 @@ public class RotateDoor : Door
                 }
                 else
                 {
-                    Debug.Log("8");
+                    
                     if (_animator != null)
                     {
                         _animator.SetTrigger("Close");
@@ -172,7 +172,7 @@ public class RotateDoor : Door
         {
             if (!value)
             {
-                Debug.Log("1");
+               
                 int y = -90;
                 while (y <= 0)
                 {
@@ -186,7 +186,7 @@ public class RotateDoor : Door
             }
             else
             {
-                Debug.Log("2");
+                
                 yield return new WaitForSeconds(3f);
                 int y = -5;
                 while (y >= -90)
@@ -203,7 +203,7 @@ public class RotateDoor : Door
 
             if (!value)
             {
-                Debug.Log("3");
+                
                 yield return new WaitForSeconds(1f);
                 int y = 0;
                 while (y <= 85)
@@ -215,7 +215,7 @@ public class RotateDoor : Door
             }
             else
             {
-                Debug.Log(" 4");
+                
                 int y = 90;
                 while (y >= 0)
                 {
