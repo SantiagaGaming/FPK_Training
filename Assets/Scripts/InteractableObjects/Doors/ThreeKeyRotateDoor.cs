@@ -10,11 +10,11 @@ public class ThreeKeyRotateDoor : Door
     [SerializeField] private bool _inside;
     [SerializeField] private bool _x;
     [SerializeField] private bool _down;
-    [SerializeField] private float _doorParametrStart;
-    [SerializeField] private float _doorParametrEnd;
-    [SerializeField] private float _finishBrokenParametr;
-    [SerializeField] private float _closePatametr;
-    [SerializeField] private float _closePatametr2;
+    [SerializeField] private float _doorParametrStart; // начальные кординаты при отказе
+    [SerializeField] private float _doorParametrEnd; // закрытие  при отказе
+    [SerializeField] private float _finishBrokenParametr; // открытие двери в конце для отказа
+    [SerializeField] private float _closePatametr; // начало закрытия  
+    [SerializeField] private float _closePatametr2; // конец закрытия
     
    
 
