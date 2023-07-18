@@ -48,7 +48,7 @@ public class ThreeKeyRotateDoor : Door
                     Debug.Log("6");
 
                     DoorEventOpen?.Invoke();
-                    yield return new WaitForSeconds(2.5f);
+                    yield return new WaitForSeconds(3f);
                     int y = -90;
                     while (y <= 0)
                     {
@@ -73,14 +73,15 @@ public class ThreeKeyRotateDoor : Door
                         yield return new WaitForSeconds(0.01f);
                         y++;
                     }
-                    
-                }
+                DoorEvent?.Invoke();
+
+            }
                 else
                 {
                     Debug.Log("8");
-                    
 
-                    yield return new WaitForSeconds(0.5f);
+                DoorEventOpen?.Invoke();
+                yield return new WaitForSeconds(2.5f);
                     int y = 90;
                     while (y >= 0)
                     {
@@ -142,24 +143,29 @@ public class ThreeKeyRotateDoor : Door
             if (!value)
             {
                 Debug.Log("3");
-                yield return new WaitForSeconds(1f);
-                int y = 0;
-                while (y <= 85)
+
+                float y = _closePatametr;
+                while (y >= _closePatametr2)
                 {
-                    transform.localEulerAngles -= new Vector3(0, 1, 0);
+                    transform.localRotation = Quaternion.Euler(transform.rotation.x, y, transform.rotation.z);
                     yield return new WaitForSeconds(0.01f);
-                    y++;
+                    y--;
                 }
+                DoorEvent?.Invoke();
+                yield return new WaitForSeconds(2.3f);
+                transform.localRotation = Quaternion.Euler(transform.rotation.x, _finishBrokenParametr, transform.rotation.z);
             }
             else
             {
                 Debug.Log(" 4");
-                int y = 90;
-                while (y >= 0)
+                DoorEventOpen?.Invoke();
+                yield return new WaitForSeconds(2.5f);
+                float y = _doorParametrStart;
+                while (y <= _doorParametrEnd)
                 {
-                    transform.localEulerAngles += new Vector3(0, 1, 0);
+                    transform.localRotation = Quaternion.Euler(transform.rotation.x, y, transform.rotation.z);
                     yield return new WaitForSeconds(0.01f);
-                    y--;
+                    y++;
                 }
             }
         }
