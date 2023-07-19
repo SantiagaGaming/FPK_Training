@@ -18,8 +18,7 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("f_188", "Отсутствует освежитель воздуха");
         ObjectsRusNames.Add("f_149", "Отсутствуют очки");
         ObjectsRusNames.Add("f_179", "Отсутствует туалетная бумага");
-        ObjectsRusNames.Add("f_134", "Отсутствие постельных принадлежностей внизу");
-        ObjectsRusNames.Add("f_134_1", "Отсутствие постельных принадлежностей сверху");
+        ObjectsRusNames.Add("f_134", "Отсутствие постельных принадлежностей ");       
         ObjectsRusNames.Add("f_189", "Присутствует загрязнение в сливе");
         ObjectsRusNames.Add("f_71", "Неисправно крепление дверки зольника");
         ObjectsRusNames.Add("f_72", "Присутствует загрязнение в котле");
@@ -79,14 +78,8 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("f_95", "Не закрыт ящик");
         ObjectsRusNames.Add("f_215", "Отсутствует метелка");
         ObjectsRusNames.Add("f_209", "Отсутствует деревянный скребок");
-        ObjectsRusNames.Add("f_258", "Отсутствуют постельные принадлежности места 8");
-        ObjectsRusNames.Add("f_258_1", "Отсутствуют постельные принадлежности места 7");
-        ObjectsRusNames.Add("f_258_2", "Отсутствуют постельные принадлежности места 6");
-        ObjectsRusNames.Add("f_258_3", "Отсутствуют постельные принадлежности места 5");
-        ObjectsRusNames.Add("f_114", "Отсутствуют постельные принадлежности места 33");
-        ObjectsRusNames.Add("f_114_1", "Отсутствуют постельные принадлежности места 34");
-        ObjectsRusNames.Add("f_114_2", "Отсутствуют постельные принадлежности места 35");
-        ObjectsRusNames.Add("f_114_3", "Отсутствуют постельные принадлежности места 36");
+        ObjectsRusNames.Add("f_258", "Отсутствуют постельные принадлежности  ");    
+        ObjectsRusNames.Add("f_114", "Отсутствуют постельные принадлежности");        
         ObjectsRusNames.Add("f_174", "поврежден шланг водоэмульсионного огнетушителя");
         ObjectsRusNames.Add("f_30", "Не закреплена розетка между купе 2 и 3");
         ObjectsRusNames.Add("f_31", "Не закреплена розетка между купе 6 и 7");
