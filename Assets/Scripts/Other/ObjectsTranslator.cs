@@ -97,11 +97,11 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("f_176", "Розетка не закреплена");
         ObjectsRusNames.Add("f_192", "Розетка не закреплена ");
         ObjectsRusNames.Add("f_207", "Розетка не закреплена  ");
-        ObjectsRusNames.Add("f_129", "Сломан держатель верхней полки");
-        ObjectsRusNames.Add("f_250", "Сломан держатель полки 8");
-        ObjectsRusNames.Add("f_251", "Сломан держатель полки 6");
-        ObjectsRusNames.Add("f_106", "Сломан держатель полки 34");
-        ObjectsRusNames.Add("f_107", "Сломан держатель полки 36");
+        ObjectsRusNames.Add("f_129", "Сломан фиксатор нижней полки");
+        ObjectsRusNames.Add("f_250", "Сломан фиксатор полки 7");
+        ObjectsRusNames.Add("f_251", "Сломан фиксатор полки 5");
+        ObjectsRusNames.Add("f_106", "Сломан фиксатор полки 33");
+        ObjectsRusNames.Add("f_107", "Сломан фиксатор полки 35");
         ObjectsRusNames.Add("f_265", "Неисправно крепление столика");
         ObjectsRusNames.Add("f_121", "Неисправно крепление столика ");
         ObjectsRusNames.Add("f_126", "Неисправно крепление газетницы внизу");
