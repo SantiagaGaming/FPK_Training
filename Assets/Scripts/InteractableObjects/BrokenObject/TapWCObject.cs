@@ -7,10 +7,12 @@ public class TapWCObject : BaseObject
 {
     [SerializeField] private LockEnabableObject _lockObject;
     [SerializeField] private ParticleSystem _particleSystem;
+    private Collider _collider;
     private Animator _animator;
     private void Start()
     {
         _animator = GetComponent<Animator>();
+        _collider = GetComponent<Collider>();
         _particleSystem.Stop();
     }
 
@@ -18,16 +20,18 @@ public class TapWCObject : BaseObject
     {
         if (_lockObject.CurrentState == "Idle")
         {
+            _collider.enabled = false;
             _animator.SetTrigger(_lockObject.CurrentState);
             _particleSystem.Play();
             StartCoroutine(StopWater());
         }
         else
         {
-
+            
             _animator.SetTrigger(_lockObject.CurrentState);
             
         }
+        
     }
 
     private IEnumerator StopWater()
@@ -35,5 +39,6 @@ public class TapWCObject : BaseObject
         yield return new WaitForSeconds(2);
 
         _particleSystem.Stop();
+        _collider.enabled = true;
     }
 }
