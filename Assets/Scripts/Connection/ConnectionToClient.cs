@@ -20,5 +20,6 @@ public class ConnectionToClient : AosObjectBase
     {
         OnReadyToAction.Invoke("Ready to Action");
         OnConnectionReady?.Invoke();
+        Debug.Log("Ready to Action");
     }
 }

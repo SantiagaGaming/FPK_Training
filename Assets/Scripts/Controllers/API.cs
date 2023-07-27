@@ -60,6 +60,8 @@ public class API : AosObjectBase
       //  OnSetStartText?.Invoke(headerText, commentText, buttonText, NextButtonState.Start);
         OnSetTeleportLocation?.Invoke("start");
     }
+
+
     [AosAction(name: "Показать информацию отказа")]
     public void showFaultInfo(JObject info, JObject nav)
     {
@@ -99,6 +101,11 @@ public class API : AosObjectBase
             OnActivateBackButton?.Invoke(nav.SelectToken("back").SelectToken("action").ToString());
         }
         OnSetLocationForFieldColliders?.Invoke(location);
+    }
+    [AosAction(name: "Указать отказы")]
+    public void showRefuses(JArray points)
+    {
+        Debug.Log("IN  SHOWREFUSES  " + points.ToString());
     }
     [AosAction(name: "Обновить место")]
     public void updatePlace(JArray data)
