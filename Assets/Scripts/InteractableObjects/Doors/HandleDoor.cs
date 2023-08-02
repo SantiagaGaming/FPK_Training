@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class HandleDoor : Door
 {
+    
     private bool _canOpen = true;
     public override void OnClicked(InteractHand interactHand)
     {
@@ -14,9 +15,11 @@ public class HandleDoor : Door
     protected override IEnumerator UseDoor(bool value)
     {
         _canOpen= false;
-        
-            
-            if (handle != null)
+
+           var pos = new Vector3(transform.position.x - 0.3f, transform.position.y + 1.35f, transform.position.z - 0.07f);
+        TablObject.Instance.SetNewPosition(pos);
+
+        if (handle != null)
             {
 
                 int rot = 0;
@@ -37,7 +40,11 @@ public class HandleDoor : Door
                     rot++;
                 }
             }
+       
         _canOpen = true;
+
+
+
 
     }
 }

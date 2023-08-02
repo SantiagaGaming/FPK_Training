@@ -4,7 +4,7 @@ using UnityEngine;
 using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 using UnityEngine.InputSystem;
 
-public class RotateDoorWithParameter: Door
+public class RotateDoorWithParameter : Door
 {
     [SerializeField] private bool _inside;
     [SerializeField] private bool _x;
@@ -12,29 +12,22 @@ public class RotateDoorWithParameter: Door
     [SerializeField] private int _rotateValue;
     [SerializeField] private Animator[] _animator;
 
-    public override void UseDoorByCollide(bool value)
-    {
-        if(transform.localRotation.y >0 || transform.localRotation.y <90)
-        base.UseDoorByCollide(value);
-    }
+
     override protected IEnumerator UseDoor(bool value)
-{
+    {
         if (handle != null)
             StartCoroutine(RotateHandle());
         if (!LockedSecretKey && !LockedSpecKey)
         {
-
-
             DoorAction(true);
-
 
             if (!_inside)
             {
 
                 if (!value)
                 {
-                    if (handle != null)
-                        StartCoroutine(RotateHandle());
+                    //if (handle != null)
+                    //    StartCoroutine(RotateHandle());
                     if (_animator != null)
                     {
                         foreach (var animator in _animator)
@@ -75,8 +68,8 @@ public class RotateDoorWithParameter: Door
             {
                 if (!value)
                 {
-                    if (handle != null)
-                        StartCoroutine(RotateHandle());
+                    //if (handle != null)
+                    //    StartCoroutine(RotateHandle());
                     if (_animator != null)
                     {
                         foreach (var animator in _animator)
@@ -117,35 +110,41 @@ public class RotateDoorWithParameter: Door
                 open = false;
             else open = true;
         }
-}
-private IEnumerator RotateHandle()
-{
-    int rot = 0;
-    while (rot <= 45)
-    {
-        if (!_x && !_down)
-            handle.transform.localEulerAngles += new Vector3(0, 0, 1);
-        else if (!_x && _down)
-            handle.transform.localEulerAngles -= new Vector3(0, 0, 1);
-        else if (_x && !_down)
-            handle.transform.localEulerAngles -= new Vector3(1, 0, 0);
-        else
-            handle.transform.localEulerAngles += new Vector3(1, 0, 0);
-        yield return new WaitForSeconds(0.008f);
-        rot++;
     }
-    while (rot >= 0)
+
+    private IEnumerator RotateHandle()
     {
-        if (!_x && !_down)
-            handle.transform.localEulerAngles -= new Vector3(0, 0, 1);
-        else if (!_x && _down)
-            handle.transform.localEulerAngles += new Vector3(0, 0, 1);
-        else if (_x && !_down)
-            handle.transform.localEulerAngles += new Vector3(1, 0, 0);
-        else
-            handle.transform.localEulerAngles -= new Vector3(1, 0, 0);
-        yield return new WaitForSeconds(0.008f);
-        rot--;
+        int rot = 0;
+        while (rot <= 45)
+        {
+            if (!_x && !_down)
+                handle.transform.localEulerAngles += new Vector3(0, 0, 1);
+            else if (!_x && _down)
+                handle.transform.localEulerAngles -= new Vector3(0, 0, 1);
+            else if (_x && !_down)
+                handle.transform.localEulerAngles -= new Vector3(1, 0, 0);
+            else
+                handle.transform.localEulerAngles += new Vector3(1, 0, 0);
+            yield return new WaitForSeconds(0.008f);
+            rot++;
+        }
+        while (rot >= 0)
+        {
+            if (!_x && !_down)
+                handle.transform.localEulerAngles -= new Vector3(0, 0, 1);
+            else if (!_x && _down)
+                handle.transform.localEulerAngles += new Vector3(0, 0, 1);
+            else if (_x && !_down)
+                handle.transform.localEulerAngles += new Vector3(1, 0, 0);
+            else
+                handle.transform.localEulerAngles -= new Vector3(1, 0, 0);
+            yield return new WaitForSeconds(0.008f);
+            rot--;
+        }
     }
-}
+    public override void UseDoorByCollide(bool value)
+    {
+        if (transform.localRotation.y > 0 || transform.localRotation.y < 90)
+            base.UseDoorByCollide(value);
+    }
 }
