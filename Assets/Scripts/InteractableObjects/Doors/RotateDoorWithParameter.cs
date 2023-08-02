@@ -19,6 +19,8 @@ public class RotateDoorWithParameter: Door
     }
     override protected IEnumerator UseDoor(bool value)
 {
+        if (handle != null)
+            StartCoroutine(RotateHandle());
         if (!LockedSecretKey && !LockedSpecKey)
         {
 

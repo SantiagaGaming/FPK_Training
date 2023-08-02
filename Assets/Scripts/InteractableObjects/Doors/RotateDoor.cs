@@ -22,18 +22,20 @@ public class RotateDoor : Door
 
     override protected IEnumerator UseDoor(bool value)
     {
+        if (handle != null)
+            StartCoroutine(RotateHandle());
         if (!LockedSecretKey && !LockedSpecKey)
         {
             DoorAction(true);
-
+            
             if (!_inside)
             {
 
                 if (!value)
                 {
                    
-                    if (handle != null)
-                        StartCoroutine(RotateHandle());
+                    //if (handle != null)
+                    //    StartCoroutine(RotateHandle());
                     if (_animator2 != null)
                     {
                         _animator2.SetTrigger("Open");
@@ -78,11 +80,13 @@ public class RotateDoor : Door
             }
             else
             {
+                //if (handle != null)
+                //    StartCoroutine(RotateHandle());
                 if (!value)
                 {
                     
-                    if (handle != null)
-                        StartCoroutine(RotateHandle());
+                    //if (handle != null)
+                    //    StartCoroutine(RotateHandle());
                     if (_animator2 != null)
                     {
                         _animator2.SetTrigger("Open");
