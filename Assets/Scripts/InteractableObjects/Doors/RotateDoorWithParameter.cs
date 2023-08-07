@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 using UnityEngine.InputSystem;
+using System.Runtime.CompilerServices;
 
 public class RotateDoorWithParameter : Door
 {
@@ -11,6 +12,7 @@ public class RotateDoorWithParameter : Door
     [SerializeField] private bool _down;
     [SerializeField] private int _rotateValue;
     [SerializeField] private Animator[] _animator;
+    [SerializeField] private Collider _colliderOff;
 
 
     override protected IEnumerator UseDoor(bool value)
@@ -28,6 +30,7 @@ public class RotateDoorWithParameter : Door
                 {
                     //if (handle != null)
                     //    StartCoroutine(RotateHandle());
+                    if (_colliderOff != null) { _colliderOff.enabled = false; }
                     if (_animator != null)
                     {
                         foreach (var animator in _animator)
@@ -37,7 +40,7 @@ public class RotateDoorWithParameter : Door
                         yield return new WaitForSeconds(1f);
                     }
                     yield return new WaitForSeconds(0.3f);
-
+                    
                     int y = 0;
                     while (y >= -_rotateValue)
                     {
@@ -49,6 +52,7 @@ public class RotateDoorWithParameter : Door
                 else
                 {
                     int y = -_rotateValue;
+                    if (_colliderOff != null) { _colliderOff.enabled = true; }
                     while (y <= 0)
                     {
                         transform.localEulerAngles -= new Vector3(0, 1, 0);
@@ -70,6 +74,7 @@ public class RotateDoorWithParameter : Door
                 {
                     //if (handle != null)
                     //    StartCoroutine(RotateHandle());
+                    if (_colliderOff != null) { _colliderOff.enabled = false; }
                     if (_animator != null)
                     {
                         foreach (var animator in _animator)
@@ -78,6 +83,7 @@ public class RotateDoorWithParameter : Door
                         }
                         yield return new WaitForSeconds(1f);
                     }
+                    
                     yield return new WaitForSeconds(0.3f);
                     int y = 0;
                     while (y <= _rotateValue)
@@ -90,6 +96,7 @@ public class RotateDoorWithParameter : Door
                 else
                 {
                     int y = _rotateValue;
+                    if (_colliderOff != null) { _colliderOff.enabled = true; }
                     while (y >= 0)
                     {
                         transform.localEulerAngles += new Vector3(0, 1, 0);

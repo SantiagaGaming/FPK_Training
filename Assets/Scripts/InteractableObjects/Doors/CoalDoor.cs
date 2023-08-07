@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class CoalDoor : Door
 {
     [SerializeField] private Animator[] _animator;
+    [SerializeField] private Collider _collider;
     override protected IEnumerator UseDoor(bool value)
     {
         
@@ -13,6 +14,7 @@ public class CoalDoor : Door
         
         if (!value)
         {
+            _collider.enabled = false;
             foreach (var animator in _animator)
             {
                 animator.SetTrigger("Open");  
@@ -32,7 +34,7 @@ public class CoalDoor : Door
         }
         else
         {
-            
+            _collider.enabled = true;
             int y = 70;
             while (y >= 0)
             {
@@ -44,6 +46,7 @@ public class CoalDoor : Door
             {
                 animator.SetTrigger("Close");
             }
+
         }
         GetComponent<Collider>().enabled = true;
         if (open)
