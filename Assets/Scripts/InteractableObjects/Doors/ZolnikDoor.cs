@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class ZolnikDoor : Door
 {
+    [SerializeField] private Collider _colliderOff;
     override protected IEnumerator UseDoor(bool value)
     {
         GetComponent<Collider>().enabled = false;
         if (!value)
         {
+            if (_colliderOff != null) { _colliderOff.enabled = false; }
             int z = 0;
             while (z >= -165)
             {
@@ -19,6 +21,7 @@ public class ZolnikDoor : Door
         }
         else
         {
+            if (_colliderOff != null) { _colliderOff.enabled = true; }
             int z = -165;
             while (z <= 0)
             {

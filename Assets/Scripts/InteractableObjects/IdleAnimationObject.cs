@@ -8,15 +8,27 @@ public class IdleAnimationObject : BaseObject
 {
     [SerializeField] private float _animTime;
     private Animator _animator;
+    private bool _open = false;
     private void Start()
     {
         _animator = GetComponent<Animator>();
     }
     public override void OnClicked(InteractHand interactHand)
     {
-        GetComponent<Collider>().enabled= false;
-        _animator.SetTrigger("Idle");
-        StartCoroutine(Wait());
+        if (!_open)
+        {
+            GetComponent<Collider>().enabled = false;
+            _animator.SetTrigger("Idle");
+            StartCoroutine(Wait());
+            _open= true;
+        }
+        else
+        {
+            GetComponent<Collider>().enabled = false;
+            _animator.SetTrigger("Reverse");
+            StartCoroutine(Wait());
+            _open= false;
+        }
 
 
     }
