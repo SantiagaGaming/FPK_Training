@@ -7,7 +7,9 @@ using UnityEngine.InputSystem;
 public class EscController : MonoBehaviour
 {
     public UnityAction OnMenuEvent;
+    
 
+    [SerializeField] private API _api;
     [SerializeField] private InputActionProperty _menuAction;
     private void OnEnable()
     {
@@ -22,6 +24,7 @@ public class EscController : MonoBehaviour
     private void OnMenu(InputAction.CallbackContext c)
     {
         OnMenuEvent?.Invoke();
+        _api.OnMenuInvoke();
     }
 }
 
