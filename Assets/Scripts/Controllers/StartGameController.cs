@@ -10,6 +10,7 @@ public class StartGameController : MonoBehaviour
     [SerializeField] private CameraChanger _cameraChanger;
     [SerializeField] private GameObject _startScreen;
     [SerializeField] private ResultController _resultController;
+    [SerializeField] private TimerHelper _timerHelper;
     private void Start()
     {
         Player.Instance.CanMove = false;
@@ -29,5 +30,6 @@ public class StartGameController : MonoBehaviour
         _cameraChanger.CanTeleport = true;
         _startScreen.SetActive(false);
         _resultController.StartTime = DateTime.Now;
+        _timerHelper.StartGame = true;
     }
 }
