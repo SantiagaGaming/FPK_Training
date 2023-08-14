@@ -21,6 +21,7 @@ public class CheckListItem : MonoBehaviour
 
     private bool _checked = false;
     public bool Checked => _checked;
+    
     private void Start()
     {
         _button.GetComponent<Button>().onClick.AddListener(Check);
@@ -39,12 +40,16 @@ public class CheckListItem : MonoBehaviour
         if(!_checked)
         {
             _currentSprite.sprite = _checkInSprite;
-            _checked = true;
+            _checked = true;          
+            SelectedItemList.Instance.AddObject(SearchableObject);
+            Debug.Log(SearchableObject.GetObjectId);
         }
         else
         {
             _currentSprite.sprite = _checkOutSprite;
-            _checked = false;
+            _checked = false;                    
+            SelectedItemList.Instance.DeleteObject(SearchableObject);
+            Debug.Log(SearchableObject.GetObjectId);
         }
     }
     public void EnableCheckItem(bool value)
