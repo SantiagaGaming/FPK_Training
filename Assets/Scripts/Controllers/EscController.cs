@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 public class EscController : MonoBehaviour
 {
     public UnityAction OnMenuEvent;
-    
 
     [SerializeField] private API _api;
     [SerializeField] private InputActionProperty _menuAction;

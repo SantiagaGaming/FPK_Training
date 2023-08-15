@@ -13,6 +13,6 @@ public class ZoneTrigger : MonoBehaviour
         var aosObject = col.GetComponentInParent<AosObjectBase>();
         if (!aosObject)
             return;
-        SearchableObjectsHandler.Instance.CurrentRoom = ZoneName;
+        InstanceHandler.Instance.CurrentRoom = ZoneName;
     }
 }

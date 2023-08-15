@@ -19,7 +19,7 @@ public class HideController : MonoBehaviour
     {
         for (int i = 0; i < _count; i++)
         {
-           HidedObjectNames.Add(SearchableObjectsHandler.Instance.HideObject());
+           HidedObjectNames.Add(InstanceHandler.Instance.HideObject());
         }
     }
 }

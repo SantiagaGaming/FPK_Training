@@ -26,7 +26,7 @@ public class View : MonoBehaviour
     [SerializeField] private GameObject _resultPanel;
     private void Start()
     {
-      _resultButton.GetComponent<Button>().onClick.AddListener(OnResultButtonTap);
+     // _resultButton.GetComponent<Button>().onClick.AddListener(OnResultButtonTap);
       _exitButton.GetComponent<Button>().onClick.AddListener(OnExitButtonTap);
       _submitButton.GetComponent<Button>().onClick.AddListener(OnSumbitButtonTap);
       _backButton.GetComponent<Button>().onClick.AddListener(OnBackButtonTap);
@@ -65,5 +65,9 @@ public class View : MonoBehaviour
     public void SetZoneText(string text)
     {
        _zoneText.text = text;
+    }
+    public void InvokeBackButtonTap()
+    {
+        OnBackButtonTap?.Invoke();
     }
 }

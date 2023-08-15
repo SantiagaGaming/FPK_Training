@@ -5,58 +5,38 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-
+[RequireComponent(typeof(Button))]
 public class CheckListItem : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _zoneName;
-    [SerializeField] private TextMeshProUGUI _objectname;
     [SerializeField] private Sprite _checkInSprite;
     [SerializeField] private Sprite _checkOutSprite;
     [SerializeField] private Image _currentSprite;
-    [SerializeField] private GameObject _button;
-    [HideInInspector] public bool Enabled { get; private set; } = true;
+    [SerializeField] private Image _img;
+    private Button _button;
 
-    [HideInInspector] public SearchableObject SearchableObject { get; set; }
-    public string CheckName { get; private set; }
-
-    private bool _checked = false;
-    public bool Checked => _checked;
+    [SerializeField] private BreakObject _obj;
+    public string Id  => _obj.ObjectId;
+    public bool Checked { get; private set; }
     
-    private void Start()
+    private void Awake()
     {
-        _button.GetComponent<Button>().onClick.AddListener(Check);
+        _button = GetComponent<Button>();
+        _button.onClick.AddListener(Check);
     }
-    public void SetText(string zoneName,string objectName)
-    {
-        var date = DateTime.Now;
- 
 
-        _zoneName.text = $"{date.ToString("dd/MM/yyyy")}  {zoneName}";
-        _objectname.text = objectName;
-        CheckName = objectName;
-    }
     private void Check()
     {
-        if(!_checked)
+        if(!Checked)
         {
             _currentSprite.sprite = _checkInSprite;
-            _checked = true;          
-            SelectedItemList.Instance.AddObject(SearchableObject);
-            Debug.Log(SearchableObject.GetObjectId);
+            Checked = true;
+            _img.color = Color.blue;
         }
         else
         {
             _currentSprite.sprite = _checkOutSprite;
-            _checked = false;                    
-            SelectedItemList.Instance.DeleteObject(SearchableObject);
-            Debug.Log(SearchableObject.GetObjectId);
+            Checked = false;
+            _img.color = Color.white;
         }
-    }
-    public void EnableCheckItem(bool value)
-    {
-        _zoneName.enabled = value;
-        _objectname.enabled = value;
-       _button.SetActive(value);
-        Enabled= value;
     }
 }

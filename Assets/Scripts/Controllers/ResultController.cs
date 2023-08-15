@@ -7,7 +7,7 @@ using UnityEngine;
 public class ResultController : MonoBehaviour
 {
     [SerializeField] private View _view;
-    [SerializeField] private CheckListManager _checkManager;
+
     [SerializeField] private HideController _hideController;
     [SerializeField] private CameraChanger _cameraChanger;
     [SerializeField] private EscController _escController;
@@ -19,14 +19,10 @@ public class ResultController : MonoBehaviour
     private List<string> _checkedObjects = new List<string>();
     private List<string> _nonCorrectList= new List<string>();
 
-    private  ObjectsTranslator _translator;
     private TempFileWriter _tempFileWriter;
 
     private int _gradle;
-    private void Start()
-    {
-        _translator = _checkManager.Translator;
-    }
+
     private void OnEnable()
     {
         _view.OnSumbitButtonTap += OnSubmit;
@@ -49,86 +45,88 @@ public class ResultController : MonoBehaviour
     }
     private void OnSubmit()
     {
-        SearchableObjectsHandler.Instance.CurrentRoom = RoomName.None;
-        _checkManager.Instantiate(SearchableObjectsHandler.Instance.CurrentRoom);
+        InstanceHandler.Instance.CurrentRoom = RoomName.None;
+
         _view.EnableCheckObjects();
     }
     private void OnCompareIds()
     { 
-        EndTime = DateTime.Now;
+        //EndTime = DateTime.Now;
        
-        var resultTime = EndTime - StartTime;
-         DateParser dataParser = new DateParser(resultTime);
-        var resultTimeString = dataParser.ParserTime();
+        //var resultTime = EndTime - StartTime;
+        // DateParser dataParser = new DateParser(resultTime);
+        //var resultTimeString = dataParser.ParserTime();
 
 
 
-        _hidedObjects = _hideController.HidedObjectNames;
-        OnAddCheckedItems();
-        _view.EnableCheckPanel(false);
-        _view.EnableResultPanel(true);
-        _cameraChanger.CanTeleport = false;
-        if(_gradle<0)
-            _gradle = 0;
-        _view.SetResultText($"Иванов Олег Викторович\n{_gradle.ToString()}%");
-        _view.SetResultCommentText($"\nНачал выполенение: {StartTime}\nЗакончил выполенение: {EndTime} \nВремя выполнения: {resultTimeString} \n {SetNonCorrectItems()}{SetNotFoundedeItems()}");
-        string writeText = $"Иванов Олег Викторович \n Оценка: {_gradle.ToString()}\n Начал выполенение: {StartTime}\n Закончил выполенение: {EndTime} \n Ошибки: \n {SetNonCorrectItems()} \n {SetNotFoundedeItems()}";
+        //_hidedObjects = _hideController.HidedObjectNames;
+        //OnAddCheckedItems();
+        //_view.EnableCheckPanel(false);
+        //_view.EnableResultPanel(true);
+        //_cameraChanger.CanTeleport = false;
+        //if(_gradle<0)
+        //    _gradle = 0;
+        //_view.SetResultText($"Иванов Олег Викторович\n{_gradle.ToString()}%");
+        //_view.SetResultCommentText($"\nНачал выполенение: {StartTime}\nЗакончил выполенение: {EndTime} \nВремя выполнения: {resultTimeString} \n {SetNonCorrectItems()}{SetNotFoundedeItems()}");
+        //string writeText = $"Иванов Олег Викторович \n Оценка: {_gradle.ToString()}\n Начал выполенение: {StartTime}\n Закончил выполенение: {EndTime} \n Ошибки: \n {SetNonCorrectItems()} \n {SetNotFoundedeItems()}";
 
-        _tempFileWriter = new TempFileWriter();
-        _tempFileWriter.WriteFile(writeText);
+        //_tempFileWriter = new TempFileWriter();
+        //_tempFileWriter.WriteFile(writeText);
     }
     private void OnAddCheckedItems()
     {
-        _gradle = 0;
-        _checkedObjects.Clear();
-        for (int i = 0; i < _checkManager.Items.Count; i++)
-        {
-            if (_checkManager.Items[i].Checked)
-            {
-                string checkedId = _checkManager.Items[i].CheckName;
-                var id = _translator.ObjectsRusNames.FirstOrDefault(i => i.Value == checkedId).Key;
-                var roomName = SearchableObjectsHandler.Instance.SearchingList.FirstOrDefault(i=> i.GetObjectId == id);
-                if (id!=null)
-                {
-                    _checkedObjects.Add(id);
-                    if (_hidedObjects.FirstOrDefault(i => i == id) != null)
-                    {
-                        _hidedObjects.Remove(id);
-                        _gradle += 20;
-                    }
-                    else
-                    {
-                        _gradle -= 20;
-                        _nonCorrectList.Add(_translator.ObjectsRusNames[roomName.GetRoomName.ToString()]+": " + _translator.ObjectsRusNames[id]);
-                    }
-                }
-            }   
-        }
+        //_gradle = 0;
+        //_checkedObjects.Clear();
+        //for (int i = 0; i < _checkManager.Items.Count; i++)
+        //{
+        //    if (_checkManager.Items[i].Checked)
+        //    {
+        //        string checkedId = _checkManager.Items[i].CheckName;
+        //        var id = _translator.ObjectsRusNames.FirstOrDefault(i => i.Value == checkedId).Key;
+        //        var roomName = SearchableObjectsHandler.Instance.SearchingList.FirstOrDefault(i=> i.GetObjectId == id);
+        //        if (id!=null)
+        //        {
+        //            _checkedObjects.Add(id);
+        //            if (_hidedObjects.FirstOrDefault(i => i == id) != null)
+        //            {
+        //                _hidedObjects.Remove(id);
+        //                _gradle += 20;
+        //            }
+        //            else
+        //            {
+        //                _gradle -= 20;
+        //                _nonCorrectList.Add(_translator.ObjectsRusNames[roomName.GetRoomName.ToString()]+": " + _translator.ObjectsRusNames[id]);
+        //            }
+        //        }
+        //    }   
+        //}
     }
     private string SetNonCorrectItems()
     {
-        if (_hidedObjects.Count < 1)
-            return "";
-            string notFound = "\nНе указано: \n";
-        foreach (var item in _hidedObjects)
-        {
-           var roomName = SearchableObjectsHandler.Instance.HidedList.FirstOrDefault(i => i.GetObjectId == item);
-            notFound += _translator.ObjectsRusNames[roomName.GetRoomName.ToString()]+ ": " + _translator.ObjectsRusNames[item] + "\n";
-        }
-           return notFound;
+        return null;
+        //if (_hidedObjects.Count < 1)
+        //    return "";
+        //    string notFound = "\nНе указано: \n";
+        //foreach (var item in _hidedObjects)
+        //{
+        //   var roomName = SearchableObjectsHandler.Instance.HidedList.FirstOrDefault(i => i.GetObjectId == item);
+        //    notFound += _translator.ObjectsRusNames[roomName.GetRoomName.ToString()]+ ": " + _translator.ObjectsRusNames[item] + "\n";
+        //}
+        //   return notFound;
     }
     private string SetNotFoundedeItems()
     {
-        if (_nonCorrectList.Count < 1)
-            return "";
-            string notFound = "\nОшибочно указано: \n";
-            foreach (var item in _nonCorrectList)
-            notFound += item + "\n";
-            return notFound;
+        return null;
+        //    if (_nonCorrectList.Count < 1)
+        //        return "";
+        //        string notFound = "\nОшибочно указано: \n";
+        //        foreach (var item in _nonCorrectList)
+        //        notFound += item + "\n";
+        //        return notFound;
     }
     public void SetZoneText(RoomName name)
     {
-        _view.SetZoneText(_translator.ObjectsRusNames[name.ToString()]);
+        //_view.SetZoneText(_translator.ObjectsRusNames[name.ToString()]);
     }
     private void OnExitGame()
     {

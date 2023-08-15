@@ -30,7 +30,7 @@ public abstract class SearchableObject : MonoBehaviour
     public string GetObjectId => ObjectId;
     protected virtual void Start()
     {
-        SearchableObjectsHandler.Instance.AddSearchableObject(this);
+        InstanceHandler.Instance.AddSearchableObject(this);
     }
 
     public virtual void EnableObject(bool value)

@@ -78,7 +78,6 @@ namespace AosSdk.Core.Utils
             try
             {
                 aosCommandToQueue = JsonConvert.DeserializeObject<AosCommand>(message);
-                Debug.Log("ClientMessageReceived " + message);
             }
             catch (Exception e)
             {
@@ -213,7 +212,7 @@ namespace AosSdk.Core.Utils
                     if (decoded > 0)
                     {
                         OnClientMessageReceived?.Invoke(message);
-                        Debug.Log("MessageReceivedCallback " + message);
+                        //Debug.Log("MessageReceivedCallback " + message);
                         _received.RemoveRange(0, decoded);
                     }
                     else if (disconnected)

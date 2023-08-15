@@ -15,7 +15,6 @@ public class CameraChanger : MonoBehaviour
     [SerializeField] private CameraFadeIn _cameraFadeIn;
     [SerializeField] private EscController _escControler;
     [SerializeField] private ModeController _modeController;
-    [SerializeField] private CheckListManager _checkListManager;
     [SerializeField] private Zoom _zoom;
     [SerializeField] private Image _knob;
     [SerializeField] private CursorManager _cursorManager;
@@ -45,7 +44,6 @@ public class CameraChanger : MonoBehaviour
         {
             OnMenuChange?.Invoke(true);
             _cursorManager.Locked = false;
-            _checkListManager.Instantiate(SearchableObjectsHandler.Instance.CurrentRoom);
             TeleportToMenu();
             _changed= false;
             _zoom.ResetZoomCamera();
