@@ -7,7 +7,7 @@ public class ShowCheckListItemObject : MonoBehaviour
 {
     [SerializeField] private Sprite _notSelected;
     [SerializeField] private Sprite _selected;
-    [SerializeField] private GameObject _checkItemObject;
+    [SerializeField] private GameObject _checkItemPanel;
     
 
     private Image _img;
@@ -24,11 +24,13 @@ public class ShowCheckListItemObject : MonoBehaviour
     {
         if (!_open)
         {
-            _checkItemObject.SetActive(true);
+            _checkItemPanel.SetActive(true);
+            _open = true;
         }
         else
         {
-            _checkItemObject.SetActive(false);
+            _checkItemPanel.SetActive(false);
+            _open = false;
         }
     }
     public void SetSprite(bool value)
