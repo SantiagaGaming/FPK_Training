@@ -8,6 +8,8 @@ public class ShowCheckListItemObject : MonoBehaviour
     [SerializeField] private Sprite _notSelected;
     [SerializeField] private Sprite _selected;
     [SerializeField] private GameObject _checkItemPanel;
+    [SerializeField] private GameObject _checkItemPanel2;
+    [SerializeField] private CheckListItem[] _checkListItem;
     
 
     private Image _img;
@@ -18,14 +20,22 @@ public class ShowCheckListItemObject : MonoBehaviour
         _img= GetComponent<Image>();
         _button= GetComponent<Button>();
         _button.onClick.AddListener(OnClick);
+        foreach (var item in _checkListItem)
+        {
+            item.OnCheckSpite += OnSetSprite;
+        }
+        
     }
-
+    
     private void OnClick()
     {
         if (!_open)
         {
-            _checkItemPanel.SetActive(true);
             _open = true;
+            _checkItemPanel.SetActive(true);
+            if(_checkItemPanel2!=null)
+            _checkItemPanel2.SetActive(false);
+           
         }
         else
         {
@@ -33,11 +43,28 @@ public class ShowCheckListItemObject : MonoBehaviour
             _open = false;
         }
     }
-    public void SetSprite(bool value)
+    
+   private bool IsChecked()
     {
-        if(value)
+        foreach (var item in _checkListItem)
+        {
+            if(item.Checked)
+            {
+                return true;
+            }
+            
+        }
+        return false;
+    }
+    public void OnSetSprite()
+    {
+        if(IsChecked())
+        {
             _img.sprite = _selected;
+        }
         else
+        {
             _img.sprite = _notSelected;
+        }
     }
 }

@@ -8,8 +8,11 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class CheckListItem : MonoBehaviour
 {
+    public UnityAction OnCheckSpite;
+
     [SerializeField] private Sprite _checkInSprite;
     [SerializeField] private Sprite _checkOutSprite;
+    
 
     private Image _img;
     private Button _button;
@@ -32,11 +35,14 @@ public class CheckListItem : MonoBehaviour
         {
             _img.sprite = _checkInSprite;
             Checked = true;
+            OnCheckSpite?.Invoke();
+            
         }
         else
         {
             _img.sprite = _checkOutSprite;
             Checked = false;
+            OnCheckSpite?.Invoke();
         }
     }
 }
