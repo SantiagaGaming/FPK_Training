@@ -8,7 +8,7 @@ public class ShowCheckListItemObject : MonoBehaviour
     [SerializeField] private Sprite _notSelected;
     [SerializeField] private Sprite _selected;
     [SerializeField] private GameObject _checkItemPanel;
-    [SerializeField] private GameObject _checkItemPanel2;
+    [SerializeField] private GameObject _hidePanel;
     [SerializeField] private CheckListItem[] _checkListItem;
     
 
@@ -33,8 +33,8 @@ public class ShowCheckListItemObject : MonoBehaviour
         {
             _open = true;
             _checkItemPanel.SetActive(true);
-            if(_checkItemPanel2!=null)
-            _checkItemPanel2.SetActive(false);
+            if(_hidePanel!=null)
+            _hidePanel.SetActive(false);
            
         }
         else
