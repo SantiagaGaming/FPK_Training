@@ -152,6 +152,8 @@ public class API : AosObjectBase
         string headText = info.SelectToken("name").ToString();
         string commentText = info.SelectToken("text").ToString();
         OnSetMessageText?.Invoke(headText, commentText);
+        Debug.Log("INFOOOO"+ info.ToString());
+        Debug.Log("NAVVVVV"+ nav.ToString());
     }
     [AosAction(name: "Показать сообщение")]
     public void showResult(JObject info, JObject nav)
@@ -233,9 +235,18 @@ public class API : AosObjectBase
             Debug.Log("in showFaultInfo Measure Result " + measureValue);
         }
     }
+    [AosAction(name: "Обновить меню")]
+    public void updateMenu(JObject exitInfo, JObject resons)
+    {
+        //Debug.Log(exitInfo.ToString() + "UPDATEEEEE");
+        //Debug.Log("REASONSSSSS" + resons.ToString());
+
+
+    }
     [AosAction(name: "Показать меню")]
     public void showMenu(JObject faultInfo, JObject exitInfo, JObject resons)
-    {
+    {Debug.Log("UPDATEEEEE" + exitInfo.ToString()  );
+    Debug.Log("UPDATEEEEE" + faultInfo.ToString()  );
         string headtext = faultInfo.SelectToken("name").ToString();
         string commentText = faultInfo.SelectToken("text").ToString();
         string exitSureText = exitInfo.SelectToken("quest").ToString();
@@ -272,7 +283,7 @@ public class API : AosObjectBase
                                     var idLast = item.SelectToken("apiId");
                                     var nameLast = item.SelectToken("name");
                                     //if (id != null && name != null)
-                                        //OnAddFaultInsideObject?.Invoke(idLast.ToString(), nameLast.ToString());
+                                    //OnAddFaultInsideObject?.Invoke(idLast.ToString(), nameLast.ToString());
                                 }
                             }
                         }
