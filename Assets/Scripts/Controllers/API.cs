@@ -238,19 +238,21 @@ public class API : AosObjectBase
     [AosAction(name: "Обновить меню")]
     public void updateMenu(JObject exitInfo, JObject resons)
     {
-        //Debug.Log(exitInfo.ToString() + "UPDATEEEEE");
-        //Debug.Log("REASONSSSSS" + resons.ToString());
+        Debug.Log("UPDATEEEEEMENU" +exitInfo.ToString()  );
+        Debug.Log("REASONSSSSSUPDATEEEEEMENU" + resons.ToString());
 
 
     }
     [AosAction(name: "Показать меню")]
     public void showMenu(JObject faultInfo, JObject exitInfo, JObject resons)
-    {Debug.Log("UPDATEEEEE" + exitInfo.ToString()  );
-    Debug.Log("UPDATEEEEE" + faultInfo.ToString()  );
+    {
+        Debug.Log("SHOWMENUUPDATEEEEEONe" + exitInfo.ToString());
+        Debug.Log("SHOWMENUUPDATEEEEE" + faultInfo.ToString());
+        Debug.Log("SHOWMENUREASONS  UPDATEEEEE" + resons.ToString());
         string headtext = faultInfo.SelectToken("name").ToString();
         string commentText = faultInfo.SelectToken("text").ToString();
         string exitSureText = exitInfo.SelectToken("quest").ToString();
-
+      
         OnShowMenuText?.Invoke(headtext, commentText, exitSureText);
 
         var reasonsList = resons.SelectToken("reasons");
@@ -269,7 +271,7 @@ public class API : AosObjectBase
                     {
                         if (faultObject != null)
                         {
-                            Debug.Log("fault object " + faultObject.ToString());
+                          //  Debug.Log("fault object " + faultObject.ToString());
                             var id = faultObject.SelectToken("apiId");
                             var name = faultObject.SelectToken("name");
                             if (id != null && name != null)
