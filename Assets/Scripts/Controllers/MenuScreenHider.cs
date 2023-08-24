@@ -7,6 +7,7 @@ public class MenuScreenHider : MonoBehaviour
     [SerializeField] private GameObject _mainMenuPanel;
     [SerializeField] private GameObject[] _allPanels;
     [SerializeField] private CameraChanger _cameraChanger;
+    [SerializeField] private GameObject _messageViewPanel;
     private void Start()
     {
         _cameraChanger.OnMenuChange += OnHideAllPanels;
@@ -25,6 +26,10 @@ public class MenuScreenHider : MonoBehaviour
             item.SetActive(false);
         }
         _mainMenuPanel.SetActive(true);
+    }
+    public void EnableMessagePanel(bool value)
+    {
+        _messageViewPanel.SetActive(value);
     }
 
 

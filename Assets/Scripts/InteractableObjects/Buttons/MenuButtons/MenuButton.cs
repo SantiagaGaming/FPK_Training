@@ -9,7 +9,9 @@ public class MenuButton : BaseMenuButton
 
     protected override void MenuButtonClick()
     {
+        if(ObjectToHide!=null)
         ObjectToHide.SetActive(false);
-        _objectToShow.SetActive(true);
+        if (_objectToShow != null)
+            _objectToShow.SetActive(true);
     }
 }
