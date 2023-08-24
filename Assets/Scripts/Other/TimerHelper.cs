@@ -27,14 +27,10 @@ public class TimerHelper : MonoBehaviour
     }
     private void Update()
     {
-        
         if(StartGame)
         {
             StartTimer();
         }
-
-
-
     }
     private void StartTimer()
     {

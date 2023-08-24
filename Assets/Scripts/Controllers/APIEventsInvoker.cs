@@ -10,12 +10,11 @@ public class APIEventsInvoker : MonoBehaviour
     [SerializeField] private MessageView _messageView;
     [SerializeField] private MenuScreenHider _menuHider;
 
-
     private void Start()
     {
-        _api.OnShowMenuText += OnSetExitText;
-        _api.OnSetAttemptText += OnChangeText;
-        _api.OnSetMessageText += OnSetMessageText;
+        _api.MenuTextEvent += OnSetExitText;
+        _api.AttempTextEvent += OnChangeText;
+        _api.MessageTextEvent += OnSetMessageText;
     }
     private void OnSetExitText(string exitText, string warntext , string text)
     {

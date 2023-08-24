@@ -30,9 +30,6 @@ public class CheckListHolder : MonoBehaviour
                 _otkazModel.AddOtaz(newotkaz);
             }
         }
-   
-  
         AddNewOtazList?.Invoke(_otkazModel);
     }
-
 }

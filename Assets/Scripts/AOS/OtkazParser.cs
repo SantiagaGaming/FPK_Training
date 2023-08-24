@@ -9,7 +9,6 @@ using UnityEngine;
 public class OtkazParser : MonoBehaviour
 {
     [SerializeField] private API _api;
-
     private void Start()
     {
         CheckListHolder.AddNewOtazList += OnSendOtazObject;
@@ -19,6 +18,5 @@ public class OtkazParser : MonoBehaviour
         var jsonObjectToSend =  JsonConvert.SerializeObject(otkazModel);
         if(jsonObjectToSend!=null)
             _api.OnReasonInvoke(jsonObjectToSend.ToLower());
-       
     }
 }

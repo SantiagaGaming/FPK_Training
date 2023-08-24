@@ -10,8 +10,7 @@ public class ConnectionToClient : AosObjectBase
     [SerializeField] private WebSocketWrapper _wrapper;
     [AosEvent(name: "Готов к подключению")]
     public event AosEventHandlerWithAttribute OnReadyToAction;
-    public UnityAction OnConnectionReady;
-
+    public UnityAction ConnectionReadyEvent;
     private void Start()
     {
         _wrapper.OnClientConnected += OnReadyToConnect;
@@ -19,7 +18,7 @@ public class ConnectionToClient : AosObjectBase
     public void OnReadyToConnect()
     {
         OnReadyToAction.Invoke("Ready to Action");
-        OnConnectionReady?.Invoke();
+        ConnectionReadyEvent?.Invoke();
         Debug.Log("Ready to Action");
     }
 }

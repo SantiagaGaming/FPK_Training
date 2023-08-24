@@ -22,6 +22,5 @@ public class ModeController : MonoBehaviour
             return true;
         }
         else return false;
-
     }
 }

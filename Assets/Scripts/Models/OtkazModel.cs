@@ -6,6 +6,5 @@ public class OtkazModel
     public List<string> Checked => _checkedItems;
     public void AddOtaz(string newOtkaz)
     {
-        _checkedItems.Add(newOtkaz);
-    }
+        _checkedItems.Add(newOtkaz);    }
 }

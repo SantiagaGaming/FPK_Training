@@ -9,7 +9,6 @@ public class StartGameController : MonoBehaviour
     [SerializeField] private StartGameButton _startGameButton;
     [SerializeField] private CameraChanger _cameraChanger;
     [SerializeField] private GameObject _startScreen;
-    [SerializeField] private ResultController _resultController;
     [SerializeField] private TimerHelper _timerHelper;
     private void Start()
     {
@@ -29,7 +28,6 @@ public class StartGameController : MonoBehaviour
         Player.Instance.CanMove = true;
         _cameraChanger.CanTeleport = true;
         _startScreen.SetActive(false);
-        _resultController.StartTime = DateTime.Now;
         _timerHelper.StartGame = true;
     }
 }

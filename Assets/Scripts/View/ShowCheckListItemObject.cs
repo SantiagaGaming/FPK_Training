@@ -24,7 +24,6 @@ public class ShowCheckListItemObject : MonoBehaviour
         {
             item.OnCheckSpite += OnSetSprite;
         }
-        
     }
     
     private void OnClick()

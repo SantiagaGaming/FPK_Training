@@ -16,7 +16,6 @@ public class LightSwitchObject : BaseObject
             _animator.SetTrigger("OnAnim");
             _light.SetActive(true);
             _on = true;
-
         }
         else
         {
@@ -24,7 +23,5 @@ public class LightSwitchObject : BaseObject
             _light.SetActive(false);
             _on = false;
         }
-       
-
     }
 }

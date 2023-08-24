@@ -19,16 +19,11 @@ public class BreakObject : AosObjectBase
             Debug.Log("Searchable Object null" + gameObject.name);
         }
     }
-
-
     [AosAction(name: "Сломать объект")]
     public void Break()
     {
-        Debug.Log("Broken!");
+        Debug.Log("Broken!  "+ _obj.GetObjectId);
         _obj.EnableObject(false);
     }
-    public void InvokeOnClick() => OnClickObject?.Invoke(ObjectId);
-    
-       
-    
+    public void InvokeOnClick() => OnClickObject?.Invoke(ObjectId); 
 }

@@ -11,7 +11,7 @@ public class ExitZone : ChangeZone
     private bool _inCollider = false;
     private void Start()
     {
-        _cameraChanger.OnMenuChange += OnChangeState;
+        _cameraChanger.MenuEvent += OnChangeState;
     }
    
 

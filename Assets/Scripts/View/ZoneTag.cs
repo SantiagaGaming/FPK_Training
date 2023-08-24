@@ -9,7 +9,6 @@ public class ZoneTag : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _zoneText;
     public RoomName RoomName => _roomName;
 
-
     public void SetRoomText(string text)
     {
         _zoneText.text = text;
