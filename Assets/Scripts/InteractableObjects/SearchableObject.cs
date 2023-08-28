@@ -8,7 +8,7 @@ public enum RoomName
     Koridor,
     SmallKoridor,
     ObliqueKoridor,
-    WC,
+    WC1,
     CoupeSleep,
     CoupeOfficial,
     VestibuleWorking,

@@ -19,8 +19,7 @@ public class API : AosObjectBase
     public UnityAction<string, string> MessageTextEvent;
     public UnityAction<string, string> ExitTextEvent;
     public UnityAction<string, string, string> ResultTextEvent;
-    public UnityAction<string, string, string> WelcomeTextEvent;
-    public UnityAction<string, string, string> FaultTextEvent;
+    public UnityAction<string, string, string, NextButtonState> WelcomeTextEvent;
     public UnityAction<string, string, string> MenuTextEvent;
     // public UnityAction<string, string, string, NextButtonState> OnSetStartText;
     [AosEvent(name: "Перемещение игрока")]
@@ -35,21 +34,19 @@ public class API : AosObjectBase
     [AosAction(name: "Задать текст приветствия")]
     public void showWelcome(JObject info, JObject nav)
     {
-        Debug.Log("Info from showWelcome" +info.ToString());
-        Debug.Log("nav from showWelcome"+ nav.ToString());
+        Debug.Log("SHOWWELCOMEEEEEEE");      
         string headerText = info.SelectToken("name").ToString();
         string commentText = info.SelectToken("text").ToString();
         string buttonText = nav.SelectToken("ok").SelectToken("caption").ToString();
-        WelcomeTextEvent?.Invoke(headerText, commentText, buttonText);
+        WelcomeTextEvent?.Invoke(headerText, commentText, buttonText, NextButtonState.Start);
     }
     [AosAction(name: "Показать информацию отказа")]
     public void showFaultInfo(JObject info, JObject nav)
-    {
+    { Debug.Log("showFaultInfoshowFaultInfoshowFaultInfo");      
         string headerText = info.SelectToken("name").ToString();
         string commentText = info.SelectToken("text").ToString();
         string buttonText = nav.SelectToken("ok").SelectToken("caption").ToString();
-        FaultTextEvent?.Invoke(headerText, commentText, buttonText);
-        // OnSetStartText?.Invoke(headerText, commentText, buttonText, NextButtonState.Fault);
+        WelcomeTextEvent?.Invoke(headerText, commentText, buttonText, NextButtonState.Fault);
     }
 
     [AosAction(name: "Показать сообщение")]

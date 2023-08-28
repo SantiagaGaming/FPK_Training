@@ -8,6 +8,8 @@ using UnityEngine.Events;
 public class ConnectionToClient : AosObjectBase
 {
     [SerializeField] private WebSocketWrapper _wrapper;
+   
+  
     [AosEvent(name: "Готов к подключению")]
     public event AosEventHandlerWithAttribute OnReadyToAction;
     public UnityAction ConnectionReadyEvent;
@@ -18,7 +20,10 @@ public class ConnectionToClient : AosObjectBase
     public void OnReadyToConnect()
     {
         OnReadyToAction.Invoke("Ready to Action");
-        ConnectionReadyEvent?.Invoke();
+        ConnectionReadyEvent?.Invoke();         
         Debug.Log("Ready to Action");
+       
     }
+ 
+    
 }

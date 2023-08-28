@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +10,22 @@ public class APIEventsInvoker : MonoBehaviour
     [SerializeField] private MenuTextView _menuTextView;
     [SerializeField] private MessageView _messageView;
     [SerializeField] private MenuScreenHider _menuHider;
+    [SerializeField] private StartGameController _startGameController;
 
     private void Start()
     {
         _api.MenuTextEvent += OnSetExitText;
         _api.AttempTextEvent += OnChangeText;
         _api.MessageTextEvent += OnSetMessageText;
+        _api.WelcomeTextEvent += OnSetStartText;
     }
+
+    private void OnSetStartText(string headerText, string commentText, string buttonText, NextButtonState state)
+    {
+        _startGameController.EnableStartScreen(headerText, HtmlToText.Instance.HTMLToTextReplace(commentText), buttonText, state);
+
+    }
+
     private void OnSetExitText(string exitText, string warntext , string text)
     {
         _menuTextView.SetMenuText(exitText, warntext , text);
