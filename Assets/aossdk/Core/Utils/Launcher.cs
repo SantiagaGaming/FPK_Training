@@ -37,6 +37,8 @@ namespace AosSdk.Core.Utils
             {
                 foreach (var argument in commandLineArguments)
                 {
+                  
+
                     var argumentType = argument.Substring(0, 2);
                     switch (argumentType)
                     {

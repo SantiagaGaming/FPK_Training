@@ -1,4 +1,5 @@
 using Newtonsoft.Json.Linq;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -32,6 +33,7 @@ public class View : MonoBehaviour
       _exitButton.GetComponent<Button>().onClick.AddListener(OnExitButtonTap);
       _submitButton.GetComponent<Button>().onClick.AddListener(OnSumbitButtonTap);
       _backButton.GetComponent<Button>().onClick.AddListener(OnBackButtonTap);
+        
     }
     public void EnableCheckObjects()
     {
@@ -77,4 +79,6 @@ public class View : MonoBehaviour
        
         _infoLocationScreenText.text = HtmlToText.Instance.HTMLToTextReplace(text);
     }
+    
 }
+

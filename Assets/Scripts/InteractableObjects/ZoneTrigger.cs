@@ -4,12 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
+
 public class ZoneTrigger : MonoBehaviour
 {
     [SerializeField] private RoomName ZoneName;
-    [SerializeField] private GameObject _infoPanel;
+    [SerializeField] private GameObject _infoPanel;   
+    [SerializeField] private GameObject _mainPanel;
+   
     private CameraChanger _cameraChanger;
-    private int i = 0;
+    private bool _enabled = true;
+
 
     private API _api;
     private void Start()
@@ -20,11 +24,12 @@ public class ZoneTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider col)
     {
         _api.ConnectionEstablished(ZoneName.ToString().ToLower());
-        if (i== 0 && ZoneName != 0)
-        {
-            _infoPanel.SetActive(true);         
+        if (_enabled && ZoneName != 0 && StartParametr.Instance.ShowInfoText)
+        {          
+            _infoPanel.SetActive(true);    
+            _mainPanel.SetActive(false);
             _cameraChanger.OnEscClick();
-            i++;
+            _enabled=false;
             Debug.Log(ZoneName.ToString().ToLower());
         }
         
