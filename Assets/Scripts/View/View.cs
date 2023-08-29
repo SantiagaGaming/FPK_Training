@@ -20,10 +20,12 @@ public class View : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _resultText;
     [SerializeField] private TextMeshProUGUI _zoneText;
     [SerializeField] private TextMeshProUGUI _resultCommentText;
+    [SerializeField] private TextMeshProUGUI _infoLocationScreenText;
 
     [SerializeField] private GameObject _checkPanel;
     [SerializeField] private GameObject _checkText;
     [SerializeField] private GameObject _resultPanel;
+   
     private void Start()
     {
      // _resultButton.GetComponent<Button>().onClick.AddListener(OnResultButtonTap);
@@ -69,5 +71,10 @@ public class View : MonoBehaviour
     public void InvokeBackButtonTap()
     {
         OnBackButtonTap?.Invoke();
+    }
+    public void SetInfoLocationScreenText(string text)
+    {
+       
+        _infoLocationScreenText.text = HtmlToText.Instance.HTMLToTextReplace(text);
     }
 }

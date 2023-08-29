@@ -15,6 +15,7 @@ using UnityEngine.Events;
 public class API : AosObjectBase
 {
     public UnityAction<string> TimerTextEvent;
+    public UnityAction<string> InfoLocationText;
     public UnityAction<string, string> AttempTextEvent;
     public UnityAction<string, string> MessageTextEvent;
     public UnityAction<string, string> ExitTextEvent;
@@ -47,6 +48,14 @@ public class API : AosObjectBase
         string commentText = info.SelectToken("text").ToString();
         string buttonText = nav.SelectToken("ok").SelectToken("caption").ToString();
         WelcomeTextEvent?.Invoke(headerText, commentText, buttonText, NextButtonState.Fault);
+    }
+    [AosAction(name: "Показать место")]
+    public void showPlace(JObject place, JArray data, JObject nav)
+    {
+        string infoLocationText = place.SelectToken("text").ToString();
+        InfoLocationText?.Invoke(infoLocationText);
+        Debug.Log(infoLocationText);
+
     }
 
     [AosAction(name: "Показать сообщение")]

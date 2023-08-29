@@ -18,6 +18,7 @@ public class CameraChanger : MonoBehaviour
     [SerializeField] private Zoom _zoom;
     [SerializeField] private Image _knob;
     [SerializeField] private CursorManager _cursorManager;
+    [SerializeField] private GameObject _infoPanel;
 
     private Vector3 _currentPlayerPosition = new Vector3();
 
@@ -33,7 +34,7 @@ public class CameraChanger : MonoBehaviour
         _escControler.MenuTeleportEvent -= OnEscClick;
         _view.OnBackButtonTap -= OnEscClick;
     }
-    private void OnEscClick()
+    public void OnEscClick()
     {
         if (!CanTeleport)
             return;
@@ -49,6 +50,7 @@ public class CameraChanger : MonoBehaviour
         }
         else
         {
+            _infoPanel.SetActive(false);
             MenuEvent?.Invoke(false);
             TeleportToPrevousLocation();
             _changed = true;
