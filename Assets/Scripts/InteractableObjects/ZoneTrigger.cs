@@ -1,6 +1,7 @@
 using AosSdk.Core.Utils;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.XR;
 
@@ -10,7 +11,8 @@ public class ZoneTrigger : MonoBehaviour
     [SerializeField] private RoomName ZoneName;
     [SerializeField] private GameObject _infoPanel;   
     [SerializeField] private GameObject _mainPanel;
-   
+    [SerializeField] private TextMeshProUGUI _zoneText;
+
     private CameraChanger _cameraChanger;
     private bool _enabled = true;
 
@@ -18,6 +20,7 @@ public class ZoneTrigger : MonoBehaviour
     private API _api;
     private void Start()
     {
+        
         _api = FindObjectOfType<API>();
         _cameraChanger = FindObjectOfType<CameraChanger>();
     }
@@ -32,12 +35,16 @@ public class ZoneTrigger : MonoBehaviour
             _enabled=false;
             Debug.Log(ZoneName.ToString().ToLower());
         }
+      
         
+           if(_zoneText!= null) 
+        {
+            _zoneText.color = new Color(0.01490744f, 0.6320754f, 0);
+        }
+                           
         var aosObject = col.GetComponentInParent<AosObjectBase>();
         if (!aosObject)
             return;
         InstanceHandler.Instance.CurrentRoom = ZoneName;
-
-
     }
 }

@@ -12,6 +12,7 @@ public class APIEventsInvoker : MonoBehaviour
     [SerializeField] private MenuScreenHider _menuHider;
     [SerializeField] private StartGameController _startGameController;
     [SerializeField] private View _view;
+    [SerializeField] private TimerView _timerView;
 
     private void Start()
     {
@@ -20,6 +21,12 @@ public class APIEventsInvoker : MonoBehaviour
         _api.MessageTextEvent += OnSetMessageText;
         _api.WelcomeTextEvent += OnSetStartText;
         _api.InfoLocationText += OnSetInfoLocationScreen;
+        _api.TimerTextEvent += OnSetTimerText;
+    }
+
+    private void OnSetTimerText(string time)
+    {
+       _timerView.ShowTimerText(time);
     }
 
     private void OnSetInfoLocationScreen(string infotext)

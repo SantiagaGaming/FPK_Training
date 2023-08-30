@@ -25,7 +25,7 @@ public class StartParametr : MonoBehaviour
         var commandLineArguments = Environment.GetCommandLineArgs();
         foreach (var arg in commandLineArguments)
         {
-            Debug.Log(arg.ToString());
+            
             if (arg == "-lnr")
             {
                 _obj.SetActive(true);
