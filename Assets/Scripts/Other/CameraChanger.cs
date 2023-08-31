@@ -47,6 +47,7 @@ public class CameraChanger : MonoBehaviour
             _changed= false;
             _zoom.ResetZoomCamera();
             _zoom.CanZoom = false;
+            
         }
         else
         {

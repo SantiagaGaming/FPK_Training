@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MenuScreenHider : MonoBehaviour
@@ -14,10 +15,21 @@ public class MenuScreenHider : MonoBehaviour
     }
     private void OnHideAllPanels(bool value)
     {
-        if(value)
+        
+        if (value)
         {
             HideAllPanels();
+            foreach (var zone in InstanceHandler.Instance.ZoneTriggers)
+            {
+                if (zone.IsVisited)
+                    zone.SetTextColor(RoomState.Outside);
+            }
+            var currentZone = InstanceHandler.Instance.ZoneTriggers.FirstOrDefault(r => r.ZoneName == InstanceHandler.Instance.CurrentRoom);
+            if (currentZone != null)
+                currentZone.SetTextColor(RoomState.Inside);
+
         }
+       
     }
     private void HideAllPanels()
     {
@@ -26,6 +38,7 @@ public class MenuScreenHider : MonoBehaviour
             item.SetActive(false);
         }
         _mainMenuPanel.SetActive(true);
+        
     }
     public void EnableMessagePanel(bool value)
     {
