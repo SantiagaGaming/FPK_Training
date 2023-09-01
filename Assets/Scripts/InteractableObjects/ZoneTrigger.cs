@@ -34,7 +34,7 @@ public class ZoneTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider col)
     {
         _api.ConnectionEstablished(_zoneName.ToString().ToLower());
-        if (_enabled && _zoneName != 0 && StartParametr.Instance.ShowInfoText)
+        if (_enabled && _zoneName != 0  && StartParametr.Instance.ShowInfoText)
         {          
             _infoPanel.SetActive(true);    
             _mainPanel.SetActive(false);
