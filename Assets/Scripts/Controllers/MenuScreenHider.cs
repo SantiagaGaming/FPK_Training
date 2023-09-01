@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+
 public class MenuScreenHider : MonoBehaviour
 {
     [SerializeField] private GameObject _mainMenuPanel;
     [SerializeField] private GameObject[] _allPanels;
     [SerializeField] private CameraChanger _cameraChanger;
     [SerializeField] private GameObject _messageViewPanel;
+   
     private void Start()
     {
         _cameraChanger.MenuEvent += OnHideAllPanels;

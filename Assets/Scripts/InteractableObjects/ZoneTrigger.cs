@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum RoomState
 {
@@ -16,6 +17,7 @@ public class ZoneTrigger : MonoBehaviour
     [SerializeField] private GameObject _infoPanel;   
     [SerializeField] private GameObject _mainPanel;
     [SerializeField] private TextMeshProUGUI _zoneText;
+    [SerializeField] private Button[] _button;
     public RoomName ZoneName => _zoneName;
 
     public bool IsVisited { get; private set; } = false;
@@ -39,6 +41,13 @@ public class ZoneTrigger : MonoBehaviour
             _cameraChanger.OnEscClick();
             _enabled=false;
             Debug.Log(_zoneName.ToString().ToLower());
+        }
+        if(_button != null)
+        {
+            foreach (var button in _button)
+            {
+                button.enabled = true;
+            }
         }
       
         IsVisited = true;
