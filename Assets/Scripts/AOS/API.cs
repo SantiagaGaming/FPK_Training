@@ -60,7 +60,7 @@ public class API : AosObjectBase
 
     [AosAction(name: "Показать сообщение")]
     public void showMessage(JObject info, JObject nav)
-    {
+    {             
         string headText = info.SelectToken("name").ToString();
         string commentText = info.SelectToken("text").ToString();
         MessageTextEvent?.Invoke(headText, commentText);
@@ -83,6 +83,8 @@ public class API : AosObjectBase
     [AosAction(name: "Обновить меню")]
     public void updateMenu(JObject exitInfo, JObject resons)
     {
+       
+        Debug.Log("REASONSSSS"+resons.ToString());
         var attemptText = resons.SelectToken("reasons");
         if (attemptText != null)
         {
@@ -100,6 +102,9 @@ public class API : AosObjectBase
     [AosAction(name: "Показать меню")]
     public void showMenu(JObject faultInfo, JObject exitInfo, JObject resons)
     {
+      
+        Debug.Log("EXITINFOOOOO"+ resons.ToString());
+        
         string headtext = faultInfo.SelectToken("name").ToString();
         string commentText = faultInfo.SelectToken("text").ToString();
         string exitSureText = exitInfo.SelectToken("quest").ToString();
@@ -116,12 +121,16 @@ public class API : AosObjectBase
                 AttempTextEvent?.Invoke(roomIdText, attempText);
             }
         }
-        MenuTextEvent?.Invoke(headtext, commentText, exitSureText);
-        //if (exitInfo.SelectToken("text") != null && exitInfo.SelectToken("warn") != null)
+       // MenuTextEvent?.Invoke(headtext, commentText, exitSureText);
+        if (exitInfo.SelectToken("text") != null && exitInfo.SelectToken("warn") != null)
+        {
+            string exitText = HtmlToText.Instance.HTMLToTextReplace(exitInfo.SelectToken("text").ToString());
+            string warntext = HtmlToText.Instance.HTMLToTextReplace(exitInfo.SelectToken("warn").ToString());
+            ExitTextEvent?.Invoke(exitText, warntext);
+        }
 
-        //    string exitText = HtmlToText.Instance.HTMLToTextReplace(exitInfo.SelectToken("text").ToString());
-        //    string warntext = HtmlToText.Instance.HTMLToTextReplace(exitInfo.SelectToken("warn").ToString());
-        //    OnShowExitText?.Invoke(exitText, warntext);
+           
+      
     }
     public void ConnectionEstablished(string currentLocation)
     {

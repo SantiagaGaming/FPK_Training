@@ -16,12 +16,18 @@ public class APIEventsInvoker : MonoBehaviour
 
     private void Start()
     {
-        _api.MenuTextEvent += OnSetExitText;
+      //  _api.MenuTextEvent += OnSetMenuText;
         _api.AttempTextEvent += OnChangeText;
         _api.MessageTextEvent += OnSetMessageText;
         _api.WelcomeTextEvent += OnSetStartText;
         _api.InfoLocationText += OnSetInfoLocationScreen;
         _api.TimerTextEvent += OnSetTimerText;
+        _api.ExitTextEvent += OnSetExitText;
+    }
+
+    private void OnSetExitText(string exitText, string warntext)
+    {
+       _menuTextView.SetExitText(exitText, warntext);
     }
 
     private void OnSetTimerText(string time)
@@ -40,9 +46,9 @@ public class APIEventsInvoker : MonoBehaviour
 
     }
 
-    private void OnSetExitText(string exitText, string warntext , string text)
+    private void OnSetMenuText(string exitText, string warntext, string text)
     {
-        _menuTextView.SetMenuText(exitText, warntext , text);
+        _menuTextView.SetMenuText(exitText, warntext, text);
     }
 
     private void OnChangeText(string roomNameText, string attempText)
@@ -57,4 +63,5 @@ public class APIEventsInvoker : MonoBehaviour
         _messageView.SetCommentText(commetText);
         _menuHider.EnableMessagePanel(true);
     }
+    
 }
