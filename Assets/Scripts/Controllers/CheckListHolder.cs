@@ -10,10 +10,11 @@ public class CheckListHolder : MonoBehaviour
     [SerializeField] private RoomName _roomName;
     [SerializeField] private List<CheckListItem> _checkListItems;
     [SerializeField] private SubmitCheckListButton _submitCheckListButton;
+    public RoomName RoomName => _roomName;
 
     private OtkazModel _otkazModel;
     public static UnityAction<OtkazModel> AddNewOtazList;
-    public bool Fixed = false;
+    public bool Fixed { get; private set; } = false;
     private void Start()
     {
         _submitCheckListButton.SubmitButtonClick += OnAddItemsToFaultList;
