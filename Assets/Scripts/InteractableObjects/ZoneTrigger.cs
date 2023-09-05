@@ -19,7 +19,7 @@ public class ZoneTrigger : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _zoneText;
     [SerializeField] private Button[] _button;
     public RoomName ZoneName => _zoneName;
-  //  public ObjectsTranslator _objectsTranslator;
+  
     
    
     public bool IsVisited { get; private set; } = false;
@@ -68,8 +68,5 @@ public class ZoneTrigger : MonoBehaviour
         if (state == RoomState.Outside)
             _zoneText.color = Color.white;
     }
-   public void ExitText()
-    {
-        //_objectsTranslator.ObjectsRusNames.ContainsKey("")
-    }
+  
 }

@@ -13,6 +13,7 @@ public class CheckListHolder : MonoBehaviour
 
     private OtkazModel _otkazModel;
     public static UnityAction<OtkazModel> AddNewOtazList;
+    public bool Fixed = false;
     private void Start()
     {
         _submitCheckListButton.SubmitButtonClick += OnAddItemsToFaultList;
@@ -31,5 +32,6 @@ public class CheckListHolder : MonoBehaviour
             }
         }
         AddNewOtazList?.Invoke(_otkazModel);
+        Fixed = true;
     }
 }
