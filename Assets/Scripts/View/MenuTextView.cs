@@ -8,14 +8,27 @@ public class MenuTextView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _infoHeaderText;
     [SerializeField] private TextMeshProUGUI _exitText;
     [SerializeField] private TextMeshProUGUI _warnText;
-    //[SerializeField] private TextMeshProUGUI _exitText;
-    //[SerializeField] private TextMeshProUGUI _warnText;
-    public void SetMenuText(string headText, string commentText, string exitSureText)
+    [SerializeField] private TextMeshProUGUI _headText;
+    [SerializeField] private TextMeshProUGUI _evalText;
+    [SerializeField] private TextMeshProUGUI _commentText;
+    [SerializeField] private GameObject _resultPanel;
+    [SerializeField] private GameObject _mainPanel;
+
+    private CameraChanger _cameraChanger;
+    private void Start()
     {
-        
-        //_infoHeaderText.text = HtmlToText.Instance.HTMLToTextReplace(headText);
-        //_infoText.text = HtmlToText.Instance.HTMLToTextReplace(commentText);
-        //_exitSureText.text = HtmlToText.Instance.HTMLToTextReplace(exitSureText);
+        _cameraChanger = FindObjectOfType<CameraChanger>();
+    }
+
+    public void SetResultText(string headText, string evalText, string commentText)
+    {
+        _headText.text= headText;
+        _evalText.text= evalText;
+        _commentText.text= commentText;
+        _cameraChanger.OnEscClick();
+        _mainPanel.SetActive(false);
+        _resultPanel.SetActive(true);
+       
     }
 
     public void SetExitText(string exitText, string warntext)

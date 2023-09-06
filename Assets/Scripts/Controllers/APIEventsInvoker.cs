@@ -13,16 +13,29 @@ public class APIEventsInvoker : MonoBehaviour
     [SerializeField] private StartGameController _startGameController;
     [SerializeField] private View _view;
     [SerializeField] private TimerView _timerView;
+    [SerializeField] private ZoneExitTextInfo _zoneExitTextInfo;
 
     private void Start()
     {
-      //  _api.MenuTextEvent += OnSetMenuText;
+        _api.ExitApiTextEvent += OnSetExitTextApi;
         _api.AttempTextEvent += OnChangeText;
         _api.MessageTextEvent += OnSetMessageText;
         _api.WelcomeTextEvent += OnSetStartText;
         _api.InfoLocationText += OnSetInfoLocationScreen;
         _api.TimerTextEvent += OnSetTimerText;
         _api.ExitTextEvent += OnSetExitText;
+        _api.ResultTextEvent += OnSetResultText;
+    }
+
+    private void OnSetExitTextApi(string exitText)
+    {
+       _zoneExitTextInfo.SetExitApiText(exitText);
+    }
+
+    private void OnSetResultText(string headText, string evalText, string commentText)
+    {
+       _menuTextView.SetResultText(headText, evalText, commentText);
+
     }
 
     private void OnSetExitText(string exitText, string warntext)
@@ -46,10 +59,10 @@ public class APIEventsInvoker : MonoBehaviour
 
     }
 
-    private void OnSetMenuText(string exitText, string warntext, string text)
-    {
-        _menuTextView.SetMenuText(exitText, warntext, text);
-    }
+    //private void OnSetMenuText(string exitText, string warntext, string text)
+    //{
+    //    _menuTextView.SetMenuText(exitText, warntext, text);
+    //}
 
     private void OnChangeText(string roomNameText, string attempText)
     {

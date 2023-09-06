@@ -10,6 +10,7 @@ public class ZoneExitTextInfo : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _textEducation;
     [SerializeField] private TextMeshProUGUI _fixedText;
     [SerializeField] private TextMeshProUGUI _fixedTextUnity;
+    [SerializeField] private TextMeshProUGUI _exitTextApi;
     [SerializeField] private MenuButton _exitButton;
     [SerializeField] private CheckListHolder[] _checkListHolders;
 
@@ -55,7 +56,7 @@ public class ZoneExitTextInfo : MonoBehaviour
     }
     public void SetRoomText()
     {
-        if (!StartParametr.Instance.ShowInfoText) //проверка на режим обучения 
+        if (StartParametr.Instance.ShowInfoText) //проверка на режим обучения 
         {
             _textInfo = "";
             _zoneText.gameObject.SetActive(true);
@@ -80,5 +81,10 @@ public class ZoneExitTextInfo : MonoBehaviour
                 _textEducation.gameObject.SetActive(false);
             }
         }
+    }
+
+    public void SetExitApiText(string apiText)
+    {
+        _exitTextApi.text = apiText;
     }
 }

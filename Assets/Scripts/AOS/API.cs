@@ -16,6 +16,7 @@ public class API : AosObjectBase
 {
     public UnityAction<string> TimerTextEvent;
     public UnityAction<string> InfoLocationText;
+    public UnityAction<string> ExitApiTextEvent;
     public UnityAction<string, string> AttempTextEvent;
     public UnityAction<string, string> MessageTextEvent;
     public UnityAction<string, string> ExitTextEvent;
@@ -43,7 +44,7 @@ public class API : AosObjectBase
     }
     [AosAction(name: "Показать информацию отказа")]
     public void showFaultInfo(JObject info, JObject nav)
-    { Debug.Log("showFaultInfoshowFaultInfoshowFaultInfo");      
+    {     
         string headerText = info.SelectToken("name").ToString();
         string commentText = info.SelectToken("text").ToString();
         string buttonText = nav.SelectToken("ok").SelectToken("caption").ToString();
@@ -68,27 +69,36 @@ public class API : AosObjectBase
     [AosAction(name: "Показать сообщение")]
     public void showResult(JObject info, JObject nav)
     {
+        Debug.Log("showResult" + nav.ToString());
+        Debug.Log("showResult" + info.ToString());
         string headText = info.SelectToken("name").ToString();
-        // string commentText = HtmlToText.Instance.HTMLToTextReplace(HtmlToText.Instance.HTMLToTextReplace(info.SelectToken("text").ToString()));
-        //  string evalText = HtmlToText.Instance.HTMLToTextReplace(info.SelectToken("eval").ToString());
-        // OnSetResultText?.Invoke(headText, commentText, evalText);
+        string commentText = HtmlToText.Instance.HTMLToTextReplace(HtmlToText.Instance.HTMLToTextReplace(info.SelectToken("text").ToString()));
+        string evalText = HtmlToText.Instance.HTMLToTextReplace(info.SelectToken("eval").ToString());
+        ResultTextEvent?.Invoke(headText, evalText, commentText);
     }
     [AosAction(name: "Показать реакцию")]
     public void showTime(string time)
     {
-        Debug.Log(time.ToString());
+       Debug.Log(time.ToString());
         TimerTextEvent?.Invoke(time);
     }
 
     [AosAction(name: "Обновить меню")]
     public void updateMenu(JObject exitInfo, JObject resons)
     {
-       
-        Debug.Log("REASONSSSS"+resons.ToString());
+        
+        Debug.Log("UPDATEEEE"+exitInfo.ToString());
+        if (exitInfo.SelectToken("text") != null)
+        {
+            string exitText = HtmlToText.Instance.HTMLToTextReplace(exitInfo.SelectToken("text").ToString());
+            ExitApiTextEvent?.Invoke(exitText);
+        }
+
+
         var attemptText = resons.SelectToken("reasons");
         if (attemptText != null)
         {
-            Debug.Log(attemptText.ToString() + "inside if");
+           // Debug.Log(attemptText.ToString() + "inside if");
             foreach (JObject item in attemptText)
             {
                 var roomId = item.SelectToken("apiId");
@@ -102,9 +112,8 @@ public class API : AosObjectBase
     [AosAction(name: "Показать меню")]
     public void showMenu(JObject faultInfo, JObject exitInfo, JObject resons)
     {
-      
-        Debug.Log("EXITINFOOOOO"+ resons.ToString());
-        
+        Debug.Log("SHOWMENUUUU"+ exitInfo.ToString());
+        Debug.Log("SHOWMENU"+resons.ToString());
         string headtext = faultInfo.SelectToken("name").ToString();
         string commentText = faultInfo.SelectToken("text").ToString();
         string exitSureText = exitInfo.SelectToken("quest").ToString();
@@ -126,7 +135,7 @@ public class API : AosObjectBase
         {
             string exitText = HtmlToText.Instance.HTMLToTextReplace(exitInfo.SelectToken("text").ToString());
             string warntext = HtmlToText.Instance.HTMLToTextReplace(exitInfo.SelectToken("warn").ToString());
-            ExitTextEvent?.Invoke(exitText, warntext);
+           // ExitTextEvent?.Invoke(exitText, warntext);
         }
 
            

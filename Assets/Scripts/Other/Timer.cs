@@ -13,6 +13,11 @@ public class Timer : MonoBehaviour
     }
     public string ReturnTime()
     {
+        if (_time.Seconds > 10)
+        {
+            Debug.Log("Подсказка");
+        }
         return string.Format("{0:00}:{1:00}", _time.Minutes, _time.Seconds);
+        
     }
 }

@@ -2,6 +2,7 @@ using AosSdk.Core.PlayerModule;
 using AosSdk.Core.PlayerModule.Pointer;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 public enum NextButtonState
@@ -14,6 +15,7 @@ public class StartGameButton : BaseButton
     public UnityAction<string> OnNextButtonPressed;
     [HideInInspector] public NextButtonState CurrentState;
     [SerializeField] private API _api;
+    [SerializeField] private TextMeshProUGUI _buttonInfoText;
     public override void OnClicked(InteractHand interactHand)
     {
         if (CurrentState == NextButtonState.Start)
@@ -21,6 +23,7 @@ public class StartGameButton : BaseButton
             _api.OnInvokeNavAction("next");
             OnNextButtonPressed?.Invoke("next");
             Player.Instance.CanMove = false;
+            _buttonInfoText.gameObject.SetActive(false);
 
         }
 
