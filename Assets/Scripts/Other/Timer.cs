@@ -2,22 +2,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Timer : MonoBehaviour
 {
-    private TimeSpan _time;
+    public UnityAction TimerHelperEvent;
+    public TimeSpan Time { get; private set; }
 
     public void TimeChanger(double second)
     {
-        _time = TimeSpan.FromSeconds(second);
+        Time = TimeSpan.FromSeconds(second);
     }
     public string ReturnTime()
     {
-        if (_time.Seconds > 10)
+        if (Time.Seconds == 10)
         {
-            Debug.Log("Подсказка");
+            TimerHelperEvent?.Invoke();
         }
-        return string.Format("{0:00}:{1:00}", _time.Minutes, _time.Seconds);
+        return string.Format("{0:00}:{1:00}", Time.Minutes, Time.Seconds);
         
     }
 }
