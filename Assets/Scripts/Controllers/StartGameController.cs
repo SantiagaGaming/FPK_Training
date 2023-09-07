@@ -7,32 +7,16 @@ using UnityEngine;
 
 public class StartGameController : MonoBehaviour
 {
-    //[SerializeField] private StartGameButton _startGameButton;
-    //[SerializeField] private CameraChanger _cameraChanger;
-    //[SerializeField] private GameObject _startScreen;
-    //[SerializeField] private TimerHelper _timerHelper;
+   
+    [SerializeField] private CameraChanger _cameraChanger;
+   
 
-    //private void Start()
-    //{
-    //    Player.Instance.CanMove = false;
-    //    _cameraChanger.CanTeleport= false;
-    //}
-    //private void OnEnable()
-    //{
-    //    //_startGameButton.OnStartButtonClick += OnStartGame;
-    //}
-    //private void OnDisable()
-    //{
-    //   // _startGameButton.OnStartButtonClick -= OnStartGame;
-    //}
-    //private void OnStartGame()
-    //{
-
-    //    Player.Instance.CanMove = true;
-    //    _cameraChanger.CanTeleport = true;
-    //    _startScreen.SetActive(false);
-    //    _timerHelper.StartGame = true;
-    //}
+    private void Start()
+    {
+        Player.Instance.CanMove = false;
+       _cameraChanger.CanTeleport= false;
+    }
+    
 
     [SerializeField] private GameObject _startScreen;
     [SerializeField] private TextMeshProUGUI _headerText;
@@ -49,6 +33,7 @@ public class StartGameController : MonoBehaviour
     }
     public void EnableStartScreen(string headerText, string commentText, string buttonText, NextButtonState state)
     {
+
         _startScreen.SetActive(true);
         _headerText.text = headerText;
         _commentText.text = commentText;
@@ -59,5 +44,7 @@ public class StartGameController : MonoBehaviour
     {
         if (value == "start")
             _startScreen.SetActive(false);
+        Player.Instance.CanMove = true;
+        _cameraChanger.CanTeleport = true;
     }
 }

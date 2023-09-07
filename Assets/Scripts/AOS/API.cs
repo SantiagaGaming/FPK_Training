@@ -82,7 +82,7 @@ public class API : AosObjectBase
             Debug.Log(headText);
             Debug.Log(commentText);
             Debug.Log(evalText);
-            ResultTextEvent?.Invoke(headText, evalText, commentText);
+            ResultTextEvent?.Invoke(headText, commentText, evalText);
         }
 
         
@@ -97,7 +97,7 @@ public class API : AosObjectBase
     [AosAction(name: "Показать реакцию")]
     public void showTime(string time)
     {
-       Debug.Log(time.ToString());
+       
         TimerTextEvent?.Invoke(time);
     }
 
