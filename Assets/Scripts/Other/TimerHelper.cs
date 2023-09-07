@@ -12,9 +12,9 @@ public class TimerHelper : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _helperText;
     [SerializeField] private GameObject _helperImage;
 
-    private const string HELPER_30 = "Ќа выполнение задани€ осталось 30 минут";
-    private const string HELPER_20 = "Ќа выполнение задани€ осталось 20 минут";
-    private const string HELPER_10 = "Ќа выполнение задани€ осталось 10 минут";
+    private const string HELPER_30 = "Ќа выполнение задани€ осталось   30 минут";
+    private const string HELPER_20 = "Ќа выполнение задани€ осталось   20 минут";
+    private const string HELPER_10 = "Ќа выполнение задани€ осталось   10 минут";
 
     private bool _show = true;
     private bool _show2 = true;
@@ -25,19 +25,19 @@ public class TimerHelper : MonoBehaviour
     private void ShowHelper()
     {
 
-        if (_timer.Time.Seconds == 10)
+        if (_timer.Time.Seconds == 1800)
         {
             StartCoroutine(SetHelperText());
             _helperText.text = HELPER_30;
 
         }
-        if (_timer.Time.Seconds == 60)
+        if (_timer.Time.Seconds == 2400)
         {
             StartCoroutine(SetHelperText());
             _helperText.text = HELPER_20;
 
         }
-        if (_timer.Time.Seconds == 100)
+        if (_timer.Time.Seconds == 3000)
         {
             StartCoroutine(SetHelperText());
             _helperText.text = HELPER_10;

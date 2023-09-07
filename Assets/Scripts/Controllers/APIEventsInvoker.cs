@@ -14,6 +14,7 @@ public class APIEventsInvoker : MonoBehaviour
     [SerializeField] private View _view;
     [SerializeField] private TimerView _timerView;
     [SerializeField] private ZoneExitTextInfo _zoneExitTextInfo;
+  
 
     private void Start()
     {

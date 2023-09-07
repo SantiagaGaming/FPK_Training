@@ -20,15 +20,18 @@ public class MenuTextView : MonoBehaviour
         _cameraChanger = FindObjectOfType<CameraChanger>();
     }
 
-    public void SetResultText(string headText, string evalText, string commentText)
+    public void SetResultText(string headText, string commentText, string evalText)
     {
-        _headText.text= headText;
-        _evalText.text= evalText;
-        _commentText.text= commentText;
+        _cameraChanger._changed= true;
         _cameraChanger.OnEscClick();
         _mainPanel.SetActive(false);
         _resultPanel.SetActive(true);
-       
+        _headText.text = headText;
+        _commentText.text = commentText;
+        _evalText.text = evalText;
+
+        _cameraChanger.CanTeleport = false;
+
     }
 
     public void SetExitText(string exitText, string warntext)

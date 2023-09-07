@@ -61,7 +61,11 @@ public class API : AosObjectBase
 
     [AosAction(name: "Показать сообщение")]
     public void showMessage(JObject info, JObject nav)
-    {             
+    {
+        Debug.Log("SSSSSSSShowMessage");
+        Debug.Log("SSSSSSSShowMessage" + info.ToString());
+        Debug.Log("SSSSSSSShowMessage" + nav.ToString());
+        
         string headText = info.SelectToken("name").ToString();
         string commentText = info.SelectToken("text").ToString();
         MessageTextEvent?.Invoke(headText, commentText);
@@ -69,12 +73,26 @@ public class API : AosObjectBase
     [AosAction(name: "Показать сообщение")]
     public void showResult(JObject info, JObject nav)
     {
-        Debug.Log("showResult" + nav.ToString());
-        Debug.Log("showResult" + info.ToString());
-        string headText = info.SelectToken("name").ToString();
-        string commentText = HtmlToText.Instance.HTMLToTextReplace(HtmlToText.Instance.HTMLToTextReplace(info.SelectToken("text").ToString()));
-        string evalText = HtmlToText.Instance.HTMLToTextReplace(info.SelectToken("eval").ToString());
-        ResultTextEvent?.Invoke(headText, evalText, commentText);
+        
+        if (info.SelectToken("name") != null && info.SelectToken("text") != null && info.SelectToken("text") != null)
+        {
+            string headText = HtmlToText.Instance.HTMLToTextReplace(info.SelectToken("name").ToString());
+            string commentText = HtmlToText.Instance.HTMLToTextReplace(info.SelectToken("text").ToString());
+            string evalText = HtmlToText.Instance.HTMLToTextReplace(info.SelectToken("eval").ToString());
+            Debug.Log(headText);
+            Debug.Log(commentText);
+            Debug.Log(evalText);
+            ResultTextEvent?.Invoke(headText, evalText, commentText);
+        }
+
+        
+        
+        //string headText = info.SelectToken("name").ToString();
+        //string commentText = HtmlToText.Instance.HTMLToTextReplace(info.SelectToken("text").ToString());
+        //string evalText = HtmlToText.Instance.HTMLToTextReplace(info.SelectToken("eval").ToString());
+        // string commentText = HtmlToText.Instance.HTMLToTextReplace(HtmlToText.Instance.HTMLToTextReplace(info.SelectToken("text").ToString()));
+        //  string evalText = HtmlToText.Instance.HTMLToTextReplace(info.SelectToken("eval").ToString());
+      //  ResultTextEvent?.Invoke(headText, evalText, commentText);
     }
     [AosAction(name: "Показать реакцию")]
     public void showTime(string time)

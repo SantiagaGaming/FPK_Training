@@ -22,7 +22,7 @@ public class CameraChanger : MonoBehaviour
 
     private Vector3 _currentPlayerPosition = new Vector3();
 
-    private bool _changed= true;
+    [HideInInspector] public bool _changed= true;
 
     private void OnEnable()
     {
