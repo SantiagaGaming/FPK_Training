@@ -31,6 +31,7 @@ public class CheckListHolder : MonoBehaviour
                 var newotkaz = checkItem.Id;
                 _otkazModel.AddOtaz(newotkaz);
             }
+
         }
         AddNewOtazList?.Invoke(_otkazModel);
         Fixed = true;

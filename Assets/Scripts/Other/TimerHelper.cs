@@ -25,19 +25,19 @@ public class TimerHelper : MonoBehaviour
     private void ShowHelper()
     {
 
-        if (_timer.Time.Seconds == 1800)
+        if (_timer.Time.Seconds == 1800)  
         {
             StartCoroutine(SetHelperText());
             _helperText.text = HELPER_30;
 
         }
-        if (_timer.Time.Seconds == 2400)
+        if (_timer.Time.Seconds == 2400) 
         {
             StartCoroutine(SetHelperText());
             _helperText.text = HELPER_20;
 
         }
-        if (_timer.Time.Seconds == 3000)
+        if (_timer.Time.Seconds == 3000) 
         {
             StartCoroutine(SetHelperText());
             _helperText.text = HELPER_10;

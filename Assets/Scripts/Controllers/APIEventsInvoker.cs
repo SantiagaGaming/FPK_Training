@@ -33,9 +33,9 @@ public class APIEventsInvoker : MonoBehaviour
        _zoneExitTextInfo.SetExitApiText(exitText);
     }
 
-    private void OnSetResultText(string headText, string evalText, string commentText)
+    private void OnSetResultText(string headText, string commentText, string evalText)
     {
-       _menuTextView.SetResultText(headText, evalText, commentText);
+       _menuTextView.SetResultText(headText, commentText, evalText);
 
     }
 

@@ -15,7 +15,15 @@ public class Timer : MonoBehaviour
     }
     public string ReturnTime()
     {
-        if (Time.Seconds == 10)
+        if (Time.Seconds == 1800)
+        {
+            TimerHelperEvent?.Invoke();
+        }
+        if (Time.Seconds == 2400)
+        {
+            TimerHelperEvent?.Invoke();
+        }
+        if (Time.Seconds == 3000)
         {
             TimerHelperEvent?.Invoke();
         }
