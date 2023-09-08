@@ -17,14 +17,16 @@ public class ThreeKeyRotateDoor : Door
     [SerializeField] private float _closePatametr2; // конец закрытия
     [SerializeField] private Animator _animator;
     [SerializeField] private Collider _collider;
+    [SerializeField] private Collider _childrenCollider;
    
 
 
     override protected IEnumerator UseDoor(bool value)
     {
 
-        
-            DoorAction(true);
+        if (_childrenCollider != null) { _childrenCollider.enabled = false; }
+
+        DoorAction(true);
 
             if (!_inside)
             {
@@ -108,7 +110,9 @@ public class ThreeKeyRotateDoor : Door
                 }
 
             }
-            DoorAction(false);
+        if (_childrenCollider != null) { _childrenCollider.enabled = true; }
+
+        DoorAction(false);
             if (open)
                 open = false;
             else open = true;
@@ -118,7 +122,7 @@ public class ThreeKeyRotateDoor : Door
     
     protected override IEnumerator UseBrokenDoor(bool value)
     {
-
+        if (_childrenCollider != null) { _childrenCollider.enabled = false; }
         DoorAction(true);
 
         if (!_inside)
@@ -192,6 +196,7 @@ public class ThreeKeyRotateDoor : Door
                 }
             }
         }
+        if (_childrenCollider != null) { _childrenCollider.enabled = true; }
         DoorAction(false);
         if (open)
             open = false;

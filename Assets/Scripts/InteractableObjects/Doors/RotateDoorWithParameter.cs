@@ -17,6 +17,7 @@ public class RotateDoorWithParameter : Door
 
     override protected IEnumerator UseDoor(bool value)
     {
+        GetComponent<Collider>().enabled = false;
         if (handle != null)
             StartCoroutine(RotateHandle());
         if (!LockedSecretKey && !LockedSpecKey)
@@ -112,6 +113,7 @@ public class RotateDoorWithParameter : Door
                     }
                 }
             }
+            GetComponent<Collider>().enabled = true;
             DoorAction(false);
             if (open)
                 open = false;
