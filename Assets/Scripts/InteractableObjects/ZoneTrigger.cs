@@ -37,9 +37,10 @@ public class ZoneTrigger : MonoBehaviour
     {
         _api.ConnectionEstablished(_zoneName.ToString().ToLower());
         if (_enabled && _zoneName != 0  && StartParametr.Instance.ShowInfoText)
-        {          
+        {
+            Debug.Log(" PODSKAZKA");
             _infoPanel.SetActive(true);    
-            _mainPanel.SetActive(false);
+           _mainPanel.SetActive(false);
             _cameraChanger.OnEscClick();
             _enabled=false;
             Debug.Log(_zoneName.ToString().ToLower());

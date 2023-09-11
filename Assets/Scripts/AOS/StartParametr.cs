@@ -7,7 +7,7 @@ public class StartParametr : MonoBehaviour
 {
     public bool ShowInfoText = false;
     public static StartParametr Instance;
-    [SerializeField] private GameObject _obj;
+   
     private void Awake()
     {
         if (Instance == null)
@@ -28,9 +28,10 @@ public class StartParametr : MonoBehaviour
             
             if (arg == "-lnr")
             {
-                _obj.SetActive(true);
+               
                 ShowInfoText = true;
             }
+           
 
         }
     }
