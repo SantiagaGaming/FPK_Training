@@ -131,6 +131,7 @@ public class API : AosObjectBase
     public void showMenu(JObject faultInfo, JObject exitInfo, JObject resons)
     {
         Debug.Log("SHOWMENUUUU"+ exitInfo.ToString());
+        Debug.Log("SHOWMENUUUU"+ faultInfo.ToString());
         Debug.Log("SHOWMENU"+resons.ToString());
         string headtext = faultInfo.SelectToken("name").ToString();
         string commentText = faultInfo.SelectToken("text").ToString();
