@@ -16,7 +16,7 @@ public class HandleDoor : Door
     {
         _canOpen= false;
 
-           var pos = new Vector3(transform.position.x - 0.3f, transform.position.y + 1.35f, transform.position.z - 0.06f);
+           var pos = new Vector3(transform.position.x - 0.3f, transform.position.y + 1.45f, transform.position.z - 0.06f);
         TablObject.Instance.SetNewPosition(pos);
 
         if (handle != null)

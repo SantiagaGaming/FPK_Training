@@ -18,10 +18,12 @@ public class RotateDoor : Door
     [SerializeField] private Animator _animator2;
     [SerializeField] private GameObject _colliderOn;
     [SerializeField] private GameObject _colliderOff;
+    [SerializeField] private Collider _colliderDoorOff;
 
 
     override protected IEnumerator UseDoor(bool value)
     {
+        if(_colliderDoorOff != null) { _colliderDoorOff.enabled = false;}
         GetComponent<Collider>().enabled = false;
         if (handle != null)
             StartCoroutine(RotateHandle());
@@ -132,12 +134,14 @@ public class RotateDoor : Door
                 }
 
             }
-            GetComponent<Collider>().enabled = true;
+           
             DoorAction(false);
             if (open)
                 open = false;
             else open = true;
         }
+        if (_colliderDoorOff != null) { _colliderDoorOff.enabled = true; }
+        GetComponent<Collider>().enabled = true;
     }
     private IEnumerator RotateHandle()
     {

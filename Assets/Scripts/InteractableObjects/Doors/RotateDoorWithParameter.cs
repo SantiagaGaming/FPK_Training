@@ -113,12 +113,13 @@ public class RotateDoorWithParameter : Door
                     }
                 }
             }
-            GetComponent<Collider>().enabled = true;
+            
             DoorAction(false);
             if (open)
                 open = false;
             else open = true;
         }
+        GetComponent<Collider>().enabled = true;
     }
 
     private IEnumerator RotateHandle()

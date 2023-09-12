@@ -16,8 +16,8 @@ public class ThreeKeyRotateDoor : Door
     [SerializeField] private float _closePatametr; // начало закрытия  
     [SerializeField] private float _closePatametr2; // конец закрытия
     [SerializeField] private Animator _animator;
-    [SerializeField] private Collider _collider;
-    [SerializeField] private Collider _childrenCollider;
+    [SerializeField] private Collider _collider; // колайдер объекта который нужно отключить 
+    [SerializeField] private Collider _childrenCollider; // коллайдер ключа , что бы не закликать открытие 
    
 
 
