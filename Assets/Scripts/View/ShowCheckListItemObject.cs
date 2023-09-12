@@ -37,15 +37,14 @@ public class ShowCheckListItemObject : MonoBehaviour
             Open = true;
             OnSetSprite();
             _checkItemPanel.SetActive(true);
-            if (_hidePanel != null)
-            {
-                foreach (var item in _hidePanel)
-                {                    
-                    item.SetActive(false);
-                    
-                }
-            }
-            if(_showCheckListItem != null)
+            //if (_hidePanel != null)
+            //{
+            //    foreach (var item in _hidePanel)
+            //    {                   
+            //        item.SetActive(false);                  
+            //    }
+            //}
+            if (_showCheckListItem != null)
             {
                 foreach (var item in _showCheckListItem)
                 {
@@ -55,7 +54,7 @@ public class ShowCheckListItemObject : MonoBehaviour
                     }
                 }
             }
-            
+
         }
         else
         {
