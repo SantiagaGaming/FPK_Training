@@ -9,7 +9,7 @@ public class DateObject : EnabableObject
     [SerializeField] private TextMeshProUGUI[] _dateText;
     [SerializeField] private TextMeshProUGUI _checkDateText;
     private DateTime _date = DateTime.Now.AddMonths(3);
-    private DateTime _checkDate = DateTime.Now.AddMonths(-12);
+    private DateTime _checkDate = DateTime.Now.AddMonths(-9);
     private DateTime _checkDateBad = DateTime.Now.AddMonths(-15);
     private DateTime _dateOverdue = DateTime.Now.AddMonths(-3);
     protected override void Start()

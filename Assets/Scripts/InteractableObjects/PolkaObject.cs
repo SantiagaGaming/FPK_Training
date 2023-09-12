@@ -36,11 +36,13 @@ public class PolkaObject : BaseObject
     }
     private IEnumerator BrokenPolka()
     {
-        yield return new WaitForSeconds(2);
+        Debug.Log("THIS  1");
+        yield return new WaitForSeconds(4);
         if (_lockObject.CurrentState == "Broken")
         {
             _ladderCollider.enabled = true;
             _animator.SetTrigger("Close");
+            Debug.Log("THIS  2");
             
         }
     }
