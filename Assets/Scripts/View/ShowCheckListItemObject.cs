@@ -12,11 +12,12 @@ public class ShowCheckListItemObject : MonoBehaviour
     [SerializeField] private GameObject _checkItemPanel;
     [SerializeField] private GameObject[] _hidePanel;
     [SerializeField] private CheckListItem[] _checkListItem;
+    [SerializeField] private ShowCheckListItemObject[] _showCheckListItem;
     
 
     private Image _img;
     private Button _button;
-    private bool _open;
+    public bool Open;
     private void Start()
     {
         _img= GetComponent<Image>();
@@ -28,20 +29,30 @@ public class ShowCheckListItemObject : MonoBehaviour
         }
     }
     
-    private void OnClick()
+   public void OnClick()
     {
-        if (!_open)
+        if (!Open)
         {
            
-            _open = true;
+            Open = true;
             OnSetSprite();
             _checkItemPanel.SetActive(true);
             if (_hidePanel != null)
             {
                 foreach (var item in _hidePanel)
-                {
+                {                    
                     item.SetActive(false);
-
+                    
+                }
+            }
+            if(_showCheckListItem != null)
+            {
+                foreach (var item in _showCheckListItem)
+                {
+                    if (item.Open)
+                    {
+                        item.OnClick();
+                    }
                 }
             }
             
@@ -50,8 +61,9 @@ public class ShowCheckListItemObject : MonoBehaviour
         {
             
             _checkItemPanel.SetActive(false);
-            _open = false;
+            Open = false;
             OnSetSprite();
+            
         }
     }
     
@@ -69,19 +81,19 @@ public class ShowCheckListItemObject : MonoBehaviour
     }
     public void OnSetSprite()
     {
-        if(IsChecked()&&_open )
+        if(IsChecked()&&Open )
         {
             _img.sprite = _selectedOpen;
         }
-        else if(IsChecked()&& !_open ) 
+        else if(IsChecked()&& !Open ) 
         {
             _img.sprite = _selected;
         }
-        else if (_open)
+        else if (Open)
         {
             _img.sprite = _noSelectedOpen;
         }
-        else if (!_open)
+        else if (!Open)
         {
             _img.sprite = _notSelected;
         }

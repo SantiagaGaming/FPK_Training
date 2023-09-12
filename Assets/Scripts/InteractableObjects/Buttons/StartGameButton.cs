@@ -18,6 +18,7 @@ public class StartGameButton : BaseButton
     [HideInInspector] public NextButtonState CurrentState;
     [SerializeField] private API _api;
     [SerializeField] private TextMeshProUGUI _buttonInfoText;
+    [SerializeField] private TextMeshProUGUI _startButtonText;
     [SerializeField] private Image _buttonImage;
     public override void OnClicked(InteractHand interactHand)
     {
@@ -28,6 +29,7 @@ public class StartGameButton : BaseButton
             OnNextButtonPressed?.Invoke("next");
             Player.Instance.CanMove = false;
             _buttonInfoText.gameObject.SetActive(false);
+            _startButtonText.text = "Начать";
 
         }
 
