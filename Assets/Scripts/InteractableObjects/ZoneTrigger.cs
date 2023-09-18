@@ -28,17 +28,24 @@ public class ZoneTrigger : MonoBehaviour
     private bool _enabled = true;
 
     private API _api;
+    private LocationController _locationController;
     private void Start()
     {
         _api = FindObjectOfType<API>();
+        _locationController = FindObjectOfType<LocationController>();
         _cameraChanger = FindObjectOfType<CameraChanger>();
     }
     private void OnTriggerEnter(Collider col)
     {
-        _api.ConnectionEstablished(_zoneName.ToString().ToLower());
+
+        _locationController.SetLocation(_zoneName.ToString().ToLower());
+        InstanceHandler.Instance.CurrentRoom = _zoneName;
+       
+
+        
         if (_enabled && _zoneName != 0  && StartParametr.Instance.ShowInfoText)
         {
-            Debug.Log(" PODSKAZKA");
+            _api.ConnectionEstablished(_zoneName.ToString().ToLower());
             _infoPanel.SetActive(true);    
            _mainPanel.SetActive(false);
             _cameraChanger.OnEscClick();
@@ -58,7 +65,7 @@ public class ZoneTrigger : MonoBehaviour
         var aosObject = col.GetComponentInParent<AosObjectBase>();
         if (!aosObject)
             return;
-        InstanceHandler.Instance.CurrentRoom = _zoneName;
+       
     }
     public void SetTextColor(RoomState state)
     {

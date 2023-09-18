@@ -18,4 +18,5 @@ public class DateTimeNow : MonoBehaviour
         _timeText.text = _currentDate.Hour.ToString("D2")+ " : "+ _currentDate.Minute.ToString("D2");
         
     }
+   
 }

@@ -17,6 +17,9 @@ public class LocationController : MonoBehaviour
     {
         _api.ConnectionEstablished(_currentLocation);
     }
-   
-    
+
+   public void SetLocation(string location)
+    {
+        _currentLocation = location;
+    }
 }
