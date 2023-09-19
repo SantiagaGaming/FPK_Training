@@ -23,6 +23,15 @@ public class CameraChanger : MonoBehaviour
     private Vector3 _currentPlayerPosition = new Vector3();
 
     [HideInInspector] public bool _changed= true;
+    private bool _temp = false;
+    private void Update()
+    {
+        if (_temp)
+        {
+            var playerInstance = Player.Instance;
+            playerInstance.TeleportTo(_menuPosition);
+        }
+    }
 
     private void OnEnable()
     {
@@ -47,10 +56,11 @@ public class CameraChanger : MonoBehaviour
             _changed= false;
             _zoom.ResetZoomCamera();
             _zoom.CanZoom = false;
-            
+            _temp = true;
         }
         else
         {
+            _temp = false;
             _infoPanel.SetActive(false);
             MenuEvent?.Invoke(false);
             TeleportToPrevousLocation();
@@ -63,11 +73,11 @@ public class CameraChanger : MonoBehaviour
     {
         _currentPlayerPosition = new Vector3(_modeController.GetPlayerTransform().position.x, _modeController.GetPlayerTransform().position.y-1f, _modeController.GetPlayerTransform().position.z);
         var playerInstance = Player.Instance;
-        playerInstance.transform.rotation = Quaternion.Euler(0, 0, 0);
         playerInstance.TeleportTo(_menuPosition);
         playerInstance.CanMove = false;
         playerInstance.CursorLockMode = CursorLockMode.Locked;
         playerInstance.ForwardTo(transform);
+       
     }
     private void TeleportToPrevousLocation()
     {

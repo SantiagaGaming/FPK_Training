@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class ShowCheckListItemObject : MonoBehaviour
 {
     [SerializeField] private Sprite _notSelected;
-    [SerializeField] private Sprite _selected;
-    [SerializeField] private Sprite _selectedOpen;
     [SerializeField] private Sprite _noSelectedOpen;
     [SerializeField] private GameObject _checkItemPanel;
     [SerializeField] private CheckListItem[] _checkListItem;
@@ -75,11 +73,13 @@ public class ShowCheckListItemObject : MonoBehaviour
     {
         if(IsChecked()&&Open )
         {
-            _img.sprite = _selectedOpen;
+           
+            MenuCheckItemsImage.Instance.SelectedOpenSprite(_img);
         }
         else if(IsChecked()&& !Open ) 
         {
-            _img.sprite = _selected;
+            MenuCheckItemsImage.Instance.SelectedSprite(_img);
+          
         }
         else if (Open)
         {
