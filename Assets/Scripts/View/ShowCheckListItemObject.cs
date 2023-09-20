@@ -69,17 +69,35 @@ public class ShowCheckListItemObject : MonoBehaviour
         }
         return false;
     }
+    private bool AllChecked()
+    {
+        foreach (var item in _checkListItem)
+        {
+            if (!item.Checked)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
     public void OnSetSprite()
     {
-        if(IsChecked()&&Open )
+        if (AllChecked() && Open)
         {
-           
+            MenuCheckItemsImage.Instance.AllSelectedOpenSprite(_img);        
+        }
+        else if (AllChecked() && !Open)
+        {
+            MenuCheckItemsImage.Instance.AllSelectedCloseSprite(_img);
+        }
+
+        else if (IsChecked() && Open)
+        {
             MenuCheckItemsImage.Instance.SelectedOpenSprite(_img);
         }
-        else if(IsChecked()&& !Open ) 
+        else if (IsChecked() && !Open)
         {
-            MenuCheckItemsImage.Instance.SelectedSprite(_img);
-          
+            MenuCheckItemsImage.Instance.SelectedSprite(_img);    
         }
         else if (Open)
         {
