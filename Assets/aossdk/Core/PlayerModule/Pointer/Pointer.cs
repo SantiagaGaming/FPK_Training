@@ -1,12 +1,15 @@
 ﻿using AosSdk.Core.Input;
 using AosSdk.Core.Utils;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace AosSdk.Core.PlayerModule.Pointer
 {
     public class Pointer : MonoBehaviour
     {
         [SerializeField] protected RayCaster raycaster;
+    
+           
 
         internal PointerState CurrentState = PointerState.Unknown;
 
@@ -19,7 +22,7 @@ namespace AosSdk.Core.PlayerModule.Pointer
                 case PointerState.Default:
                     colorToSet = Launcher.Instance.SdkSettings.defaultPointerColor;
                     break;
-                case PointerState.Hovered:
+                case PointerState.Hovered:                     
                     colorToSet = Launcher.Instance.SdkSettings.hoveredPointerColor;
                     break;
                 case PointerState.Disabled:
@@ -32,5 +35,6 @@ namespace AosSdk.Core.PlayerModule.Pointer
 
             return colorToSet;
         }
+       
     }
 }

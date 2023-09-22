@@ -23,6 +23,7 @@ public class RotateDoor : Door
 
     override protected IEnumerator UseDoor(bool value)
     {
+        WaitCursor.Instance.WaitCursorAnim(true);
         if(_colliderDoorOff != null) { _colliderDoorOff.enabled = false;}
         GetComponent<Collider>().enabled = false;
         if (handle != null)
@@ -142,6 +143,7 @@ public class RotateDoor : Door
         }
         if (_colliderDoorOff != null) { _colliderDoorOff.enabled = true; }
         GetComponent<Collider>().enabled = true;
+        WaitCursor.Instance.WaitCursorAnim(false);
     }
     private IEnumerator RotateHandle()
     {
