@@ -23,7 +23,7 @@ public class ThreeKeyRotateDoor : Door
 
     override protected IEnumerator UseDoor(bool value)
     {
-
+        WaitCursor.Instance.WaitCursorAnim(true);
         if (_childrenCollider != null) { _childrenCollider.enabled = false; }
 
         DoorAction(true);
@@ -116,12 +116,14 @@ public class ThreeKeyRotateDoor : Door
             if (open)
                 open = false;
             else open = true;
-        
+        WaitCursor.Instance.WaitCursorAnim(false);
+
     }
     
     
     protected override IEnumerator UseBrokenDoor(bool value)
     {
+        WaitCursor.Instance.WaitCursorAnim(true);
         if (_childrenCollider != null) { _childrenCollider.enabled = false; }
         DoorAction(true);
 
@@ -201,5 +203,6 @@ public class ThreeKeyRotateDoor : Door
         if (open)
             open = false;
         else open = true;
+        WaitCursor.Instance.WaitCursorAnim(false);
     }
 }

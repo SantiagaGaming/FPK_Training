@@ -28,12 +28,13 @@ public class WaitCursor : MonoBehaviour
         if (state)
         {
             _image.enabled = true;           
-            StartCoroutine(SetSprite());
+            StartCoroutine("SetSprite");
         }
         else
         {
             _image.enabled = false;
             _spriteCrossHair.enabled = true;
+            StopCoroutine("SetSprite");
         }
       
     }
@@ -48,7 +49,7 @@ public class WaitCursor : MonoBehaviour
             yield return new WaitForSeconds(0.4f);
             
         }
-        _image.enabled = false;
+        
 
     }
 }

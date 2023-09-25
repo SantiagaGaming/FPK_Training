@@ -17,6 +17,7 @@ public class RotateDoorWithParameter : Door
 
     override protected IEnumerator UseDoor(bool value)
     {
+        WaitCursor.Instance.WaitCursorAnim(true);
         GetComponent<Collider>().enabled = false;
         if (handle != null)
             StartCoroutine(RotateHandle());
@@ -29,8 +30,7 @@ public class RotateDoorWithParameter : Door
 
                 if (!value)
                 {
-                    //if (handle != null)
-                    //    StartCoroutine(RotateHandle());
+                    
                     if (_colliderOff != null) { _colliderOff.enabled = false; }
                     if (_animator != null)
                     {
@@ -120,6 +120,7 @@ public class RotateDoorWithParameter : Door
             else open = true;
         }
         GetComponent<Collider>().enabled = true;
+        WaitCursor.Instance.WaitCursorAnim(false);
     }
 
     private IEnumerator RotateHandle()
