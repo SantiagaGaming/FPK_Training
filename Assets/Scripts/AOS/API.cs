@@ -97,6 +97,7 @@ public class API : AosObjectBase
     [AosAction(name: "Показать реакцию")]
     public void showTime(string time)
     {
+        Debug.Log(time.ToString());
        
         TimerTextEvent?.Invoke(time);
     }
