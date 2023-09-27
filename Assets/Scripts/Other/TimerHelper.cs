@@ -26,7 +26,7 @@ public class TimerHelper : MonoBehaviour
 
         if (_counter == 0)
         {
-            Debug.Log("IN HELPER 0");
+            
             _counter++;
             StartCoroutine(SetHelperText());
             _helperText.text = HELPER_30;
@@ -37,7 +37,7 @@ public class TimerHelper : MonoBehaviour
             _counter++;
             StartCoroutine(SetHelperText());
             _helperText.text = HELPER_20;
-            Debug.Log("IN HELPER 1");
+           
 
         }
         else if (_counter ==2)
@@ -45,7 +45,7 @@ public class TimerHelper : MonoBehaviour
             _counter++;
             StartCoroutine(SetHelperText());
             _helperText.text = HELPER_10;
-            Debug.Log("IN HELPER 2");
+            
 
         }
     }

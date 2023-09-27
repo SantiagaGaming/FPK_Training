@@ -10,6 +10,7 @@ public class CheckListHolder : MonoBehaviour
     [SerializeField] private RoomName _roomName;
     [SerializeField] private List<CheckListItem> _checkListItems;
     [SerializeField] private SubmitCheckListButton _submitCheckListButton;
+    
     public RoomName RoomName => _roomName;
 
     private OtkazModel _otkazModel;
@@ -21,6 +22,7 @@ public class CheckListHolder : MonoBehaviour
     }
     private void OnAddItemsToFaultList()
     {
+        
         _otkazModel = new OtkazModel();
         var roomName = _roomName.ToString().ToLower();
         _otkazModel.Place = roomName;

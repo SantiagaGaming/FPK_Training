@@ -14,7 +14,7 @@ public class Timer : MonoBehaviour
         if (second == 1800)
         {
             TimerHelperEvent?.Invoke();
-            Debug.Log("IN TIME");
+            
         }
         if (second == 2400)
         {
