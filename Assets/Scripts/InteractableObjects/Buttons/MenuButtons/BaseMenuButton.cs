@@ -15,5 +15,6 @@ public class BaseMenuButton : MonoBehaviour
     }
     protected virtual void MenuButtonClick()
     {
+
     }
 }

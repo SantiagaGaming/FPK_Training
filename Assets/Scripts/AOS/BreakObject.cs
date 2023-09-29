@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using AosSdk.Core.Interaction.Interfaces;
 using AosSdk.Core.Utils;
@@ -26,4 +27,5 @@ public class BreakObject : AosObjectBase
         _obj.EnableObject(false);
     }
     public void InvokeOnClick() => OnClickObject?.Invoke(ObjectId); 
+    
 }
