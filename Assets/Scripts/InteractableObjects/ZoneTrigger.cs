@@ -52,7 +52,7 @@ public class ZoneTrigger : MonoBehaviour
             _enabled=false;
             Debug.Log(_zoneName.ToString().ToLower());
         }
-        if(_button != null)
+        if (_button != null && !IsVisited)
         {
             foreach (var button in _button)
             {
