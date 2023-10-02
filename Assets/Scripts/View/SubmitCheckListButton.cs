@@ -6,6 +6,8 @@ using UnityEngine.UI;
 [RequireComponent(typeof (Button))]
 public class SubmitCheckListButton : MonoBehaviour
 {
+    [SerializeField] private EditButton _editButton;
+   
     private Button _button;
     public UnityAction SubmitButtonClick;
     private void Awake()
@@ -16,4 +18,17 @@ public class SubmitCheckListButton : MonoBehaviour
     {
         _button.onClick.AddListener(() => { SubmitButtonClick?.Invoke(); }); 
     }
+
+    public void HideButtons()
+    {
+        gameObject.SetActive(false);
+        _editButton.gameObject.SetActive(true);
+        foreach (var button in _editButton.Buttons)
+        {
+            button.enabled = false;
+            button.image.color = new Color(1, 1, 1,0.47f);
+
+        }
+    }
+
 }

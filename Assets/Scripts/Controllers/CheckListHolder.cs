@@ -22,6 +22,7 @@ public class CheckListHolder : MonoBehaviour
     }
     private void OnAddItemsToFaultList()
     {
+       
         
         _otkazModel = new OtkazModel();
         var roomName = _roomName.ToString().ToLower();
@@ -37,5 +38,6 @@ public class CheckListHolder : MonoBehaviour
         }
         AddNewOtazList?.Invoke(_otkazModel);
         Fixed = true;
+        _submitCheckListButton.HideButtons();
     }
 }
