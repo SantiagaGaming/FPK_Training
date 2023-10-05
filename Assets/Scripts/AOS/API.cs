@@ -107,6 +107,7 @@ public class API : AosObjectBase
     {
         
         Debug.Log("UPDATEEEE"+exitInfo.ToString());
+        Debug.Log("UPDATEEEE"+ resons.ToString());
         if (exitInfo.SelectToken("text") != null)
         {
             string exitText = HtmlToText.Instance.HTMLToTextReplace(exitInfo.SelectToken("text").ToString());
@@ -131,20 +132,22 @@ public class API : AosObjectBase
     [AosAction(name: "Показать меню")]
     public void showMenu(JObject faultInfo, JObject exitInfo, JObject resons)
     {
-        Debug.Log("SHOWMENUUUU"+ exitInfo.ToString());
-        Debug.Log("SHOWMENUUUU"+ faultInfo.ToString());
+      //  Debug.Log("SHOWMENUUUU"+ exitInfo.ToString());
+     //   Debug.Log("SHOWMENUUUU"+ faultInfo.ToString());
         Debug.Log("SHOWMENU"+resons.ToString());
+      
         string headtext = faultInfo.SelectToken("name").ToString();
         string commentText = faultInfo.SelectToken("text").ToString();
         string exitSureText = exitInfo.SelectToken("quest").ToString();
         var attemptText = resons.SelectToken("reasons");
         if (attemptText != null)
         {
-            Debug.Log(attemptText.ToString() + "inside if");
+            Debug.Log("inside if" + attemptText.ToString());
             foreach (JObject item in attemptText)
             {
-                var roomId = item.SelectToken("apiId");
+                var roomId = item.SelectToken("apiId");               
                 var attemp = item.SelectToken("result");
+                var closed = item.SelectToken("closed");
                 var roomIdText = roomId.ToString();
                 var attempText = HtmlToText.Instance.HTMLToTextReplace(attemp.ToString());
                 AttempTextEvent?.Invoke(roomIdText, attempText);
