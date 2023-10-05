@@ -1197,6 +1197,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "InfoButton",
+                    "type": "Button",
+                    "id": "554aedd4-53ac-4e41-910c-0bf04de2b789",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1439,6 +1448,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Esc",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cfd78cf0-38d2-4414-9521-3f6faaf1829d",
+                    "path": "<Keyboard>/f1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "InfoButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
