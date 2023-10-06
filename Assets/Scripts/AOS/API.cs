@@ -63,7 +63,7 @@ public class API : AosObjectBase
     [AosAction(name: "Показать сообщение")]
     public void showMessage(JObject info, JObject nav)
     {
-      //  Debug.Log("SSSSSSSShowMessage");
+        Debug.Log("SSSSSSSShowMessage");
       //  Debug.Log("SSSSSSSShowMessage" + info.ToString());
      //   Debug.Log("SSSSSSSShowMessage" + nav.ToString());
         
@@ -107,7 +107,7 @@ public class API : AosObjectBase
     public void updateMenu(JObject exitInfo, JObject resons)
     {
         
-       // Debug.Log("UPDATEEEE"+exitInfo.ToString());
+        Debug.Log("UPDATEEEE"+exitInfo.ToString());
        // Debug.Log("UPDATEEEE"+ resons.ToString());
         if (exitInfo.SelectToken("text") != null)
         {
@@ -183,7 +183,7 @@ public class API : AosObjectBase
     [AosAction(name: "Показать подсказку")]
     public void showReasons(JObject reasons)
     {
-        Debug.Log(reasons.ToString());
+        Debug.Log("SHOWREASONS "+reasons.ToString());
     }
     public void ConnectionEstablished(string currentLocation)
     {

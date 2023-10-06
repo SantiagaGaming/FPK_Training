@@ -21,5 +21,6 @@ public class LocationController : MonoBehaviour
    public void SetLocation(string location)
     {
         _currentLocation = location;
+       
     }
 }

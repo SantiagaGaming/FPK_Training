@@ -37,15 +37,18 @@ public class ZoneTrigger : MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
     {
-
-        _locationController.SetLocation(_zoneName.ToString().ToLower());
+        var aosObject = col.GetComponentInParent<AosObjectBase>();
+        if (!aosObject)
+            return;
         InstanceHandler.Instance.CurrentRoom = _zoneName;
-       
-
         
-        if (_enabled && _zoneName != 0  && StartParametr.Instance.ShowInfoText)
+        _locationController.SetLocation(_zoneName.ToString().ToLower());
+
+        _api.ConnectionEstablished(_zoneName.ToString().ToLower());
+
+        if (_enabled && _zoneName != 0 && StartParametr.Instance.ShowInfoText)
         {
-            _api.ConnectionEstablished(_zoneName.ToString().ToLower());
+            
             _infoPanel.SetActive(true);    
            _mainPanel.SetActive(false);
             _cameraChanger.OnEscClick();
@@ -61,11 +64,7 @@ public class ZoneTrigger : MonoBehaviour
         }
       
         IsVisited = true;
-                           
-        var aosObject = col.GetComponentInParent<AosObjectBase>();
-        if (!aosObject)
-            return;
-       
+                                    
     }
     public void SetTextColor(RoomState state)
     {
