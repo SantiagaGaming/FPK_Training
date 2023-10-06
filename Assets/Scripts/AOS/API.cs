@@ -17,6 +17,7 @@ public class API : AosObjectBase
     public UnityAction<string> TimerTextEvent;
     public UnityAction<string> InfoLocationText;
     public UnityAction<string> ExitApiTextEvent;
+    public UnityAction<string,string> ActivateButtonEvent;
     public UnityAction<string, string> AttempTextEvent;
     public UnityAction<string, string> MessageTextEvent;
     public UnityAction<string, string> ExitTextEvent;
@@ -62,9 +63,9 @@ public class API : AosObjectBase
     [AosAction(name: "Показать сообщение")]
     public void showMessage(JObject info, JObject nav)
     {
-        Debug.Log("SSSSSSSShowMessage");
-        Debug.Log("SSSSSSSShowMessage" + info.ToString());
-        Debug.Log("SSSSSSSShowMessage" + nav.ToString());
+      //  Debug.Log("SSSSSSSShowMessage");
+      //  Debug.Log("SSSSSSSShowMessage" + info.ToString());
+     //   Debug.Log("SSSSSSSShowMessage" + nav.ToString());
         
         string headText = info.SelectToken("name").ToString();
         string commentText = info.SelectToken("text").ToString();
@@ -106,8 +107,8 @@ public class API : AosObjectBase
     public void updateMenu(JObject exitInfo, JObject resons)
     {
         
-        Debug.Log("UPDATEEEE"+exitInfo.ToString());
-        Debug.Log("UPDATEEEE"+ resons.ToString());
+       // Debug.Log("UPDATEEEE"+exitInfo.ToString());
+       // Debug.Log("UPDATEEEE"+ resons.ToString());
         if (exitInfo.SelectToken("text") != null)
         {
             string exitText = HtmlToText.Instance.HTMLToTextReplace(exitInfo.SelectToken("text").ToString());
@@ -118,13 +119,21 @@ public class API : AosObjectBase
         var attemptText = resons.SelectToken("reasons");
         if (attemptText != null)
         {
-           // Debug.Log(attemptText.ToString() + "inside if");
+        
             foreach (JObject item in attemptText)
             {
                 var roomId = item.SelectToken("apiId");
                 var attemp = item.SelectToken("result");
+              
                 var roomIdText = roomId.ToString();
                 var attempText = HtmlToText.Instance.HTMLToTextReplace(attemp.ToString());
+                var close = item.SelectToken("closed");
+                if (close != null)
+                {
+                    var closed = close.ToString().ToLower();
+                    ActivateButtonEvent?.Invoke(roomIdText,closed);
+                    Debug.Log("CLOSEDDDD " + closed);
+                }
                 AttempTextEvent?.Invoke(roomIdText, attempText);
             }
         }
@@ -134,7 +143,7 @@ public class API : AosObjectBase
     {
       //  Debug.Log("SHOWMENUUUU"+ exitInfo.ToString());
      //   Debug.Log("SHOWMENUUUU"+ faultInfo.ToString());
-        Debug.Log("SHOWMENU"+resons.ToString());
+      //  Debug.Log("SHOWMENU"+resons.ToString());
       
         string headtext = faultInfo.SelectToken("name").ToString();
         string commentText = faultInfo.SelectToken("text").ToString();
@@ -142,15 +151,22 @@ public class API : AosObjectBase
         var attemptText = resons.SelectToken("reasons");
         if (attemptText != null)
         {
-            Debug.Log("inside if" + attemptText.ToString());
+            
             foreach (JObject item in attemptText)
             {
                 var roomId = item.SelectToken("apiId");               
-                var attemp = item.SelectToken("result");
-                var closed = item.SelectToken("closed");
+                var attemp = item.SelectToken("result");                          
                 var roomIdText = roomId.ToString();
+                var close = item.SelectToken("closed");
+                if(close != null)
+                {
+                    var closed = close.ToString();
+                    ActivateButtonEvent?.Invoke(roomIdText,closed);
+                }
+
                 var attempText = HtmlToText.Instance.HTMLToTextReplace(attemp.ToString());
                 AttempTextEvent?.Invoke(roomIdText, attempText);
+                
             }
         }
        // MenuTextEvent?.Invoke(headtext, commentText, exitSureText);
@@ -163,6 +179,11 @@ public class API : AosObjectBase
 
            
       
+    }
+    [AosAction(name: "Показать подсказку")]
+    public void showReasons(JObject reasons)
+    {
+        Debug.Log(reasons.ToString());
     }
     public void ConnectionEstablished(string currentLocation)
     {
