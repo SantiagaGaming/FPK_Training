@@ -25,6 +25,7 @@ public abstract class SearchableObject : MonoBehaviour
 
     [SerializeField] protected GameObject Obj;
     [SerializeField] protected RoomName RoomName;
+    [SerializeField] protected GameObject ClueObject;
     public RoomName GetRoomName => RoomName;
 
     public string GetObjectId => ObjectId;
@@ -36,5 +37,10 @@ public abstract class SearchableObject : MonoBehaviour
     {
         if (Obj == null)
             return;
+    }
+    public void ShowClueObject()
+    {
+        
+        ClueObject.SetActive(true);
     }
 }

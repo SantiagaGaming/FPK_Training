@@ -14,6 +14,7 @@ public class APIEventsInvoker : MonoBehaviour
     [SerializeField] private View _view;
     [SerializeField] private TimerView _timerView;
     [SerializeField] private ZoneExitTextInfo _zoneExitTextInfo;
+    [SerializeField] private ClueController _clueController;
 
   
 
@@ -28,6 +29,7 @@ public class APIEventsInvoker : MonoBehaviour
         _api.ExitTextEvent += OnSetExitText;
         _api.ResultTextEvent += OnSetResultText;
         _api.ActivateButtonEvent+= OnActivateButton;
+        _api.ClueEvent += OnShowClue;
     }
 
     private void OnSetExitTextApi(string exitText)
@@ -83,6 +85,11 @@ public class APIEventsInvoker : MonoBehaviour
     {
         var textToChange = InstanceHandler.Instance.ZoneTags.FirstOrDefault(z => z.RoomName.ToString().ToLower() == roomNameText);
         textToChange.OnActivateButton(closed);
+    }
+    private void OnShowClue(string clueId)
+    {
+        
+        _clueController.ShowClueObjectInList(clueId);
     }
     
 }

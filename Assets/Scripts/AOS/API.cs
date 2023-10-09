@@ -17,6 +17,7 @@ public class API : AosObjectBase
     public UnityAction<string> TimerTextEvent;
     public UnityAction<string> InfoLocationText;
     public UnityAction<string> ExitApiTextEvent;
+    public UnityAction<string> ClueEvent;
     public UnityAction<string,string> ActivateButtonEvent;
     public UnityAction<string, string> AttempTextEvent;
     public UnityAction<string, string> MessageTextEvent;
@@ -183,7 +184,20 @@ public class API : AosObjectBase
     [AosAction(name: "Показать подсказку")]
     public void showReasons(JObject reasons)
     {
-        Debug.Log("SHOWREASONS "+reasons.ToString());
+         
+        var clueNumber = reasons.SelectToken("reasons");
+        if (clueNumber != null)
+        {
+            var list = clueNumber.ToArray();
+            foreach (var item in list)
+            {
+               
+                ClueEvent?.Invoke(item.ToString());
+               
+            }
+        }
+       
+
     }
     public void ConnectionEstablished(string currentLocation)
     {
