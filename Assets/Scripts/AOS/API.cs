@@ -64,9 +64,9 @@ public class API : AosObjectBase
     [AosAction(name: "Показать сообщение")]
     public void showMessage(JObject info, JObject nav)
     {
-        Debug.Log("SSSSSSSShowMessage");
-      //  Debug.Log("SSSSSSSShowMessage" + info.ToString());
-     //   Debug.Log("SSSSSSSShowMessage" + nav.ToString());
+        Debug.Log("SSSSSSSShowMessage" + info.ToString());
+        Debug.Log("SSSSSSSShowMessage" + nav.ToString());
+    
         
         string headText = info.SelectToken("name").ToString();
         string commentText = info.SelectToken("text").ToString();
@@ -109,7 +109,8 @@ public class API : AosObjectBase
     {
         
         Debug.Log("UPDATEEEE"+exitInfo.ToString());
-       // Debug.Log("UPDATEEEE"+ resons.ToString());
+        Debug.Log("UPDATEEEE"+ resons.ToString());
+      
         if (exitInfo.SelectToken("text") != null)
         {
             string exitText = HtmlToText.Instance.HTMLToTextReplace(exitInfo.SelectToken("text").ToString());
