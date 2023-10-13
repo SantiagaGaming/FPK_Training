@@ -95,7 +95,9 @@ namespace AosSdk.Core.Utils
             }
             catch (Exception e)
             {
+                
                 Debug.LogError(e.Message);
+               
             }
 
             return result;

@@ -8,8 +8,11 @@ public class MenuButton : BaseMenuButton
     public UnityAction ExitTextButtonEvent;
 
     [SerializeField] private GameObject _objectToShow;
+    [SerializeField] private GameObject _infoToShow;
+    
 
     public bool ExitTextButton;
+    public bool InfoButton;
 
 
     protected override void MenuButtonClick()
@@ -21,6 +24,12 @@ public class MenuButton : BaseMenuButton
         if (ExitTextButton)
         {
             ExitTextButtonEvent?.Invoke();
+        }
+        if (InfoButton && StartParametr.Instance.ShowInfoText)
+        {
+            if(_infoToShow != null) 
+                _infoToShow.SetActive(true);
+            
         }
     }
 }

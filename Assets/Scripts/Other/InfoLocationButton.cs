@@ -6,9 +6,10 @@ using UnityEngine.InputSystem;
 public class InfoLocationButton : MonoBehaviour
 {
     [SerializeField] private InputActionProperty _infoText;
-    [SerializeField] private CameraChanger _cameraChanger;
+    
     [SerializeField] private GameObject _infoPanel;
-    [SerializeField] private GameObject _mainPanel;
+    private bool _enabled = true;
+    
     
 
     private void OnEnable()
@@ -21,11 +22,19 @@ public class InfoLocationButton : MonoBehaviour
     }
     private void OnShowInfoText(InputAction.CallbackContext c)
     {
-        if (!StartParametr.Instance.ShowInfoText)
-            return;
-        _cameraChanger.OnEscClick();
-        _infoPanel.SetActive(true);
-        _mainPanel.SetActive(false);
+       if(_enabled)
+        {
+            _infoPanel.SetActive(true);
+            _enabled = false;
+        }
+        else
+        {
+            _infoPanel.SetActive(false);
+            _enabled= true;
+        }
+        
+        
+        
 
     }
 }

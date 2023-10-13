@@ -191,10 +191,8 @@ public class API : AosObjectBase
         {
             var list = clueNumber.ToArray();
             foreach (var item in list)
-            {
-               
-                ClueEvent?.Invoke(item.ToString());
-               
+            {              
+                ClueEvent?.Invoke(item.ToString());             
             }
         }
        
