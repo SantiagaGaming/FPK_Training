@@ -126,9 +126,9 @@ public class API : AosObjectBase
             {
                 var roomId = item.SelectToken("apiId");
                 var attemp = item.SelectToken("result");
-              
                 var roomIdText = roomId.ToString();
                 var attempText = HtmlToText.Instance.HTMLToTextReplace(attemp.ToString());
+                var attempt = item.SelectToken("attempt");
                 var close = item.SelectToken("closed");
                 if (close != null)
                 {
