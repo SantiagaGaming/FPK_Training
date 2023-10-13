@@ -23,6 +23,7 @@ public class APIEventsInvoker : MonoBehaviour
         _api.ExitApiTextEvent += OnSetExitTextApi;
         _api.AttempTextEvent += OnChangeText;
         _api.MessageTextEvent += OnSetMessageText;
+        _api.MessageTextEvent2 += OnSetMessageText2;
         _api.WelcomeTextEvent += OnSetStartText;
         _api.InfoLocationText += OnSetInfoLocationScreen;
         _api.TimerTextEvent += OnSetTimerText;
@@ -30,6 +31,12 @@ public class APIEventsInvoker : MonoBehaviour
         _api.ResultTextEvent += OnSetResultText;
         _api.ActivateButtonEvent+= OnActivateButton;
         _api.ClueEvent += OnShowClue;
+    }
+
+    private void OnSetMessageText2(string headerText,string footerText)
+    {
+        _messageView.SetTextText(headerText);
+        _messageView.SetFooterText(footerText);
     }
 
     private void OnSetExitTextApi(string exitText)
@@ -69,11 +76,11 @@ public class APIEventsInvoker : MonoBehaviour
     //    _menuTextView.SetMenuText(exitText, warntext, text);
     //}
 
-    private void OnChangeText(string roomNameText, string attempText)
+    private void OnChangeText(string roomNameText, string attempText,string attText)
     {
         var textToChange = InstanceHandler.Instance.ZoneTags.FirstOrDefault(z => z.RoomName.ToString().ToLower() == roomNameText);
         if (textToChange != null)
-            textToChange.SetRoomText(attempText);
+            textToChange.SetRoomText(attempText, attText);
     }
     private void OnSetMessageText(string headText , string commetText)
     {

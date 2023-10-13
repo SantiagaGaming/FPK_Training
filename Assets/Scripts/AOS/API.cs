@@ -19,8 +19,9 @@ public class API : AosObjectBase
     public UnityAction<string> ExitApiTextEvent;
     public UnityAction<string> ClueEvent;
     public UnityAction<string,string> ActivateButtonEvent;
-    public UnityAction<string, string> AttempTextEvent;
+    public UnityAction<string, string,string> AttempTextEvent;
     public UnityAction<string, string> MessageTextEvent;
+    public UnityAction<string, string> MessageTextEvent2;
     public UnityAction<string, string> ExitTextEvent;
     public UnityAction<string, string, string> ResultTextEvent;
     public UnityAction<string, string, string, NextButtonState> WelcomeTextEvent;
@@ -70,7 +71,15 @@ public class API : AosObjectBase
         
         string headText = info.SelectToken("name").ToString();
         string commentText = info.SelectToken("text").ToString();
+        var header = info.SelectToken("header");
+        var footer = info.SelectToken("footer");
         MessageTextEvent?.Invoke(headText, commentText);
+        if(header !=null && footer != null){
+            var headerText = header.ToString();
+            var footerText = footer.ToString();
+            MessageTextEvent2?.Invoke(headerText, footerText);
+        }
+       
     }
     [AosAction(name: "Показать сообщение")]
     public void showResult(JObject info, JObject nav)
@@ -110,11 +119,12 @@ public class API : AosObjectBase
         
         Debug.Log("UPDATEEEE"+exitInfo.ToString());
         Debug.Log("UPDATEEEE"+ resons.ToString());
-      
+        var attText = "";
         if (exitInfo.SelectToken("text") != null)
         {
             string exitText = HtmlToText.Instance.HTMLToTextReplace(exitInfo.SelectToken("text").ToString());
             ExitApiTextEvent?.Invoke(exitText);
+            Debug.Log("LOOOOOOOOL "+exitText);
         }
 
 
@@ -126,9 +136,11 @@ public class API : AosObjectBase
             {
                 var roomId = item.SelectToken("apiId");
                 var attemp = item.SelectToken("result");
+                var attempt = item.SelectToken("attempt");
                 var roomIdText = roomId.ToString();
                 var attempText = HtmlToText.Instance.HTMLToTextReplace(attemp.ToString());
-                var attempt = item.SelectToken("attempt");
+               
+               
                 var close = item.SelectToken("closed");
                 if (close != null)
                 {
@@ -136,7 +148,11 @@ public class API : AosObjectBase
                     ActivateButtonEvent?.Invoke(roomIdText,closed);
                     Debug.Log("CLOSEDDDD " + closed);
                 }
-                AttempTextEvent?.Invoke(roomIdText, attempText);
+                if (attempt != null)
+                {
+                    attText = attempt.ToString();
+                }
+                AttempTextEvent?.Invoke(roomIdText, attempText, attText);
             }
         }
     }
@@ -145,8 +161,8 @@ public class API : AosObjectBase
     {
       //  Debug.Log("SHOWMENUUUU"+ exitInfo.ToString());
      //   Debug.Log("SHOWMENUUUU"+ faultInfo.ToString());
-      //  Debug.Log("SHOWMENU"+resons.ToString());
-      
+        Debug.Log("SHOWMENU"+resons.ToString());
+        var attText = "";
         string headtext = faultInfo.SelectToken("name").ToString();
         string commentText = faultInfo.SelectToken("text").ToString();
         string exitSureText = exitInfo.SelectToken("quest").ToString();
@@ -159,15 +175,21 @@ public class API : AosObjectBase
                 var roomId = item.SelectToken("apiId");               
                 var attemp = item.SelectToken("result");                          
                 var roomIdText = roomId.ToString();
+                var attempt = item.SelectToken("attempt");
+               
                 var close = item.SelectToken("closed");
                 if(close != null)
                 {
                     var closed = close.ToString();
                     ActivateButtonEvent?.Invoke(roomIdText,closed);
                 }
+                if(attempt != null)
+                {
+                     attText = attempt.ToString();
+                }
 
                 var attempText = HtmlToText.Instance.HTMLToTextReplace(attemp.ToString());
-                AttempTextEvent?.Invoke(roomIdText, attempText);
+               AttempTextEvent?.Invoke(roomIdText, attempText,attText);
                 
             }
         }

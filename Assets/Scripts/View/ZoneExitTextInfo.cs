@@ -8,7 +8,7 @@ public class ZoneExitTextInfo : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _zoneText;
     [SerializeField] private TextMeshProUGUI _textEducation;
-    [SerializeField] private TextMeshProUGUI _fixedText;
+   // [SerializeField] private TextMeshProUGUI _fixedText;
     [SerializeField] private TextMeshProUGUI _fixedTextUnity;
     [SerializeField] private TextMeshProUGUI _exitTextApi;
     [SerializeField] private MenuButton _exitButton;
@@ -33,7 +33,7 @@ public class ZoneExitTextInfo : MonoBehaviour
     public void SetFixedText()
     {
         _fixedInfo = "";
-        _fixedText.gameObject.SetActive(true);
+        //_fixedText.gameObject.SetActive(true);
         _fixedTextUnity.gameObject.SetActive(true);
         foreach (var checkList in _checkListHolders)         //проверяем фиксацию отклонений 
         {
@@ -46,10 +46,10 @@ public class ZoneExitTextInfo : MonoBehaviour
                 
                 _fixedInfo += zoneText + ". ";
             }
-            _fixedText.text = _fixedInfo;
+            //_fixedText.text = _fixedInfo;
             if(_fixedInfo.Length<= 0)                      // если все зафиксили , то ничего не показываем
             {
-                _fixedText.gameObject.SetActive(false);
+               // _fixedText.gameObject.SetActive(false);
                 _fixedTextUnity.gameObject.SetActive(false);
             }
         }
