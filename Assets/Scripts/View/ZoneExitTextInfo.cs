@@ -8,6 +8,7 @@ public class ZoneExitTextInfo : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _zoneText;
     [SerializeField] private TextMeshProUGUI _textEducation;
+    [SerializeField] private TextMeshProUGUI _warmText;
    // [SerializeField] private TextMeshProUGUI _fixedText;
     [SerializeField] private TextMeshProUGUI _fixedTextUnity;
     [SerializeField] private TextMeshProUGUI _exitTextApi;
@@ -83,8 +84,9 @@ public class ZoneExitTextInfo : MonoBehaviour
         }
     }
 
-    public void SetExitApiText(string apiText)
+    public void SetExitApiText(string apiText,string warmText)
     {
         _exitTextApi.text = apiText;
+        _warmText.text = warmText;
     }
 }

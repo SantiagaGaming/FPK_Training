@@ -39,9 +39,9 @@ public class APIEventsInvoker : MonoBehaviour
         _messageView.SetFooterText(footerText);
     }
 
-    private void OnSetExitTextApi(string exitText)
+    private void OnSetExitTextApi(string exitText,string warmText)
     {
-       _zoneExitTextInfo.SetExitApiText(exitText);
+       _zoneExitTextInfo.SetExitApiText(exitText,warmText);
     }
 
     private void OnSetResultText(string headText, string commentText, string evalText)
@@ -82,10 +82,12 @@ public class APIEventsInvoker : MonoBehaviour
         if (textToChange != null)
             textToChange.SetRoomText(attempText, attText);
     }
-    private void OnSetMessageText(string headText , string commetText)
+    private void OnSetMessageText(string headText , string commetText,string headerText,string footerText)
     {
         _messageView.SetHeaderText(headText);
         _messageView.SetCommentText(commetText);
+        _messageView.SetTextText(headerText);
+        _messageView.SetFooterText(footerText);
         _menuHider.EnableMessagePanel(true);
     }
     private void OnActivateButton(string roomNameText, string closed)

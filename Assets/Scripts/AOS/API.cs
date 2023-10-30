@@ -16,11 +16,11 @@ public class API : AosObjectBase
 {
     public UnityAction<string> TimerTextEvent;
     public UnityAction<string> InfoLocationText;
-    public UnityAction<string> ExitApiTextEvent;
+    public UnityAction<string,string> ExitApiTextEvent;
     public UnityAction<string> ClueEvent;
     public UnityAction<string,string> ActivateButtonEvent;
     public UnityAction<string, string,string> AttempTextEvent;
-    public UnityAction<string, string> MessageTextEvent;
+    public UnityAction<string, string,string,string> MessageTextEvent;
     public UnityAction<string, string> MessageTextEvent2;
     public UnityAction<string, string> ExitTextEvent;
     public UnityAction<string, string, string> ResultTextEvent;
@@ -58,28 +58,33 @@ public class API : AosObjectBase
     {
         string infoLocationText = place.SelectToken("text").ToString();
         InfoLocationText?.Invoke(infoLocationText);
-        Debug.Log(infoLocationText);
+      
 
     }
 
     [AosAction(name: "Показать сообщение")]
     public void showMessage(JObject info, JObject nav)
     {
-        Debug.Log("SSSSSSSShowMessage" + info.ToString());
-        Debug.Log("SSSSSSSShowMessage" + nav.ToString());
-    
-        
+
+         
+
+        string footerText = "";
         string headText = info.SelectToken("name").ToString();
-        string commentText = info.SelectToken("text").ToString();
         var header = info.SelectToken("header");
         var footer = info.SelectToken("footer");
-        MessageTextEvent?.Invoke(headText, commentText);
-        if(header !=null && footer != null){
-            var headerText = header.ToString();
-            var footerText = footer.ToString();
-            MessageTextEvent2?.Invoke(headerText, footerText);
-        }
+        string commentText = HtmlToText.Instance.HTMLToTextReplace(info.SelectToken("text").ToString());
+        var headerText = HtmlToText.Instance.HTMLToTextReplace(header.ToString());
        
+       
+       
+        if(header !=null && footer != null){
+            footerText = HtmlToText.Instance.HTMLToTextReplace(footer.ToString());
+            MessageTextEvent2?.Invoke(headerText, footerText);
+            
+        }
+        MessageTextEvent?.Invoke(headText, commentText, headerText, footerText);
+       
+        
     }
     [AosAction(name: "Показать сообщение")]
     public void showResult(JObject info, JObject nav)
@@ -89,10 +94,7 @@ public class API : AosObjectBase
         {
             string headText = HtmlToText.Instance.HTMLToTextReplace(info.SelectToken("name").ToString());
             string commentText = HtmlToText.Instance.HTMLToTextReplace(info.SelectToken("text").ToString());
-            string evalText = HtmlToText.Instance.HTMLToTextReplace(info.SelectToken("eval").ToString());
-            Debug.Log(headText);
-            Debug.Log(commentText);
-            Debug.Log(evalText);
+            string evalText = HtmlToText.Instance.HTMLToTextReplace(info.SelectToken("eval").ToString());                       
             ResultTextEvent?.Invoke(headText, commentText, evalText);
         }
 
@@ -117,14 +119,16 @@ public class API : AosObjectBase
     public void updateMenu(JObject exitInfo, JObject resons)
     {
         
-        Debug.Log("UPDATEEEE"+exitInfo.ToString());
-        Debug.Log("UPDATEEEE"+ resons.ToString());
+     
+        
         var attText = "";
-        if (exitInfo.SelectToken("text") != null)
+        if (exitInfo.SelectToken("text") != null && exitInfo.SelectToken("warn") != null)
         {
             string exitText = HtmlToText.Instance.HTMLToTextReplace(exitInfo.SelectToken("text").ToString());
-            ExitApiTextEvent?.Invoke(exitText);
-            Debug.Log("LOOOOOOOOL "+exitText);
+            string warmText = exitInfo.SelectToken("warn").ToString();
+            ExitApiTextEvent?.Invoke(exitText, warmText);
+            Debug.Log(exitText);
+          
         }
 
 
@@ -146,7 +150,7 @@ public class API : AosObjectBase
                 {
                     var closed = close.ToString().ToLower();
                     ActivateButtonEvent?.Invoke(roomIdText,closed);
-                    Debug.Log("CLOSEDDDD " + closed);
+                    
                 }
                 if (attempt != null)
                 {
@@ -158,10 +162,7 @@ public class API : AosObjectBase
     }
     [AosAction(name: "Показать меню")]
     public void showMenu(JObject faultInfo, JObject exitInfo, JObject resons)
-    {
-      //  Debug.Log("SHOWMENUUUU"+ exitInfo.ToString());
-     //   Debug.Log("SHOWMENUUUU"+ faultInfo.ToString());
-        Debug.Log("SHOWMENU"+resons.ToString());
+    {      
         var attText = "";
         string headtext = faultInfo.SelectToken("name").ToString();
         string commentText = faultInfo.SelectToken("text").ToString();
@@ -207,13 +208,15 @@ public class API : AosObjectBase
     [AosAction(name: "Показать подсказку")]
     public void showReasons(JObject reasons)
     {
-         
+        
+        
         var clueNumber = reasons.SelectToken("reasons");
         if (clueNumber != null)
         {
             var list = clueNumber.ToArray();
             foreach (var item in list)
-            {              
+            {           
+                
                 ClueEvent?.Invoke(item.ToString());             
             }
         }

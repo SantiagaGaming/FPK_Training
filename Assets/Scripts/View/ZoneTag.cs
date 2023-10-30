@@ -26,7 +26,8 @@ public class ZoneTag : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);      
         
-            _editButton.SetActive(false);
-            Debug.Log("INSETROO))))))M");
+           
+        _editButton.SetActive(false);
+        
     }
 }
