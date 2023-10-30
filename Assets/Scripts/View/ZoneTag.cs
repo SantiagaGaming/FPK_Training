@@ -10,6 +10,7 @@ public class ZoneTag : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _attText;
     [SerializeField] private GameObject _editButton;
     public RoomName RoomName => _roomName;
+    
 
     public void SetRoomText(string text,string attText)
     {
@@ -20,14 +21,14 @@ public class ZoneTag : MonoBehaviour
     public void OnActivateButton(string closed)
     {
         if (closed == "true")
-            StartCoroutine(ActivateButton(closed));
+            StartCoroutine(ActivateButton());
     }
-    private IEnumerator ActivateButton(string closed)
-    {
-        yield return new WaitForSeconds(0.3f);      
-        
-           
-        _editButton.SetActive(false);
-        
+    private IEnumerator ActivateButton()
+    {       
+            yield return new WaitForSeconds(0.3f);
+           _editButton.SetActive(false);                                    
     }
+   
+
+
 }

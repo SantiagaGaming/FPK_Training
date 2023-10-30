@@ -118,7 +118,7 @@ public class API : AosObjectBase
     [AosAction(name: "Обновить меню")]
     public void updateMenu(JObject exitInfo, JObject resons)
     {
-        
+        Debug.Log(resons.ToString());
      
         
         var attText = "";
@@ -149,7 +149,7 @@ public class API : AosObjectBase
                 if (close != null)
                 {
                     var closed = close.ToString().ToLower();
-                    ActivateButtonEvent?.Invoke(roomIdText,closed);
+                   ActivateButtonEvent?.Invoke(roomIdText,closed);
                     
                 }
                 if (attempt != null)
@@ -170,6 +170,7 @@ public class API : AosObjectBase
         var attemptText = resons.SelectToken("reasons");
         if (attemptText != null)
         {
+            Debug.Log("ATT"+attemptText.ToString());
             
             foreach (JObject item in attemptText)
             {
@@ -183,6 +184,7 @@ public class API : AosObjectBase
                 {
                     var closed = close.ToString();
                     ActivateButtonEvent?.Invoke(roomIdText,closed);
+                    Debug.Log(roomIdText.ToString()+ closed.ToString());
                 }
                 if(attempt != null)
                 {

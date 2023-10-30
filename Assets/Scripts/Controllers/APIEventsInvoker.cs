@@ -94,6 +94,7 @@ public class APIEventsInvoker : MonoBehaviour
     {
         var textToChange = InstanceHandler.Instance.ZoneTags.FirstOrDefault(z => z.RoomName.ToString().ToLower() == roomNameText);
         textToChange.OnActivateButton(closed);
+       
     }
     private void OnShowClue(string clueId)
     {
