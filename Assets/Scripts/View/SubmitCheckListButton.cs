@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class SubmitCheckListButton : MonoBehaviour
 {
     [SerializeField] private EditButton _editButton;
+    [SerializeField] private ShowCheckListItemObject[] _panel;
 
     private float _delay = 0.2f;
     private Button _button;
@@ -29,7 +30,8 @@ public class SubmitCheckListButton : MonoBehaviour
     {
         
         yield return new WaitForSeconds(_delay);
-       
+      
+        HidePanel();
        _editButton.gameObject.SetActive(true);
         foreach (var button in _editButton.Buttons)
         {
@@ -39,4 +41,20 @@ public class SubmitCheckListButton : MonoBehaviour
         }
         gameObject.SetActive(false);
     }
+    private void HidePanel()
+    {
+        if (_panel != null)
+        {
+            foreach (var panel in _panel)
+            {
+                if (panel.Open)
+                {
+                    panel.OnClick();
+                }
+
+            }
+        }
+            
+    }
+    
 }
