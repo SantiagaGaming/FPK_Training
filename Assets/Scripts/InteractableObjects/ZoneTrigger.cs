@@ -17,6 +17,7 @@ public class ZoneTrigger : MonoBehaviour
     [SerializeField] private GameObject _infoPanel;   
     [SerializeField] private GameObject _mainPanel;
     [SerializeField] private TextMeshProUGUI _zoneText;
+    [SerializeField] private GameObject _startText;
     [SerializeField] private Button[] _button;
     public RoomName ZoneName => _zoneName;
   
@@ -60,9 +61,17 @@ public class ZoneTrigger : MonoBehaviour
             foreach (var button in _button)
             {
                 button.enabled = true;
+                var but = button.GetComponent<Image>();
+                but.color=  new Color(1,1,1,1);
+                
+
             }
         }
-      
+        if(_startText!= null)
+        {
+            _startText.SetActive(false);
+        }
+        
         IsVisited = true;
                                     
     }
@@ -71,7 +80,7 @@ public class ZoneTrigger : MonoBehaviour
         if (_zoneText == null)
             return;
         if (state == RoomState.Inside)
-            _zoneText.color = Color.green;
+            _zoneText.color = new Color(0.3254903f, 0.9607843f, 0.6898474f,1f);
         if (state == RoomState.Outside)
             _zoneText.color = Color.white;
     }

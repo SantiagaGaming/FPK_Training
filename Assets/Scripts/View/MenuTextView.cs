@@ -13,6 +13,7 @@ public class MenuTextView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _commentText;
     [SerializeField] private GameObject _resultPanel;
     [SerializeField] private GameObject _mainPanel;
+    
 
     private CameraChanger _cameraChanger;
     private void Start()
@@ -29,6 +30,10 @@ public class MenuTextView : MonoBehaviour
         _headText.text = headText;
         _commentText.text = commentText;
         _evalText.text = evalText;
+        if (StartParametr.Instance.ShowInfoText)
+        {
+            _commentText.text = "";
+        }
 
         _cameraChanger.CanTeleport = false;
 
