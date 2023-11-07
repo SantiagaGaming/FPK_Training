@@ -21,7 +21,8 @@ public class API : AosObjectBase
     public UnityAction<string,string> ActivateButtonEvent;
     public UnityAction<string, string,string> AttempTextEvent;
     public UnityAction<string, string,string,string> MessageTextEvent;
-    public UnityAction<string, string> MessageTextEvent2;
+    public UnityAction<string, string,string,string> MessageTextEvent2;
+    public UnityAction<string, string,string,string> MessageTimeText;
     public UnityAction<string, string> ExitTextEvent;
     public UnityAction<string, string, string> ResultTextEvent;
     public UnityAction<string, string, string, NextButtonState> WelcomeTextEvent;
@@ -65,24 +66,38 @@ public class API : AosObjectBase
     [AosAction(name: "Показать сообщение")]
     public void showMessage(JObject info, JObject nav)
     {
-
-         
-
+        Debug.Log(info.ToString());
         string footerText = "";
-        string headText = info.SelectToken("name").ToString();
+        string headerText = "";
+      
         var header = info.SelectToken("header");
         var footer = info.SelectToken("footer");
-        string commentText = HtmlToText.Instance.HTMLToTextReplace(info.SelectToken("text").ToString());
-        var headerText = HtmlToText.Instance.HTMLToTextReplace(header.ToString());
-       
-       
-       
-        if(header !=null && footer != null){
+        var head = info.SelectToken("name");
+        var comment = info.SelectToken("text");
+        
+        if (header != null && footer != null && head != null && comment != null )
+        {
             footerText = HtmlToText.Instance.HTMLToTextReplace(footer.ToString());
-            MessageTextEvent2?.Invoke(headerText, footerText);
-            
+            string headText = head.ToString();
+            string commentText = HtmlToText.Instance.HTMLToTextReplace(comment.ToString());
+             headerText = HtmlToText.Instance.HTMLToTextReplace(header.ToString());
+            MessageTextEvent?.Invoke(headText, commentText, headerText, footerText);
+        }                       
+        else if(header !=null && head != null && comment != null)
+        {
+           
+            string headText = head.ToString();
+            string commentText = HtmlToText.Instance.HTMLToTextReplace(comment.ToString());
+            headerText = HtmlToText.Instance.HTMLToTextReplace(header.ToString());                                                 
+            MessageTextEvent2?.Invoke(headText, commentText, headerText, footerText);           
         }
-        MessageTextEvent?.Invoke(headText, commentText, headerText, footerText);
+        else if ( head != null && comment != null)
+        {
+            string headText = head.ToString();
+            string commentText = HtmlToText.Instance.HTMLToTextReplace(comment.ToString());
+            MessageTimeText?.Invoke(headText, commentText, headerText, footerText);
+        }
+       
        
         
     }
@@ -118,7 +133,7 @@ public class API : AosObjectBase
     [AosAction(name: "Обновить меню")]
     public void updateMenu(JObject exitInfo, JObject resons)
     {
-        Debug.Log(resons.ToString());
+       
      
         
         var attText = "";
@@ -170,7 +185,7 @@ public class API : AosObjectBase
         var attemptText = resons.SelectToken("reasons");
         if (attemptText != null)
         {
-            Debug.Log("ATT"+attemptText.ToString());
+           
             
             foreach (JObject item in attemptText)
             {

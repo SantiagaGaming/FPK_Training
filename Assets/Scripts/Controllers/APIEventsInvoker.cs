@@ -15,15 +15,18 @@ public class APIEventsInvoker : MonoBehaviour
     [SerializeField] private TimerView _timerView;
     [SerializeField] private ZoneExitTextInfo _zoneExitTextInfo;
     [SerializeField] private ClueController _clueController;
+    [SerializeField] private MessageTimeView _messageTimeView;
 
-  
+    private CameraChanger _cameraChanger;
 
     private void Start()
     {
+        _cameraChanger = FindObjectOfType<CameraChanger>();
         _api.ExitApiTextEvent += OnSetExitTextApi;
         _api.AttempTextEvent += OnChangeText;
         _api.MessageTextEvent += OnSetMessageText;
         _api.MessageTextEvent2 += OnSetMessageText2;
+        _api.MessageTimeText += OnSetMessageTimeText;
         _api.WelcomeTextEvent += OnSetStartText;
         _api.InfoLocationText += OnSetInfoLocationScreen;
         _api.TimerTextEvent += OnSetTimerText;
@@ -32,11 +35,28 @@ public class APIEventsInvoker : MonoBehaviour
         _api.ActivateButtonEvent+= OnActivateButton;
         _api.ClueEvent += OnShowClue;
     }
-
-    private void OnSetMessageText2(string headerText,string footerText)
+    private void OnSetMessageTimeText(string headText, string commetText, string headerText, string footerText)
     {
+        if (_cameraChanger._changed)
+        {
+            _cameraChanger.OnEscClick();
+        }
+        _messageTimeView.SetHeaderText(headText);
+        _messageTimeView.SetCommentText(commetText);
+        _messageTimeView.SetTextText(headerText);
+        _messageTimeView.SetFooterText(footerText);
+        _menuHider.EnableMessageTimePanel(true);
+
+    }
+    private void OnSetMessageText2(string headText, string commetText, string headerText, string footerText)
+    {
+       
+        _messageView.SetHeaderText(headText);
+        _messageView.SetCommentText(commetText);
         _messageView.SetTextText(headerText);
         _messageView.SetFooterText(footerText);
+        _menuHider.EnableMessagePanel(true);
+
     }
 
     private void OnSetExitTextApi(string exitText,string warmText)
