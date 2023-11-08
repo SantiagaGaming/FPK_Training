@@ -1,4 +1,5 @@
 using AosSdk.Core.PlayerModule;
+using AosSdk.Core.PlayerModule.DesktopPlayer;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,7 @@ public class CameraChanger : MonoBehaviour
     [SerializeField] private Image _knob;
     [SerializeField] private CursorManager _cursorManager;
     [SerializeField] private GameObject _infoPanel;
+    [SerializeField] private GameObject _player;
 
     private Vector3 _currentPlayerPosition = new Vector3();
 
@@ -73,6 +75,8 @@ public class CameraChanger : MonoBehaviour
     {
         _currentPlayerPosition = new Vector3(_modeController.GetPlayerTransform().position.x, _modeController.GetPlayerTransform().position.y-1f, _modeController.GetPlayerTransform().position.z);
         var playerInstance = Player.Instance;
+        var desktopPlayer = FindObjectOfType<DesktopPlayer>();
+        desktopPlayer.RotationY = _player.transform.eulerAngles.y;
         playerInstance.TeleportTo(_menuPosition);
         playerInstance.CanMove = false;
         playerInstance.CursorLockMode = CursorLockMode.Locked;

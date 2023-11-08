@@ -26,6 +26,7 @@ namespace AosSdk.Core.PlayerModule.DesktopPlayer
 
         public bool CanMove { get; set; } = true;
         public bool CanRun { get; set; } = true;
+        public float RotationY { get; set; }
 
 
         public Camera EventCamera
@@ -175,7 +176,7 @@ namespace AosSdk.Core.PlayerModule.DesktopPlayer
             var targetPosition = _forwardToTransform.position;
 
             var rotation = Quaternion.LookRotation(targetPosition - transform.position);
-            transform.eulerAngles = new Vector3(0, rotation.eulerAngles.y, 0);
+            transform.eulerAngles = new Vector3(0, RotationY, 0);
 
             _rotationX = 0f;
 
