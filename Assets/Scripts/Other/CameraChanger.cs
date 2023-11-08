@@ -85,6 +85,7 @@ public class CameraChanger : MonoBehaviour
     }
     private void TeleportToPrevousLocation()
     {
+      
         var playerInstance = Player.Instance;
         playerInstance.ReleaseForwarding();
         playerInstance.TeleportTo(_currentPlayerPosition);
