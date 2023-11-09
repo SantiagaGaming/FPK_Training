@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExitButton : BaseButton
+public class ExitButton :BaseMenuButton
 {
-
-    public override void OnClicked(InteractHand interactHand)
+    protected override void MenuButtonClick()
     {
         API api = FindObjectOfType<API>();
         api.OnInvokeNavAction("exit");
+       
     }
+
 }
 
