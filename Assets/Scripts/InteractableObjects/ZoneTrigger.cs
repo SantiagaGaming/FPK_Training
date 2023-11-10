@@ -46,6 +46,7 @@ public class ZoneTrigger : MonoBehaviour
         _locationController.SetLocation(_zoneName.ToString().ToLower());
 
         _api.ConnectionEstablished(_zoneName.ToString().ToLower());
+        Debug.Log(_zoneName.ToString().ToLower());
 
         if (_enabled && _zoneName != 0 && StartParametr.Instance.ShowInfoText)
         {

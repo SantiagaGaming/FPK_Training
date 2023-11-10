@@ -1206,6 +1206,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Screen",
+                    "type": "Button",
+                    "id": "25c5fc14-885e-48f6-8423-87e37acf540d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1459,6 +1468,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "InfoButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1900de7a-586d-4dcb-aee7-b652852ab0ee",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Screen",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
