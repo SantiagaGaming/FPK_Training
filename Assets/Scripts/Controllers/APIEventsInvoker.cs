@@ -34,7 +34,14 @@ public class APIEventsInvoker : MonoBehaviour
         _api.ResultTextEvent += OnSetResultText;
         _api.ActivateButtonEvent+= OnActivateButton;
         _api.ClueEvent += OnShowClue;
+        _api.ResultNameTextEvent += OnSetResultNameText;
     }
+
+    private void OnSetResultNameText(string nameText)
+    {
+        _menuTextView.SetResultNameText(nameText);
+    }
+
     private void OnSetMessageTimeText(string headText, string commetText, string headerText, string footerText)
     {
         if (_cameraChanger._changed)

@@ -11,11 +11,13 @@ public class MenuTextView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _headText;
     [SerializeField] private TextMeshProUGUI _evalText;
     [SerializeField] private TextMeshProUGUI _commentText;
+    [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private GameObject _resultPanel;
     [SerializeField] private GameObject _mainPanel;
     
 
     private CameraChanger _cameraChanger;
+    private string _nameTempText = "";
     private void Start()
     {
         _cameraChanger = FindObjectOfType<CameraChanger>();
@@ -43,5 +45,11 @@ public class MenuTextView : MonoBehaviour
     {
         _exitText.text = HtmlToText.Instance.HTMLToTextReplace(exitText);
         _warnText.text = HtmlToText.Instance.HTMLToTextReplace(warntext);
+    }
+
+    public void SetResultNameText(string nametext)
+    {
+        _nameTempText += nametext + "\n";
+        _nameText.text = _nameTempText;
     }
 }
