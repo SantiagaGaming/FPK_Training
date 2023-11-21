@@ -2,24 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class ResultButtonText : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _headText;
-    [SerializeField] private TextMeshProUGUI _nameText;
-    [SerializeField] private TextMeshProUGUI _infoText;
 
-    public void setHeadText(string text)
+    [SerializeField] private TextMeshProUGUI _nameText;
+
+    public  UnityAction<ResultButtonText> ButtonClick;
+    private Button _button;
+    public string HeadText = "";
+    public string InfoText = "";
+    private void Awake()
     {
-        _headText.text = text;
+        _button = GetComponent<Button>();
     }
+    private void Start()
+    {
+
+        _button.onClick.AddListener(OnResultButtonClick);
+    }
+
+    private void OnResultButtonClick()
+    {
+        ButtonClick?.Invoke(this);
+        Debug.Log(HeadText);
+        Debug.Log(InfoText);
+
+
+    }
+
+
     public void setNameText(string text)
     {
         _nameText.text = text;
-    }
-    public void setInfoText(string text)
-    {
-        _infoText.text = text;
     }
 
 

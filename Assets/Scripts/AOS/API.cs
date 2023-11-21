@@ -107,7 +107,7 @@ public class API : AosObjectBase
     public void showResult(JObject info, JObject nav)
     {
 
-        string text = "";
+       
         if (info.SelectToken("name") != null && info.SelectToken("text") != null && info.SelectToken("text") != null)
         {
             string headText = HtmlToText.Instance.HTMLToTextReplace(info.SelectToken("name").ToString());
@@ -136,10 +136,12 @@ public class API : AosObjectBase
                     var name2 = item2.SelectToken("name");
                     if (name2 != null && message2 != null)
                     {
-                         Debug.Log(name2);
+                        string text = "";
+                        Debug.Log(name2);
                         // Debug.Log(message2);
                         foreach (var item3 in message2)
                         {
+                            
                             if (item3 != null)
                             {
                                 text += item3.ToString();
@@ -147,10 +149,10 @@ public class API : AosObjectBase
                             }
                            
                         }
-                       // Debug.Log(text);
-                     //   Debug.Log("Создаю кнопку");
-                        ResultButtonTextEvent?.Invoke(name2.ToString(), text);
+                        // Debug.Log(text);
+                        //   Debug.Log("Создаю кнопку");
 
+                        ResultButtonTextEvent?.Invoke(name2.ToString(), text);
                     }
 
                 }
