@@ -136,19 +136,21 @@ public class API : AosObjectBase
                     var name2 = item2.SelectToken("name");
                     if (name2 != null && message2 != null)
                     {
-                        // Debug.Log(name2);
+                         Debug.Log(name2);
                         // Debug.Log(message2);
                         foreach (var item3 in message2)
                         {
                             if (item3 != null)
                             {
                                 text += item3.ToString();
-
+                                
                             }
+                           
                         }
-                        Debug.Log(text);
-                        Debug.Log("Создаю кнопку");
+                       // Debug.Log(text);
+                     //   Debug.Log("Создаю кнопку");
                         ResultButtonTextEvent?.Invoke(name2.ToString(), text);
+
                     }
 
                 }

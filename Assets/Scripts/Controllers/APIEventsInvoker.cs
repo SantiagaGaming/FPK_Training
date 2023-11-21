@@ -16,6 +16,7 @@ public class APIEventsInvoker : MonoBehaviour
     [SerializeField] private ZoneExitTextInfo _zoneExitTextInfo;
     [SerializeField] private ClueController _clueController;
     [SerializeField] private MessageTimeView _messageTimeView;
+    [SerializeField] private InstantiateResultButton _instantiateResultButton;
 
     private CameraChanger _cameraChanger;
 
@@ -35,6 +36,13 @@ public class APIEventsInvoker : MonoBehaviour
         _api.ActivateButtonEvent+= OnActivateButton;
         _api.ClueEvent += OnShowClue;
         _api.ResultNameTextEvent += OnSetResultNameText;
+        _api.ResultButtonTextEvent += OnSetResultButton;
+    }
+
+    private void OnSetResultButton(string nameText, string infoText)
+    {
+        
+       _instantiateResultButton.InstantiateButtons(nameText, infoText);
     }
 
     private void OnSetResultNameText(string nameText)
