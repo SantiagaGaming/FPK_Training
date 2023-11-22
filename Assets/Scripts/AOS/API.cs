@@ -138,20 +138,19 @@ public class API : AosObjectBase
                     {
                         string text = "";
                         Debug.Log(name2);
+                        
                         // Debug.Log(message2);
                         foreach (var item3 in message2)
                         {
                             
                             if (item3 != null)
                             {
-                                text += item3.ToString();
+                                text += item3.ToString()+"\n";
                                 
                             }
                            
                         }
-                        // Debug.Log(text);
-                        //   Debug.Log("Создаю кнопку");
-
+                        Debug.Log(text);                      
                         ResultButtonTextEvent?.Invoke(name2.ToString(), text);
                     }
 

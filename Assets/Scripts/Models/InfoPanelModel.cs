@@ -16,4 +16,8 @@ public class InfoPanelModel : MonoBehaviour
     {
         _info.text = text;
     }
+    public void ShowInfo()
+    {
+        gameObject.SetActive(true);
+    }
 }

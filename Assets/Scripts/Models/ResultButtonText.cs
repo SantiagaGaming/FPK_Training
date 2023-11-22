@@ -10,10 +10,9 @@ public class ResultButtonText : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI _nameText;
 
-    public  UnityAction<ResultButtonText> ButtonClick;
+    public  UnityAction ButtonClickEvent;
     private Button _button;
-    public string HeadText = "";
-    public string InfoText = "";
+    
     private void Awake()
     {
         _button = GetComponent<Button>();
@@ -21,22 +20,16 @@ public class ResultButtonText : MonoBehaviour
     private void Start()
     {
 
-        _button.onClick.AddListener(OnResultButtonClick);
+        _button.onClick.AddListener(() => { ButtonClickEvent?.Invoke(); });
     }
-
-    private void OnResultButtonClick()
-    {
-        ButtonClick?.Invoke(this);
-        Debug.Log(HeadText);
-        Debug.Log(InfoText);
-
-
-    }
-
-
+ 
     public void setNameText(string text)
     {
         _nameText.text = text;
+    }
+    public void ShowInfo(GameObject infoPanel)
+    {
+        infoPanel.SetActive(true);
     }
 
 
