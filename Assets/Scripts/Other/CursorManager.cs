@@ -5,7 +5,10 @@ using UnityEngine;
 public class CursorManager : MonoBehaviour
 {
     public bool Locked { get; set; } = true;
-
+    private void Awake()
+    {
+       // Locked = false;
+    }
     private void Update()
     {
         Screen.lockCursor = Locked;    }

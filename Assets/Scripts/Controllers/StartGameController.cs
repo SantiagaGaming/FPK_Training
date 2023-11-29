@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StartGameController : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class StartGameController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _commentText;
     [SerializeField] private TextMeshProUGUI _nextButtonText;
     [SerializeField] private StartGameButton _nextButton;
+  
+    
+    
     private void OnEnable()
     {
         _nextButton.OnNextButtonPressed += OnHideStartScreen;
@@ -39,6 +43,7 @@ public class StartGameController : MonoBehaviour
         _commentText.text = commentText;
         _nextButtonText.text = buttonText;
         _nextButton.CurrentState = state;
+       
     }
     private void OnHideStartScreen(string value)
     {

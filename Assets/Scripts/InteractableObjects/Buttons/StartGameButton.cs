@@ -16,19 +16,16 @@ public class StartGameButton : BaseButton
 {
     public UnityAction<string> OnNextButtonPressed;
     [HideInInspector] public NextButtonState CurrentState;
-    [SerializeField] private API _api;
-    [SerializeField] private TextMeshProUGUI _buttonInfoText;
+    [SerializeField] private API _api;  
     [SerializeField] private TextMeshProUGUI _startButtonText;
-    [SerializeField] private Image _buttonImage;
     public override void OnClicked(InteractHand interactHand)
     {
-        _buttonImage.gameObject.SetActive(false);
+       
         if (CurrentState == NextButtonState.Start)
         {
             _api.OnInvokeNavAction("next");
             OnNextButtonPressed?.Invoke("next");
-            Player.Instance.CanMove = false;
-            _buttonInfoText.gameObject.SetActive(false);
+           Player.Instance.CanMove = false;       
             _startButtonText.text = "Начать";
 
         }
