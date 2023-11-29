@@ -42,7 +42,7 @@ public class API : AosObjectBase
     [AosAction(name: "Задать текст приветствия")]
     public void showWelcome(JObject info, JObject nav)
     {
-        Debug.Log("SHOWWELCOMEEEEEEE");
+       
         string headerText = info.SelectToken("name").ToString();
         string commentText = info.SelectToken("text").ToString();
         string buttonText = nav.SelectToken("ok").SelectToken("caption").ToString();
@@ -51,6 +51,8 @@ public class API : AosObjectBase
     [AosAction(name: "Показать информацию отказа")]
     public void showFaultInfo(JObject info, JObject nav)
     {
+        Debug.Log("info" + info.ToString());
+        Debug.Log("info" + nav.ToString());
         string headerText = info.SelectToken("name").ToString();
         string commentText = info.SelectToken("text").ToString();
         string buttonText = nav.SelectToken("ok").SelectToken("caption").ToString();
@@ -172,9 +174,6 @@ public class API : AosObjectBase
     [AosAction(name: "Обновить меню")]
     public void updateMenu(JObject exitInfo, JObject resons)
     {
-
-
-
         var attText = "";
         if (exitInfo.SelectToken("text") != null && exitInfo.SelectToken("warn") != null)
         {
@@ -184,7 +183,6 @@ public class API : AosObjectBase
             Debug.Log(exitText);
 
         }
-
 
         var attemptText = resons.SelectToken("reasons");
         if (attemptText != null)
@@ -198,13 +196,11 @@ public class API : AosObjectBase
                 var roomIdText = roomId.ToString();
                 var attempText = HtmlToText.Instance.HTMLToTextReplace(attemp.ToString());
 
-
                 var close = item.SelectToken("closed");
                 if (close != null)
                 {
                     var closed = close.ToString().ToLower();
                     ActivateButtonEvent?.Invoke(roomIdText, closed);
-
                 }
                 if (attempt != null)
                 {

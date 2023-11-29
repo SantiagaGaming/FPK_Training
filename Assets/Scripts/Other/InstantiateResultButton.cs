@@ -21,8 +21,7 @@ public class InstantiateResultButton : MonoBehaviour
 
     public void InstantiateButtons(string nameText, string infoText)
     {
-       
-       
+              
        var headerButton =   Instantiate(_buttonPrefab, _buttonPanel.transform);
        var infoPanel =  Instantiate(_infoPanelPrefab, _infoCreatePanel.transform);                
         headerButton.setNameText(nameText);

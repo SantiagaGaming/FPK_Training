@@ -19,7 +19,6 @@ public class ResultButtonText : MonoBehaviour
     }
     private void Start()
     {
-
         _button.onClick.AddListener(() => { ButtonClickEvent?.Invoke(); });
     }
  
