@@ -11,19 +11,7 @@ public class Timer : MonoBehaviour
     {
         Time = TimeSpan.FromSeconds(second);
       
-        if (second == 1800)
-        {
-            TimerHelperEvent?.Invoke();
-            
-        }
-        if (second == 2400)
-        {
-            TimerHelperEvent?.Invoke();
-        }
-        if (second == 3000)
-        {
-            TimerHelperEvent?.Invoke();
-        }
+        
     }
     public string ReturnTime()
     {

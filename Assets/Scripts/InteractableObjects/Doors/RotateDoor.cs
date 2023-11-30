@@ -16,6 +16,7 @@ public class RotateDoor : Door
     [SerializeField] private bool _down;
     [SerializeField] private Animator _animator;
     [SerializeField] private Animator _animator2;
+    [SerializeField] private Animator _stoporAnimator;
     [SerializeField] private GameObject _colliderOn;
     [SerializeField] private GameObject _colliderOff;
     [SerializeField] private Collider _colliderDoorOff;
@@ -37,9 +38,12 @@ public class RotateDoor : Door
 
                 if (!value)
                 {
-                   
-                    //if (handle != null)
-                    //    StartCoroutine(RotateHandle());
+
+                    if (_stoporAnimator != null)
+                    {
+                        _stoporAnimator.SetTrigger("Open");
+                        
+                    }
                     if (_animator2 != null)
                     {
                         _animator2.SetTrigger("Open");
@@ -64,7 +68,7 @@ public class RotateDoor : Door
                 else
                 {
                     
-                    
+
                     if (_animator != null)
                     {
                         _animator.SetTrigger("Close");
@@ -80,6 +84,11 @@ public class RotateDoor : Door
                         y++;
                     }
                     if (_animator2 != null) { _animator2.SetTrigger("Close"); }
+                    if (_stoporAnimator != null)
+                    {
+                        _stoporAnimator.SetTrigger("Close");
+                        
+                    }
                 }
             }
             else
@@ -88,9 +97,12 @@ public class RotateDoor : Door
                 //    StartCoroutine(RotateHandle());
                 if (!value)
                 {
-                    
-                    //if (handle != null)
-                    //    StartCoroutine(RotateHandle());
+
+                    if (_stoporAnimator != null)
+                    {
+                        _stoporAnimator.SetTrigger("Open");
+
+                    }
                     if (_animator2 != null)
                     {
                         _animator2.SetTrigger("Open");
@@ -115,6 +127,7 @@ public class RotateDoor : Door
                 else
                 {
                     
+
                     if (_animator != null)
                     {
                         _animator.SetTrigger("Close");
@@ -132,6 +145,11 @@ public class RotateDoor : Door
                     }
                     OnLightObjectOff?.Invoke();
                     if (_animator2 != null) { _animator2.SetTrigger("Close"); }
+                    if (_stoporAnimator != null)
+                    {
+                        _stoporAnimator.SetTrigger("Close");
+
+                    }
                 }
 
             }
