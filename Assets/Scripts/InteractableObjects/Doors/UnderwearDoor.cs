@@ -11,8 +11,11 @@ public class UnderwearDoor : Door
         
         if (!value)
         {
-            foreach (var item in _animator) { item.SetTrigger("Open"); }
-            yield return new WaitForSeconds(1.5f);
+            foreach (var item in _animator) { 
+                item.SetTrigger("Open");
+                yield return new WaitForSeconds(1.5f);
+            }
+           
             int x = 0;
             while (x <= 79)
             {
@@ -33,7 +36,9 @@ public class UnderwearDoor : Door
                 x--;
             }
           
-            foreach (var item in _animator) { item.SetTrigger("Close"); }
+            foreach (var item in _animator) {
+                item.SetTrigger("Close");
+                    yield return new WaitForSeconds(1.5f); ; }
         }
         GetComponent<Collider>().enabled = true;
         if (open)

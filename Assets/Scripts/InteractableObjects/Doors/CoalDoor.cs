@@ -17,9 +17,10 @@ public class CoalDoor : Door
             _collider.enabled = false;
             foreach (var animator in _animator)
             {
-                animator.SetTrigger("Open");  
+                animator.SetTrigger("Open");
+                yield return new WaitForSeconds(1.5f);
             }
-            yield return new WaitForSeconds(1.4f);
+            //yield return new WaitForSeconds(1.2f);
 
 
             int y = 0;
@@ -45,6 +46,7 @@ public class CoalDoor : Door
             foreach (var animator in _animator)
             {
                 animator.SetTrigger("Close");
+                yield return new WaitForSeconds(1.5f);
             }
 
         }
