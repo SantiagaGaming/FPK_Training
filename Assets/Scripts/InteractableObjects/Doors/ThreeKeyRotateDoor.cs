@@ -18,8 +18,9 @@ public class ThreeKeyRotateDoor : Door
     [SerializeField] private Animator _animator;
     [SerializeField] private Collider _collider; // колайдер объекта который нужно отключить 
     [SerializeField] private Collider _childrenCollider; // коллайдер ключа , что бы не закликать открытие 
-   
 
+    public float DelayOpen = 5.2f;
+    public float DelayClose = 3f;
 
     override protected IEnumerator UseDoor(bool value)
     {
@@ -32,8 +33,9 @@ public class ThreeKeyRotateDoor : Door
             {
 
                 if (!value)
-                {
-                    Debug.Log("5");
+            {
+              
+                Debug.Log("5");
                     
                     yield return new WaitForSeconds(0.5f);
                     int y = 0;
@@ -43,23 +45,26 @@ public class ThreeKeyRotateDoor : Door
                         yield return new WaitForSeconds(0.01f);
                         y--;
                     }
-                    DoorEvent?.Invoke();
+                DoorEvent?.Invoke();
                 if (_collider != null) { _collider.enabled = true; }
-                if (_animator!= null) { _animator.SetTrigger("Open"); }
+                if (_animator!= null) { _animator.SetTrigger("Open");
+                }
                
+
 
             }
                 else
                 {
-                    Debug.Log("6");
+                DoorEventOpen?.Invoke();
+                Debug.Log("6");
                 if (_animator != null)
                 {
                     _animator.SetTrigger("Close");
                 }
                 if (_collider != null) { _collider.enabled = false; }
-                    
-                DoorEventOpen?.Invoke();
-                    yield return new WaitForSeconds(3f);
+
+               
+                yield return new WaitForSeconds(DelayOpen);
                     int y = -90;
                     while (y <= 0)
                     {
@@ -67,16 +72,17 @@ public class ThreeKeyRotateDoor : Door
                         yield return new WaitForSeconds(0.01f);
                         y++;
                     }
-                   
-                }
+               
+
+            }
             }
             else
             {
                 if (!value)
                 {
                     Debug.Log("7");
-                    
-                    yield return new WaitForSeconds(1f);
+               
+                yield return new WaitForSeconds(1f);
                     int y = 0;
                     while (y <= 90)
                     {
@@ -88,16 +94,18 @@ public class ThreeKeyRotateDoor : Door
                 if (_collider != null) { _collider.enabled = true; }
                 if (_animator != null) { _animator.SetTrigger("Open"); }
 
+                
             }
                 else
-                {
-                    Debug.Log("8");
+            {
+                DoorEventOpen?.Invoke();
+                Debug.Log("8");
                 if (_animator != null)
                 {
                     _animator.SetTrigger("Close");
                 }
                 if (_collider != null) { _collider.enabled = false; }
-                DoorEventOpen?.Invoke();
+                
                 yield return new WaitForSeconds(2.5f);
                     int y = 90;
                     while (y >= 0)
@@ -106,8 +114,8 @@ public class ThreeKeyRotateDoor : Door
                         yield return new WaitForSeconds(0.01f);
                         y--;
                     }
-                    
-                }
+               
+            }
 
             }
         if (_childrenCollider != null) { _childrenCollider.enabled = true; }
@@ -131,6 +139,7 @@ public class ThreeKeyRotateDoor : Door
         {
             if (!value)
             {
+               
                 Debug.Log("1");
                 float y = _closePatametr;    
                 while (y <= _closePatametr2)    
@@ -144,6 +153,7 @@ public class ThreeKeyRotateDoor : Door
                 transform.localRotation = Quaternion.Euler(transform.rotation.x, _finishBrokenParametr, transform.rotation.z);
                 if (_collider != null) { _collider.enabled = true; }
                 if (_animator != null) { _animator.SetTrigger("Open"); }
+               
             }
             else
             {
@@ -151,7 +161,7 @@ public class ThreeKeyRotateDoor : Door
                 if (_animator != null) { _animator.SetTrigger("Close"); }
                 Debug.Log("2");
                 DoorEventOpen?.Invoke();
-                yield return new WaitForSeconds(2.5f);
+                yield return new WaitForSeconds(DelayClose);
                 float y = _doorParametrStart;   
                 while (y >= _doorParametrEnd)
                 {
@@ -167,10 +177,11 @@ public class ThreeKeyRotateDoor : Door
 
             if (!value)
             {
+               
                 Debug.Log("3");
                 if (_collider != null) { _collider.enabled = true; }
-                if (_animator != null) { _animator.SetTrigger("Open"); }
-
+               
+                DoorEvent?.Invoke();
                 float y = _closePatametr;
                 while (y >= _closePatametr2)
                 {
@@ -178,7 +189,7 @@ public class ThreeKeyRotateDoor : Door
                     yield return new WaitForSeconds(0.01f);
                     y--;
                 }
-                DoorEvent?.Invoke();
+                if (_animator != null) { _animator.SetTrigger("Open"); }
                 yield return new WaitForSeconds(2.3f);
                 transform.localRotation = Quaternion.Euler(transform.rotation.x, _finishBrokenParametr, transform.rotation.z);
             }
@@ -188,7 +199,7 @@ public class ThreeKeyRotateDoor : Door
                 if (_collider != null) { _collider.enabled = false; }
                 if (_animator != null) { _animator.SetTrigger("Close"); }
                 DoorEventOpen?.Invoke();
-                yield return new WaitForSeconds(2.5f);
+                yield return new WaitForSeconds(DelayClose);
                 float y = _doorParametrStart;
                 while (y <= _doorParametrEnd)
                 {

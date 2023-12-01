@@ -9,7 +9,7 @@ public class LockObject : BaseObject
     [SerializeField] private LockEnabableObject _lockObject;
     [SerializeField] private NotCloseObject _notCloseObject;
     [SerializeField] private Door _door;
-    [SerializeField] private Animator [] _animator;
+    [SerializeField] private Animator[] _animator;
     private bool _open = true;
     public bool SpecKey = false; //спец ключ
     public bool SecretKey = false; // Секретка 
@@ -17,8 +17,8 @@ public class LockObject : BaseObject
 
     private void Start()
     {
-       
-        
+
+
         if (_door != null)
         {
             _door.DoorEvent += OnDoorClosed;
@@ -91,18 +91,42 @@ public class LockObject : BaseObject
     }
     private void OnDoorClosed()
     {
-        foreach (var animator in _animator)  
-        animator.SetTrigger("Reverse");
+        StartCoroutine(OnDoorCloserCor());
     }
     private void OnDoorOpen()
-    {foreach (var animator in _animator)
-        animator.SetTrigger("Idle");
+    {
+       StartCoroutine(OnDoorOpenCor());
     }
     private void BrokenDoor()
+    {
+        StartCoroutine(BrokenDoorCor());
+    }
+    private IEnumerator OnDoorCloserCor()
+    {
+        foreach (var animator in _animator)
+        {
+            animator.SetTrigger("Reverse");
+            yield return new WaitForSeconds(2f);
+        }
+
+    }
+    private IEnumerator OnDoorOpenCor()
+    {
+        {
+            foreach (var animator in _animator)
+            {
+                animator.SetTrigger("Idle");
+                yield return new WaitForSeconds(2.7f);
+            }
+
+        }
+    }
+    private IEnumerator BrokenDoorCor()
     {
         foreach (var animator in _animator)
         {
             animator.SetTrigger("Broken");
+            yield return new WaitForSeconds(1.5f);
         }
     }
 

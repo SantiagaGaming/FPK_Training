@@ -37,8 +37,9 @@ public class RotateDoorWithParameter : Door
                         foreach (var animator in _animator)
                         {
                             animator.SetTrigger("Open");
+                            yield return new WaitForSeconds(1.3f);
                         }
-                        yield return new WaitForSeconds(1f);
+                        
                     }
                     yield return new WaitForSeconds(0.3f);
                     
@@ -65,6 +66,7 @@ public class RotateDoorWithParameter : Door
                         foreach (var animator in _animator)
                         {
                             animator.SetTrigger("Close");
+                            yield return new WaitForSeconds(1.3f);
                         }
                     }
                 }
@@ -81,8 +83,9 @@ public class RotateDoorWithParameter : Door
                         foreach (var animator in _animator)
                         {
                             animator.SetTrigger("Open");
+                            yield return new WaitForSeconds(1.3f);
                         }
-                        yield return new WaitForSeconds(1f);
+                      
                     }
                     
                     yield return new WaitForSeconds(0.3f);
@@ -109,6 +112,7 @@ public class RotateDoorWithParameter : Door
                         foreach (var animator in _animator)
                         {
                             animator.SetTrigger("Close");
+                            yield return new WaitForSeconds(1.3f);
                         }
                     }
                 }
