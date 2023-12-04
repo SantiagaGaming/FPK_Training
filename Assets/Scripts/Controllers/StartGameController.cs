@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 public class StartGameController : MonoBehaviour
 {
@@ -43,15 +44,19 @@ public class StartGameController : MonoBehaviour
         _headerText.text = headerText;
         _commentText.text = commentText;
         _nextButtonText.text = buttonText;
-        _nextButton.CurrentState = state;
-        _cursorManager.Locked= false;
+        _nextButton.CurrentState = state;            
+        _cursorManager.Locked = false;
        
     }
     private void OnHideStartScreen(string value)
     {
         if (value == "start")
+        {
             _startScreen.SetActive(false);
-        Player.Instance.CanMove = true;
-        _cameraChanger.CanTeleport = true;
+            Player.Instance.CanMove = true;
+            _cameraChanger.CanTeleport = true;
+            _cursorManager.Locked = true;
+        }
+       
     }
 }
