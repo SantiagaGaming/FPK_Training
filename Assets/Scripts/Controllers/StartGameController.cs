@@ -10,6 +10,7 @@ public class StartGameController : MonoBehaviour
 {
    
     [SerializeField] private CameraChanger _cameraChanger;
+    [SerializeField] private CursorManager _cursorManager;
    
 
     private void Start()
@@ -43,6 +44,7 @@ public class StartGameController : MonoBehaviour
         _commentText.text = commentText;
         _nextButtonText.text = buttonText;
         _nextButton.CurrentState = state;
+        _cursorManager.Locked= false;
        
     }
     private void OnHideStartScreen(string value)

@@ -181,7 +181,7 @@ public class ThreeKeyRotateDoor : Door
                 Debug.Log("3");
                 if (_collider != null) { _collider.enabled = true; }
                
-                DoorEvent?.Invoke();
+               
                 float y = _closePatametr;
                 while (y >= _closePatametr2)
                 {
@@ -189,6 +189,7 @@ public class ThreeKeyRotateDoor : Door
                     yield return new WaitForSeconds(0.01f);
                     y--;
                 }
+                DoorEvent?.Invoke();
                 if (_animator != null) { _animator.SetTrigger("Open"); }
                 yield return new WaitForSeconds(2.3f);
                 transform.localRotation = Quaternion.Euler(transform.rotation.x, _finishBrokenParametr, transform.rotation.z);
