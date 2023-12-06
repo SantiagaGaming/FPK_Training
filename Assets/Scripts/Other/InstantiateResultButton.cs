@@ -19,19 +19,23 @@ public class InstantiateResultButton : MonoBehaviour
    
 
 
-    public void InstantiateButtons(string nameText, string infoText)
+    public void InstantiateButtons(string nameText, TextHolder infoText)
     {
               
        var headerButton =   Instantiate(_buttonPrefab, _buttonPanel.transform);
         var infoPanel =  Instantiate(_infoPanelPrefab, _infoCreatePanel.transform);
+        foreach (var item in infoText.text)
+        {
+           var itemText= Instantiate(_rexultApiText, infoPanel.GetGameObject());
+            itemText.setInfoText(item);
+        }
         
       //  _accordoinView.setInfoText(nameText);
       //  _accordoinView.setInfoText2(infoText);
        Debug.Log(nameText);
        Debug.Log(infoText);
         headerButton.setNameText(nameText);
-        infoPanel.setNameText(nameText);
-        infoPanel.setInfoText(infoText);
+        infoPanel.setNameText(nameText);      
 
         headerButton.ButtonClickEvent += infoPanel.ShowInfo;
         

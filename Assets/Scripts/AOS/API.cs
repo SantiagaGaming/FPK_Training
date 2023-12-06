@@ -16,7 +16,7 @@ public class API : AosObjectBase
 {
     public UnityAction<string> TimerTextEvent;
     public UnityAction<string> ResultNameTextEvent;
-    public UnityAction<string, string> ResultButtonTextEvent;
+    public UnityAction<string, TextHolder> ResultButtonTextEvent;
     public UnityAction<string> InfoLocationText;
     public UnityAction<string, string> ExitApiTextEvent;
     public UnityAction<string> ClueEvent;
@@ -138,7 +138,7 @@ public class API : AosObjectBase
                     var name2 = item2.SelectToken("name");
                     if (name2 != null && message2 != null)
                     {
-                        string text = "";
+                      TextHolder text= new TextHolder();
                        
                         foreach (var item3 in message2)
                         {
@@ -147,9 +147,7 @@ public class API : AosObjectBase
 
                             if (item3 != null)
                             {
-                                 text += item3.ToString()+"\n";
-                               
-                                Debug.Log(text);
+                              text.text.Add(item3.ToString());
                             }
                            
                         }

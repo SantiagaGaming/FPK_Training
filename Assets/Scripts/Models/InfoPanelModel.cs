@@ -6,7 +6,8 @@ using UnityEngine;
 public class InfoPanelModel : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _nameText; 
-    [SerializeField] private TextMeshProUGUI _info;
+   // [SerializeField] private TextMeshProUGUI _info;
+    [SerializeField] private GameObject _gameObject;
 
     public void setNameText(string text)
     {
@@ -14,10 +15,15 @@ public class InfoPanelModel : MonoBehaviour
     }
     public void setInfoText(string text)
     {
-        _info.text = text;
+      //  _info.text = text;
     }
     public void ShowInfo()
     {
         gameObject.SetActive(true);
+    }
+
+    public Transform GetGameObject()
+    {
+        return _gameObject.transform;
     }
 }

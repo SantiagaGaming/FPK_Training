@@ -8,7 +8,9 @@ public class KeyboarInfoButton : MonoBehaviour
     [SerializeField] private InputActionProperty _infoText;
 
     [SerializeField] private GameObject _keyboardPanel;
+    [SerializeField] private GameObject _keyboardPanelEx;
     [SerializeField] private GameObject _infoPanel;
+    
     private bool _enabled = true;
 
 
@@ -23,17 +25,35 @@ public class KeyboarInfoButton : MonoBehaviour
     }
     public void OnShowInfoText(InputAction.CallbackContext c)
     {
-        if (_enabled)
+        if (StartParametr.Instance.ShowInfoText)
         {
-            _keyboardPanel.SetActive(true);
-            _enabled = false;
-            _infoPanel.SetActive(false);
+            if (_enabled)
+            {
+                _keyboardPanel.SetActive(true);
+                _enabled = false;
+                _infoPanel.SetActive(false);
+            }
+            else
+            {
+                _keyboardPanel.SetActive(false);
+                _enabled = true;
+            }
         }
         else
         {
-            _keyboardPanel.SetActive(false);
-            _enabled = true;
+            if (_enabled)
+            {
+                _keyboardPanelEx.SetActive(true);
+                _enabled = false;
+                _infoPanel.SetActive(false);
+            }
+            else
+            {
+                _keyboardPanelEx.SetActive(false);
+                _enabled = true;
+            }
         }
+       
 
     }
 

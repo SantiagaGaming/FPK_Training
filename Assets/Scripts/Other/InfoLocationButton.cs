@@ -8,6 +8,7 @@ public class InfoLocationButton : MonoBehaviour
     [SerializeField] private InputActionProperty _infoText;
     [SerializeField] private GameObject _infoPanel;
     [SerializeField] private GameObject _keyboardPanel;
+    [SerializeField] private GameObject _keyboardPanelEx;
     [SerializeField] private GameObject[] _infoObj;
     private bool _enabled = true;
     private bool _can = false;
@@ -35,6 +36,7 @@ public class InfoLocationButton : MonoBehaviour
                 _infoPanel.SetActive(true);
                 _enabled = false;
                 _keyboardPanel.SetActive(false);
+                _keyboardPanelEx.SetActive(false);
             }
             else
             {
@@ -52,5 +54,6 @@ public class InfoLocationButton : MonoBehaviour
             item.SetActive(true);
             _can = true;
         }
+        
     }
 }

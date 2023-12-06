@@ -39,7 +39,7 @@ public class APIEventsInvoker : MonoBehaviour
         _api.ResultButtonTextEvent += OnSetResultButton;
     }
 
-    private void OnSetResultButton(string nameText, string infoText)
+    private void OnSetResultButton(string nameText, TextHolder infoText)
     {
         
        _instantiateResultButton.InstantiateButtons(nameText, infoText);
