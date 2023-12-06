@@ -2,12 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class StartParametr : MonoBehaviour
 {
     public bool ShowInfoText = false;
     public static StartParametr Instance;
-   
+    public UnityAction Education;
+
+
     private void Awake()
     {
         if (Instance == null)
@@ -30,6 +33,7 @@ public class StartParametr : MonoBehaviour
             {
                
                 ShowInfoText = true;
+                Education?.Invoke();
             }
            
 

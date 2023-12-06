@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class InstantiateResultButton : MonoBehaviour
 {
@@ -12,27 +13,29 @@ public class InstantiateResultButton : MonoBehaviour
     [SerializeField] private GameObject _buttonPanel;
     [SerializeField] private InfoPanelModel _infoPanelPrefab;
     [SerializeField] private GameObject _infoCreatePanel;
- 
+    [SerializeField] private RexultApiText _rexultApiText;
+  //  [SerializeField] private AccordoinView _accordoinView;
+   
+   
 
-
-    
-
-    
 
     public void InstantiateButtons(string nameText, string infoText)
     {
               
        var headerButton =   Instantiate(_buttonPrefab, _buttonPanel.transform);
-       var infoPanel =  Instantiate(_infoPanelPrefab, _infoCreatePanel.transform);                
+        var infoPanel =  Instantiate(_infoPanelPrefab, _infoCreatePanel.transform);
+        
+      //  _accordoinView.setInfoText(nameText);
+      //  _accordoinView.setInfoText2(infoText);
+       Debug.Log(nameText);
+       Debug.Log(infoText);
         headerButton.setNameText(nameText);
         infoPanel.setNameText(nameText);
         infoPanel.setInfoText(infoText);
+
         headerButton.ButtonClickEvent += infoPanel.ShowInfo;
         
-
-
-
-
     }
+   
 
 }

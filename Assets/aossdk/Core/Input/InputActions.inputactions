@@ -1215,6 +1215,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "KeyboardButton",
+                    "type": "Button",
+                    "id": "0f50ab9e-d9f7-4286-8aec-b652102da832",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1479,6 +1488,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Screen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "54b022a1-d465-4105-9511-cf9154be6f6e",
+                    "path": "<Keyboard>/f2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "KeyboardButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

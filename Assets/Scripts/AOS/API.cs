@@ -139,20 +139,21 @@ public class API : AosObjectBase
                     if (name2 != null && message2 != null)
                     {
                         string text = "";
-                        Debug.Log(name2);
-                        
-                        // Debug.Log(message2);
+                       
                         foreach (var item3 in message2)
                         {
                             
+
+
                             if (item3 != null)
                             {
-                                text += item3.ToString()+"\n";
-                                
+                                 text += item3.ToString()+"\n";
+                               
+                                Debug.Log(text);
                             }
                            
                         }
-                        Debug.Log(text);                      
+                                            
                         ResultButtonTextEvent?.Invoke(name2.ToString(), text);
                     }
 
@@ -261,7 +262,7 @@ public class API : AosObjectBase
     public void showReasons(JObject reasons)
     {
 
-
+        Debug.Log(reasons.ToString());
         var clueNumber = reasons.SelectToken("reasons");
         if (clueNumber != null)
         {

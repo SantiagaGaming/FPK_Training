@@ -12,6 +12,7 @@ public class View : MonoBehaviour
     public UnityAction OnBackButtonTap;
 
     [SerializeField] private TextMeshProUGUI _infoLocationScreenText;
+    [SerializeField] private Text _infoText;
 
                   
     public void InvokeBackButtonTap()
@@ -22,6 +23,7 @@ public class View : MonoBehaviour
     {
        
         _infoLocationScreenText.text = HtmlToText.Instance.HTMLToTextReplace(text);
+        _infoText.text = HtmlToText.Instance.HTMLToTextReplace(text);
     }
     
 }
