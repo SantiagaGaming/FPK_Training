@@ -39,6 +39,7 @@ public class StartGameButton : MonoBehaviour
             _api.OnInvokeNavAction("next");
             OnNextButtonPressed?.Invoke("next");
             _nextButton.image.sprite = _startSptite;
+            _startButtonText.color= Color.white;
 
         }
 

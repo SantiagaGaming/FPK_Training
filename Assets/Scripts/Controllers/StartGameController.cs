@@ -22,6 +22,7 @@ public class StartGameController : MonoBehaviour
     
 
     [SerializeField] private GameObject _startScreen;
+    [SerializeField] private GameObject _loadScreen;
     [SerializeField] private TextMeshProUGUI _headerText;
     [SerializeField] private TextMeshProUGUI _commentText;
     [SerializeField] private TextMeshProUGUI _nextButtonText;
@@ -41,6 +42,7 @@ public class StartGameController : MonoBehaviour
     {
 
         _startScreen.SetActive(true);
+        _loadScreen.SetActive(false);
         _headerText.text = headerText;
         _commentText.text = commentText;
         _nextButtonText.text = buttonText;
