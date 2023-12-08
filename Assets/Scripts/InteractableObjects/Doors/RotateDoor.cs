@@ -39,11 +39,7 @@ public class RotateDoor : Door
                 if (!value)
                 {
 
-                    if (_stoporAnimator != null)
-                    {
-                        _stoporAnimator.SetTrigger("Open");
-                        
-                    }
+                    
                     if (_animator2 != null)
                     {
                         _animator2.SetTrigger("Open");
@@ -57,7 +53,12 @@ public class RotateDoor : Door
                         yield return new WaitForSeconds(0.01f);
                         y--;
                     }
-                    
+                    if (_stoporAnimator != null)
+                    {
+                        _stoporAnimator.SetTrigger("Open");
+                        yield return new WaitForSeconds(0.5f);
+
+                    }
                     if (_animator != null)
                     {
                         _animator.SetTrigger("Open");
@@ -75,7 +76,12 @@ public class RotateDoor : Door
                         _colliderOff.SetActive(true);
                         _colliderOn.SetActive(false);
                     }
-                    yield return new WaitForSeconds(0.6f);
+                    yield return new WaitForSeconds(0.8f);
+                    if (_stoporAnimator != null)
+                    {
+                        _stoporAnimator.SetTrigger("Close");
+                        yield return new WaitForSeconds(0.5f);
+                    }
                     int y = -90;
                     while (y <= 0)
                     {
@@ -84,11 +90,7 @@ public class RotateDoor : Door
                         y++;
                     }
                     if (_animator2 != null) { _animator2.SetTrigger("Close"); }
-                    if (_stoporAnimator != null)
-                    {
-                        _stoporAnimator.SetTrigger("Close");
-                        
-                    }
+                    
                 }
             }
             else
@@ -98,11 +100,7 @@ public class RotateDoor : Door
                 if (!value)
                 {
 
-                    if (_stoporAnimator != null)
-                    {
-                        _stoporAnimator.SetTrigger("Open");
-
-                    }
+                    
                     if (_animator2 != null)
                     {
                         _animator2.SetTrigger("Open");
@@ -115,6 +113,11 @@ public class RotateDoor : Door
                         transform.localEulerAngles -= new Vector3(0, 1, 0);
                         yield return new WaitForSeconds(0.01f);
                         y++;
+                    }
+                    if (_stoporAnimator != null)
+                    {
+                        _stoporAnimator.SetTrigger("Open");
+                        yield return new WaitForSeconds(0.5f);
                     }
                     if (_animator != null)
                     {
@@ -134,8 +137,13 @@ public class RotateDoor : Door
                         _colliderOff.SetActive(true);
                         _colliderOn.SetActive(false);
                     }
-
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(0.8f);
+                    if (_stoporAnimator != null)
+                    {
+                        _stoporAnimator.SetTrigger("Close");
+                        yield return new WaitForSeconds(0.5f);
+                    }
+                   
                     int y = 90;
                     while (y >= 0)
                     {
@@ -145,11 +153,7 @@ public class RotateDoor : Door
                     }
                     OnLightObjectOff?.Invoke();
                     if (_animator2 != null) { _animator2.SetTrigger("Close"); }
-                    if (_stoporAnimator != null)
-                    {
-                        _stoporAnimator.SetTrigger("Close");
-
-                    }
+                    
                 }
 
             }

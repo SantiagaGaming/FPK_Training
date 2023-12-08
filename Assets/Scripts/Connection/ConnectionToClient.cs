@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using static AosSdk.Core.Utils.AosObjectBase;
 using UnityEngine.Events;
+using System.Threading;
+
 [AosSdk.Core.Utils.AosObject(name: "Коннект")]
 public class ConnectionToClient : AosObjectBase
 {
@@ -19,6 +21,7 @@ public class ConnectionToClient : AosObjectBase
     }
     public void OnReadyToConnect()
     {
+        Thread.Sleep(2000);
         OnReadyToAction.Invoke("Ready to Action");
         ConnectionReadyEvent?.Invoke();         
         Debug.Log("Ready to Action");

@@ -23,6 +23,7 @@ public class View : MonoBehaviour
     {
        
         _infoLocationScreenText.text = HtmlToText.Instance.HTMLToTextReplace(text);
+        _infoText.text = "";
         _infoText.text = HtmlToText.Instance.HTMLToTextReplace(text);
     }
     
