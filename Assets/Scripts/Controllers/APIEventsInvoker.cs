@@ -18,22 +18,22 @@ public class APIEventsInvoker : MonoBehaviour
     [SerializeField] private MessageTimeView _messageTimeView;
     [SerializeField] private InstantiateResultButton _instantiateResultButton;
 
-    private CameraChanger _cameraChanger;
+
 
     private void Start()
     {
-        _cameraChanger = FindObjectOfType<CameraChanger>();
+
         _api.ExitApiTextEvent += OnSetExitTextApi;
         _api.AttempTextEvent += OnChangeText;
         _api.MessageTextEvent += OnSetMessageText;
         _api.MessageTextEvent2 += OnSetMessageText2;
-        _api.MessageTimeText += OnSetMessageTimeText;
+        _api.MessageTimeText += OnNewSetMessageTimeText;
         _api.WelcomeTextEvent += OnSetStartText;
         _api.InfoLocationText += OnSetInfoLocationScreen;
         _api.TimerTextEvent += OnSetTimerText;
         _api.ExitTextEvent += OnSetExitText;
         _api.ResultTextEvent += OnSetResultText;
-        _api.ActivateButtonEvent+= OnActivateButton;
+        _api.ActivateButtonEvent += OnActivateButton;
         _api.ClueEvent += OnShowClue;
         _api.ResultNameTextEvent += OnSetResultNameText;
         _api.ResultButtonTextEvent += OnSetResultButton;
@@ -41,31 +41,23 @@ public class APIEventsInvoker : MonoBehaviour
 
     private void OnSetResultButton(string nameText, TextHolder infoText)
     {
-        
-       _instantiateResultButton.InstantiateButtons(nameText, infoText);
+
+        _instantiateResultButton.InstantiateButtons(nameText, infoText);
     }
 
     private void OnSetResultNameText(string nameText)
     {
         _menuTextView.SetResultNameText(nameText);
     }
-
-    private void OnSetMessageTimeText(string headText, string commetText, string headerText, string footerText)
+    private void OnNewSetMessageTimeText(string headText, string commetText, string headerText, string footerText)
     {
-        if (_cameraChanger._changed)
-        {
-            _cameraChanger.OnEscClick();
-        }
-        _messageTimeView.SetHeaderText(headText);
-        _messageTimeView.SetCommentText(commetText);
-        _messageTimeView.SetTextText(headerText);
-        _messageTimeView.SetFooterText(footerText);
-        _menuHider.EnableMessageTimePanel(true);
-
+        _messageTimeView.SetClueTimeText(commetText);
     }
+
+
     private void OnSetMessageText2(string headText, string commetText, string headerText, string footerText)
     {
-       
+
         _messageView.SetHeaderText(headText);
         _messageView.SetCommentText(commetText);
         _messageView.SetTextText(headerText);
@@ -74,25 +66,25 @@ public class APIEventsInvoker : MonoBehaviour
 
     }
 
-    private void OnSetExitTextApi(string exitText,string warmText)
+    private void OnSetExitTextApi(string exitText, string warmText)
     {
-       _zoneExitTextInfo.SetExitApiText(exitText,warmText);
+        _zoneExitTextInfo.SetExitApiText(exitText, warmText);
     }
 
     private void OnSetResultText(string headText, string commentText, string evalText)
     {
-       _menuTextView.SetResultText(headText, commentText, evalText);
+        _menuTextView.SetResultText(headText, commentText, evalText);
 
     }
 
     private void OnSetExitText(string exitText, string warntext)
     {
-       _menuTextView.SetExitText(exitText, warntext);
+        _menuTextView.SetExitText(exitText, warntext);
     }
 
     private void OnSetTimerText(string time)
     {
-       _timerView.ShowTimerText(time);
+        _timerView.ShowTimerText(time);
     }
 
     private void OnSetInfoLocationScreen(string infotext)
@@ -106,18 +98,13 @@ public class APIEventsInvoker : MonoBehaviour
 
     }
 
-    //private void OnSetMenuText(string exitText, string warntext, string text)
-    //{
-    //    _menuTextView.SetMenuText(exitText, warntext, text);
-    //}
-
-    private void OnChangeText(string roomNameText, string attempText,string attText)
+    private void OnChangeText(string roomNameText, string attempText, string attText)
     {
         var textToChange = InstanceHandler.Instance.ZoneTags.FirstOrDefault(z => z.RoomName.ToString().ToLower() == roomNameText);
         if (textToChange != null)
             textToChange.SetRoomText(attempText, attText);
     }
-    private void OnSetMessageText(string headText , string commetText,string headerText,string footerText)
+    private void OnSetMessageText(string headText, string commetText, string headerText, string footerText)
     {
         _messageView.SetHeaderText(headText);
         _messageView.SetCommentText(commetText);
@@ -129,12 +116,12 @@ public class APIEventsInvoker : MonoBehaviour
     {
         var textToChange = InstanceHandler.Instance.ZoneTags.FirstOrDefault(z => z.RoomName.ToString().ToLower() == roomNameText);
         textToChange.OnActivateButton(closed);
-       
+
     }
     private void OnShowClue(string clueId)
     {
-        
+
         _clueController.ShowClueObjectInList(clueId);
     }
-    
+
 }

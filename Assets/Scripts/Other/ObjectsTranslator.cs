@@ -295,7 +295,7 @@ public class ObjectsTranslator
         ObjectsRusNames.Add("CoupeOfficial", "Купе проводника(служебное)");     
         ObjectsRusNames.Add("VestibuleNonWorking", "Тамбур нерабочий");
         ObjectsRusNames.Add("WagonOutside", "Вагон снаружи");
-        ObjectsRusNames.Add("None", "Выбранные неисправности:");
+        ObjectsRusNames.Add("Station", "Станция");
         ObjectsRusNames.Add("CoupeNumber9", "Купе № 9");
         ObjectsRusNames.Add("CoupeNumber2", "Купе № 2");
         ObjectsRusNames.Add("WC2", "Санитарный узел №2");

@@ -17,12 +17,14 @@ public class ZoneTrigger : MonoBehaviour
     [SerializeField] private GameObject _infoPanel;   
     [SerializeField] private GameObject _mainPanel;
     [SerializeField] private TextMeshProUGUI _zoneText;
+    [SerializeField] private TextMeshProUGUI _locationText;
     [SerializeField] private GameObject _startText;
     [SerializeField] private Button[] _button;
     public RoomName ZoneName => _zoneName;
-  
-    
-   
+    private ObjectsTranslator _translator = new ObjectsTranslator();
+
+
+
     public bool IsVisited { get; private set; } = false;
 
     private CameraChanger _cameraChanger;
@@ -42,7 +44,10 @@ public class ZoneTrigger : MonoBehaviour
         if (!aosObject)
             return;
         InstanceHandler.Instance.CurrentRoom = _zoneName;
-        
+        var locationText = _translator.ObjectsRusNames[_zoneName.ToString()];
+        _locationText.text = locationText;
+
+
         _locationController.SetLocation(_zoneName.ToString().ToLower());
 
         _api.ConnectionEstablished(_zoneName.ToString().ToLower());
