@@ -85,7 +85,7 @@ public class API : AosObjectBase
             string headText = head.ToString();
             string commentText = HtmlToText.Instance.HTMLToTextReplace(comment.ToString());
             headerText = HtmlToText.Instance.HTMLToTextReplace(header.ToString());
-            MessageTextEvent?.Invoke(headText, commentText, headerText, footerText);
+            MessageTextEvent?.Invoke(headText, commentText, headerText, footerText);          
         }
         else if (header != null && head != null && comment != null)
         {

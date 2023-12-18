@@ -16,7 +16,7 @@ public class ZoneTrigger : MonoBehaviour
     [SerializeField] private RoomName _zoneName;
     [SerializeField] private GameObject _infoPanel;   
     [SerializeField] private GameObject _mainPanel;
-    [SerializeField] private TextMeshProUGUI _zoneText;
+    [SerializeField] private Image _locImage;  
     [SerializeField] private TextMeshProUGUI _locationText;
     [SerializeField] private GameObject _startText;
     [SerializeField] private Button[] _button;
@@ -83,12 +83,14 @@ public class ZoneTrigger : MonoBehaviour
     }
     public void SetTextColor(RoomState state)
     {
-        if (_zoneText == null)
+        if (_locImage == null)
             return;
         if (state == RoomState.Inside)
-            _zoneText.color = new Color(0.3254903f, 0.9607843f, 0.6898474f,1f);
-        if (state == RoomState.Outside)
-            _zoneText.color = Color.white;
+            _locImage.color = new Color(0.3254902f, 0.7215686f, 0.5921569f);
+        if (state == RoomState.Outside)             
+        _locImage.color = new Color(0.3058824f, 0.6f, 0.6078432f);
+
+
     }
   
 }

@@ -20,9 +20,9 @@ public class CameraChanger : MonoBehaviour
     [SerializeField] private Image _knob;
     [SerializeField] private CursorManager _cursorManager;
     [SerializeField] private GameObject _infoPanel;
-    [SerializeField] private GameObject _player;
+    [SerializeField] private GameObject _menuPanel;
 
-    private Vector3 _currentPlayerPosition = new Vector3();
+    
 
     [HideInInspector] public bool _changed= true;
     private bool _temp = false;
@@ -31,7 +31,7 @@ public class CameraChanger : MonoBehaviour
         if (_temp)
         {
             var playerInstance = Player.Instance;
-            playerInstance.TeleportTo(_menuPosition);
+          //  playerInstance.TeleportTo(_menuPosition);
         }
     }
 
@@ -52,6 +52,7 @@ public class CameraChanger : MonoBehaviour
         _cameraFadeIn.FadeStart = true;
         if(_changed)
         {
+            _menuPanel.SetActive(true);
             MenuEvent?.Invoke(true);
             _cursorManager.Locked = false;
             TeleportToMenu();
@@ -63,32 +64,30 @@ public class CameraChanger : MonoBehaviour
         else
         {
             _temp = false;
+            _menuPanel.SetActive(false);
             _infoPanel.SetActive(false);
-            MenuEvent?.Invoke(false);
-            TeleportToPrevousLocation();
+            MenuEvent?.Invoke(false);          
             _changed = true;
             _cursorManager.Locked = true;
             _zoom.CanZoom = true;
+            TeleportToPrevousLocation();
         }
     }
     private void TeleportToMenu()
     {
-        _currentPlayerPosition = new Vector3(_modeController.GetPlayerTransform().position.x, _modeController.GetPlayerTransform().position.y-1f, _modeController.GetPlayerTransform().position.z);
+       
         var playerInstance = Player.Instance;
         var desktopPlayer = FindObjectOfType<DesktopPlayer>();
-        desktopPlayer.RotationY = _player.transform.eulerAngles.y;
-        playerInstance.TeleportTo(_menuPosition);
+       // desktopPlayer.RotationY = _player.transform.eulerAngles.y;     
         playerInstance.CanMove = false;
         playerInstance.CursorLockMode = CursorLockMode.Locked;
-        playerInstance.ForwardTo(transform);
+       
        
     }
     private void TeleportToPrevousLocation()
     {
       
-        var playerInstance = Player.Instance;
-        playerInstance.ReleaseForwarding();
-        playerInstance.TeleportTo(_currentPlayerPosition);
+        var playerInstance = Player.Instance;        
         playerInstance.CanMove = true;
         playerInstance.CursorLockMode = CursorLockMode.None;
     }

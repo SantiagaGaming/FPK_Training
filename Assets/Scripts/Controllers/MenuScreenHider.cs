@@ -7,10 +7,11 @@ using UnityEngine;
 public class MenuScreenHider : MonoBehaviour
 {
     [SerializeField] private GameObject _mainMenuPanel;
+    [SerializeField] private GameObject _menuPanel;
     [SerializeField] private GameObject[] _allPanels;
     [SerializeField] private CameraChanger _cameraChanger;
     [SerializeField] private GameObject _messageViewPanel;
-    [SerializeField] private GameObject _messageTimeViewPanel;
+    
    
     private void Start()
     {
@@ -47,8 +48,5 @@ public class MenuScreenHider : MonoBehaviour
     {
         _messageViewPanel.SetActive(value);
     }
-    public void EnableMessageTimePanel(bool value)
-    {
-        _messageTimeViewPanel.SetActive(value);
-    }
+   
 }
