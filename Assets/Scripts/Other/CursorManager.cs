@@ -7,7 +7,7 @@ public class CursorManager : MonoBehaviour
     public bool Locked { get; set; } = true;
     private void Awake()
     {
-       // Locked = false;
+        Locked = false;
     }
     private void Update()
     {
