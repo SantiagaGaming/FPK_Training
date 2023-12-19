@@ -36,10 +36,11 @@ public class SubmitCheckListButton : MonoBehaviour
         foreach (var button in _editButton.Buttons)
         {
             button.enabled = false;
-            button.image.color = new Color(1, 1, 1, 0.47f);
+            button.image.color = new Color(1, 1, 1, 0.20f);
 
         }
         gameObject.SetActive(false);
+        Debug.Log("Delay");
     }
     private void HidePanel()
     {

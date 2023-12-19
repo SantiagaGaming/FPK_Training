@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ZoneExitTextInfo : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _zoneText;
     [SerializeField] private TextMeshProUGUI _textEducation;
-    [SerializeField] private TextMeshProUGUI _warmText;
+    [SerializeField] private Text _warmText;
    // [SerializeField] private TextMeshProUGUI _fixedText;
     [SerializeField] private TextMeshProUGUI _fixedTextUnity;
-    [SerializeField] private TextMeshProUGUI _exitTextApi;
+    [SerializeField] private Text _exitTextApi;
     [SerializeField] private MenuButton _exitButton;
     [SerializeField] private CheckListHolder[] _checkListHolders;
 

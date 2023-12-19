@@ -1,5 +1,6 @@
 using AosSdk.Core.PlayerModule;
 using AosSdk.Core.PlayerModule.DesktopPlayer;
+using AosSdk.Core.PlayerModule.Pointer;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,10 +23,14 @@ public class CameraChanger : MonoBehaviour
     [SerializeField] private GameObject _infoPanel;
     [SerializeField] private GameObject _menuPanel;
 
-    
 
+    private Pointer _pointer;
     [HideInInspector] public bool _changed= true;
     private bool _temp = false;
+    private void Start()
+    {
+        _pointer = FindObjectOfType<Pointer>();
+    }
     private void Update()
     {
         if (_temp)
@@ -60,6 +65,7 @@ public class CameraChanger : MonoBehaviour
             _zoom.ResetZoomCamera();
             _zoom.CanZoom = false;
             _temp = true;
+            _pointer.CanRayCast = false;
         }
         else
         {
@@ -71,6 +77,7 @@ public class CameraChanger : MonoBehaviour
             _cursorManager.Locked = true;
             _zoom.CanZoom = true;
             TeleportToPrevousLocation();
+            _pointer.CanRayCast = true;
         }
     }
     private void TeleportToMenu()
@@ -80,6 +87,7 @@ public class CameraChanger : MonoBehaviour
         var desktopPlayer = FindObjectOfType<DesktopPlayer>();
        // desktopPlayer.RotationY = _player.transform.eulerAngles.y;     
         playerInstance.CanMove = false;
+       
         playerInstance.CursorLockMode = CursorLockMode.Locked;
        
        
@@ -90,5 +98,6 @@ public class CameraChanger : MonoBehaviour
         var playerInstance = Player.Instance;        
         playerInstance.CanMove = true;
         playerInstance.CursorLockMode = CursorLockMode.None;
+      
     }
 }

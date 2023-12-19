@@ -8,8 +8,8 @@ namespace AosSdk.Core.PlayerModule.Pointer
     public class Pointer : MonoBehaviour
     {
         [SerializeField] protected RayCaster raycaster;
-    
-           
+
+        public bool CanRayCast { get; set; } = true;
 
         internal PointerState CurrentState = PointerState.Unknown;
 

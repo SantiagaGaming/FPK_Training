@@ -11,7 +11,7 @@ public class View : MonoBehaviour
 {
     public UnityAction OnBackButtonTap;
 
-    [SerializeField] private TextMeshProUGUI _infoLocationScreenText;
+    [SerializeField] private Text _infoLocationScreenText;
     [SerializeField] private Text _infoText;
 
                   

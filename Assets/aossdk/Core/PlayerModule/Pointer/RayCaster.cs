@@ -17,6 +17,7 @@ namespace AosSdk.Core.PlayerModule.Pointer
         [SerializeField] private SharedInput sharedInput;
         [SerializeField] private InteractHand interactHand;
         [SerializeField] private Grabber grabber;
+        
 
         private Collider _currentInteractAbleCollider;
 
@@ -25,7 +26,7 @@ namespace AosSdk.Core.PlayerModule.Pointer
         private IGrabbable _currentGrabbable;
 
         public bool TryGetInteractable(float interactDistance, out Vector3? hitPoint, out Vector3? hitNormal, out bool? isInteractable)
-        {
+        { 
             isInteractable = null;
 
             var (isGrabbed, isJustDropped) = grabber.HandleCurrentGrabbable(interactHand, _currentClickAble);

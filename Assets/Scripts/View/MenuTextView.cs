@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuTextView : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _infoHeaderText;
-    [SerializeField] private TextMeshProUGUI _exitText;
-    [SerializeField] private TextMeshProUGUI _warnText;
+    [SerializeField] private Text _exitText;
+    [SerializeField] private Text _warnText;
     [SerializeField] private TextMeshProUGUI _headText;
     [SerializeField] private TextMeshProUGUI _evalText;
     [SerializeField] private TextMeshProUGUI _commentText;

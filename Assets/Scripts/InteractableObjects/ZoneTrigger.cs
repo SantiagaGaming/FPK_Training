@@ -20,6 +20,7 @@ public class ZoneTrigger : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _locationText;
     [SerializeField] private GameObject _startText;
     [SerializeField] private Button[] _button;
+   
     public RoomName ZoneName => _zoneName;
     private ObjectsTranslator _translator = new ObjectsTranslator();
 
@@ -55,10 +56,10 @@ public class ZoneTrigger : MonoBehaviour
 
         if (_enabled && _zoneName != 0 && StartParametr.Instance.ShowInfoText)
         {
-            
+            _cameraChanger.OnEscClick();
             _infoPanel.SetActive(true);    
            _mainPanel.SetActive(false);
-            _cameraChanger.OnEscClick();
+           
             _enabled=false;
             Debug.Log(_zoneName.ToString().ToLower());
         }
@@ -68,9 +69,7 @@ public class ZoneTrigger : MonoBehaviour
             {
                 button.enabled = true;
                 var but = button.GetComponent<Image>();
-                but.color=  new Color(1,1,1,1);
-                
-
+                but.color=  new Color(1,1,1,1);                                       
             }
         }
         if(_startText!= null)

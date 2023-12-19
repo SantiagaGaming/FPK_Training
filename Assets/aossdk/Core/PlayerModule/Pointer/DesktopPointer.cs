@@ -77,7 +77,8 @@ namespace AosSdk.Core.PlayerModule.Pointer
         }
 
         private void Update()
-        {
+        { if (!CanRayCast)
+                return;
             if (!raycaster.TryGetInteractable(Launcher.Instance.SdkSettings.desktopInteractDistance, out _, out _, out var isInteractable) ||
                 isInteractable == null)
             {

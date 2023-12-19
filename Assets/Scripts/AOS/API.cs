@@ -251,7 +251,7 @@ public class API : AosObjectBase
         {
             string exitText = HtmlToText.Instance.HTMLToTextReplace(exitInfo.SelectToken("text").ToString());
             string warntext = HtmlToText.Instance.HTMLToTextReplace(exitInfo.SelectToken("warn").ToString());
-            // ExitTextEvent?.Invoke(exitText, warntext);
+             ExitTextEvent?.Invoke(exitText, warntext);
         }
 
 

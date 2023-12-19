@@ -46,7 +46,10 @@ public class MenuScreenHider : MonoBehaviour
     }
     public void EnableMessagePanel(bool value)
     {
+      
+     
         _messageViewPanel.SetActive(value);
+     
     }
    
 }
