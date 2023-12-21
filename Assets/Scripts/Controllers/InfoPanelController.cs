@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class InfoPanelController : MonoBehaviour
 {
-   public  List<InfoPanelModel> PanelModel = new List<InfoPanelModel>();
+    public static InfoPanelController Instance;
+    public  List<InfoPanelModel> PanelModel = new List<InfoPanelModel>();
+   
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
 
+    }
     public  void AddPanel(InfoPanelModel panel)
     {
         PanelModel.Add(panel);
