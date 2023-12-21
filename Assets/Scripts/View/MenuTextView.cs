@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class MenuTextView : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _infoHeaderText;
+   
     [SerializeField] private Text _exitText;
     [SerializeField] private Text _warnText;
-    [SerializeField] private TextMeshProUGUI _headText;
-    [SerializeField] private TextMeshProUGUI _evalText;
-    [SerializeField] private TextMeshProUGUI _commentText;
-    [SerializeField] private TextMeshProUGUI _nameText;
+    [SerializeField] private Text _headText;
+    [SerializeField] private Text _evalText;
+    [SerializeField] private Text _commentText;
+    [SerializeField] private Text _nameText;
     [SerializeField] private GameObject _resultPanel;
     [SerializeField] private GameObject _mainPanel;
     
@@ -50,7 +50,7 @@ public class MenuTextView : MonoBehaviour
 
     public void SetResultNameText(string nametext)
     {
-        _nameTempText += nametext + "\n";
+        _nameTempText += nametext + "\n" + "\n";
         _nameText.text = _nameTempText;
     }
 }

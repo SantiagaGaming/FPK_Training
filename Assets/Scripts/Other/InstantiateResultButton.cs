@@ -14,6 +14,7 @@ public class InstantiateResultButton : MonoBehaviour
     [SerializeField] private InfoPanelModel _infoPanelPrefab;
     [SerializeField] private GameObject _infoCreatePanel;
     [SerializeField] private RexultApiText _rexultApiText;
+    [SerializeField] private InfoPanelController _infoPanelController;
   //  [SerializeField] private AccordoinView _accordoinView;
    
    
@@ -24,6 +25,8 @@ public class InstantiateResultButton : MonoBehaviour
               
        var headerButton =   Instantiate(_buttonPrefab, _buttonPanel.transform);
         var infoPanel =  Instantiate(_infoPanelPrefab, _infoCreatePanel.transform);
+        _infoPanelController.AddPanel(infoPanel);
+        
         foreach (var item in infoText.text)
         {
            var itemText= Instantiate(_rexultApiText, infoPanel.GetGameObject());
@@ -35,7 +38,7 @@ public class InstantiateResultButton : MonoBehaviour
        Debug.Log(nameText);
        Debug.Log(infoText);
         headerButton.setNameText(nameText);
-        infoPanel.setNameText(nameText);      
+      //  infoPanel.setNameText(nameText);      
 
         headerButton.ButtonClickEvent += infoPanel.ShowInfo;
         

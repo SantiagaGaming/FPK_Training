@@ -182,7 +182,7 @@ public class API : AosObjectBase
             Debug.Log(exitText);
 
         }
-
+      
         var attemptText = resons.SelectToken("reasons");
         if (attemptText != null)
         {
