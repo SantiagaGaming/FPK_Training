@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nameText: {fileID: 9109488773030557159}
-  _info: {fileID: 9109488771991123632}
+  _gameObject: {fileID: 0}
 --- !u!1 &9109488771991123638
 GameObject:
   m_ObjectHideFlags: 0
