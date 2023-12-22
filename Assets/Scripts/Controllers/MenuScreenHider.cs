@@ -11,6 +11,7 @@ public class MenuScreenHider : MonoBehaviour
     [SerializeField] private GameObject[] _allPanels;
     [SerializeField] private CameraChanger _cameraChanger;
     [SerializeField] private GameObject _messageViewPanel;
+    [SerializeField] private GameObject _messageViewTimePanel;
     
    
     private void Start()
@@ -45,11 +46,12 @@ public class MenuScreenHider : MonoBehaviour
         
     }
     public void EnableMessagePanel(bool value)
-    {
-      
-     
-        _messageViewPanel.SetActive(value);
-     
+    {        
+        _messageViewPanel.SetActive(value);    
     }
-   
+    public void EnableMessageTimePanel(bool value)
+    {
+        _messageViewTimePanel.SetActive(value);
+    }
+
 }

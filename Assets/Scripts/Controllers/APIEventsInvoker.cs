@@ -17,12 +17,12 @@ public class APIEventsInvoker : MonoBehaviour
     [SerializeField] private ClueController _clueController;
     [SerializeField] private MessageTimeView _messageTimeView;
     [SerializeField] private InstantiateResultButton _instantiateResultButton;
-
+    private CameraChanger _cameraChanger;
 
 
     private void Start()
     {
-
+        _cameraChanger = FindObjectOfType<CameraChanger>();
         _api.ExitApiTextEvent += OnSetExitTextApi;
         _api.AttempTextEvent += OnChangeText;
         _api.MessageTextEvent += OnSetMessageText;
@@ -51,7 +51,12 @@ public class APIEventsInvoker : MonoBehaviour
     }
     private void OnNewSetMessageTimeText(string headText, string commetText, string headerText, string footerText)
     {
+        if (_cameraChanger._changed)
+        {
+            _cameraChanger.OnEscClick();
+        }
         _messageTimeView.SetClueTimeText(commetText);
+        _menuHider.EnableMessageTimePanel(true);
     }
 
 

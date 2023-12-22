@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MessageTimeView : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class MessageTimeView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _commentText;
     [SerializeField] private TextMeshProUGUI _textText;
     [SerializeField] private TextMeshProUGUI _footerText;
-    [SerializeField] private TextMeshProUGUI _timeText;
+    [SerializeField] private Text _timeText;
     [SerializeField] private GameObject _timePanel;
 
     public void SetHeaderText(string text)
@@ -31,7 +32,7 @@ public class MessageTimeView : MonoBehaviour
     public void SetClueTimeText(string text)
     {
         _timeText.text = text;
-        StartCoroutine(ShowTimePanel());
+      //  StartCoroutine(ShowTimePanel());
 
     }
     private IEnumerator ShowTimePanel()

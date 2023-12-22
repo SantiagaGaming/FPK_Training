@@ -99,7 +99,9 @@ public class API : AosObjectBase
         {
             string headText = head.ToString();
             string commentText = HtmlToText.Instance.HTMLToTextReplace(comment.ToString());
+            
             MessageTimeText?.Invoke(headText, commentText, headerText, footerText);
+            
         }
 
 
