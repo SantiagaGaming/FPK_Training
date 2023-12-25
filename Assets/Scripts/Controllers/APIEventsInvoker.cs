@@ -17,6 +17,7 @@ public class APIEventsInvoker : MonoBehaviour
     [SerializeField] private ClueController _clueController;
     [SerializeField] private MessageTimeView _messageTimeView;
     [SerializeField] private InstantiateResultButton _instantiateResultButton;
+    [SerializeField] private AlarmImageController _alarmImageController;
     private CameraChanger _cameraChanger;
 
 
@@ -37,6 +38,13 @@ public class APIEventsInvoker : MonoBehaviour
         _api.ClueEvent += OnShowClue;
         _api.ResultNameTextEvent += OnSetResultNameText;
         _api.ResultButtonTextEvent += OnSetResultButton;
+        _api.AlarmImageEvent += OnSetAlarmImage;
+
+    }
+
+    private void OnSetAlarmImage(string nameImage)
+    {
+        _alarmImageController.SetAlarmImage(nameImage);
     }
 
     private void OnSetResultButton(string nameText, TextHolder infoText)
@@ -51,12 +59,13 @@ public class APIEventsInvoker : MonoBehaviour
     }
     private void OnNewSetMessageTimeText(string headText, string commetText, string headerText, string footerText)
     {
-        if (_cameraChanger._changed)
-        {
-            _cameraChanger.OnEscClick();
-        }
         _messageTimeView.SetClueTimeText(commetText);
-        _menuHider.EnableMessageTimePanel(true);
+        //    if (_cameraChanger._changed)
+        //    {
+        //        _cameraChanger.OnEscClick();
+        //    }
+
+        //  _menuHider.EnableMessageTimePanel(true);
     }
 
 

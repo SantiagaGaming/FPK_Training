@@ -18,6 +18,7 @@ public class API : AosObjectBase
     public UnityAction<string> ResultNameTextEvent;
     public UnityAction<string, TextHolder> ResultButtonTextEvent;
     public UnityAction<string> InfoLocationText;
+    public UnityAction<string> AlarmImageEvent;
     public UnityAction<string, string> ExitApiTextEvent;
     public UnityAction<string> ClueEvent;
     public UnityAction<string, string> ActivateButtonEvent;
@@ -78,22 +79,29 @@ public class API : AosObjectBase
         var footer = info.SelectToken("footer");
         var head = info.SelectToken("name");
         var comment = info.SelectToken("text");
+        var alarm = info.SelectToken("alarm");
 
-        if (header != null && footer != null && head != null && comment != null)
+        if (header != null && footer != null && head != null && comment != null && alarm !=null)
         {
             footerText = HtmlToText.Instance.HTMLToTextReplace(footer.ToString());
             string headText = head.ToString();
+            string alarmImg = alarm.ToString();
             string commentText = HtmlToText.Instance.HTMLToTextReplace(comment.ToString());
             headerText = HtmlToText.Instance.HTMLToTextReplace(header.ToString());
-            MessageTextEvent?.Invoke(headText, commentText, headerText, footerText);          
+            MessageTextEvent?.Invoke(headText, commentText, headerText, footerText);
+            AlarmImageEvent?.Invoke(alarmImg);
+            Debug.Log("EVENT1  " +alarmImg);
         }
-        else if (header != null && head != null && comment != null)
+        else if (header != null && head != null && comment != null && alarm != null)
         {
 
             string headText = head.ToString();
+            string alarmImg = alarm.ToString();
             string commentText = HtmlToText.Instance.HTMLToTextReplace(comment.ToString());
             headerText = HtmlToText.Instance.HTMLToTextReplace(header.ToString());
             MessageTextEvent2?.Invoke(headText, commentText, headerText, footerText);
+            AlarmImageEvent?.Invoke(alarmImg);
+            Debug.Log("EVENT2  " + alarmImg);
         }
         else if (head != null && comment != null)
         {
