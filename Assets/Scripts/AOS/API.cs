@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Security.Claims;
 using AosSdk.Core.Interaction.Interfaces;
 using AosSdk.Core.PlayerModule;
 using AosSdk.Core.Utils;
@@ -19,6 +20,7 @@ public class API : AosObjectBase
     public UnityAction<string, TextHolder> ResultButtonTextEvent;
     public UnityAction<string> InfoLocationText;
     public UnityAction<string> AlarmImageEvent;
+    public UnityAction<string> AlarmExitImageEvent;
     public UnityAction<string, string> ExitApiTextEvent;
     public UnityAction<string> ClueEvent;
     public UnityAction<string, string> ActivateButtonEvent;
@@ -26,7 +28,7 @@ public class API : AosObjectBase
     public UnityAction<string, string, string, string> MessageTextEvent;
     public UnityAction<string, string, string, string> MessageTextEvent2;
     public UnityAction<string, string, string, string> MessageTimeText;
-    public UnityAction<string, string> ExitTextEvent;
+    public UnityAction<string, string,string> ExitTextEvent;
     public UnityAction<string, string, string> ResultTextEvent;
     public UnityAction<string, string, string, NextButtonState> WelcomeTextEvent;
     public UnityAction<string, string, string> MenuTextEvent;
@@ -218,15 +220,21 @@ public class API : AosObjectBase
                 AttempTextEvent?.Invoke(roomIdText, attempText, attText);
             }
         }
+        if (exitInfo.SelectToken("alarm").ToString() != null)
+        {
+            string alarm = exitInfo.SelectToken("alarm").ToString();
+            AlarmExitImageEvent?.Invoke(alarm);
+        }
     }
     [AosAction(name: "Показать меню")]
     public void showMenu(JObject faultInfo, JObject exitInfo, JObject resons)
     {
-        Debug.Log(resons.ToString());
+        Debug.Log("Show Menu exitInfo " + exitInfo.ToString());
+        
         var attText = "";
         string headtext = faultInfo.SelectToken("name").ToString();
         string commentText = faultInfo.SelectToken("text").ToString();
-        string exitSureText = exitInfo.SelectToken("quest").ToString();
+        string exitSureText = exitInfo.SelectToken("quest").ToString();      
         var attemptText = resons.SelectToken("reasons");
         if (attemptText != null)
         {
@@ -259,9 +267,22 @@ public class API : AosObjectBase
         // MenuTextEvent?.Invoke(headtext, commentText, exitSureText);
         if (exitInfo.SelectToken("text") != null && exitInfo.SelectToken("warn") != null)
         {
+            string unityText = exitInfo.SelectToken("quest").ToString();
             string exitText = HtmlToText.Instance.HTMLToTextReplace(exitInfo.SelectToken("text").ToString());
             string warntext = HtmlToText.Instance.HTMLToTextReplace(exitInfo.SelectToken("warn").ToString());
-             ExitTextEvent?.Invoke(exitText, warntext);
+             ExitTextEvent?.Invoke(exitText, warntext, unityText);
+        }
+        else if(exitInfo.SelectToken("warn") != null && exitInfo.SelectToken("quest") != null)
+        {
+            string unityText = "";
+            string exitText = HtmlToText.Instance.HTMLToTextReplace(exitInfo.SelectToken("quest").ToString());
+            string warntext = HtmlToText.Instance.HTMLToTextReplace(exitInfo.SelectToken("warn").ToString());
+            ExitTextEvent?.Invoke(exitText, warntext, unityText);
+        }
+        if ( exitInfo.SelectToken("alarm").ToString() != null)
+        {
+            string alarm = exitInfo.SelectToken("alarm").ToString();
+            AlarmExitImageEvent?.Invoke(alarm);
         }
 
 

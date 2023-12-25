@@ -8,6 +8,7 @@ public class InfoPanelModel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _nameText; 
    // [SerializeField] private TextMeshProUGUI _info;
     [SerializeField] private GameObject _gameObject;
+    private bool _isOpen = false;
     
     public void setNameText(string text)
     {
@@ -19,8 +20,19 @@ public class InfoPanelModel : MonoBehaviour
     }
     public void ShowInfo()
     {
-        HideInfoPanel();
-        gameObject.SetActive(true);
+       
+        if (!_isOpen)
+        {
+            HideInfoPanel();
+            gameObject.SetActive(true);
+            _isOpen = true;
+        }
+        else
+        {
+            gameObject.SetActive(false);
+            _isOpen = false;
+        }
+       
     }
 
     public Transform GetGameObject()
@@ -29,11 +41,17 @@ public class InfoPanelModel : MonoBehaviour
     }
     public void HideInfoPanel() 
     {
+        
         var list = InfoPanelController.Instance.PanelModel;
         foreach (var item in list)
         {
             item.gameObject.SetActive(false);
+            item.SetOpen(false);
         }
         
+    }
+     public void SetOpen(bool open)
+    {
+        _isOpen = open;
     }
 }

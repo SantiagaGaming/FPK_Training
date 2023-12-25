@@ -39,9 +39,13 @@ public class APIEventsInvoker : MonoBehaviour
         _api.ResultNameTextEvent += OnSetResultNameText;
         _api.ResultButtonTextEvent += OnSetResultButton;
         _api.AlarmImageEvent += OnSetAlarmImage;
+        _api.AlarmExitImageEvent += OnSetAlarmExitImage;
 
     }
-
+    private void OnSetAlarmExitImage(string nameImage)
+    {
+        _alarmImageController.SetAlarmExitImage(nameImage);
+    }
     private void OnSetAlarmImage(string nameImage)
     {
         _alarmImageController.SetAlarmImage(nameImage);
@@ -91,9 +95,9 @@ public class APIEventsInvoker : MonoBehaviour
 
     }
 
-    private void OnSetExitText(string exitText, string warntext)
+    private void OnSetExitText(string exitText, string warntext,string unityText)
     {
-        _menuTextView.SetExitText(exitText, warntext);
+        _menuTextView.SetExitText(exitText, warntext,unityText);
     }
 
     private void OnSetTimerText(string time)

@@ -13,8 +13,10 @@ public class MenuTextView : MonoBehaviour
     [SerializeField] private Text _evalText;
     [SerializeField] private Text _commentText;
     [SerializeField] private Text _nameText;
+    [SerializeField] private Text _unityText;
     [SerializeField] private GameObject _resultPanel;
     [SerializeField] private GameObject _mainPanel;
+   
     
 
     private CameraChanger _cameraChanger;
@@ -42,10 +44,11 @@ public class MenuTextView : MonoBehaviour
 
     }
 
-    public void SetExitText(string exitText, string warntext)
+    public void SetExitText(string exitText, string warntext,string unityText)
     {
         _exitText.text = HtmlToText.Instance.HTMLToTextReplace(exitText);
         _warnText.text = HtmlToText.Instance.HTMLToTextReplace(warntext);
+        _unityText.text = unityText;
     }
 
     public void SetResultNameText(string nametext)
