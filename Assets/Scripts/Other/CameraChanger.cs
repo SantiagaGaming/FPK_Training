@@ -77,7 +77,7 @@ public class CameraChanger : MonoBehaviour
             _cursorManager.Locked = true;
             _zoom.CanZoom = true;
             TeleportToPrevousLocation();
-            _pointer.CanRayCast = true;
+            StartCoroutine(DelayRayCast());
         }
     }
     private void TeleportToMenu()
@@ -99,5 +99,10 @@ public class CameraChanger : MonoBehaviour
         playerInstance.CanMove = true;
         playerInstance.CursorLockMode = CursorLockMode.None;
       
+    }
+    private IEnumerator DelayRayCast()
+    {
+        yield return  new WaitForSeconds(0.2f);
+        _pointer.CanRayCast = true;
     }
 }

@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.Rendering.VirtualTexturing.Debugging;
-using UnityEngine.InputSystem;
-using System.Runtime.CompilerServices;
+
 
 public class RotateDoorWithParameter : Door
 {
@@ -143,7 +141,7 @@ public class RotateDoorWithParameter : Door
             yield return new WaitForSeconds(0.008f);
             rot++;
         }
-        while (rot >= 0)
+        while (rot != 0)
         {
             if (!_x && !_down)
                 handle.transform.localEulerAngles -= new Vector3(0, 0, 1);

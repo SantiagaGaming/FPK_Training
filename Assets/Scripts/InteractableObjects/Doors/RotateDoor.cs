@@ -183,7 +183,7 @@ public class RotateDoor : Door
             yield return new WaitForSeconds(0.008f);
             rot++;
         }
-        while (rot >= 0)
+        while (rot != 0)
         {
             if (!_x && !_down)
                 handle.transform.localEulerAngles -= new Vector3(0, 0, 1);
