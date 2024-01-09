@@ -80,6 +80,13 @@ public class ZoneTrigger : MonoBehaviour
         IsVisited = true;
                                     
     }
+    private void OnTriggerStay(Collider col)
+    {
+        Debug.Log("ON COLLIDER");
+        InstanceHandler.Instance.CurrentRoom = _zoneName;
+        var locationText = _translator.ObjectsRusNames[_zoneName.ToString()];
+        _locationText.text = locationText;
+    }
     public void SetTextColor(RoomState state)
     {
         if (_locImage == null)
@@ -88,7 +95,6 @@ public class ZoneTrigger : MonoBehaviour
             _locImage.color = new Color(0.3254902f, 0.7215686f, 0.5921569f);
         if (state == RoomState.Outside)             
         _locImage.color = new Color(0.3058824f, 0.6f, 0.6078432f);
-
 
     }
   
