@@ -12,6 +12,7 @@ public class StartGameController : MonoBehaviour
    
     [SerializeField] private CameraChanger _cameraChanger;
     [SerializeField] private CursorManager _cursorManager;
+    
    
 
     private void Start()
