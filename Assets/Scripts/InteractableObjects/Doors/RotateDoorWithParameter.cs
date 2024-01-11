@@ -11,6 +11,7 @@ public class RotateDoorWithParameter : Door
     [SerializeField] private int _rotateValue;
     [SerializeField] private Animator[] _animator;
     [SerializeField] private Collider _colliderOff;
+    [SerializeField] private Collider[] _lockCollider;
 
 
     override protected IEnumerator UseDoor(bool value)
@@ -28,7 +29,13 @@ public class RotateDoorWithParameter : Door
 
                 if (!value)
                 {
-                    
+                    if (_lockCollider != null)
+                    {
+                        foreach (var col in _lockCollider)
+                        {
+                            col.enabled = false;
+                        }
+                    }
                     if (_colliderOff != null) { _colliderOff.enabled = false; }
                     if (_animator != null)
                     {
@@ -67,12 +74,26 @@ public class RotateDoorWithParameter : Door
                             yield return new WaitForSeconds(1.3f);
                         }
                     }
+                    if (_lockCollider != null)
+                    {
+                        foreach (var col in _lockCollider)
+                        {
+                            col.enabled = true;
+                        }
+                    }
                 }
             }
             else
             {
                 if (!value)
                 {
+                    if (_lockCollider != null)
+                    {
+                        foreach (var col in _lockCollider)
+                        {
+                            col.enabled = false;
+                        }
+                    }
                     //if (handle != null)
                     //    StartCoroutine(RotateHandle());
                     if (_colliderOff != null) { _colliderOff.enabled = false; }
@@ -111,6 +132,13 @@ public class RotateDoorWithParameter : Door
                         {
                             animator.SetTrigger("Close");
                             yield return new WaitForSeconds(1.3f);
+                        }
+                    }
+                    if (_lockCollider != null)
+                    {
+                        foreach (var col in _lockCollider)
+                        {
+                            col.enabled = true;
                         }
                     }
                 }

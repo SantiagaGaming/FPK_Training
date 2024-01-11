@@ -20,15 +20,20 @@ public class RotateDoor : Door
     [SerializeField] private GameObject _colliderOn;
     [SerializeField] private GameObject _colliderOff;
     [SerializeField] private Collider _colliderDoorOff;
-
-
+    [SerializeField] private Collider[] _lockCollider;
+    private bool _handlePlay=false;
+    
     override protected IEnumerator UseDoor(bool value)
     {
         WaitCursor.Instance.WaitCursorAnim(true);
-        if(_colliderDoorOff != null) { _colliderDoorOff.enabled = false;}
+       
         GetComponent<Collider>().enabled = false;
-        if (handle != null)
+        if (handle != null && !_handlePlay)
+        {
+            _handlePlay = true;
             StartCoroutine(RotateHandle());
+        }
+           
         if (!LockedSecretKey && !LockedSpecKey)
         {
             DoorAction(true);
@@ -38,7 +43,14 @@ public class RotateDoor : Door
 
                 if (!value)
                 {
-
+                    if (_colliderDoorOff != null) { _colliderDoorOff.enabled = false; }
+                    if (_lockCollider !=null)
+                    {
+                        foreach (var col in _lockCollider)
+                        {
+                            col.enabled = false;
+                        }
+                    }                   
                     
                     if (_animator2 != null)
                     {
@@ -90,7 +102,15 @@ public class RotateDoor : Door
                         y++;
                     }
                     if (_animator2 != null) { _animator2.SetTrigger("Close"); }
-                    
+
+                    if (_lockCollider != null)
+                    {
+                        foreach (var col in _lockCollider)
+                        {
+                            col.enabled = true;
+                        }
+                    }
+                    if (_colliderDoorOff != null) { _colliderDoorOff.enabled = true; }
                 }
             }
             else
@@ -99,8 +119,14 @@ public class RotateDoor : Door
                 //    StartCoroutine(RotateHandle());
                 if (!value)
                 {
-
-                    
+                    if (_colliderDoorOff != null) { _colliderDoorOff.enabled = false; }
+                    if (_lockCollider != null)
+                    {
+                        foreach (var col in _lockCollider)
+                        {
+                            col.enabled = false;
+                        }
+                    }
                     if (_animator2 != null)
                     {
                         _animator2.SetTrigger("Open");
@@ -153,7 +179,14 @@ public class RotateDoor : Door
                     }
                     OnLightObjectOff?.Invoke();
                     if (_animator2 != null) { _animator2.SetTrigger("Close"); }
-                    
+                    if (_lockCollider != null)
+                    {
+                        foreach (var col in _lockCollider)
+                        {
+                            col.enabled = true;
+                        }
+                    }
+                    if (_colliderDoorOff != null) { _colliderDoorOff.enabled = true; }
                 }
 
             }
@@ -163,7 +196,7 @@ public class RotateDoor : Door
                 open = false;
             else open = true;
         }
-        if (_colliderDoorOff != null) { _colliderDoorOff.enabled = true; }
+        
         GetComponent<Collider>().enabled = true;
         WaitCursor.Instance.WaitCursorAnim(false);
     }
@@ -196,6 +229,7 @@ public class RotateDoor : Door
             yield return new WaitForSeconds(0.008f);
             rot--;
         }
+        _handlePlay = false;
     }
     
 
