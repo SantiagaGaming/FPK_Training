@@ -18,7 +18,7 @@ public class ThreeKeyRotateDoor : Door
     [SerializeField] private Animator _animator;
     [SerializeField] private Collider _collider; // колайдер объекта который нужно отключить 
     [SerializeField] private Collider _childrenCollider; // коллайдер ключа , что бы не закликать открытие 
-
+    [SerializeField] private Door[] _checkDoors;
     public float DelayOpen = 5.2f;
     public float DelayClose = 3f;
 
@@ -34,7 +34,7 @@ public class ThreeKeyRotateDoor : Door
 
                 if (!value)
             {
-              
+                LockedOpen = false;
                 Debug.Log("5");
                     
                     yield return new WaitForSeconds(0.5f);
@@ -47,6 +47,16 @@ public class ThreeKeyRotateDoor : Door
                     }
                 DoorEvent?.Invoke();
                 if (_collider != null) { _collider.enabled = true; }
+                if (_checkDoors != null)
+                {
+                    foreach (var door in _checkDoors)
+                    {
+                        if (door.LockedOpen)
+                        {
+                            _collider.enabled = false;
+                        }
+                    }
+                }
                 if (_animator!= null) { _animator.SetTrigger("Open");
                 }
                
@@ -55,6 +65,7 @@ public class ThreeKeyRotateDoor : Door
             }
                 else
                 {
+                LockedOpen = true;
                 DoorEventOpen?.Invoke();
                 Debug.Log("6");
                 if (_animator != null)
@@ -80,7 +91,8 @@ public class ThreeKeyRotateDoor : Door
             {
                 if (!value)
                 {
-                    Debug.Log("7");
+                LockedOpen = false;
+                Debug.Log("7");
                
                 yield return new WaitForSeconds(1f);
                     int y = 0;
@@ -92,12 +104,23 @@ public class ThreeKeyRotateDoor : Door
                     }
                 DoorEvent?.Invoke();
                 if (_collider != null) { _collider.enabled = true; }
+                if (_checkDoors != null)
+                {
+                    foreach (var door in _checkDoors)
+                    {
+                        if (door.LockedOpen)
+                        {
+                            _collider.enabled = false;
+                        }
+                    }
+                }
                 if (_animator != null) { _animator.SetTrigger("Open"); }
 
                 
             }
                 else
             {
+                LockedOpen = true;
                 DoorEventOpen?.Invoke();
                 Debug.Log("8");
                 if (_animator != null)
@@ -139,7 +162,7 @@ public class ThreeKeyRotateDoor : Door
         {
             if (!value)
             {
-               
+                LockedOpen = false;
                 Debug.Log("1");
                 float y = _closePatametr;    
                 while (y <= _closePatametr2)    
@@ -152,11 +175,22 @@ public class ThreeKeyRotateDoor : Door
                 yield return new WaitForSeconds(2.3f);
                 transform.localRotation = Quaternion.Euler(transform.rotation.x, _finishBrokenParametr, transform.rotation.z);
                 if (_collider != null) { _collider.enabled = true; }
+                if (_checkDoors != null)
+                {
+                    foreach (var door in _checkDoors)
+                    {
+                        if (door.LockedOpen)
+                        {
+                            _collider.enabled = false;
+                        }
+                    }
+                }
                 if (_animator != null) { _animator.SetTrigger("Open"); }
                
             }
             else
             {
+                LockedOpen = true;
                 if (_collider != null) { _collider.enabled = false; }
                 if (_animator != null) { _animator.SetTrigger("Close"); }
                 Debug.Log("2");
@@ -177,9 +211,9 @@ public class ThreeKeyRotateDoor : Door
 
             if (!value)
             {
-               
+                LockedOpen = false;
                 Debug.Log("3");
-                if (_collider != null) { _collider.enabled = true; }
+               
                
                
                 float y = _closePatametr;
@@ -191,11 +225,23 @@ public class ThreeKeyRotateDoor : Door
                 }
                 DoorEvent?.Invoke();
                 if (_animator != null) { _animator.SetTrigger("Open"); }
+                if (_collider != null) { _collider.enabled = true; }
+                if (_checkDoors != null)
+                {
+                    foreach (var door in _checkDoors)
+                    {
+                        if (door.LockedOpen)
+                        {
+                            _collider.enabled = false;
+                        }
+                    }
+                }
                 yield return new WaitForSeconds(2.3f);
                 transform.localRotation = Quaternion.Euler(transform.rotation.x, _finishBrokenParametr, transform.rotation.z);
             }
             else
             {
+                LockedOpen = true;
                 Debug.Log(" 4");
                 if (_collider != null) { _collider.enabled = false; }
                 if (_animator != null) { _animator.SetTrigger("Close"); }

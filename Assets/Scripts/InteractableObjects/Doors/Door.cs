@@ -18,6 +18,7 @@ public class Door : BaseObject
     public bool open = false;
     public bool LockedSecretKey = false;
     public bool LockedSpecKey = false;
+    public bool LockedOpen = false;
     
 
 

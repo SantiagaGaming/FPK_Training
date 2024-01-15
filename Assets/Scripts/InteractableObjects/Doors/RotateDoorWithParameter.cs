@@ -12,6 +12,7 @@ public class RotateDoorWithParameter : Door
     [SerializeField] private Animator[] _animator;
     [SerializeField] private Collider _colliderOff;
     [SerializeField] private Collider[] _lockCollider;
+    [SerializeField] private Door[] _checkDoors;
 
 
     override protected IEnumerator UseDoor(bool value)
@@ -29,6 +30,7 @@ public class RotateDoorWithParameter : Door
 
                 if (!value)
                 {
+                    LockedOpen = true;
                     if (_lockCollider != null)
                     {
                         foreach (var col in _lockCollider)
@@ -58,8 +60,9 @@ public class RotateDoorWithParameter : Door
                 }
                 else
                 {
+                    LockedOpen = false;
                     int y = -_rotateValue;
-                    if (_colliderOff != null) { _colliderOff.enabled = true; }
+                    
                     while (y <= 0)
                     {
                         transform.localEulerAngles -= new Vector3(0, 1, 0);
@@ -81,12 +84,24 @@ public class RotateDoorWithParameter : Door
                             col.enabled = true;
                         }
                     }
+                    if (_colliderOff != null) { _colliderOff.enabled = true; }
+                    if (_checkDoors != null)
+                    {
+                        foreach (var door in _checkDoors)
+                        {
+                            if (door.LockedOpen)
+                            {
+                                _colliderOff.enabled = false;
+                            }
+                        }
+                    }
                 }
             }
             else
             {
                 if (!value)
                 {
+                    LockedOpen = true;
                     if (_lockCollider != null)
                     {
                         foreach (var col in _lockCollider)
@@ -118,6 +133,7 @@ public class RotateDoorWithParameter : Door
                 }
                 else
                 {
+                    LockedOpen = false;
                     int y = _rotateValue;
                     if (_colliderOff != null) { _colliderOff.enabled = true; }
                     while (y >= 0)
@@ -139,6 +155,17 @@ public class RotateDoorWithParameter : Door
                         foreach (var col in _lockCollider)
                         {
                             col.enabled = true;
+                        }
+                    }
+                    if (_colliderOff != null) { _colliderOff.enabled = true; }
+                    if (_checkDoors != null)
+                    {
+                        foreach (var door in _checkDoors)
+                        {
+                            if (door.LockedOpen)
+                            {
+                                _colliderOff.enabled = false;
+                            }
                         }
                     }
                 }

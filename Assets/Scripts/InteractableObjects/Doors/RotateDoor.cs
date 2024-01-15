@@ -21,6 +21,8 @@ public class RotateDoor : Door
     [SerializeField] private GameObject _colliderOff;
     [SerializeField] private Collider _colliderDoorOff;
     [SerializeField] private Collider[] _lockCollider;
+    [SerializeField] private Door[] _checkDoors;
+
     private bool _handlePlay=false;
     
     override protected IEnumerator UseDoor(bool value)
@@ -43,6 +45,7 @@ public class RotateDoor : Door
 
                 if (!value)
                 {
+                    LockedOpen = true;
                     if (_colliderDoorOff != null) { _colliderDoorOff.enabled = false; }
                     if (_lockCollider !=null)
                     {
@@ -80,8 +83,8 @@ public class RotateDoor : Door
                 }
                 else
                 {
-                    
 
+                    LockedOpen = false;
                     if (_animator != null)
                     {
                         _animator.SetTrigger("Close");
@@ -111,6 +114,16 @@ public class RotateDoor : Door
                         }
                     }
                     if (_colliderDoorOff != null) { _colliderDoorOff.enabled = true; }
+                    if(_checkDoors != null)
+                    {
+                        foreach(var door in _checkDoors)
+                        {
+                            if (door.LockedOpen)
+                            {
+                                _colliderDoorOff.enabled = false;
+                            }
+                        }
+                    }
                 }
             }
             else
@@ -119,6 +132,7 @@ public class RotateDoor : Door
                 //    StartCoroutine(RotateHandle());
                 if (!value)
                 {
+                    LockedOpen = true;
                     if (_colliderDoorOff != null) { _colliderDoorOff.enabled = false; }
                     if (_lockCollider != null)
                     {
@@ -155,8 +169,8 @@ public class RotateDoor : Door
                 }
                 else
                 {
-                    
 
+                    LockedOpen = false;
                     if (_animator != null)
                     {
                         _animator.SetTrigger("Close");
@@ -187,6 +201,16 @@ public class RotateDoor : Door
                         }
                     }
                     if (_colliderDoorOff != null) { _colliderDoorOff.enabled = true; }
+                    if (_checkDoors != null)
+                    {
+                        foreach (var door in _checkDoors)
+                        {
+                            if (door.LockedOpen)
+                            {
+                                _colliderDoorOff.enabled = false;
+                            }
+                        }
+                    }
                 }
 
             }
