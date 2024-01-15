@@ -17,8 +17,8 @@ public class StartGameController : MonoBehaviour
 
     private void Start()
     {
-        Player.Instance.CanMove = false;
-       _cameraChanger.CanTeleport= false;
+        Player.Instance.CanMove = true;
+       _cameraChanger.CanTeleport= true;
     }
     
 

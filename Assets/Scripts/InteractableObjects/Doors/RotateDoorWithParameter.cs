@@ -13,14 +13,18 @@ public class RotateDoorWithParameter : Door
     [SerializeField] private Collider _colliderOff;
     [SerializeField] private Collider[] _lockCollider;
     [SerializeField] private Door[] _checkDoors;
-
+    private bool _handlePlay = false;
 
     override protected IEnumerator UseDoor(bool value)
     {
         WaitCursor.Instance.WaitCursorAnim(true);
         GetComponent<Collider>().enabled = false;
-        if (handle != null)
+        if (handle != null && !_handlePlay)
+        {
+            _handlePlay = true;
             StartCoroutine(RotateHandle());
+        }
+           
         if (!LockedSecretKey && !LockedSpecKey)
         {
             DoorAction(true);
@@ -209,6 +213,7 @@ public class RotateDoorWithParameter : Door
             yield return new WaitForSeconds(0.008f);
             rot--;
         }
+        _handlePlay = false;
     }
     public override void UseDoorByCollide(bool value)
     {
