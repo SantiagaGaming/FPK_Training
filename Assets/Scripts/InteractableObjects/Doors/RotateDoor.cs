@@ -20,6 +20,7 @@ public class RotateDoor : Door
     [SerializeField] private GameObject _colliderOn;
     [SerializeField] private GameObject _colliderOff;
     [SerializeField] private Collider _colliderDoorOff;
+    [SerializeField] private Collider _colliderDoorBlock;
     [SerializeField] private Collider[] _lockCollider;
     [SerializeField] private Door[] _checkDoors;
 
@@ -47,6 +48,7 @@ public class RotateDoor : Door
                 {
                     LockedOpen = true;
                     if (_colliderDoorOff != null) { _colliderDoorOff.enabled = false; }
+                    if (_colliderDoorBlock != null) { _colliderDoorBlock.enabled = true; }
                     if (_lockCollider !=null)
                     {
                         foreach (var col in _lockCollider)
@@ -114,7 +116,8 @@ public class RotateDoor : Door
                         }
                     }
                     if (_colliderDoorOff != null) { _colliderDoorOff.enabled = true; }
-                    if(_checkDoors != null)
+                    if (_colliderDoorBlock != null) { _colliderDoorBlock.enabled = false; }
+                    if (_checkDoors != null)
                     {
                         foreach(var door in _checkDoors)
                         {
@@ -134,6 +137,7 @@ public class RotateDoor : Door
                 {
                     LockedOpen = true;
                     if (_colliderDoorOff != null) { _colliderDoorOff.enabled = false; }
+                    if (_colliderDoorBlock != null) { _colliderDoorBlock.enabled = true; }
                     if (_lockCollider != null)
                     {
                         foreach (var col in _lockCollider)
@@ -201,6 +205,7 @@ public class RotateDoor : Door
                         }
                     }
                     if (_colliderDoorOff != null) { _colliderDoorOff.enabled = true; }
+                    if (_colliderDoorBlock != null) { _colliderDoorBlock.enabled = false; }
                     if (_checkDoors != null)
                     {
                         foreach (var door in _checkDoors)
