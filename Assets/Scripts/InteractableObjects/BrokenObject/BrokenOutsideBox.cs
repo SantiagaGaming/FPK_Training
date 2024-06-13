@@ -5,6 +5,7 @@ using UnityEngine;
 public class BrokenOutsideBox : SearchableObject
 {
     [SerializeField] private GameObject[] _objects;
+    [SerializeField] private GameObject  _box;
     public override void EnableObject(bool value)
     {
 
@@ -14,6 +15,7 @@ public class BrokenOutsideBox : SearchableObject
             {
                 item.transform.localRotation = Quaternion.Euler(0, 0, -60);
             }
+        _box.transform.localRotation = Quaternion.Euler(2.498f, 0, 0);
     }
 
 }
