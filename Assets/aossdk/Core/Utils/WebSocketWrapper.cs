@@ -30,7 +30,7 @@ namespace AosSdk.Core.Utils
 
         public delegate void SocketMessageSentHandler();
 
-        public delegate void SocketClientConnected();
+        public delegate void SocketClientConnected(IAsyncResult async);
 
         public event SocketMessageReceivedHandler OnClientMessageReceived;
         public event SocketMessageSentHandler OnClientMessageSent;
@@ -171,8 +171,8 @@ namespace AosSdk.Core.Utils
                 _currentClientSocket = client;
 
                 Debug.Log("AosSdk: web socket client connected");
-                OnClientConnected?.Invoke();
-                
+                OnClientConnected?.Invoke(ar);
+
 
                 _currentClientSocket.BeginReceive(_buffer, 0, _buffer.Length, SocketFlags.None, MessageReceivedCallback,
                     _currentClientSocket);

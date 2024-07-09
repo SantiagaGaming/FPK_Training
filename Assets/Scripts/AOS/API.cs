@@ -111,7 +111,7 @@ public class API : AosObjectBase
             string commentText = HtmlToText.Instance.HTMLToTextReplace(comment.ToString());
             
             MessageTimeText?.Invoke(headText, commentText, headerText, footerText);
-            
+            Debug.Log("EVENT2  " );
         }
 
 
