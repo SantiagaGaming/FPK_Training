@@ -10,14 +10,9 @@ public class Timer : MonoBehaviour
     public void TimeChanger(double second)
     {
         Time = TimeSpan.FromSeconds(second);
-      
-        
     }
     public string ReturnTime()
     {
-       
-        
-        return string.Format("{0:00}:{1:00}", Time.Minutes, Time.Seconds);
-        
+        return string.Format("{0:00}:{1:00}:{2:00}",Time.Hours, Time.Minutes, Time.Seconds);
     }
 }

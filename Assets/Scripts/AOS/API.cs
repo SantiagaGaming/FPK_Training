@@ -178,7 +178,7 @@ public class API : AosObjectBase
     public void showTime(string time)
     {
 
-
+        
         TimerTextEvent?.Invoke(time);
     }
 
@@ -229,7 +229,7 @@ public class API : AosObjectBase
     [AosAction(name: "Показать меню")]
     public void showMenu(JObject faultInfo, JObject exitInfo, JObject resons)
     {
-      //  Debug.Log("Show Menu exitInfo " + resons.ToString());
+        Debug.Log("Show Menu exitInfo " + exitInfo.ToString());
         
         var attText = "";
         string headtext = faultInfo.SelectToken("name").ToString();
