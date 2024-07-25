@@ -1,16 +1,24 @@
-using AosSdk.Core.PlayerModule.Pointer;
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class ExitButton :BaseMenuButton
 {
+    [SerializeField] private API _api;
+
     protected override void MenuButtonClick()
     {
-        API api = FindObjectOfType<API>();
-        api.OnInvokeNavAction("exit");
-       
+      
+        try 
+        {
+            _api.OnInvokeNavAction("exit");
+        }
+        catch(Exception e)
+        {
+            Debug.LogException(e);
+        }
+        finally
+        {
+            Application.Quit();
+        }        
     }
-
 }
-
